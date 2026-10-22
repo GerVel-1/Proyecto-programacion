@@ -1,0 +1,312 @@
+================================================================
+PACKET TRACER - CONFIGURACIÓN DE ETHERCHANNEL
+SOLUCIÓN PASO A PASO
+================================================================
+
+Topología de referencia (según tabla del enunciado):
+  Grupo 1 (PAgP)            -> S1 F0/21,F0/22  <-->  S3 F0/21,F0/22
+  Grupo 2 (LACP)            -> S1 G0/1,G0/2    <-->  S2 G0/1,G0/2
+  Grupo 3 (LACP negociado)  -> S2 F0/23,F0/24  <-->  S3 F0/23,F0/24
+
+================================================================
+PARTE 1 - CONFIGURAR LOS PARÁMETROS BÁSICOS DEL SWITCH
+================================================================
+
+--- Paso a: Asignar nombre de host a cada switch ---
+
+Switch> enable
+Switch# configure terminal
+Switch(config)# hostname S1
+
+Switch> enable
+Switch# configure terminal
+Switch(config)# hostname S2
+
+Switch> enable
+Switch# configure terminal
+Switch(config)# hostname S3
+
+--- Paso b: Verificar el estado actual de los puertos (en cada switch) ---
+
+S1# show interfaces | include Ethernet
+S1# show interface status
+S1# show interfaces trunk
+
+(Repetir los mismos comandos en S2 y S3, cambiando el prompt)
+
+--- Paso c: Configurar todos los puertos necesarios como troncales estáticos ---
+
+En S1:
+S1(config)# interface range f0/21 - 22
+S1(config-if-range)# switchport mode trunk
+S1(config-if-range)# exit
+S1(config)# interface range g0/1 - 2
+S1(config-if-range)# switchport mode trunk
+S1(config-if-range)# exit
+
+En S2:
+S2(config)# interface range g0/1 - 2
+S2(config-if-range)# switchport mode trunk
+S2(config-if-range)# exit
+S2(config)# interface range f0/23 - 24
+S2(config-if-range)# switchport mode trunk
+S2(config-if-range)# exit
+
+En S3:
+S3(config)# interface range f0/21 - 22
+S3(config-if-range)# switchport mode trunk
+S3(config-if-range)# exit
+S3(config)# interface range f0/23 - 24
+S3(config-if-range)# switchport mode trunk
+S3(config-if-range)# exit
+
+Nota: si no se fija el modo trunk manualmente, DTP queda en "dynamic
+auto" (modo por defecto en switches 2960) y los puertos NO forman
+enlace troncal por sí solos. Para desactivar DTP en una interfaz se
+usaría: switchport nonegotiate
+
+Verificar en cualquier switch:
+S1# show interfaces trunk
+
+
+================================================================
+PARTE 2 - CONFIGURAR UN ETHERCHANNEL CON PAgP (CISCO) -> Port Channel 1
+================================================================
+Puertos: S1 F0/21,F0/22 <--> S3 F0/21,F0/22
+
+--- Paso 1a/1b: Confirmar troncal activo entre S1 y S3 ---
+
+S1# show interfaces trunk
+
+Port      Mode   Encapsulation  Status      Native vlan
+F0/21     on     802.1q         trunking    1
+F0/22     on     802.1q         trunking    1
+G0/1      on     802.1q         trunking    1
+G0/2      on     802.1q         trunking    1
+
+(Verificar que la VLAN nativa coincide en ambos extremos)
+
+--- Paso 1c: Crear el canal de puertos 1 con PAgP (modo desirable) ---
+
+En S1:
+S1(config)# interface range f0/21 - 22
+S1(config-if-range)# shutdown
+S1(config-if-range)# channel-group 1 mode desirable
+S1(config-if-range)# no shutdown
+S1(config-if-range)# exit
+
+En S3:
+S3(config)# interface range f0/21 - 22
+S3(config-if-range)# shutdown
+S3(config-if-range)# channel-group 1 mode desirable
+S3(config-if-range)# no shutdown
+S3(config-if-range)# exit
+
+(Debe aparecer el mensaje: "Creating a port-channel interface
+Port-channel 1" en ambos switches; la interfaz lógica se ve como Po1)
+
+--- Paso 1d: Configurar la interfaz lógica Port-channel 1 como troncal ---
+
+En S1:
+S1(config)# interface port-channel 1
+S1(config-if)# switchport mode trunk
+S1(config-if)# exit
+
+En S3:
+S3(config)# interface port-channel 1
+S3(config-if)# switchport mode trunk
+S3(config-if)# exit
+
+--- Paso 2: Verificar Port Channel 1 ---
+
+S1# show etherchannel summary
+
+Flags: D - down  P - in port-channel
+       I - stand-alone  s - suspended
+       H - Hot-standby (LACP only)
+       R - Layer3  S - Layer2
+       U - in use  f - failed to allocate aggregator
+       u - unsuitable for bundling
+       w - waiting to be aggregated
+       d - default port
+
+Number of channel-groups in use: 1
+Number of aggregators:            1
+
+Group  Port-channel  Protocol    Ports
+------+-------------+-----------+-----------------------------------------
+1      Po1(SU)         PAgP      F0/21(P)  F0/22(P)
+
+(Repetir en S3. Si no aparece formado, apagar y volver a encender las
+interfaces físicas en ambos extremos: shutdown / no shutdown)
+
+También puede verificarse con:
+S1# show interfaces trunk
+S1# show spanning-tree
+
+
+================================================================
+PARTE 3 - CONFIGURAR UN ETHERCHANNEL LACP 802.3ad -> Port Channel 2
+================================================================
+
+Puertos: S1 G0/1,G0/2 <--> S2 G0/1,G0/2  (modo active en ambos extremos)
+
+--- Paso 1: Crear el canal de puertos 2 con LACP (modo active) ---
+
+En S1:
+S1(config)# interface range g0/1 - 2
+S1(config-if-range)# shutdown
+S1(config-if-range)# channel-group 2 mode active
+S1(config-if-range)# no shutdown
+S1(config-if-range)# exit
+S1(config)# interface port-channel 2
+S1(config-if)# switchport mode trunk
+S1(config-if)# exit
+
+En S2:
+S2(config)# interface range g0/1 - 2
+S2(config-if-range)# shutdown
+S2(config-if-range)# channel-group 2 mode active
+S2(config-if-range)# no shutdown
+S2(config-if-range)# exit
+S2(config)# interface port-channel 2
+S2(config-if)# switchport mode trunk
+S2(config-if)# exit
+
+--- Paso 2: Verificar Port Channel 2 ---
+
+S1# show etherchannel summary
+S1# show interfaces trunk
+S1# show interfaces status
+
+(Confirmar que el protocolo mostrado para el grupo 2 es LACP y que
+los puertos G0/1 y G0/2 aparecen como (P) = en uso dentro del canal)
+
+
+================================================================
+PARTE 4 - CONFIGURAR UN ENLACE ETHERCHANNEL REDUNDANTE -> Port Channel 3
+================================================================
+Puertos: S2 F0/23,F0/24 <--> S3 F0/23,F0/24  (LACP negociado: passive/active)
+
+--- Paso 1: Crear el canal de puertos 3 con LACP ---
+
+En S2 (modo passive: solo negocia LACP si detecta otro dispositivo LACP):
+S2(config)# interface range f0/23 - 24
+S2(config-if-range)# shutdown
+S2(config-if-range)# channel-group 3 mode passive
+S2(config-if-range)# no shutdown
+S2(config-if-range)# exit
+S2(config)# interface port-channel 3
+S2(config-if)# switchport mode trunk
+S2(config-if)# exit
+
+En S3 (modo active: fuerza LACP incondicionalmente):
+S3(config)# interface range f0/23 - 24
+S3(config-if-range)# shutdown
+S3(config-if-range)# channel-group 3 mode active
+S3(config-if-range)# no shutdown
+S3(config-if-range)# exit
+S3(config)# interface port-channel 3
+S3(config-if)# switchport mode trunk
+S3(config-if)# exit
+
+(Recuerda: passive + passive NO forma EtherChannel. Se necesita al
+menos un extremo en active para que LACP negocie correctamente)
+
+--- Paso 2a: Verificar Port Channel 3 ---
+
+S2# show etherchannel summary
+S3# show etherchannel summary
+S2# show interfaces trunk
+
+--- Paso 2b: Revisar Spanning Tree en S1 ---
+
+S1# show spanning-tree active
+
+VLAN0001
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    32769
+             Address     0001.436E.8494
+             Cost        9
+             Port        27 (Port-channel1)
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+             Address     000A.F313.2395
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  20
+
+Interface        Role Sts Cost      Prio.Nbr Type
+----------------- ---- --- --------- -------- --------------------------------
+Po1               Root FWD 9         128.27   Shr
+Po2               Altn BLK 3         128.28   Shr
+
+(Port-channel 2 aparece en estado BLK porque STP lo bloqueó para
+evitar un bucle; sus puertos Gigabit quedan sin usarse)
+
+--- Solución: convertir a S1 en raíz principal de la VLAN 1 ---
+
+Opción 1 (recomendada):
+S1(config)# spanning-tree vlan 1 root primary
+
+Opción 2 (equivalente, prioridad manual):
+S1(config)# spanning-tree vlan 1 priority 24576
+
+--- Verificación final ---
+
+Esperar a que STP recalcule la topología (o adelantar el tiempo en
+Packet Tracer) y luego verificar que Po2 pase a estado FWD:
+
+S1# show spanning-tree active
+
+Interface        Role Sts Cost      Prio.Nbr Type
+----------------- ---- --- --------- -------- --------------------------------
+Po1               Root FWD 9         128.27   Shr
+Po2               Root FWD 3         128.28   Shr
+
+
+================================================================
+RESUMEN DE COMANDOS DE VERIFICACIÓN ÚTILES
+================================================================
+show interfaces | include Ethernet
+show interface status
+show interfaces trunk
+show etherchannel summary
+show spanning-tree active
+show spanning-tree
+show run interface port-channel <n>
+
+
+================================================================
+PAUTAS Y RESTRICCIONES DE CONFIGURACIÓN DE ETHERCHANNEL (RESUMEN)
+================================================================
+1. Hasta 8 interfaces Ethernet por EtherChannel; no requieren estar
+   en el mismo módulo.
+2. Todas las interfaces del EtherChannel deben tener la misma
+   velocidad y dúplex.
+3. Un EtherChannel puede ser puerto de acceso (una sola VLAN) o
+   enlace troncal.
+4. Todas las interfaces de un EtherChannel de Capa 2 deben estar en
+   la misma VLAN o configuradas como troncales.
+5. Si son troncales, deben compartir la misma VLAN nativa y las
+   mismas VLAN permitidas en ambos switches.
+6. Apagar (shutdown) todas las interfaces antes de agregarlas al
+   channel-group; volver a activarlas (no shutdown) al terminar.
+7. Verificar que, tras la configuración, todas las interfaces queden
+   en estado up/up.
+8. Modos válidos de "channel-group <n> mode":
+     active     -> LACP siempre habilitado
+     passive    -> LACP solo si el otro extremo usa LACP
+     desirable  -> PAgP siempre habilitado
+     auto       -> PAgP solo si el otro extremo usa PAgP
+     on         -> EtherChannel forzado, sin PAgP ni LACP
+9. Combinaciones PAgP compatibles: desirable-desirable,
+   desirable-auto. auto-auto NO forma EtherChannel.
+10. Combinaciones LACP compatibles: active-active, active-passive.
+    passive-passive NO forma EtherChannel.
+11. El número de channel-group es local a cada switch; no es
+    obligatorio que coincida en ambos extremos del enlace.
+
+================================================================
+FIN DEL DOCUMENTO
+================================================================

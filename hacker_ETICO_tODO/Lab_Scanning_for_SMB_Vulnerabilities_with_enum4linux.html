@@ -1,0 +1,2275 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 1rem;
+      }
+      ol,
+      ul {
+        margin-bottom: 0in;
+      }
+      table {
+        margin-top: 1rem;
+        border: 1px solid gray;
+        width: 7in;
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > .openTableTextBox__table-header-data {
+        text-align: center;
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0in;
+        text-align: center;
+        line-height: 115%;
+        page-break-after: avoid;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        font-weight: bold;
+        background: #dbe5f1;
+        padding: 0.5rem;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .openTextBox__textArea-container {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 50%;
+      }
+      .openTableTextBox__fieldset {
+        padding: 5px;
+      }
+      td {
+        margin-top: 3pt;
+        margin-right: 0in;
+        margin-bottom: 3pt;
+        margin-left: 0in;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 98.85pt;
+        border: solid windowtext 1pt;
+        border-top: none;
+        padding: 0.7pt 5.75pt 0.7pt 5.75pt;
+      }
+      textarea {
+        width: 100%;
+      }
+      .answergray {
+        padding: 0.2rem;
+      }
+
+      .openTableTextBox__widget {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0.25in;
+      }
+
+      .show-answer,
+      .hide-answer {
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border: 0px;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .openTextBoxController__button-container {
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .openTextBoxController__button-container .btn-text {
+        margin: 10px;
+      }
+
+      .btn-text {
+        border: 0px;
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border-radius: 0;
+        cursor: pointer;
+      }
+
+      .u-display-none {
+        display: none;
+      }
+      .openTextBox__postText, openTableTextBox__postText {
+        margin-top: 0.5rem;
+      }
+      .edit-comment {
+        display: none;
+      }
+      .js-heading-inner {
+        display: none;
+      }
+      .block__title-inner,
+      .article__title-inner {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+      h2{
+        font-size: 1.25em;
+      }
+      h3{
+        font-size: 1.125em;
+      }
+      .table
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: solid windowtext 1pt;
+      }
+      table tbody tr th, table thead tr th{
+        border: solid windowtext 1pt;
+        background-color: #d6d8dc;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .command-output > .table-inner > .table-wrapper > .table-widget > table,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > td,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: none !important;
+        text-align: right !important;
+      }
+      .simple-table > .table-inner > .table-wrapper{
+        margin-left: 1.5rem;
+      }
+      .openTextBox__widget {
+        margin-left: 1.5rem;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      .answergray {
+        background-color: #ccc;
+      }
+      .openTableTextBox__widget > .answergray {
+        background-color: #fff !important;
+      }
+      li > ul,ol > li{
+        margin-left: 0px !important;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      
+      .component__title{
+        font-family: inherit;
+        font-size: 1.65em;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .component__body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .accessibility-completion-indicator{
+        display: none;
+      }
+
+      .check__hidden {
+        display: none;
+      }
+
+      .check__button {
+        border: none;
+        border-radius: 6px !important;
+        background-color: #6abf4b;
+        color: #fff;
+        min-width: 100px;
+        margin: 0.625rem 0;
+        padding: 0.7rem;
+      }
+
+      .check__widget .check__solution .DevConfigGray {
+        background-color: rgb(214,216,220);
+        font-weight: bold;
+      }
+
+      .check-inner .check__widget .check__solution .DevConfigs {
+        margin: 0px;
+        line-height: 115%;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .check__solution  {
+        line-height: 1.5;
+      }
+      .mcq__inner .mcq__widget .mcq__widget-inner {
+        margin-block: 1rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item {
+        display: flex;
+        gap: 0.2rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item .mcq__item-label .mcq__item-text .screenReader-position-text{
+        display: none;
+      }
+      .opentabletextbox-inner .opentabletextBox__widget .openTableTextBox__answerText.answergray {
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox{
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox img{
+        margin-block: 1rem;
+        margin-left: initial;
+      }
+      .component__content .component__body-inner .pageTracer-h4-title-hide {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        font-size: 0px;
+        color: rgb(var(--neutral-2));
+        font-weight: normal;
+      }
+      .table-inner .table__widget table tr.TableHeading th, .table-inner .table__widget table tr.TableHeading td, .table-inner .table__widget table tr td.TableHeading, .opentabletextbox-table thead tr.TableHeading th, .opentabletextbox-table tbody tr.TableHeading td, .opentabletextbox-table tbody tr td.TableHeading {
+        background-color: #d6d8dc;
+        text-align: center;
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .CMD, .component__content .component__body-inner .CMDOutput, .component__content .component__body-inner .CMDOutput__table{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        margin-inline-start: 30px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      [dir="rtl"] .component__content .component__body-inner .CMDOutput__table span {
+        direction: ltr;
+        display: inline-block;
+      }
+      .openTextBox__inner .openTextBox__widget .CMD, .openTextBox__inner .openTextBox__widget .CMDOutput{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .openTextBox__inner .openTextBox__widget .DnTbold, .openTextBox__inner .openTextBox__widget .BodyTextL25Bold, .component__content .component__body-inner .BodyTextL25Bold, .component__content .component__body-inner .DnTbold, .table-inner .table__widget table tr .DnTbold {
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .SubStepNum {
+        text-indent: -25.5px;
+        margin-inline-start: 50px;
+      }
+      .component__content .component__body-inner .BodyTextL50 {
+        margin-inline-start: 30px;
+      }
+      .component__content .component__body-inner .Bulletlevel1 {
+        text-indent: -19px;
+        margin-inline-start: 48px;
+      }
+      .component__content .component__body-inner .Bulletlevel2 {
+          text-indent: -19px;
+          margin-inline-start: 72px;
+      }
+      .openTextBox__inner .openTextBox__widget .ReflectionQ, .component__content .component__body-inner .SubStepAlpha {
+          text-indent: -25.5px;
+          margin-inline-start: 30px;
+      }
+    </style>
+
+</head><body><!---->
+            <div class="article 6467b30e7c4213003839bf4d remove-padding-top remove-padding-bottom ">
+                <div class="article__inner">
+                <div class=" no-adaptive-scroll">
+                    <!--?lit$407307603$-->
+                        <div class=""> 
+                            <base-view type="article" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="article__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="article__header ">
+          <div class="article__header-inner ">
+            <!--?lit$407307603$-->
+      <div class="article__title ">
+        <!--?lit$407307603$--><heading-view aria-hidden="true" id="6467b30e7c4213003839bf4d-heading-view" headingtitle="Práctica de laboratorio - Análisis en busca de vulnerabilidades de pymes con enum4linux" modelid="6467b30e7c4213003839bf4d" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="js-heading is-incomplete">
+        <div class="js-heading-inner" role="heading" id="article-heading" aria-level="2">
+        <span class="aria-label"> <!--?lit$407307603$-->Incompleto &nbsp;<!--?lit$407307603$-->Práctica de laboratorio - Análisis en busca de vulnerabilidades de pymes con enum4linux</span>
+        </div>
+      </div>
+    </heading-view>
+        <div tabindex="0" role="heading" class="article__title-inner " aria-level="2">
+          <span class="accessibility-completion-indicator"><!--?lit$407307603$-->Incompleto </span>
+          <!--?lit$407307603$-->Práctica de laboratorio - Análisis en busca de vulnerabilidades de pymes con enum4linux
+        </div>
+      </div>
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                            <div class="block__container " style="">
+                                <!--?lit$407307603$--><!---->
+                                    <block-view modelid="6467b30e7c4213003839bf4e" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6467b30e7c4213003839bf4e" class="6467b30e7c4213003839bf4e block remove-top-padding remove-padding-bottom background-color-white is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6467b30e7c4213003839bf4e" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$407307603$--><!----><dynamic-graphic-view modelid="6467eb1c9cd99500e2aaf74d" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component" style="--current-width: 784px; --current-height: 489.89673340358274px; --scale-factor: 0.8261327713382508;" fadeoutoverlay=""><!---->
+      <!--?lit$407307603$--><link rel="stylesheet" href="_assets/media/b9412ca0-00de-11ee-ac06-3195c650d4f6/b947e360-00de-11ee-ac06-3195c650d4f6.css">
+      <!--?lit$407307603$-->
+      <style>
+        .dynamic-graphic-display {
+          padding: var(--container-padding);
+        }
+        .dynamic-graphic-content {
+          width: var(--current-width);
+          height: var(--current-height);
+
+          > * {
+            height: <!---->593px;
+            width: <!---->949px;
+            transform: scale(var(--scale-factor));
+            -webkit-transform: scale(var(--scale-factor), var(--scale-factor));
+          }
+        }
+      <!----></style>
+      <div data-socialgoodpulse-id="6467eb1c9cd99500e2aaf74d" class="component dynamic-graphic 6467eb1c9cd99500e2aaf74d  is-full is-complete  ">
+        <div class="component__header-container">
+          <base-view type="component" lowercase_component="dynamic-graphic" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header dynamic-graphic__header">
+          <div class="component__header-inner dynamic-graphic__header-inner">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body dynamic-graphic__body">
+          <div class="component__body-inner dynamic-graphic__body-inner"><!--?lit$407307603$--><h1>Topología</h1></div>
+        </div>
+      </div>
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+        </div>
+        <div class="component__widget">
+          <div class="a11y_description screen-reader-hide" aria-live="polite" id="a11y_description-b9412ca0-00de-11ee-ac06-3195c650d4f6">
+            <!--?lit$407307603$--><!--?-->
+          </div>
+          <div tabindex="0" role="figure" id="b9412ca0-00de-11ee-ac06-3195c650d4f6" class="dynamic-graphic-container b9412ca0-00de-11ee-ac06-3195c650d4f6" aria-labelledby="a11y_description-b9412ca0-00de-11ee-ac06-3195c650d4f6">
+            <div dir="ltr" class="dynamic-graphic-display">
+              <div role="presentation" aria-hidden="true" class="overlay removed"></div>
+              <div class="dynamic-graphic-content">
+                <!-- Primary image, usually SVG -->
+                <div class="primary-image-wrapper">
+                  <inline-svg-viewer src="./_assets/media/b9412ca0-00de-11ee-ac06-3195c650d4f6/b9485890-00de-11ee-ac06-3195c650d4f6.svg" stylesheet="media/b9412ca0-00de-11ee-ac06-3195c650d4f6/b947e360-00de-11ee-ac06-3195c650d4f6.css"></inline-svg-viewer>
+                </div>
+                <!-- Text items for display -->
+                <!--?lit$407307603$-->
+                      <div class="dynamic-text" dir="ltr">
+                        <!--?lit$407307603$--><!---->
+                              <div id="text1" class="dynamic-text-item text1">
+                                <!--?lit$407307603$-->Virtual LAN
+                              </div>
+                            <!----><!---->
+                              <div id="text2" class="dynamic-text-item text2">
+                                <!--?lit$407307603$-->10.6.6.0/24
+                              </div>
+                            <!----><!---->
+                              <div id="text3" class="dynamic-text-item text3">
+                                <!--?lit$407307603$-->10.6.6.11
+                              </div>
+                            <!----><!---->
+                              <div id="text4" class="dynamic-text-item text4">
+                                <!--?lit$407307603$-->10.6.6.12
+                              </div>
+                            <!----><!---->
+                              <div id="text5" class="dynamic-text-item text5">
+                                <!--?lit$407307603$-->10.6.6.13
+                              </div>
+                            <!----><!---->
+                              <div id="text6" class="dynamic-text-item text6">
+                                <!--?lit$407307603$-->10.6.6.14
+                              </div>
+                            <!----><!---->
+                              <div id="text7" class="dynamic-text-item text7">
+                                <!--?lit$407307603$-->10.6.6.23
+                              </div>
+                            <!----><!---->
+                              <div id="text8" class="dynamic-text-item text8">
+                                <!--?lit$407307603$-->172.17.0.2
+                              </div>
+                            <!----><!---->
+                              <div id="text9" class="dynamic-text-item text9">
+                                <!--?lit$407307603$-->DMZ
+                              </div>
+                            <!----><!---->
+                              <div id="text10" class="dynamic-text-item text10">
+                                <!--?lit$407307603$-->Virtual LAN
+                              </div>
+                            <!----><!---->
+                              <div id="text11" class="dynamic-text-item text11">
+                                <!--?lit$407307603$-->172.17.0.0/24
+                              </div>
+                            <!----><!---->
+                              <div id="text12" class="dynamic-text-item text12">
+                                <!--?lit$407307603$-->172.17.0.1
+                              </div>
+                            <!----><!---->
+                              <div id="text13" class="dynamic-text-item text13">
+                                <!--?lit$407307603$-->10.6.6.1
+                              </div>
+                            <!----><!---->
+                              <div id="text14" class="dynamic-text-item text14">
+                                <!--?lit$407307603$-->Virtual Switch / Router
+                              </div>
+                            <!----><!---->
+                              <div id="text15" class="dynamic-text-item text15">
+                                <!--?lit$407307603$-->Assigned by DHCP
+                              </div>
+                            <!----><!---->
+                              <div id="text16" class="dynamic-text-item text16">
+                                <!--?lit$407307603$-->Corporate Network
+                              </div>
+                            <!----><!---->
+                              <div id="text17" class="dynamic-text-item text17">
+                                <!--?lit$407307603$-->Internet
+                              </div>
+                            <!---->
+                      </div>
+                    
+                <!-- Image items for display -->
+                <!--?lit$407307603$-->
+              </div>
+            </div>
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </dynamic-graphic-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6467b9ef6c4fef005ed40643" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6467b9ef6c4fef005ed40643" class="6467b9ef6c4fef005ed40643 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6467b9ef6c4fef005ed40643" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$407307603$--><!----><text-view modelid="6467b9f86c4fef005ed40644" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="6467b9f86c4fef005ed40644" class="component text 6467b9f86c4fef005ed40644 remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$407307603$--><h1>Objetivos</h1><p>Enum4linux es una herramienta para enumerar información de Windows y Samba. Samba es una aplicación que permite a los clientes de Linux y Apple participar en redes de Windows. Permite a los clientes que no son de Windows utilizar el protocolo Server Message Block (SMB) para acceder a los servicios de archivos e impresión. Los servidores Samba pueden participar en un dominio de Windows, tanto como cliente como servidor.</p><p>En esta práctica de laboratorio se cumplirán los siguientes objetivos:</p><ul><li><!--[if !supportLists]--><!--[endif]-->Iniciar enum4linux y explore sus capacidades.</li><li><!--[if !supportLists]--><!--[endif]-->Identificar los equipos con servicios SMB en ejecución.</li><li><!--[if !supportLists]-->Usar enum4linux para enumerar usuarios y recursos compartidos de archivos de red.</li><li><!--[if !supportLists]-->Utilizar smbclient para transferir archivos entre sistemas.</li></ul><h1>Trasfondo / Escenario</h1><p>Las redes de servidores de Windows mal administradas y protegidas son un gran riesgo para la seguridad. Los evaluadores de penetración deben descubrir cualquier vulnerabilidad en las funciones de uso compartido de archivos e impresoras que puedan dejar a una organización vulnerable a los ataques. En esta actividad, explorará las capacidades de la herramienta enum4linux para enumerar la información de uso compartido de usuarios y archivos de los servidores Samba. Por último, utilizará la utilidad smbclient para transferir archivos entre sistemas.</p><h1>Recursos necesarios</h1><ul><li><!--[if !supportLists]-->Kali VM personalizada para el curso de Ethical Hacker</li></ul></div>
+        </div>
+      </div>
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6467bba492351b0093d801e9" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6467bba492351b0093d801e9" class="6467bba492351b0093d801e9 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6467bba492351b0093d801e9" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$407307603$--><!----><text-view modelid="6467bba492351b0093d801ea" class="is-full remove-top-padding remove-padding-bottom packetTracer_wrap_text" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="6467bba492351b0093d801ea" class="component text 6467bba492351b0093d801ea remove-top-padding remove-padding-bottom packetTracer_wrap_text is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$407307603$--><h1>Instrucciones</h1><h2 style="margin-left:0in"><!--[if !supportLists]--><span><span>Parte 1: </span></span><!--[endif]-->Inicie enum4linux y explore sus capacidades.</h2><h3 style="margin-left:0in"><!--[if !supportLists]--><span><span>Paso 1: </span></span><!--[endif]-->Verifique que enum4linux esté instalado y vea el archivo de ayuda.</h3><ol start="1" style="list-style-type:lower-alpha"><li><!--[if !supportLists]-->Cargue Kali Linux con el nombre de usuario <strong>kali</strong> y la contraseña <strong>kali</strong>. Abra una sesión de terminal desde la barra de menús en la parte superior de la pantalla.</li><li><!--[if !supportLists]--><!--[endif]-->La mayoría de los comandos enum4linux deben ejecutarse como root, así que use el comando <strong>sudo su</strong> para obtener acceso root persistente.</li></ol><p style="margin-left:40px">En el indicador, ingrese el comando para ver el archivo de ayuda enum4linux.</p><pre style="margin-left:40px">┌──(kali<span>㉿</span>kali)-[~]</pre><pre style="margin-left:40px">└─$ <strong>sudo su</strong></pre><pre style="margin-left:40px">[sudo] password for kali:</pre><pre style="margin-left:40px">┌──(root<span>㉿</span>kali)-[/home/kali]</pre><pre style="margin-left:40px">└─# <strong>enum4linux –help</strong></pre><p style="margin-left:40px">El archivo de ayuda contiene la sintaxis y las opciones disponibles para enumerar la información del host y el servidor en las redes que usan SMB. Enum4linux requiere que Samba esté instalado en el sistema host, en este caso la computadora Kali Linux, porque depende de las utilidades integradas de Samba.</p></div>
+        </div>
+      </div>
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6467be49983080006dae993b" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6467be49983080006dae993b" class="6467be49983080006dae993b block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6467be49983080006dae993b" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$407307603$--><!----><opentextbox-view modelid="6467bf99346e6d00664dafca" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="6467bf99346e6d00664dafca" class="component opentextbox 6467bf99346e6d00664dafca remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="6467bf99346e6d00664dafca" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$407307603$--> <div class="openTextBox__preText"><!--?lit$407307603$-->¿Qué utilidades de Samba indica el archivo de ayuda que utiliza la herramienta enum4linux?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$407307603$--><!--?lit$407307603$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$407307603$-->
+                      <!--?lit$407307603$-->rpcclient, net, nmblookup y smbclient.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$407307603$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$407307603$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$407307603$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6467be51983080006dae993d" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6467be51983080006dae993d" class="6467be51983080006dae993d block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6467be51983080006dae993d" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$407307603$--><!----><text-view modelid="6467be51983080006dae993e" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="6467be51983080006dae993e" class="component text 6467be51983080006dae993e remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$407307603$--><h3 style="margin-left:0in"><!--[if !supportLists]--><span><span>Paso 2: </span></span><!--[endif]-->Investigue los términos asociados con las funciones de SMB.</h3><p>Es posible que muchos términos utilizados en las funciones de Windows y SMB no le resulten familiares, por lo que el resultado de los comandos enum4linux puede ser difícil de interpretar al principio. Utilice un motor de búsqueda en Internet para encontrar la definición de los términos enumerados.</p></div>
+        </div>
+      </div>
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6467bfd3346e6d00664dafcc" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6467bfd3346e6d00664dafcc" class="6467bfd3346e6d00664dafcc block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6467bfd3346e6d00664dafcc" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$407307603$--><!----><opentextbox-view modelid="6467bfd3346e6d00664dafcd" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="6467bfd3346e6d00664dafcd" class="component opentextbox 6467bfd3346e6d00664dafcd remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="6467bfd3346e6d00664dafcd" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$407307603$--> <div class="openTextBox__preText"><!--?lit$407307603$-->Identificador relativo (RID)</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$407307603$--><!--?lit$407307603$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$407307603$-->
+                      <!--?lit$407307603$-->Identifica de forma exclusiva un usuario, un grupo, un sistema o un dominio.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$407307603$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$407307603$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$407307603$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6467c03444917f008d0e7a94" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6467c03444917f008d0e7a94" class="6467c03444917f008d0e7a94 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6467c03444917f008d0e7a94" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$407307603$--><!----><opentextbox-view modelid="6467c03444917f008d0e7a95" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="6467c03444917f008d0e7a95" class="component opentextbox 6467c03444917f008d0e7a95 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="6467c03444917f008d0e7a95" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$407307603$--> <div class="openTextBox__preText"><!--?lit$407307603$-->Identificador de seguridad (SID)</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$407307603$--><!--?lit$407307603$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$407307603$-->
+                      <!--?lit$407307603$-->Identifica de forma exclusiva a usuarios y grupos dentro del dominio local. Único a nivel global, por lo que también puede funcionar entre dominios.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$407307603$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$407307603$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$407307603$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6467c05e44917f008d0e7a97" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6467c05e44917f008d0e7a97" class="6467c05e44917f008d0e7a97 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6467c05e44917f008d0e7a97" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$407307603$--><!----><opentextbox-view modelid="6467c05e44917f008d0e7a98" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="6467c05e44917f008d0e7a98" class="component opentextbox 6467c05e44917f008d0e7a98 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="6467c05e44917f008d0e7a98" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$407307603$--> <div class="openTextBox__preText"><!--?lit$407307603$-->Controlador de dominio (DC)</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$407307603$--><!--?lit$407307603$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$407307603$-->
+                      <!--?lit$407307603$-->El controlador de dominio es un servidor que administra las solicitudes de seguridad de red y de identidad. Autentica a los usuarios y determina si pueden acceder a los recursos de TI del dominio.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$407307603$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$407307603$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$407307603$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6467c084ff15f600b37687eb" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6467c084ff15f600b37687eb" class="6467c084ff15f600b37687eb block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6467c084ff15f600b37687eb" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$407307603$--><!----><opentextbox-view modelid="6467c084ff15f600b37687ec" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="6467c084ff15f600b37687ec" class="component opentextbox 6467c084ff15f600b37687ec remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="6467c084ff15f600b37687ec" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$407307603$--> <div class="openTextBox__preText"><!--?lit$407307603$-->Protocolo de acceso al directorio ligero (LDAP) </div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$407307603$--><!--?lit$407307603$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$407307603$-->
+                      <!--?lit$407307603$-->un protocolo de acceso al directorio que permite que los servicios y clientes que utilizan servicios de nombres LDAP se comuniquen.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$407307603$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$407307603$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$407307603$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6467c0a2baaf7600951dc76f" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6467c0a2baaf7600951dc76f" class="6467c0a2baaf7600951dc76f block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6467c0a2baaf7600951dc76f" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$407307603$--><!----><opentextbox-view modelid="6467c0a2baaf7600951dc770" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="6467c0a2baaf7600951dc770" class="component opentextbox 6467c0a2baaf7600951dc770 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="6467c0a2baaf7600951dc770" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$407307603$--> <div class="openTextBox__preText"><!--?lit$407307603$-->Grupo de trabajo </div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$407307603$--><!--?lit$407307603$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$407307603$-->
+                      <!--?lit$407307603$-->un grupo de equipos independientes que se administran de forma independiente.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$407307603$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$407307603$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$407307603$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6467c0c8baaf7600951dc772" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6467c0c8baaf7600951dc772" class="6467c0c8baaf7600951dc772 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6467c0c8baaf7600951dc772" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$407307603$--><!----><text-view modelid="6467c0c9baaf7600951dc773" class="is-full remove-top-padding remove-padding-bottom packetTracer_wrap_text" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="6467c0c9baaf7600951dc773" class="component text 6467c0c9baaf7600951dc773 remove-top-padding remove-padding-bottom packetTracer_wrap_text is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$407307603$--><h2 style="margin-left:0in"><!--[if !supportLists]--><span><span>Parte 2: </span></span><!--[endif]-->Uso de Nmap para buscar servidores SMB.</h2><h3 style="margin-left:0in"><!--[if !supportLists]--><span><span>Paso 1: </span></span><!--[endif]-->Escanee las redes virtuales para encontrar objetivos potenciales.</h3><p>Una forma de identificar posibles objetivos para la enumeración de SMB es examinar los puertos abiertos. En una práctica de laboratorio anterior, utilizó Nmap para buscar y enumerar los puertos abiertos en los sistemas de destino. Los puertos abiertos comunes en los servidores SMB son:</p><p><!--[if !supportLists]--></p><p style="margin-left:40px">TCP 135<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>RPC</p><p style="margin-left:40px">TCP 139<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Sesión de NetBIOS</p><p style="margin-left:40px">TCP 389<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Servidor LDAP</p><p style="margin-left:40px">TCP 445<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Servicio de archivos SMB</p><p style="margin-left:40px">TCP 9389<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Servicios web de Active Directory</p><p style="margin-left:40px">TCP/ UDP 137<span>&nbsp; </span>Servicio de nombres NetBIOS</p><p style="margin-left:40px">UDP 138<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Datagrama de NetBIOS</p><ol start="1" style="list-style-type:lower-alpha"><li><!--[if !supportLists]-->Se incluyen dos redes virtuales en la VM de Kali con contenedores de Docker. Utilice el comando <strong>nmap -sN</strong> para encontrar los servicios disponibles en los hosts de la red virtual 172.17.0.0.</li></ol><p style="margin-left:40px"><strong>Nota</strong>: <strong>sudo</strong> no es necesario si ejecutó el comando <strong>sudo su</strong> anterior.</p><pre style="margin-left:40px">┌──(root<span>㉿</span>kali)-[/home/kali]</pre><pre style="margin-left:40px">└─# <strong>nmap -sN 172.17.0.0/24 </strong></pre></div>
+        </div>
+      </div>
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6467c18cbaaf7600951dc775" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6467c18cbaaf7600951dc775" class="6467c18cbaaf7600951dc775 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6467c18cbaaf7600951dc775" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$407307603$--><!----><opentextbox-view modelid="6467c18cbaaf7600951dc776" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="6467c18cbaaf7600951dc776" class="component opentextbox 6467c18cbaaf7600951dc776 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="6467c18cbaaf7600951dc776" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$407307603$--> <div class="openTextBox__preText"><!--?lit$407307603$-->¿Qué revela Nmap sobre los hosts en la red 172.17.0.0/24?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$407307603$--><!--?lit$407307603$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$407307603$-->
+                      <!--?lit$407307603$-->Solo hay un host. 172.17.0.2.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$407307603$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$407307603$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$407307603$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6467c1c3ff15f600b37687ef" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6467c1c3ff15f600b37687ef" class="6467c1c3ff15f600b37687ef block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6467c1c3ff15f600b37687ef" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$407307603$--><!----><opentextbox-view modelid="6467c1c3ff15f600b37687f0" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="6467c1c3ff15f600b37687f0" class="component opentextbox 6467c1c3ff15f600b37687f0 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="6467c1c3ff15f600b37687f0" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$407307603$--> <div class="openTextBox__preText"><!--?lit$407307603$-->¿Qué puertos están abiertos en el host que identifican los servicios SMB en ejecución? ¿Cómo llama Nmap a estos servicios?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$407307603$--><!--?lit$407307603$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$407307603$-->
+                      <!--?lit$407307603$-->TCP 139 netbios-ssn y TCP 445 microsoft-ds.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$407307603$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$407307603$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$407307603$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6467c1e5ff15f600b37687f2" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6467c1e5ff15f600b37687f2" class="6467c1e5ff15f600b37687f2 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6467c1e5ff15f600b37687f2" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$407307603$--><!----><text-view modelid="6467c1e5ff15f600b37687f3" class="is-full remove-top-padding remove-padding-bottom packetTracer_wrap_text" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="6467c1e5ff15f600b37687f3" class="component text 6467c1e5ff15f600b37687f3 remove-top-padding remove-padding-bottom packetTracer_wrap_text is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$407307603$--><ol start="2" style="list-style-type: lower-alpha;"><li><!--[if !supportLists]-->Realice un análisis [ <strong>nmap -sN</strong> en la subred <strong>10.6.6.0/24</strong>.</li></ol><pre style="margin-left: 40px;">┌──(root<span>㉿</span>kali)-[/home/kali]</pre><pre style="margin-left: 40px;">└─# <strong>nmap -sN 10.6.6.0/24</strong></pre></div>
+        </div>
+      </div>
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6467c262bcf25e00aaff7823" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6467c262bcf25e00aaff7823" class="6467c262bcf25e00aaff7823 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6467c262bcf25e00aaff7823" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$407307603$--><!----><opentextbox-view modelid="6467c262bcf25e00aaff7824" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="6467c262bcf25e00aaff7824" class="component opentextbox 6467c262bcf25e00aaff7824 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="6467c262bcf25e00aaff7824" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$407307603$--> <div class="openTextBox__preText"><!--?lit$407307603$-->¿Hay posibles equipos de destino en esta subred que ejecuten servicios SMB? ¿Qué computadora o computadoras? ¿Cómo lo sabe?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$407307603$--><!--?lit$407307603$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$407307603$-->
+                      <!--?lit$407307603$-->Sí, 10.6.6.23. Tiene los puertos 139 y 445 abiertos.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$407307603$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$407307603$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$407307603$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6467cb729cd99500e2aaf742" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6467cb729cd99500e2aaf742" class="6467cb729cd99500e2aaf742 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6467cb729cd99500e2aaf742" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$407307603$--><!----><text-view modelid="6467cb729cd99500e2aaf743" class="is-full remove-top-padding remove-padding-bottom packetTracer_wrap_text" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="6467cb729cd99500e2aaf743" class="component text 6467cb729cd99500e2aaf743 remove-top-padding remove-padding-bottom packetTracer_wrap_text is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$407307603$--><p><!--[if !supportLists]--></p><h2 style="margin-left:0in"><span><span>Parte 3: </span></span><!--[endif]-->Use enum4linux para enumerar usuarios y recursos compartidos de archivos de red.</h2><p>En esta parte, usará enum4linux para descubrir más información sobre los dos objetivos potenciales.</p><h3 style="margin-left:0in"><!--[if !supportLists]--><span><span>Paso 1: </span></span><!--[endif]-->Realice un análisis enum4linux en el objetivo 172.17.0.2.</h3><p>En la parte 1, paso 1c, utilizó la página de ayuda de enum4linux para conocer las opciones disponibles para enumerar los posibles objetivos. Las opciones más comunes son:</p><p style="margin-left:.5in"><strong>-U</strong> busca usuarios configurados</p><p style="margin-left:.5in"><strong>-S</strong> obtiene una lista de archivos compartidos</p><p style="margin-left:.5in"><strong>-G</strong> obtiene una lista de los grupos y sus miembros</p><p style="margin-left:.5in"><strong>-P</strong> enumera las políticas de contraseñas</p><p style="margin-left:.5in"><strong>-i</strong> obtiene una lista de impresoras</p><ol start="1" style="list-style-type:lower-alpha"><li><!--[if !supportLists]-->Utilice la opción <strong>enum4linux -U</strong> para enumerar los usuarios configurados en el 172.17.0.2 de destino. Recuerde que los comandos enum4linux requieren permisos de root para ejecutarse.</li></ol><pre style="margin-left:40px">┌──(root<span>㉿</span>kali)-[/home/kali]</pre><pre style="margin-left:40px">└─# <strong>enum4linux -U 172.17.0.2</strong></pre><p style="margin-left:40px">El resultado de este comando puede generar varias pantallas de información si se detectan muchos usuarios. Enum4linux agrega la salida de varias herramientas de Samba para producir un resultado conciso. Si desea ver cómo se usa cada función, use la opción detallada (<strong>-v</strong>) con el comando.</p><ol start="2" style="list-style-type:lower-alpha"><li><!--[if !supportLists]--><!--[endif]-->Enumere los recursos compartidos de archivos disponibles en 172.17.0.2 mediante el comando <strong>enum4linux -S</strong>. Utilice la opción detallada para ver las herramientas de Samba que se utilizan para obtener la información.</li></ol><pre style="margin-left:40px">┌──(root<span>㉿</span>kali)-[/home/kali]</pre><pre style="margin-left:40px">└─# <strong>enum4linux -Sv 172.17.0.2</strong></pre><p style="margin-left:40px">Observe <strong>[V]</strong> al comienzo de algunas de las líneas de salida. El modo detallado proporciona una descripción de cómo se obtuvieron los resultados. Por ejemplo, en la sección <strong>Enumerating Workgroup/Domain</strong> (Enumeración de grupo de trabajo / dominio) de la salida, enum4linux intentó obtener el nombre de dominio con el comando: <strong>nmblookup -A '172.17.0.2'</strong>.</p></div>
+        </div>
+      </div>
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6467cc6d11b5a800c7d28330" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6467cc6d11b5a800c7d28330" class="6467cc6d11b5a800c7d28330 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6467cc6d11b5a800c7d28330" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$407307603$--><!----><opentextbox-view modelid="6467cc6d11b5a800c7d28331" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="6467cc6d11b5a800c7d28331" class="component opentextbox 6467cc6d11b5a800c7d28331 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="6467cc6d11b5a800c7d28331" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$407307603$--> <div class="openTextBox__preText"><!--?lit$407307603$-->¿Qué herramienta de Samba se utilizó para asignar los recursos compartidos de archivos?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$407307603$--><!--?lit$407307603$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$407307603$-->
+                      <!--?lit$407307603$-->smbclient.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$407307603$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$407307603$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$407307603$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6467ccb95183d000c30704c1" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6467ccb95183d000c30704c1" class="6467ccb95183d000c30704c1 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6467ccb95183d000c30704c1" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$407307603$--><!----><opentextbox-view modelid="6467ccb95183d000c30704c2" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="6467ccb95183d000c30704c2" class="component opentextbox 6467ccb95183d000c30704c2 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="6467ccb95183d000c30704c2" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$407307603$--> <div class="openTextBox__preText"><!--?lit$407307603$-->¿Cuántos recursos compartidos de archivos se enumeran para el objetivo 172.17.0.2? ¿Qué indica el $ al final del nombre del recurso compartido? (Es posible que deba investigar esta respuesta).</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$407307603$--><!--?lit$407307603$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$407307603$-->
+                      <!--?lit$407307603$-->Se enumeran cinco recursos compartidos de archivos para 172.17.0.2. El $ indica acciones ocultas.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$407307603$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$407307603$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$407307603$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6467cce811b5a800c7d28333" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6467cce811b5a800c7d28333" class="6467cce811b5a800c7d28333 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6467cce811b5a800c7d28333" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$407307603$--><!----><text-view modelid="6467cce811b5a800c7d28334" class="is-full remove-top-padding remove-padding-bottom packetTracer_wrap_text" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="6467cce811b5a800c7d28334" class="component text 6467cce811b5a800c7d28334 remove-top-padding remove-padding-bottom packetTracer_wrap_text is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$407307603$--><ol start="3" style="list-style-type: lower-alpha;"><li><!--[if !supportLists]-->Es posible que los evaluadores de penetración no hayan descubierto una combinación conocida de nombre de usuario y contraseña para avanzar en su ataque. En este caso, deben realizar un ataque de contraseña por fuerza bruta para obtener las credenciales necesarias. Es un beneficio conocer las políticas de contraseñas vigentes en el sistema de destino para estructurar el esfuerzo de fuerza bruta. Utilice el comando <strong>enum4linux -P</strong> para enumerar las políticas de contraseñas.</li></ol><pre style="margin-left: 40px;">┌──(root<span>㉿</span>kali)-[/home/kali]</pre><pre style="margin-left: 40px;">└─# <strong>enum4linux -P 172.17.0.2</strong></pre></div>
+        </div>
+      </div>
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6467cd3911b5a800c7d28336" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6467cd3911b5a800c7d28336" class="6467cd3911b5a800c7d28336 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6467cd3911b5a800c7d28336" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$407307603$--><!----><opentextbox-view modelid="6467cd3911b5a800c7d28337" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="6467cd3911b5a800c7d28337" class="component opentextbox 6467cd3911b5a800c7d28337 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="6467cd3911b5a800c7d28337" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$407307603$--> <div class="openTextBox__preText"><!--?lit$407307603$-->¿Cuál es la longitud mínima de contraseña establecida para las cuentas en este servidor? ¿Cuál es la configuración del umbral de bloqueo de la cuenta?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$407307603$--><!--?lit$407307603$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$407307603$-->
+                      <!--?lit$407307603$-->La longitud mínima de la contraseña es de cinco caracteres y no se establece ningún umbral de bloqueo de cuenta.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$407307603$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$407307603$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$407307603$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6467cd6b5183d000c30704c3" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6467cd6b5183d000c30704c3" class="6467cd6b5183d000c30704c3 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6467cd6b5183d000c30704c3" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$407307603$--><!----><opentextbox-view modelid="6467cd6b5183d000c30704c4" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="6467cd6b5183d000c30704c4" class="component opentextbox 6467cd6b5183d000c30704c4 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="6467cd6b5183d000c30704c4" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$407307603$--> <div class="openTextBox__preText"><!--?lit$407307603$-->¿Cómo calificaría la seguridad de la política de contraseñas establecida para este dominio? ¿Baja, media o alta? Explique.</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$407307603$--><!--?lit$407307603$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$407307603$-->
+                      <!--?lit$407307603$-->Baja La longitud mínima de la contraseña es demasiado corta. Además, el indicador de complejidad de la contraseña es 000000. Microsoft documenta este valor en el sentido de que no se establece ninguna política de complejidad de contraseñas. Además, no se configura una antigüedad mínima de la contraseña.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$407307603$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$407307603$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$407307603$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6467cd979cd99500e2aaf746" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6467cd979cd99500e2aaf746" class="6467cd979cd99500e2aaf746 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6467cd979cd99500e2aaf746" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$407307603$--><!----><text-view modelid="6467cd979cd99500e2aaf747" class="is-full remove-top-padding remove-padding-bottom packetTracer_wrap_text" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="6467cd979cd99500e2aaf747" class="component text 6467cd979cd99500e2aaf747 remove-top-padding remove-padding-bottom packetTracer_wrap_text is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$407307603$--><h3 style="margin-left:0in"><!--[if !supportLists]--><span><span>Paso 2: </span></span><!--[endif]-->Realice un escaneo de enumeración simple en el objetivo 10.6.6.23.</h3><p>Enum4linux tiene una opción que combina las opciones -U, -S, -G, -P, -r, -o, -n, -i en un solo comando. Esto requiere el uso del argumento <strong>-a</strong>. Esta opción realiza rápidamente varias operaciones de enumeración de SMB en un escaneo.</p><p>Use el comando <strong>enum4linux -a</strong> para realizar un escaneo en el posible destino del servidor Samba que identificó en la Parte 2.</p><pre style="margin-left: 40px;">┌──(root<span>㉿</span>kali)-[/home/kali]</pre><pre style="margin-left: 40px;">└─# <strong>enum4linux -a 10.6.6.23</strong></pre><p>Este comando puede producir varias pantallas de salida.</p></div>
+        </div>
+      </div>
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6467ce1e5183d000c30704c6" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6467ce1e5183d000c30704c6" class="6467ce1e5183d000c30704c6 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6467ce1e5183d000c30704c6" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$407307603$--><!----><opentextbox-view modelid="6467ce1e5183d000c30704c7" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="6467ce1e5183d000c30704c7" class="component opentextbox 6467ce1e5183d000c30704c7 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="6467ce1e5183d000c30704c7" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$407307603$--> <div class="openTextBox__preText"><!--?lit$407307603$-->¿Cuántos usuarios y grupos locales hay en el objetivo 10.6.6.23?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$407307603$--><!--?lit$407307603$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$407307603$-->
+                      <!--?lit$407307603$-->3 usuarios locales y 7 grupos.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$407307603$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$407307603$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$407307603$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6467d2d69cd99500e2aaf749" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6467d2d69cd99500e2aaf749" class="6467d2d69cd99500e2aaf749 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6467d2d69cd99500e2aaf749" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$407307603$--><!----><opentextbox-view modelid="6467d2d69cd99500e2aaf74a" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="6467d2d69cd99500e2aaf74a" class="component opentextbox 6467d2d69cd99500e2aaf74a remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="6467d2d69cd99500e2aaf74a" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$407307603$--> <div class="openTextBox__preText"><!--?lit$407307603$-->¿Cuáles son los recursos compartidos que se encuentran en este objetivo? </div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$407307603$--><!--?lit$407307603$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$407307603$-->
+                      <!--?lit$407307603$-->Los recursos compartidos son homes, workfiles y print$. Tenga en cuenta que el recurso compartido de IPC $ es para el proceso del servidor. Se crea de manera predeterminada.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$407307603$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$407307603$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$407307603$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6467d3129cd99500e2aaf74b" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6467d3129cd99500e2aaf74b" class="6467d3129cd99500e2aaf74b block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6467d3129cd99500e2aaf74b" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$407307603$--><!----><text-view modelid="6467d3129cd99500e2aaf74c" class="is-full remove-top-padding remove-padding-bottom packetTracer_wrap_text" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="6467d3129cd99500e2aaf74c" class="component text 6467d3129cd99500e2aaf74c remove-top-padding remove-padding-bottom packetTracer_wrap_text is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$407307603$--><h2 style="margin-left:0in"><!--[if !supportLists]--><span><span>Parte 4: </span></span><!--[endif]-->Use smbclient para transferir archivos entre sistemas.</h2><p>Smbclient es un componente de Samba que puede almacenar y recuperar archivos, de manera similar a un cliente FTP. Utilizará smbclient para transferir un archivo al sistema de destino en 172.17.0.2. Esto simula la explotación de un host de red con malware a través de una vulnerabilidad de SMB.</p><ol start="1" style="list-style-type:lower-alpha"><li><!--[if !supportLists]-->Cree un archivo de texto con el comando <strong>cat</strong>. Nombre el archivo <strong>badfile.txt</strong>. Ingrese el texto deseado. En este ejemplo, se utilizó <strong>This is a bad file.</strong> Asegúrese de conocer la ruta al archivo. Presione <strong>CTRL-C</strong> cuando haya terminado.</li></ol><pre style="margin-left:40px">┌──(root<span>㉿</span>kali)-[/home/kali]</pre><pre style="margin-left:40px">└─# <strong>cat &gt;&gt; badfile.txt</strong></pre><pre style="margin-left:40px"><strong>This is a bad file.</strong></pre><pre style="margin-left:40px">Press CRTL-C to write the file.</pre><ol start="2" style="list-style-type:lower-alpha"><li><!--[if !supportLists]-->Observe las opciones disponibles con smbclient mediante el comando <strong>smbclient –help</strong>.</li></ol><pre style="margin-left:40px">┌──(root<span>㉿</span>kali)-[/home/kali]</pre><pre style="margin-left:40px">└─# <strong>smbclient --help</strong></pre><ol start="3" style="list-style-type:lower-alpha"><li><!--[if !supportLists]-->Utilice el comando <strong>smbclient -L</strong> para enumerar los recursos compartidos en el host de destino. Este comando produce un resultado similar al que hizo el comando enum4linx en la parte 3. Cuando se le solicite una contraseña, presione Intro. El carácter doble / antes de la dirección IP y / son necesarios si el destino es una computadora con Windows.</li></ol><pre style="margin-left:40px">┌──(root<span><span>㉿</span>kali)-[/home/kali]</span></pre><pre style="margin-left:40px"><span>└─# <strong>smbclient -L //172.17.0.2/</strong></span></pre><pre style="margin-left:40px">Password for [WORKGROUPkali]: <strong>&lt;Press enter&gt;</strong></pre><ol start="4" style="list-style-type:lower-alpha"><li><!--[if !supportLists]-->Conéctese al recurso compartido <strong>tmp</strong> mediante el comando <strong>smbclient</strong> especificando el nombre del recurso compartido y la dirección IP.</li></ol><pre style="margin-left:40px">┌──(root<span>㉿</span>kali)-[/home/kali]</pre><pre style="margin-left:40px">└─# <strong>smbclient //172.17.0.2/tmp</strong></pre><pre style="margin-left:40px">Password for [WORKGROUPkali]: <strong>&lt;Press enter&gt;</strong></pre><pre style="margin-left:40px">smb: &gt;</pre><p style="margin-left:40px">Tenga en cuenta que el indicador cambió a <strong>smb: &gt;</strong>. Escriba <strong>help</strong> para ver qué comandos están disponibles.</p><ol start="5" style="list-style-type:lower-alpha"><li><!--[if !supportLists]--><!--[endif]-->Introduzca <strong>dir</strong> para ver el contenido del recurso compartido.</li><li><!--[if !supportLists]--><!--[endif]-->Cargue <strong>badfile</strong>.<strong>txt</strong> al servidor de destino mediante el comando <strong>put</strong>. La sintaxis del comando es:</li></ol><pre style="margin-left:0.5in"><strong>put <em>local-file-name</em> <em>remote-file-name</em></strong></pre><pre style="margin-left:40px">smb: &gt; <strong>put badfile.txt badfile.txt</strong></pre><pre style="margin-left:40px">Putting file badfile.txt as badfile.txt (19.5 kb/s) (average 19.5 kb/s)</pre><ol start="7" style="list-style-type:lower-alpha"><li><!--[if !supportLists]-->Verifique que el archivo se haya cargado correctamente con el comando <strong>dir</strong>.</li></ol><pre style="margin-left:40px">smb: &gt; <strong>dir</strong></pre><ol start="8" style="list-style-type:lower-alpha"><li><!--[if !supportLists]-->Escriba <strong>quit</strong> para salir de <strong>smbclient</strong> y volver al indicador de la CLI.</li></ol></div>
+        </div>
+      </div>
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6467d60b1e7b4300d82ff1c3" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6467d60b1e7b4300d82ff1c3" class="6467d60b1e7b4300d82ff1c3 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6467d60b1e7b4300d82ff1c3" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$407307603$--><!----><text-view modelid="6467d60b1e7b4300d82ff1c4" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="6467d60b1e7b4300d82ff1c4" class="component text 6467d60b1e7b4300d82ff1c4 remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$407307603$--><h2 style="margin-left:0in"><!--[if !supportLists]--></h2><h1>Reflexión</h1><p>Está realizando una prueba de penetración de la red de un cliente. Ha obtenido acceso a una red interna mediante ingeniería social con el nombre de usuario y la contraseña de un servidor web ad hoc que no está detrás del cortafuego. Puede acceder de forma remota a la red desde una VM Kali configurada con la herramienta enum4linux.</p></div>
+        </div>
+      </div>
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6467d64c11b5a800c7d28339" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6467d64c11b5a800c7d28339" class="6467d64c11b5a800c7d28339 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6467d64c11b5a800c7d28339" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$407307603$--><!----><opentextbox-view modelid="6467d64c11b5a800c7d2833a" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="6467d64c11b5a800c7d2833a" class="component opentextbox 6467d64c11b5a800c7d2833a remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="6467d64c11b5a800c7d2833a" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+            <!--?lit$407307603$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$407307603$--> <div class="openTextBox__preText"><!--?lit$407307603$-->¿Qué pasos seguiría para enviar un archivo de malware ficticio a los hosts de la red como parte de la prueba de penetración?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$407307603$--><!--?lit$407307603$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$407307603$-->
+                      <!--?lit$407307603$-->Las respuestas pueden variar.<br>1. Escanear la red con Nmap para identificar hosts que ejecutan SMB.<br>2. Escanear el host de destino o la subred del host con enum4linux para enumerar los grupos de trabajo, las políticas de contraseñas y los recursos compartidos.<br>3. Ejecutar smbclient y use el comando put para copiar el archivo ficticio en uno o varios hosts vulnerables.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$407307603$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$407307603$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$407307603$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!---->
+                            </div>
+                        </div>
+                        <!--?lit$407307603$-->
+                    </div>
+                </div>
+            </div>
+        <sgpluse-opentextboxcontroller-view modelid="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+            <div class="openTextBoxController__button-container">
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__showButton show-answer show"><!--?lit$407307603$-->Mostrar todas las respuestas</button>    
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__hideButton hide-answer hide"><!--?lit$407307603$-->Ocultar todas las respuestas</button>    
+                <button class="btn-text resetbtn openTextBoxController__resetButton"><!--?lit$407307603$-->Borrar mis respuestas</button>         
+            </div>
+            <!--?lit$407307603$--><hr>
+            <!--?lit$407307603$-->
+                <div class="post-text" tabindex="0">
+                    <!--?lit$407307603$-->© 2017 - 2023 Cisco and/or its affiliates. All rights reserved. Cisco Public
+                </div>
+                   
+        </sgpluse-opentextboxcontroller-view><script></script>
+<script>
+    window.addEventListener("load", function () {
+      console.log("loaded");
+      document?.querySelectorAll(".answergray").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".show-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.remove("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.add("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      let event = new Event("click", {
+        bubbles: true,
+        cancelable: true,
+      });
+      document
+        ?.querySelectorAll(".openTextBoxController__showButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".show-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__hideButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__resetButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            document?.querySelectorAll("textArea").forEach(function (ele) {
+              ele.value = "";
+            });
+          });
+        });
+
+      document
+      ?.querySelectorAll('textarea')
+      .forEach(function (ele){
+        ele.defaultValue = ele.defaultValue.replace(/<!--.*?-->/g, '');
+      })
+        let checkButtonLabel = "check_button_label_placeHolder";
+        let hideButtonLabel = "hide_button_label_placeHolder";
+        document?.querySelectorAll(".check__button").forEach(function (ele) {
+        let answerBox = document.querySelector(".check__solution")
+        if (!answerBox.classList.contains("check__hidden")) {
+          answerBox.classList.add("check__hidden");
+          ele.innerText = checkButtonLabel;
+        }
+          ele.addEventListener("click", function (e) {
+            if (answerBox.classList.contains("check__hidden")) {
+              answerBox.classList.remove("check__hidden")
+              ele.innerText = hideButtonLabel;
+            } else {
+              answerBox.classList.add("check__hidden")
+              ele.innerText = checkButtonLabel;
+            }
+          })
+        })
+    });
+  </script>
+  </body></html>

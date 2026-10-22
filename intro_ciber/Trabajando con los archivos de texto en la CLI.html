@@ -1,0 +1,1603 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 1rem;
+      }
+      ol,
+      ul {
+        margin-bottom: 0in;
+      }
+      table {
+        margin-top: 1rem;
+        border: 1px solid gray;
+        width: 7in;
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > .openTableTextBox__table-header-data {
+        text-align: center;
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0in;
+        text-align: center;
+        line-height: 115%;
+        page-break-after: avoid;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        font-weight: bold;
+        background: #dbe5f1;
+        padding: 0.5rem;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .openTextBox__textArea-container {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 50%;
+      }
+      .openTableTextBox__fieldset {
+        padding: 5px;
+      }
+      td {
+        margin-top: 3pt;
+        margin-right: 0in;
+        margin-bottom: 3pt;
+        margin-left: 0in;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 98.85pt;
+        border: solid windowtext 1pt;
+        border-top: none;
+        padding: 0.7pt 5.75pt 0.7pt 5.75pt;
+      }
+      textarea {
+        width: 100%;
+      }
+      .answergray {
+        padding: 0.2rem;
+      }
+
+      .openTableTextBox__widget {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0.25in;
+      }
+
+      .show-answer,
+      .hide-answer {
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border: 0px;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .openTextBoxController__button-container {
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .openTextBoxController__button-container .btn-text {
+        margin: 10px;
+      }
+
+      .btn-text {
+        border: 0px;
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border-radius: 0;
+        cursor: pointer;
+      }
+
+      .u-display-none {
+        display: none;
+      }
+      .openTextBox__postText, openTableTextBox__postText {
+        margin-top: 0.5rem;
+      }
+      .edit-comment {
+        display: none;
+      }
+      .js-heading-inner {
+        display: none;
+      }
+      .block__title-inner,
+      .article__title-inner {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+      h2{
+        font-size: 1.25em;
+      }
+      h3{
+        font-size: 1.125em;
+      }
+      .table
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: solid windowtext 1pt;
+      }
+      table tbody tr th, table thead tr th{
+        border: solid windowtext 1pt;
+        background-color: #d6d8dc;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .command-output > .table-inner > .table-wrapper > .table-widget > table,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > td,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: none !important;
+        text-align: right !important;
+      }
+      .simple-table > .table-inner > .table-wrapper{
+        margin-left: 1.5rem;
+      }
+      .openTextBox__widget {
+        margin-left: 1.5rem;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      .answergray {
+        background-color: #ccc;
+      }
+      .openTableTextBox__widget > .answergray {
+        background-color: #fff !important;
+      }
+      li > ul,ol > li{
+        margin-left: 0px !important;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      
+      .component__title{
+        font-family: inherit;
+        font-size: 1.65em;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .component__body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .accessibility-completion-indicator{
+        display: none;
+      }
+
+      .check__hidden {
+        display: none;
+      }
+
+      .check__button {
+        border: none;
+        border-radius: 6px !important;
+        background-color: #6abf4b;
+        color: #fff;
+        min-width: 100px;
+        margin: 0.625rem 0;
+        padding: 0.7rem;
+      }
+
+      .check__widget .check__solution .DevConfigGray {
+        background-color: rgb(214,216,220);
+        font-weight: bold;
+      }
+
+      .check-inner .check__widget .check__solution .DevConfigs {
+        margin: 0px;
+        line-height: 115%;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .check__solution  {
+        line-height: 1.5;
+      }
+      .mcq__inner .mcq__widget .mcq__widget-inner {
+        margin-block: 1rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item {
+        display: flex;
+        gap: 0.2rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item .mcq__item-label .mcq__item-text .screenReader-position-text{
+        display: none;
+      }
+      .opentabletextbox-inner .opentabletextBox__widget .openTableTextBox__answerText.answergray {
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox{
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox img{
+        margin-block: 1rem;
+        margin-left: initial;
+      }
+      .component__content .component__body-inner .pageTracer-h4-title-hide {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        font-size: 0px;
+        color: rgb(var(--neutral-2));
+        font-weight: normal;
+      }
+      .table-inner .table__widget table tr.TableHeading th, .table-inner .table__widget table tr.TableHeading td, .table-inner .table__widget table tr td.TableHeading, .opentabletextbox-table thead tr.TableHeading th, .opentabletextbox-table tbody tr.TableHeading td, .opentabletextbox-table tbody tr td.TableHeading {
+        background-color: #d6d8dc;
+        text-align: center;
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .CMD, .component__content .component__body-inner .CMDOutput, .component__content .component__body-inner .CMDOutput__table{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        margin-inline-start: 30px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      [dir="rtl"] .component__content .component__body-inner .CMDOutput__table span {
+        direction: ltr;
+        display: inline-block;
+      }
+      .openTextBox__inner .openTextBox__widget .CMD, .openTextBox__inner .openTextBox__widget .CMDOutput{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .openTextBox__inner .openTextBox__widget .DnTbold, .openTextBox__inner .openTextBox__widget .BodyTextL25Bold, .component__content .component__body-inner .BodyTextL25Bold, .component__content .component__body-inner .DnTbold, .table-inner .table__widget table tr .DnTbold {
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .SubStepNum {
+        text-indent: -25.5px;
+        margin-inline-start: 50px;
+      }
+      .component__content .component__body-inner .BodyTextL50 {
+        margin-inline-start: 30px;
+      }
+      .component__content .component__body-inner .Bulletlevel1 {
+        text-indent: -19px;
+        margin-inline-start: 48px;
+      }
+      .component__content .component__body-inner .Bulletlevel2 {
+          text-indent: -19px;
+          margin-inline-start: 72px;
+      }
+      .openTextBox__inner .openTextBox__widget .ReflectionQ, .component__content .component__body-inner .SubStepAlpha {
+          text-indent: -25.5px;
+          margin-inline-start: 30px;
+      }
+    </style>
+
+</head><body><!---->
+            <div class="article c169c06b-c2f7-4a1b-ab56-83dc9b2a9c0b remove-padding-top remove-padding-bottom ">
+                <div class="article__inner">
+                <div class=" no-adaptive-scroll">
+                    <!--?lit$805333404$-->
+                        <div class=""> 
+                            <base-view type="article" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="article__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="article__header ">
+          <div class="article__header-inner ">
+            <!--?lit$805333404$-->
+      <div class="article__title ">
+        <!--?lit$805333404$--><heading-view aria-hidden="true" id="c169c06b-c2f7-4a1b-ab56-83dc9b2a9c0b-heading-view" headingtitle="Lab -Trabajar con archivos de texto en la CLI" modelid="c169c06b-c2f7-4a1b-ab56-83dc9b2a9c0b" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="js-heading is-incomplete">
+        <div class="js-heading-inner" role="heading" id="article-heading" aria-level="2">
+        <span class="aria-label"> <!--?lit$805333404$-->Incompleto &nbsp;<!--?lit$805333404$-->Lab -Trabajar con archivos de texto en la CLI</span>
+        </div>
+      </div>
+    </heading-view>
+        <div tabindex="0" role="heading" class="article__title-inner " aria-level="2">
+          <span class="accessibility-completion-indicator"><!--?lit$805333404$-->Incompleto </span>
+          <!--?lit$805333404$-->Lab -Trabajar con archivos de texto en la CLI
+        </div>
+      </div>
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                            <div class="block__container " style="">
+                                <!--?lit$805333404$--><!---->
+                                    <block-view modelid="41170e7c-e43e-4927-a69e-a2b93401e556" style="width: 5.26316%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="41170e7c-e43e-4927-a69e-a2b93401e556" class="41170e7c-e43e-4927-a69e-a2b93401e556 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="41170e7c-e43e-4927-a69e-a2b93401e556" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$805333404$--><!----><text-view modelid="a8730254-b51e-44ea-ab60-8ecd1c9c3b23" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="a8730254-b51e-44ea-ab60-8ecd1c9c3b23" class="component text a8730254-b51e-44ea-ab60-8ecd1c9c3b23  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$805333404$--><h2>Objetivos</h2> <p class="BodyTextL25">En este laboratorio, se familiarizará con el uso de editores de texto y archivos de configuración de la línea de comando de Linux.</p> <p class="BodyTextL25Bold">Parte 1: Editor gráfico de texto</p> <p class="BodyTextL25Bold">Parte 2: Editor de texto por línea de comando</p> <p class="BodyTextL25Bold">Parte 3: Trabajar con archivos de configuración</p> <h2>Recursos necesarios</h2> <p class="Bulletlevel1"><span lang="RO" style="font-size:7.0pt; line-height:115%;font-family:Webdings">=</span><span>&nbsp;&nbsp;</span><span dir="LTR"></span><span lang="RO">Máquina virtual Security Workstation</span></p> <h2>Instrucciones</h2> <h2>Parte 1: Editor gráfico de texto</h2> <p class="BodyTextL25">Antes de trabajar con archivos de texto en Linux, deben familiarizarse con los editores de texto.</p> <p class="BodyTextL25">Los editores de texto pertenecen a una de las categorías más antiguas de aplicaciones creadas para computadoras. Linux, al igual que muchos otros sistemas operativos, tiene muchos editores de texto diferentes, con diversas características y funciones. Algunos editores de texto tiene interfaces gráficas, mientras que otros solo se pueden utilizar desde la línea de comandos. Cada editor de texto tiene un conjunto de características diseñadas para admitir una situación de trabajo específica. Algunos editores de texto están enfocados en el programados y tiene características como resaltado de sintaxis, correspondencia de paréntesis y corchetes, buscar y reemplazar, compatibilidad con expresiones regulares multilínea, corrector ortográfico y otras características centradas en la programación.</p> <p class="BodyTextL25">Para guardar espacio y mantener la máquina virtual ligera, la <b>máquina virtual Cisco CyberOps solo incluye</b><b>SciTE</b> como una aplicación gráfica de editor de texto. <b>SciTE</b> es un editor de texto simple, pequeño y rápido. No tiene muchas características avanzadas, pero es totalmente compatible con el trabajo que se realiza en este curso.</p> <p class="BodyTextL25"><b>Nota</b>: La elección del editor de texto es personal. Ningún editor de texto es mejor que otro. El mejor editor de texto es con el que se sienta más cómodo y se adapte mejor a su trabajo.</p> <h3>Abrir SciTE desde la GUI</h3> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Inicie sesión en la VM Security&nbsp;Workstation con <span>&nbsp;analyst como usuario <b>y </b></span>cyberops como <b>contraseña</b>. En toda esta práctica de laboratorio se utiliza la cuenta <b>analyst</b> como el usuario ejemplo.</p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>En la barra superior, diríjase a <span><b>Aplicaciones &gt;&nbsp;CyberOPS&nbsp;&gt;&nbsp;SciTE</b> para abrir el <b>editor </b>de texto </span>SciTE.</p> <p class="SubStepAlpha">c.<span>&nbsp;&nbsp;</span>SciTE es simple pero tiene ciertas características importantes: entorno con fichas y resaltado de sintaxis, entre otras. Trabajen algunos minutos con SciTE. En el área de trabajo principal, escriban o copien y peguen el siguiente texto:</p> <p class="BodyTextL50" style="page-break-after:avoid">“El espacio es grande. Realmente grande. Simplemente no creerán lo vasto, enorme y abobinablemente grande que es. Es decir, pueden pensar que la farmacia está lejos, pero no puede compararse con el espacio”.</p> <p class="BodyTextL50">― Douglas&nbsp;Adams, The&nbsp;Hitchhiker’s&nbsp;Guide&nbsp;to&nbsp;the Galaxy</p> <p class="SubStepAlpha">d.<span>&nbsp;&nbsp;</span>Haga clic en <span>Save ( </span><b>Guardar </b>)<b> para</b> guardar el archivo. Observen que <b>SciTE</b> trata de guardar el archivo en el directorio de inicio del usuario actual (analyst) de manera predeterminada. Llame space.txt al archivo y haga clic <b>en </b>Guardar.</p> <p class="SubStepAlpha">e.<span>&nbsp;&nbsp;</span>Cierre <span>&nbsp;SciTE; para ello ,</span> haga clic en <b>el</b> icono de la X del ángulo superior derecho de la ventana y, luego, vuelva a abrir <b>SciTE.</b></p> <p class="SubStepAlpha">f.<span>&nbsp;&nbsp;&nbsp;</span>Hagan clic en <span>&nbsp;&nbsp; Archivo </span>&gt; <b> Abrir…</b> y busque el archivo que acaba de guardar <b>: <b>space.txt</b>.</b></p><b> <h4 class="pageTracer-h4-title-hide"><b>Pregunta:</b></h4></b></div>
+        </div>
+      </div>
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="1d5d6bd7-1e56-4af5-8fa6-32dacdc9acfe" style="width: 5.26316%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="1d5d6bd7-1e56-4af5-8fa6-32dacdc9acfe" class="1d5d6bd7-1e56-4af5-8fa6-32dacdc9acfe block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="1d5d6bd7-1e56-4af5-8fa6-32dacdc9acfe" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$805333404$--><!----><opentextbox-view modelid="1f091d77-174c-4573-bab0-d1b8cd33bead" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="1f091d77-174c-4573-bab0-d1b8cd33bead" class="component opentextbox 1f091d77-174c-4573-bab0-d1b8cd33bead  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="1f091d77-174c-4573-bab0-d1b8cd33bead" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$805333404$--> <div class="openTextBox__preText"><!--?lit$805333404$--><p class="BodyTextL50"><b>¿Pudieron encontrar space.txt inmediatamente?</b></p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$805333404$--><!--?lit$805333404$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$805333404$-->
+                      <!--?lit$805333404$--><p class="BodyTextL50Answer"><b><span class="AnswerGray"><span style="border: none"><span style="border: none"> No </span></span></span></b></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$805333404$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$805333404$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$805333404$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="88f38f90-db92-476b-abda-ea80cf48342f" style="width: 5.26316%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="88f38f90-db92-476b-abda-ea80cf48342f" class="88f38f90-db92-476b-abda-ea80cf48342f block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="88f38f90-db92-476b-abda-ea80cf48342f" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$805333404$--><!----><text-view modelid="b9bbedae-b847-40bd-946e-b3484927119c" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="b9bbedae-b847-40bd-946e-b3484927119c" class="component text b9bbedae-b847-40bd-946e-b3484927119c  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$805333404$--><p class="SubStepAlpha">g.<span>&nbsp;&nbsp;</span>span&gt;Aunque SciTE está buscando en el directorio correcto (/home/analyst), no se ve space.txt. Esto se debe a que SciTE está buscando extensiones conocidas, y&nbsp;.txt no es una de ellas. Para mostrar todos los archivos, hagan clic en el menú desplegable de la parte inferior de la ventana Abrir&nbsp;Archivoy <b>seleccione</b> Todos los&nbsp;Archivos&nbsp;(*)</p> <p class="SubStepAlpha">h.<span>&nbsp;&nbsp;</span>Seleccione <b>space.txt</b> para abrirlo.</p> <p class="BodyTextL50"><b>Nota</b>: Si bien los sistemas de archivos Linux no dependen de las extensiones, algunas aplicaciones como SciTE pueden tratar de utilizarlas para identificar tipos de archivos.</p><p class="SubStepAlpha">i.<span>Cierre&nbsp;&nbsp; </span>space.txt cuando haya terminado.</p> <h3><b>Paso 2: Abrir SciTE desde el terminal</b></h3> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>span&gt;Como alternativa , también puede abrir SciTe desde la línea de comandos. Haga clic en el icono del terminal que se encuentra en el Dock de la parte inferior. Se abre el emulador de terminales predeterminado.</p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>Escriba el comando <span>ls</span> para enumerar el contenido del directorio actual. Observe que <b>space.txt</b> está en la lista. Esto quiere decir que no han proporcionado información sobre la ruta para abrir el archivo.</p> <p class="SubStepAlpha">c.<span>&nbsp;&nbsp;</span>Escriba <span> <b>scite</b><b>space.txt</b> para abrir </span><b>SciTE</b>. Tenga presente que con esto no solo se abrirá <b>SciTE</b> en la GUI, sino que también se cargará automáticamente el archivo de texto space.txt que se creó previamente.</p> <p class="CMD">[analyst@secOps ~]$ scite space.txt</p> <p class="SubStepAlpha">d.<span>&nbsp;&nbsp;</span>Fíjese que aunque <span><b>SciTE</b> está abierto en primer&nbsp;plano, la ventana del terminal que se utiliza para abrirlo sigue abierta en segundo&nbsp;plano. Además, observe que en la ventana del terminal que se utilizó para abrir <b>SciTE</b> ya no aparece el cursor.</span></p> <h4 class="pageTracer-h4-title-hide"><b>Pregunta:</b></h4></div>
+        </div>
+      </div>
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="c46732c1-2f03-4943-9391-55e8e52bd523" style="width: 5.26316%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="c46732c1-2f03-4943-9391-55e8e52bd523" class="c46732c1-2f03-4943-9391-55e8e52bd523 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="c46732c1-2f03-4943-9391-55e8e52bd523" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$805333404$--><!----><opentextbox-view modelid="2ef887ab-7120-4b28-8e06-64196636eff9" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="2ef887ab-7120-4b28-8e06-64196636eff9" class="component opentextbox 2ef887ab-7120-4b28-8e06-64196636eff9  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="2ef887ab-7120-4b28-8e06-64196636eff9" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$805333404$--> <div class="openTextBox__preText"><!--?lit$805333404$--><p class="BodyTextL50"><b>¿Por qué no se muestra el prompt en el terminal?</b></p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$805333404$--><!--?lit$805333404$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$805333404$-->
+                      <!--?lit$805333404$--><p class="BodyTextL50Answer"><b><span class="AnswerGray"><span style="border: none"><span style="border: none"> Porque la terminal está ejecutando SciTE, por lo tanto, no puede recibir comandos. </span></span></span></b></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$805333404$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$805333404$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$805333404$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="b3d17932-a49b-41ad-9837-6e3a26261e7c" style="width: 5.26316%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="b3d17932-a49b-41ad-9837-6e3a26261e7c" class="b3d17932-a49b-41ad-9837-6e3a26261e7c block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="b3d17932-a49b-41ad-9837-6e3a26261e7c" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$805333404$--><!----><text-view modelid="c0d0d9d0-2601-4405-8dee-74dd3de4cacb" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="c0d0d9d0-2601-4405-8dee-74dd3de4cacb" class="component text c0d0d9d0-2601-4405-8dee-74dd3de4cacb  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$805333404$--><p class="SubStepAlpha">e.<span>&nbsp;&nbsp;</span>Cierren esta instancia de <span>&nbsp;SciTE; para ello, haga clic en el icono de la&nbsp;X como antes o regrese a la ventana del terminal desde la que <b>se abrió </b></span><b>SciTE</b> y detenga el proceso. Puede detener el proceso si presiona <b>CTRL+C</b>.</p> <p class="SubStepAlpha" style="text-indent:0in"><b>Nota</b>: Iniciar SciTEdesde la línea de comandos es útil cuando se quiere ejecutar <b>SciTE </b><b> como </b><b>root</b>. Simplemente antepongan el comando sudo <b>a scite</b>: sudo scite.</p> <p class="SubStepAlpha">f.<span>&nbsp;&nbsp;&nbsp;</span>Cierre <span> </span><b>SciTE</b> y pase a la sección siguiente.</p> <h2><b>Parte 2: Editor de texto por línea de comando</b></h2> <p class="BodyTextL25">Si bien los editores de texto gráficos son prácticos y fáciles de usar, los basados en la línea de comandos con muy importantes en computadoras con Linux. El principal beneficio de los editores de texto basados en la línea de comandos es que permiten editar un archivo de texto desde una shell remota de una computadora remota.</p> <p class="BodyTextL25">Tenga en cuenta el siguiente escenario. Un usuario tiene que realizar tareas administrativas en una computadora con Linux pero no está sentado al frente de este equipo. Usando <b>SSH</b>, el usuario inicia un shell remoto a la computadora antes mencionada. En la shell remota basada en texto, es posible que la interfaz gráfica no esté disponible y eso hace que resulte imposible trabajar con editores de texto gráficos. En este tipo de situación, los editores de texto basados en texto son cruciales.</p> <p class="BodyTextL25"><b>Nota</b>: Esto resulta especialmente cierto cuando se establecen conexiones con servidores remotos sin periféricos que no tienen interfaz&nbsp;GUI.</p> <p class="BodyTextL25">La <b>máquina virtual incluye</b> algunos editores de texto basados en línea de comandos. Este curso se enfoca en <b>nano</b>.</p> <p class="BodyTextL25"><b>Nota</b>: Otro editor de texto <b>extremadamente</b>popular se llama&nbsp; vi.Aunque la curva de aprendizaje de <b>vi</b>se considera empinada, <b>vi</b> es un editor de texto muy potente basado en la línea de comando. Está incluido de manera predeterminada en todas las distribuciones de Linux y su código original se creó en&nbsp;1976. Existe una versión actualizada de vi <b>que se llama</b> vim, y significa vi-improved (vi-mejorado). Actualmente, la mayoría de los usuarios de <b>vi </b>en realidad están utilizando la versión actualizada:&nbsp;vim.</p> <p class="BodyTextL25">Debido a la falta de soporte gráfico, <b>nano (o GNU</b><b>nano</b>) se puede controlar solamente desde el teclado. <b>CTRL+O guarda el archivo actual;</b><b>CTRL+W </b>abre el menú de búsqueda. GNU <b>nano</b> utiliza una barra de accesos directos de dos&nbsp;líneas en la parte inferior de la pantalla; allí se incluyen varios comandos para el contexto actual. Después de abrir nano, presione <b>CTRL+G</b> para ver la pantalla de ayuda y una lista completa.</p> <p class="SubStepAlpha"><b>a.<span>&nbsp;&nbsp;</span>En la ventana del terminal escriba <span><b>nano space.txt</b> para abrir el archivo de texto que crearon en la Parte&nbsp;1.</span></b></p> <p class="CMD"><b>[analyst@secOps ~]$ <b>nano space.txt</b></b></p> <p class="SubStepAlpha"><b>b.<span>&nbsp;&nbsp;</span>nano<span></span></b> se abrirá y cargará automáticamente el archivo <b>de texto&nbsp;space</b> .txt <b>. Aunque puede parecer que el texto está truncado o incompleto, no es así. Como el texto se creó sin caracteres de retorno y la justificación de línea no está habilitada de manera predeterminada,</b> nano <b>está mostrando una línea de texto larga.</b></p> <p class="SubStepAlpha" style="text-indent:0in"><b>Utilicen las teclas Inicio y Fin del teclado para desplazarse rápidamente hasta el comienzo y el final de una línea, respectivamente.</b></p></div>
+        </div>
+      </div>
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="37da25e6-6136-43f9-b95c-33aa1cbe054f" style="width: 5.26316%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="37da25e6-6136-43f9-b95c-33aa1cbe054f" class="37da25e6-6136-43f9-b95c-33aa1cbe054f block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="37da25e6-6136-43f9-b95c-33aa1cbe054f" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$805333404$--><!----><opentextbox-view modelid="bc123f7e-6a00-4edc-a14e-e6cd11955523" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="bc123f7e-6a00-4edc-a14e-e6cd11955523" class="component opentextbox bc123f7e-6a00-4edc-a14e-e6cd11955523  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="bc123f7e-6a00-4edc-a14e-e6cd11955523" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$805333404$--> <div class="openTextBox__preText"><!--?lit$805333404$--><p class="BodyTextL50"><b>¿Qué carácter utiliza nano para indicar que una línea continúa más allá de los límites de la pantalla?</b></p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$805333404$--><!--?lit$805333404$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$805333404$-->
+                      <!--?lit$805333404$--><p class="BodyTextL50Answer"><b><span class="AnswerGray"><span style="border: none"><span style="border: none"> El signo mayor que (&gt;) o elsigno de dólar ($), dependiendo de la versión nano. </span></span></span></b></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$805333404$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$805333404$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$805333404$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="60e6d5f7-a4e0-4197-b874-763d5ee8e5b9" style="width: 5.26316%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="60e6d5f7-a4e0-4197-b874-763d5ee8e5b9" class="60e6d5f7-a4e0-4197-b874-763d5ee8e5b9 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="60e6d5f7-a4e0-4197-b874-763d5ee8e5b9" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$805333404$--><!----><text-view modelid="45909c7e-57bf-4b07-9b66-774595bdb38e" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="45909c7e-57bf-4b07-9b66-774595bdb38e" class="component text 45909c7e-57bf-4b07-9b66-774595bdb38e  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$805333404$--><p class="SubStepAlpha">c.<span>&nbsp;&nbsp;</span>Como se muestra en las líneas de acceso directo de la parte inferior, <span>CTRL+X </span>puede utilizarse para salir de <b>nano</b>. <b>nano</b> le preguntará si desea guardar el archivo antes de salir (“S” para Sí o “N” para No). Si elige&nbsp;'Y', se le solicitará que presionen Intro para aceptar el nombre de archivo proporcionado, cambiar el nombre de archivo o introducir un nombre de archivo si se trata de un documento nuevo sin nombre.</p> <p class="SubStepAlpha">d.<span>&nbsp;&nbsp;</span>Para controlar <span> nano pueden utilizar las teclas </span><b>CTRL</b>, <b>ALT</b>,ESCAPE&nbsp;o&nbsp;META. La tecla&nbsp;META es la tecla del teclado que tiene el logotipo de Windows o Mac, dependiendo de la configuración del teclado.</p> <p class="BodyTextL50">La navegación en nano es muy simple. Utilicen las flechas para desplazarse por los archivos. También se pueden utilizar las teclas RePág y AvPág para saltar páginas enteras hacia adelante o hacia atrás. Trabaje unos minutos con <b>nano</b> y con su pantalla de ayuda. Para entrar a la pantalla de ayuda presione <b>CTRL+G</b>. Presione <b>q</b> para salir de la pantalla de ayuda y volver a la edición de documentos en nano.</p> <h2>Parte 3: Trabajar con archivos de configuración</h2> <p class="BodyTextL25">En Linux, todo es tratado como un archivo, incluyendo la memoria, los discos, el monitor, los archivos y los directorios. Desde el punto de vista del sistema operativo, todo es un archivo. No debería sorprendernos que el propio sistema esté configurado por medio de archivos. Conocidos como archivos de configuración, suelen ser archivos de texto y son utilizados por diversas aplicaciones y servicios para almacenar ajustes y valores de configuración correspondientes a cada aplicación o servicio específico. En Linux, prácticamente todo depende de archivos de configuración para funcionar. Algunos servicios no tiene solo uno sino varios archivos de configuración.</p> <p class="BodyTextL25">Los usuarios con los niveles de permisos correctos utilizan editores de texto para cambiar el contenido de dichos archivos de configuración. Después de realizados los cambios, se guarda el archivo que ya puede ser utilizado por el servicio o la aplicación relacionados. Los usuarios pueden especificar exactamente cómo quieren que se comporte cualquier aplicación o servicio determinado. Cuando se abren, los servicios y las aplicaciones comprueban el contenido de archivos de configuración específicos y ajustan su comportamiento en consecuencia.</p> <h3>Paso 1: Localizando archivos de configuración</h3> <p class="BodyTextL25">El autor del programa define la ubicación de la configuración correspondiente a un programa determinado (servicio o aplicación). Por ese motivo, se debe consultar la documentación cuando se evalúa la ubicación del archivo de configuración. Sin embargo, convencionalmente, en Linux, los archivos de configuración que se utilizan para configurar aplicaciones del usuario a menudo se ubican en el directorio de inicio del usuario, mientras que los archivos de configuración utilizados para controlar servicios que abarcan a todo el sistema se ubican en el directorio <b>/etc </b>. Los usuarios siempre tiene permiso para escribir en sus propios directorios de inicio, y pueden configurar el comportamiento de las aplicaciones que utilizan.</p> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Utilice el <b>comando&nbsp;<span>&nbsp;ls</span></b> para generar una lista de todos los archivos presentes en el <b>directorio</b> de inicio de analyst:</p> <p class="CMDOutput">[analyst@secOps ~]$ <b>ls -l</b></p> <p class="CMDOutput"><span>total 20</span></p> <p class="CMDOutput"><span>drwxr-xr-x 2 analyst analyst 4096 Mar 22 2018 Desktop</span></p> <p class="CMDOutput"><span>drwxr-xr-x 3 analyst analyst 4096 Apr 2 14:44 Downloads</span></p> <p class="CMDOutput"><span>drwxr-xr-x 9 analyst analyst 4096 Jul 19 2018 lab.support.files</span></p> <p class="CMDOutput"><span>drwxr-xr-x 2 analyst analyst 4096 Mar 21 2018 second_drive</span></p> <p class="CMDOutput">-rw-r--r-- 1 analyst analyst 255 Apr 17 16:42 space.txt</p> <p class="BodyTextL50">Aunque se muestran algunos archivos, ninguno de ellos parece ser un archivo de configuración. Esto se debe a que la convención es ocultar los archivos de configuración alojados en los directorios de inicio anteponiendo un carácter de&nbsp;“.” (punto) a sus nombres.</p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>Vuelva a <b>utilizar el comando&nbsp;<span>&nbsp;&nbsp;ls</span></b> , pero esta vez agregue la opción <b>-a</b> para incluir los archivos ocultos en la salida:</p> <p class="CMDOutput">[analyst@secOps ~]$ <b>ls -la</b></p> <p class="CMDOutput"><span>total 144</span></p> <p class="CMDOutput"><span>drwx------ 14 analyst analyst 4096 Apr 17 16:34 .</span></p> <p class="CMDOutput"><span>drwxr-xr-x 3 root root 4096 Mar 20 2018 ..</span></p> <p class="CMDOutput"><span>-rw------- 1 analyst analyst 424 Apr 17 12:52 .bash_history</span></p> <p class="CMDOutput"><span>-rw-r—r— 1 analista 141 Feb 7 2018 .bashrc_stock</span></p> <p class="CMDOutput"><span>-rw-r--r-- 1 analyst analyst 57 Feb 7 2018 .bash_profile</span></p> <p class="CMDOutput"><span>-rw-r--r-- 1 analyst analyst 97 Mar 20 2018 .bashrc</span></p> <p class="CMDOutput"><span>-rw-r—r— 1 analista 141 Feb 7 2018 .bashrc_stock</span></p> <p class="CMDOutput"><span>drwxr-xr-x 8 analyst analyst 4096 Mar 25 12:18 .cache</span></p> <p class="CMDOutput"><span>drwxr-xr-x 10 analyst analyst 4096 Jul 19 2018 .config</span></p> <p class="CMDOutput"><span>drwxr-xr-x 2 analyst analyst 4096 Mar 22 2018 Desktop</span></p> <p class="CMDOutput"><span>-rw-r--r-- 1 analyst analyst 23 Mar 23 2018 .dmrc</span></p> <p class="CMDOutput"><span>drwxr-xr-x 3 analyst analyst 4096 Apr 2 14:44 Downloads</span></p> <p class="CMDOutput"><span>drwx------ 3 analyst analyst 4096 Mar 22 2018 .gnupg</span></p> <p class="CMDOutput"><span>-rw------- 1 analyst analyst 2520 Mar 24 12:32 .ICEauthority</span></p> <p class="CMDOutput"><span>drwxr-xr-x 2 analyst analyst 4096 Mar 24 2018 .idlerc</span></p> <p class="CMDOutput"><span>drwxr-xr-x 9 analyst analyst 4096 Jul 19 2018 lab.support.files</span></p> <p class="CMDOutput"><span>-rw------- 1 analyst analyst 61 Mar 24 12:36 .lesshst</span></p> <p class="CMDOutput"><span>drwxr-xr-x 3 analyst analyst 4096 Mar 22 2018 .local</span></p> <p class="CMDOutput"><span>drwx------ 5 analyst analyst 4096 Mar 24 2018 .mozilla</span></p> <p class="CMDOutput"><span>drwxr-xr-x 2 analyst analyst 4096 Mar 21 2018 second_drive</span></p> <p class="CMDOutput">-rw-r--r-- 1 analyst analyst 255 Apr 17 16:42 space.txt</p> <p class="CMDOutput">&lt;Se omitió alguna salida&gt;</p> <p class="SubStepAlpha">c.<span>&nbsp;&nbsp;</span>Utilice <b>el comando&nbsp;<span>&nbsp;&nbsp;cat</span></b> para mostrar el contenido del archivo. bashrc. Este archivo se utiliza para configurar el comportamiento y la personalización de terminales específicos del usuario.</p> <p class="CMDOutput">[analyst@secOps ~]$ cat .bashrc</p> <p class="CMDOutput">export EDITOR=vim</p> <p class="CMDOutput"><span lang="PT-BR">PS1='\\[\\e[1;32m\\][\\u@\\h \\W]\\$\\[\\e[0m\\] '</span></p> <p class="CMDOutput"><span lang="PT-BR">alias ls="ls --color"</span></p> <p class="CMDOutput"><span lang="PT-BR">alias vi="vim"</span></p> <p class="BodyTextL50">Por el momento, no se preocupen demasiado por la sintaxis de&nbsp;.bashrc. Lo que es importante observar es que .bashrc contiene la configuración correspondiente al terminal Por ejemplo: la línea PS1='\\[\\e[1;32m\\][\\u@\\h \\W]\\$\\[\\e[0m\\] ' define la estructura del cursor en el cursor que muestra el terminal: [nombredeusuario@dir_actual del nombredehost], seguido por un signo de dólar, todo en color&nbsp;verde. Ciertas configuraciones adicionales incluyen acceso directos a comandos como&nbsp;ls&nbsp;y&nbsp;vi. En este caso, cada vez que el usuario escribe&nbsp;ls, el shell lo convierte automáticamente en&nbsp;ls&nbsp;-color para exhibir una salida codificada por colores correspondiente a&nbsp;ls (los directorios en azul, los archivos comunes en gris, los archivos ejecutables en verde, etc.).</p> <p class="BodyTextL50">La sintaxis específica está fuera del alcance de este curso. Lo importante es entender que las configuraciones del usuario convencionalmente se almacenan como archivos ocultos en el directorio de inicio del usuario.</p> <p class="SubStepAlpha">d.<span>&nbsp;&nbsp;</span>Mientras que los archivos de configuración relacionados con aplicaciones del usuario convencionalmente se ubican en el directorio de inicio del usuario, los relacionados con servicios que abarcan a todo el sistema se colocan <b>en el directorio&nbsp;<span>&nbsp;/etc</span></b> , por convención. Los servicios web, servicios de impresión, servicios FTP y los servicios de correo electrónico son ejemplos de servicios que afectan todo el sistema y cuyos archivos de configuración se almacenan en <b>/etc</b>. Tengan presente que los usuarios comunes no tienen acceso de lectura a <b>/etc</b>. Esto es importante porque restringe la capacidad para cambiar la configuración de servicios <b>que</b> abarcan a todo el sistema solamente al usuario&nbsp;raíz (root).</p> <p class="SubStepAlpha" style="text-indent:0in">Utilice el comando ls para generar una lista con el contenido del directorio <b>/etc</b> :</p> <p class="CMDOutput">[analyst@secOps ~]$ <b>ls /etc/</b></p> <p class="CMDOutput"><span lang="DE">adjtime&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;host.conf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mke2fs.conf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rc_maps.cfg</span></p> <p class="CMDOutput"><span lang="DE">apache-ant&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hostname&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mkinitcpio.conf&nbsp;&nbsp;&nbsp;&nbsp; request-key.conf</span></p> <p class="CMDOutput"><span lang="DE">apparmor.d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hosts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mkinitcpio.d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; request-key.d</span></p> <p class="CMDOutput"><span lang="DE">arch-release&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifplugd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modprobe.d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; resolv.conf</span></p> <p class="CMDOutput"><span lang="DE">avahi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;initcpio&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modules-load.d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; resolvconf.conf</span></p> <p class="CMDOutput"><span lang="DE">bash.bash_logout&nbsp;inputrc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;motd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rpc</span></p> <p class="CMDOutput"><span lang="DE">bash.bashrc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iproute2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mtab&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rsyslog.conf</span></p> <p class="CMDOutput"><span lang="DE">binfmt.d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iptables&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nanorc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;securetty</span></p> <p class="CMDOutput"><span lang="DE">ca-certificates&nbsp;&nbsp;issue&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;netconfig&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; security</span></p> <p class="CMDOutput"><span lang="DE">crypttab&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;java-7-openjdk&nbsp;&nbsp;&nbsp;&nbsp;netctl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;services</span></p> <p class="CMDOutput"><span lang="DE">dbus-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;java-8-openjdk&nbsp;&nbsp;&nbsp;&nbsp;netsniff-ng&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; shadow</span></p> <p class="CMDOutput"><span lang="DE">default&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;kernel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nginx&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shadow-</span></p> <p class="CMDOutput"><span lang="DE">depmod.d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;krb5.conf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nscd.conf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; shells</span></p> <p class="CMDOutput"><span lang="DE">dhcpcd.conf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ld.so.cache&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nsswitch.conf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; skel</span></p> <p class="CMDOutput"><span lang="DE">dhcpcd.duid&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ld.so.conf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ntp.conf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ssh</span></p> <p class="CMDOutput"><span lang="DE">dkms&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ld.so.conf.d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;openldap&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ssl</span></p> <p class="CMDOutput"><span lang="DE">drirc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;libnl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;openvswitch&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sudoers</span></p> <p class="CMDOutput"><span lang="DE">elasticsearch&nbsp;&nbsp;&nbsp;&nbsp;libpaper.d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;os-release&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sudoers.d</span></p> <p class="CMDOutput"><span lang="DE">environment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lightdm&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pacman.conf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sudoers.pacnew</span></p> <p class="CMDOutput"><span lang="DE">ethertypes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;locale.conf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pacman.conf.pacnew&nbsp;sysctl.d</span></p> <p class="CMDOutput"><span lang="DE">filebeat&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;locale.gen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pacman.d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;systemd</span></p> <p class="CMDOutput"><span lang="DE">fonts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;locale.gen.pacnew&nbsp;pam.d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tmpfiles.d</span></p> <p class="CMDOutput"><span lang="DE">fstab&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;localtime&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pango&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;trusted-key.key</span></p><p class="CMDOutput"><span lang="DE">gai.conf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;login.defs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;papersize&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; udev</span></p> <p class="CMDOutput"><span lang="DE">gemrc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;logrotate.conf&nbsp;&nbsp;&nbsp;&nbsp;passwd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UPower</span></p> <p class="CMDOutput"><span lang="DE">group&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;logrotate.d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;passwd-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vdpau_wrapper.cfg</span></p> <p class="CMDOutput"><span lang="DE">group-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;logstash&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pcmcia&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vimrc</span></p> <p class="CMDOutput"><span lang="DE">group.pacnew&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lvm&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pkcs11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;webapps</span></p> <p class="CMDOutput"><span lang="DE">grub.d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;machine-id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;polkit-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wgetrc</span></p> <p class="CMDOutput"><span lang="DE">gshadow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mail.rc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X11</span></p><p class="CMDOutput"><span lang="DE">gshadow-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;makepkg.conf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;profile.d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xdg</span></p> <p class="CMDOutput"><span lang="DE">gshadow.pacnew&nbsp;&nbsp;&nbsp;man_db.conf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;protocols&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xinetd.d</span></p> <p class="CMDOutput"><span lang="DE">gtk-2.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mdadm.conf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pulse&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yaourtrc</span></p> <p class="CMDOutput"><span lang="DE">gtk-3.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mime.types&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rc_keymaps</span></p><p class="SubStepAlpha">e.<span>&nbsp;&nbsp;</span>Utilice el <b>comando&nbsp;<span>&nbsp;&nbsp;cat</span></b> para mostrar el contenido del archivo <b>bash_bashrc</b> :</p> <p class="CMDOutput">[analyst@secOps ~]$<span lang="PT-BR"><b>cat /etc/bash.bashrc</b></span></p> <p class="CMDOutput">#</p> <p class="CMDOutput"># /etc/bash.bashrc</p> <p class="CMDOutput">#</p> <p class="CMDOutput"># Si no se ejecuta de forma interactiva, no haga nada</p> <p class="CMDOutput">[[ $- != *i* ]] &amp;&amp; return</p> <p class="CMDOutput">[[ $DISPLAY ]] &amp;&amp; shopt -s checkwinsize</p> <p class="CMDOutput">PS1='[\\u@\\h \\W]\\$ '</p> <p class="CMDOutput">case ${TERM} in</p> <p class="CMDOutput">&nbsp; xterm*|rxvt*|Eterm|aterm|kterm|gnome*)</p> <p class="CMDOutput">;;</p> <p class="CMDOutput">esac</p> <p class="CMDOutput">[ -r /usr/share/bash-completion/bash_completion&nbsp;&nbsp; ] &amp;&amp; . /usr/share/bash-completion/bash_completion</p> <p class="CMDOutput">[analyst@secOps ~]$</p> <p class="BodyTextL50">La sintaxis de <b>bash_bashrc</b> está fuera del alcance de este curso. Este archivo define el comportamiento predeterminado del shell para todos los usuarios. Si un usuario quiere personalizar el comportamiento de su propio shell, se puede anular el comportamiento predeterminado si se <span>edita el archivo <b>.bashrc </b>ubicado</span> en el directorio de inicio del usuario. Como se trata de una configuración que abarca a todo el sistema, el archivo de configuración se ubica en <b>/etc, por lo que solo puede ser <b>editado</b> por el usuario</b>raíz. Por lo tanto, el usuario tendrá que iniciar sesión como root para modificar <b>bash.</b><b>bashrc</b>.</p> <h4 class="pageTracer-h4-title-hide">Pregunta:</h4></div>
+        </div>
+      </div>
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="96c2e4e6-13cb-4e99-93f2-300f1ac2658c" style="width: 5.26316%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="96c2e4e6-13cb-4e99-93f2-300f1ac2658c" class="96c2e4e6-13cb-4e99-93f2-300f1ac2658c block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="96c2e4e6-13cb-4e99-93f2-300f1ac2658c" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$805333404$--><!----><opentextbox-view modelid="1f36fdf7-bf81-44ea-a49e-1eb54dd18559" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="1f36fdf7-bf81-44ea-a49e-1eb54dd18559" class="component opentextbox 1f36fdf7-bf81-44ea-a49e-1eb54dd18559  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="1f36fdf7-bf81-44ea-a49e-1eb54dd18559" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$805333404$--> <div class="openTextBox__preText"><!--?lit$805333404$--><p class="BodyTextL50" style="margin-top:0in;page-break-after:avoid">¿Por qué los archivos de configuración de las aplicaciones del usuario se guardan en el directorio de inicio del usuario y no en <b>/etc</b> , junto con los demás archivos de configuración que abarcan a todo el sistema?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$805333404$--><!--?lit$805333404$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$805333404$-->
+                      <!--?lit$805333404$--><p class="BodyTextL50Answer"><span class="AnswerGray"><span style="border: none"><span style="border: none"> Los usuarios regulares no tienen permiso para escribir a /etc. Como Linux es un sistema operativo multiusuario, colocar archivos de configuración de aplicación de usuario en /etc evitaría que los usuariospudieran personalizar sus aplicaciones. </span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$805333404$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$805333404$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$805333404$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="be7c7be1-075f-4866-a73f-fe5731382457" style="width: 5.26316%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="be7c7be1-075f-4866-a73f-fe5731382457" class="be7c7be1-075f-4866-a73f-fe5731382457 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="be7c7be1-075f-4866-a73f-fe5731382457" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$805333404$--><!----><text-view modelid="ba875b46-a242-47ea-bc2e-9a9dcab598b9" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="ba875b46-a242-47ea-bc2e-9a9dcab598b9" class="component text ba875b46-a242-47ea-bc2e-9a9dcab598b9  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$805333404$--><h3>Paso 2: Editar y guardar archivos de configuración</h3> <p class="BodyTextL25">Como ya se mencionó, los archivos de configuración se pueden editar con editores de texto.</p> <p class="BodyTextL25">Editemos <b>.bashrc para cambiar el color del indicador del shell de verde a rojo para el <b>usuario</b></b>analyst.</p> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Primero, abra <span> SciTE; para ello , seleccione </span>Aplicaciones&nbsp;&gt; <b><b> CyberOPS </b>&gt;</b><b> SciTE </b>desde la barra de herramientas situada en la parte superior de la <b>pantalla de la <b>VM</b> CyberOPS de Cisco.</b></p> <p class="SubStepAlpha"><b>b.<span>&nbsp;&nbsp;</span>Seleccione <span> Archivo </span></b>&gt; <b> Abrir</b> , para <b>abrir</b>la ventana de archivo&nbsp;de <b>SciTE.</b></p> <p class="SubStepAlpha"><b>c.<span>&nbsp;&nbsp;</span>Como&nbsp;<span> </span><b>.bashrc</b> es un archivo oculto sin extensión, SciTE no lo muestra en la lista de archivos. Si la característica Ubicación no está visible en el cuadro de diálogo, cambie el tipo de archivo que se muestra seleccionando <b>Todos los archivos (*)</b> en el cuadro desplegable de tipo, como se muestra a continuación. Se muestran todos los archivos en el directorio de inicio del analista.</b></p> <p class="SubStepAlpha"><b>d.<span>&nbsp;&nbsp;</span>Seleccione<span> <b>.bashrc</b> y haga clic <b>en </b></span>Abrir.</b></p> <p class="SubStepAlpha" style="page-break-after:avoid"><b>e.<span>&nbsp;&nbsp;Ubique el </span>32 y reemplácenlo por un&nbsp;31. 32 es el código de color correspondiente al verde, mientras que 31 representa al rojo.</b></p></div>
+        </div>
+      </div>
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="ad720ad0-f20a-4b90-995f-7284f4a987a5" style="width: 5.26316%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="ad720ad0-f20a-4b90-995f-7284f4a987a5" class="ad720ad0-f20a-4b90-995f-7284f4a987a5 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="ad720ad0-f20a-4b90-995f-7284f4a987a5" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$805333404$--><!----><graphic-view modelid="597dfafc-05af-41e6-ac5c-14eaa645a3af" class="is-left" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="graphic-inner component__inner">
+            <div data-socialgoodpulse-id="597dfafc-05af-41e6-ac5c-14eaa645a3af" class="component graphic 597dfafc-05af-41e6-ac5c-14eaa645a3af  is-left   ">
+                <div class="component__header-container">
+                    <base-view type="component" lowercase_component="graphic" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header graphic__header">
+          <div class="component__header-inner graphic__header-inner">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+                <div class="component__widget">
+                    <!--?lit$805333404$-->
+                        <div class="graphic__image-container ">
+                            <img id="graphic__image" aria-hidden="false" tabindex="0" class="graphic__image js-graphic-set-image-src" src="data:image/jpeg;base64,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" data-large="./courses/content/m8/es-XL/assets/8.2.6-1-lab.jpg" data-small="./courses/content/m8/es-XL/assets/8.2.6-1-lab.jpg" alt="">
+
+                            <!--?lit$805333404$-->
+
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+        </graphic-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="61b239aa-7861-41c7-90d3-efbd793119f2" style="width: 5.26316%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="61b239aa-7861-41c7-90d3-efbd793119f2" class="61b239aa-7861-41c7-90d3-efbd793119f2 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="61b239aa-7861-41c7-90d3-efbd793119f2" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$805333404$--><!----><text-view modelid="24e9b6b6-648a-42c1-a933-5cfdba346fbf" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="24e9b6b6-648a-42c1-a933-5cfdba346fbf" class="component text 24e9b6b6-648a-42c1-a933-5cfdba346fbf  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$805333404$--><p class="SubStepAlpha"><b>f.<span>&nbsp;&nbsp;&nbsp;</span>Seleccione <span>&nbsp;&nbsp;&nbsp;Archivo&nbsp;&gt; </span><b> Guardar</b> para guardar <b>el</b> archivo, y <b>hagan clic en el icono de la <b>X</b> para cerrar </b>SciTE&nbsp;&nbsp; .</b></p> <p class="SubStepAlpha"><b>g.<span>&nbsp;&nbsp;</span><span>&nbsp;Haga clic </span>en el icono del terminal ubicado en el Dock, en la parte inferior central de la <b>pantalla de la VM</b> Cisco&nbsp;CyberOPS. El cursor debería verse de color rojo y no verde.</b></p> <h4 class="pageTracer-h4-title-hide"><b>Pregunta:</b></h4></div>
+        </div>
+      </div>
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="0361e510-42ad-447b-835d-7431a64171cf" style="width: 5.26316%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="0361e510-42ad-447b-835d-7431a64171cf" class="0361e510-42ad-447b-835d-7431a64171cf block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="0361e510-42ad-447b-835d-7431a64171cf" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$805333404$--><!----><opentextbox-view modelid="ec27a5a1-8d84-4052-8999-5187481dd1f9" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="ec27a5a1-8d84-4052-8999-5187481dd1f9" class="component opentextbox ec27a5a1-8d84-4052-8999-5187481dd1f9  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="ec27a5a1-8d84-4052-8999-5187481dd1f9" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$805333404$--> <div class="openTextBox__preText"><!--?lit$805333404$--><p class="BodyTextL50"><b>La ventana del terminal que ya estaba abierta, ¿también cambió de color, de verde a rojo? Explique.</b></p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$805333404$--><!--?lit$805333404$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$805333404$-->
+                      <!--?lit$805333404$--><p class="BodyTextL50Answer"><b><span class="AnswerGray"><span style="border: none"><span style="border: none"> No. El archivo .bashrc se ejecuta y se aplica cuando se abre por primera vez un terminal, de modo que los cambios realizados en el archivo .bashrc no afectarán a los terminales que se abrieron anteriormente. </span></span></span></b></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$805333404$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$805333404$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$805333404$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="8926067b-b13d-4b96-b4b8-cbe02d4d2f77" style="width: 5.26316%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="8926067b-b13d-4b96-b4b8-cbe02d4d2f77" class="8926067b-b13d-4b96-b4b8-cbe02d4d2f77 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="8926067b-b13d-4b96-b4b8-cbe02d4d2f77" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$805333404$--><!----><text-view modelid="9f953d10-7e9d-4125-b9c7-30286b079501" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="9f953d10-7e9d-4125-b9c7-30286b079501" class="component text 9f953d10-7e9d-4125-b9c7-30286b079501  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$805333404$--><p class="SubStepAlpha">h.<span>&nbsp;&nbsp;</span>El mismo cambio se podría haber hecho desde la línea de comando con un editor de texto <b>como&nbsp;<span></span></b>nano. En una ventana del terminal nueva escriba <b>nano&nbsp;.bashrc para abrir <b>nano</b> y cargarle automáticamente el <b>archivo&nbsp;.bashrc</b> :</b></p> <p class="CMD"><b><span lang="PT-BR">[analyst@secOps ~]$ <b>nano .bashrc</b></span></b></p> <p class="CMDOutput"><b><span lang="PT-BR">&nbsp; GNU nano 4.9.2&nbsp;&nbsp;&nbsp; File: .bashrc&nbsp;&nbsp; </span></b></p> <p class="CMDOutput"><b><span lang="PT-BR">export EDITOR=vim</span></b></p> <p class="CMDOutput"><b><span lang="PT-BR">PS1='\[\e[1;31m\][\u@\h \W]\$\[\e[0m\] '</span></b></p> <p class="CMDOutput"><b><span lang="PT-BR">alias ls="ls --color"</span></b></p> <p class="CMDOutput"><b><span lang="PT-BR">alias vi="vim"</span></b></p> <p class="CMDOutput"><b><span lang="PT-BR">&nbsp;&nbsp;</span>[ Read 5 lines ]</b></p> <p class="CMDOutput"><b>^G Get Help ^O Write Out ^W Where Is ^K Cut Text ^J Justify ^C Cur Pos</b></p> <p class="CMDOutput"><b>^X Exit&nbsp; ^R Read File ^\ Replace&nbsp;&nbsp; ^U Uncut Text^T To Spell&nbsp; ^_ Go To Line</b></p> <p class="SubStepAlpha"><b>i.<span>&nbsp;&nbsp;Cambien el&nbsp;&nbsp; </span>31 por un&nbsp;33. 33 es el código de color correspondiente al amarillo.</b></p> <p class="SubStepAlpha"><b>j.<span>&nbsp;&nbsp;&nbsp;</span>Presione <span>&nbsp;&nbsp;<b>CTRL+X</b> para guardar y </span>Y <b></b> para confirmar. El editor <b>de texto nano</b> también ofrece cambiar el nombre del archivo. Simplemente presionen <b>INTRO para utilizar el mismo nombre:</b><b>.bashrc</b>.</b></p> <p class="SubStepAlpha"><b>k.<span>&nbsp;&nbsp;</span>El editor <b>de</b> texto <span>nano terminará, y volverá al shell prompt. Esta vez vuelva a cargar el terminal bash introduciendo el comando <b>bash</b> en el terminal. El cursor ahora debería verse de color amarillo y no rojo.</span></b></p> <h3><b>Paso 3: Editar archivos de configuración correspondientes a servicios</b></h3> <p class="BodyTextL25"><b>Los archivos de configuración que abarcan a todo el sistema no son muy diferentes de los archivos de aplicación de usuario. <b>nginx es un servidor web ligero que está instalado en la</b> Máquina virtual Cisco</b>CyberOPS. <b>Se</b> puede personalizar <b>nginx cambiando su archivo de configuración, que se encuentra en &lt;x id="group-5-EMPTY" <b>/&gt;/etc/nginx</b>.</b></p> <p class="SubStepAlpha"><b>a.<span>&nbsp;&nbsp;</span>Primero abra el archivo de configuración de&nbsp;<span><b>nginx</b>con </span><b>nano</b>. El nombre del archivo de configuración que utilizamos aquí es <b>custom_server.conf</b>. A continuación, observe que el comando está precedido por el comando <b></b> sudo. Después de escribir <b>nano, incluya un espacio y <b>el switch</b> -l</b> para activar la numeración de líneas. </b></p> <p class="CMD"><b><span lang="PT-BR">[analyst@secOps ~]$ <b>sudo nano -l /etc/nginx/custom_server.conf</b></span></b></p> <p class="CMD"><b>[sudo] contraseña para analyst:</b></p> <p class="BodyTextL50"><b>Utilicen las teclas de las flechas para desplazarse por el archivo.</b></p> <b> <p class="CMDOutput"><span lang="PT-BR">&nbsp; GNU nano 4.9.2&nbsp;&nbsp;&nbsp; /etc/nginx/custom_server.conf&nbsp; </span></p><p class="CMDOutput"><span lang="PT-BR">&nbsp;</span></p><p class="CMDOutput"><span lang="PT-BR"></span>1</p><p class="CMDOutput">&nbsp; 2 #user html;</p><p class="CMDOutput">&nbsp; 3 worker_processes&nbsp; 1;</p><p class="CMDOutput">&nbsp; 4</p><p class="CMDOutput">&nbsp; 5 #error_log&nbsp; logs/error.log;</p><p class="CMDOutput">&nbsp; 6 #error_log&nbsp; logs/error.log&nbsp; notice;</p><p class="CMDOutput">&nbsp; 7 #error_log&nbsp; logs/error.log&nbsp; info;</p><p class="CMDOutput">8&nbsp; 8</p><p class="CMDOutput">&nbsp; 9 #pid&nbsp;&nbsp;&nbsp; logs/nginx.pid;</p><p class="CMDOutput">&nbsp;10</p><p class="CMDOutput">&nbsp;11</p><p class="CMDOutput">&nbsp;12 eventos {</p><p class="CMDOutput">&nbsp;13 worker_connections&nbsp; 1024;</p><p class="CMDOutput">&nbsp;14 }</p><p class="CMDOutput">&nbsp;15</p><p class="CMDOutput">&nbsp;16</p><p class="CMDOutput">&nbsp;17 http {</p><p class="CMDOutput">&nbsp;18 include&nbsp;&nbsp; mime.types;</p><p class="CMDOutput">&nbsp;19 default_type&nbsp; application/octet-stream;</p><p class="CMDOutput">&nbsp;20</p><p class="CMDOutput">&nbsp;21 #log_format&nbsp; main&nbsp; '$remote_addr - $remote_user [$time_local] "$request" '</p><p class="CMDOutput">&nbsp;22 #&nbsp; '$status $body_bytes_sent "$http_referer" '</p><p class="CMDOutput">&nbsp;23 #&nbsp; '"$http_user_agent" "$http_x_forwarded_for"';</p><p class="CMDOutput">&nbsp;24</p><p class="CMDOutput">&nbsp;25 #access_log&nbsp; logs/access.log&nbsp; main;</p><p class="CMDOutput">&nbsp;26</p><p class="CMDOutput">&nbsp;27 sendfile&nbsp;&nbsp;&nbsp; on;</p><p class="CMDOutput">&nbsp;28 #tcp_nopush on;</p><p class="CMDOutput">&nbsp;29</p><p class="CMDOutput">&nbsp;30 #keepalive_timeout&nbsp; 0;</p><p class="CMDOutput">&nbsp;31 keepalive_timeout&nbsp; 65;</p><p class="CMDOutput">&nbsp;32</p><p class="CMDOutput">&nbsp;33 #gzip&nbsp; on;</p><p class="CMDOutput">&nbsp;34</p><p class="CMDOutput">&nbsp;35 types_hash_max_size 4096;</p><p class="CMDOutput">&nbsp;36 server_names_hash_bucket_size 128;</p><p class="CMDOutput">&nbsp;37</p><p class="CMDOutput">&nbsp;38 server {</p><p class="CMDOutput">&nbsp;39 listen&nbsp;&nbsp; 81;</p><p class="CMDOutput">&nbsp;40 server_name&nbsp; localhost;</p><p class="CMDOutput">&nbsp;40 server_name&nbsp; localhost;</p><p class="CMDOutput">&nbsp;42 #charset koi8-r;</p><p class="CMDOutput">&nbsp;43</p><p class="CMDOutput">&nbsp;44 #access_log&nbsp; logs/host.access.log&nbsp; main;</p><p class="CMDOutput">&nbsp;45</p><p class="CMDOutput">&nbsp;46 location / {</p><p class="CMDOutput">&nbsp;47 root&nbsp;&nbsp; /usr/share/nginx/html;</p><p class="CMDOutput">&nbsp;48 index&nbsp; index.html index.htm;</p><p class="CMDOutput">&nbsp;49 }</p><p class="CMDOutput">&lt;Alguna salida omitida&gt;</p><p class="SubStepAlpha" style="text-indent:0in"><b>Nota</b>:<b></b>Convencionalmente,<b> las extensiones .conf</b> se usan para identificar archivos de configuración.</p><p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>span&gt;&nbsp;&nbsp;&nbsp;Aunque que el archivo de configuración tiene muchos parámetros, configuraremos solo&nbsp;dos: el puerto&nbsp;nginx escucha en busca de conexiones entrantes, y el directorio desde el que atenderá páginas web, incluido el archivo de la página de inicio&nbsp;HTML del índice.</p><p class="SubStepAlpha">c.<span>&nbsp;&nbsp;</span>span&gt;&nbsp;&nbsp;span&gt;Observe que, en la parte inferior de la ventana (arriba de los comandos de nano), el número de línea se ve resaltado y litado. En la línea&nbsp;39, cambien el número de puerto de <b>81&nbsp;a</b><b>8080</b>. Esto le indicará a nginx que escuche solicitudes&nbsp;HTTP en el puerto <b>TCP&nbsp;8080</b>.</p><p class="SubStepAlpha">d.<span>&nbsp;&nbsp;</span>span&gt;&nbsp;&nbsp;span&gt; A continuación , diríjase a la línea 47 y cambie la ruta de &lt;x id="group-4-EMPTY" <b>/&gt;/usr/compartir/nginx/html/</b> a &lt;x id="group-5-EMPTY" <b>/&gt;/usr/share/nginx/html/text_ed_lab/.</b></p><p class="BodyTextL50">Nota<b>: Tome la precaución de no quitar el signo de punto&nbsp;y&nbsp;coma del final de la <b>línea</b> ; si lo hacen, nginx</b>arrojará un error al arrancar.</p></b> <p class="SubStepAlpha"><b>e.<span>&nbsp;&nbsp;</span>Presione <b>CTRL+X</b> para guardar el archivo. Presione <b>Y y luego</b> INTRO</b> para confirmar y utilizar <b>custom <b>_server.conf</b> como nombre de archivo.</b></p> <p class="SubStepAlpha"><b>f.<span>&nbsp;&nbsp;&nbsp;</span><span>Escriba </span>el comando que se indica a continuación para ejecutar nginx utilizando el archivo de configuración modificado:</b></p> <p class="CMD"><b>[analyst@secOps ~]$ <b>sudo nginx -c custom_server.conf</b></b></p> <p class="SubStepAlpha"><b>g.<span>&nbsp;&nbsp;</span>Haga clic en el icono del <span>navegador </span>web del Dock para abrir el navegado web.</b></p> <p class="SubStepAlpha"><b>h.<span>&nbsp;&nbsp;</span>En la barra de direcciones, escriban&nbsp;<span><b>127.0.0.1:8080 para conectarse a un servidor&nbsp;web aojado en el puerto</b> 8080 de la máquina local. Debería aparecer una página relacionada con esta práctica de laboratorio.</span></b></p> <p class="SubStepAlpha"><b>i.<span>&nbsp;&nbsp;&nbsp;</span>Después de que <b>haya podido abrir la página de inicio de <span>nginx</span></b> , mire el mensaje de conexión en la ventana del terminal.</b></p> <h4 class="pageTracer-h4-title-hide"><b>Pregunta:</b></h4></div>
+        </div>
+      </div>
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="1a2d0b9f-880f-4a3d-a3aa-41c5821ca721" style="width: 5.26316%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="1a2d0b9f-880f-4a3d-a3aa-41c5821ca721" class="1a2d0b9f-880f-4a3d-a3aa-41c5821ca721 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="1a2d0b9f-880f-4a3d-a3aa-41c5821ca721" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$805333404$--><!----><opentextbox-view modelid="bb988529-dba2-4e42-9c6e-8414dd14c349" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="bb988529-dba2-4e42-9c6e-8414dd14c349" class="component opentextbox bb988529-dba2-4e42-9c6e-8414dd14c349  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="bb988529-dba2-4e42-9c6e-8414dd14c349" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$805333404$--> <div class="openTextBox__preText"><!--?lit$805333404$--><p class="BodyTextL50"><b>¿A qué se refiere el mensaje de error?</b></p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$805333404$--><!--?lit$805333404$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$805333404$-->
+                      <!--?lit$805333404$--><p class="BodyTextL50Answer"><b><span class="AnswerGray"><span style="border: none"><span style="border: none"> El mensaje de error fue generado por la conexión exitosa de la página web y parece ser causado por un archivo favicon.ico que falta en el directorio lab.support.files. </span></span></span></b></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$805333404$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$805333404$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$805333404$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="ea04ac9b-b380-4e01-9547-fdcf08886b77" style="width: 5.26316%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="ea04ac9b-b380-4e01-9547-fdcf08886b77" class="ea04ac9b-b380-4e01-9547-fdcf08886b77 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="ea04ac9b-b380-4e01-9547-fdcf08886b77" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$805333404$--><!----><text-view modelid="42fa6cf0-73d3-4b8c-ba09-12c53ed63eb0" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="42fa6cf0-73d3-4b8c-ba09-12c53ed63eb0" class="component text 42fa6cf0-73d3-4b8c-ba09-12c53ed63eb0  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$805333404$--><p class="SubStepAlpha"><b>j.<span>&nbsp;&nbsp;&nbsp;</span>Para cerrar el servidor <b>web</b> de <span>&nbsp;nginx presione </span><b>INTRO</b> y le aparecerá un símbolo del sistema; allí escriba el siguiente comando en la ventana del terminal:</b></p> <p class="CMD"><b><span lang="PT-BR">[analyst@secOps ~]$ <b>sudo pkill nginx</b></span></b></p> <p class="SubStepAlpha"><b>k.<span>&nbsp;&nbsp;</span>Puede probar si el servidor&nbsp;<span><b>nginx</b> realmente está cerrado si primero borra el historial reciente del navegador&nbsp;web y, luego, lo cierra y vuelve a abrirlo para finalmente dirigirse a la página de inicio de nginx:&nbsp;127.0.0.1:8080.</span></b></p> <h4 class="pageTracer-h4-title-hide"><b>Pregunta:</b></h4></div>
+        </div>
+      </div>
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="99e8b1b0-09b1-4b53-98b2-9db22f653c8c" style="width: 5.26316%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="99e8b1b0-09b1-4b53-98b2-9db22f653c8c" class="99e8b1b0-09b1-4b53-98b2-9db22f653c8c block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="99e8b1b0-09b1-4b53-98b2-9db22f653c8c" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$805333404$--><!----><opentextbox-view modelid="67ac02d9-c123-4ddf-8806-3b7c7d988d41" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="67ac02d9-c123-4ddf-8806-3b7c7d988d41" class="component opentextbox 67ac02d9-c123-4ddf-8806-3b7c7d988d41  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="67ac02d9-c123-4ddf-8806-3b7c7d988d41" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$805333404$--> <div class="openTextBox__preText"><!--?lit$805333404$--><p class="BodyTextL50" style="margin-top:0in;page-break-after:avoid"><b>¿Aparece la página&nbsp;web?</b></p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$805333404$--><!--?lit$805333404$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$805333404$-->
+                      <!--?lit$805333404$--><p class="BodyTextL50Answer"><b><span class="AnswerGray"><span style="border: none"><span style="border: none"> No. </span></span></span></b></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$805333404$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$805333404$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$805333404$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="0ebf4f6d-4d2a-43cd-9c6a-4c39b7173f6e" style="width: 5.26316%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="0ebf4f6d-4d2a-43cd-9c6a-4c39b7173f6e" class="0ebf4f6d-4d2a-43cd-9c6a-4c39b7173f6e block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="0ebf4f6d-4d2a-43cd-9c6a-4c39b7173f6e" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$805333404$--><!----><text-view modelid="3a130f74-ea1c-4616-83fc-720d5c17485e" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="3a130f74-ea1c-4616-83fc-720d5c17485e" class="component text 3a130f74-ea1c-4616-83fc-720d5c17485e  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$805333404$--><p class="BodyTextL25" style="page-break-after:avoid"><b>Desafío</b>: ¿Puede editar el <b>archivo&nbsp;/etc/nginx/custom_configuration.conf</b> con SciTE? Describa el proceso a continuación.</p></div>
+        </div>
+      </div>
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="7fbb5973-0a37-48f3-b6fa-228e68b75546" style="width: 5.26316%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="7fbb5973-0a37-48f3-b6fa-228e68b75546" class="7fbb5973-0a37-48f3-b6fa-228e68b75546 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="7fbb5973-0a37-48f3-b6fa-228e68b75546" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$805333404$--><!----><opentextbox-view modelid="55cd265e-fe9e-46ce-9254-a11ab13a9e00" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="55cd265e-fe9e-46ce-9254-a11ab13a9e00" class="component opentextbox 55cd265e-fe9e-46ce-9254-a11ab13a9e00  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="55cd265e-fe9e-46ce-9254-a11ab13a9e00" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$805333404$--> <div class="openTextBox__preText"><!--?lit$805333404$--><p class="BodyTextL25" style="page-break-after:avoid"><b>Recuerde:</b> como el archivo está almacenado en /etc, necesitará permisos de usuario&nbsp;raíz para editarlo.</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$805333404$--><!--?lit$805333404$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$805333404$-->
+                      <!--?lit$805333404$--><p class="BodyTextL50Answer"><b><span class="AnswerGray"><span style="border: none"><span style="border: none"> Desde una ventana de terminal, emita sudo scite /etc/nginx/custom_configuration.conf para iniciar scite como root. </span></span></span></b></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$805333404$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$805333404$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$805333404$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="ac701d32-5ca0-4749-a84c-8e29c0368a36" style="width: 5.26316%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="ac701d32-5ca0-4749-a84c-8e29c0368a36" class="ac701d32-5ca0-4749-a84c-8e29c0368a36 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="ac701d32-5ca0-4749-a84c-8e29c0368a36" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$805333404$--><!----><text-view modelid="e4979ac2-05b2-40eb-9e30-05e20fdd8f7d" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="e4979ac2-05b2-40eb-9e30-05e20fdd8f7d" class="component text e4979ac2-05b2-40eb-9e30-05e20fdd8f7d  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$805333404$--><h2><b>Reflexión</b></h2> <p class="BodyTextL25">Dependiendo del servicio, es posible que haya más opciones disponibles para su configuración.</p> <p class="BodyTextL25">La ubicación del archivo de configuración, su sintaxis y sus parámetros disponibles variarán según el servicio. Siempre consulte la documentación si necesitan información.</p> <p class="BodyTextL25">Los permisos son una causa muy común de problemas. Asegúrese de tener los permisos correctos antes de tratar de editar archivos de configuración.</p> <p class="BodyTextL25">Lo más frecuente es que sea necesario reiniciar los servicios para que los cambios surtan efecto.</p></div>
+        </div>
+      </div>
+            <!--?lit$805333404$-->
+            <!--?lit$805333404$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!---->
+                            </div>
+                        </div>
+                        <!--?lit$805333404$-->
+                    </div>
+                </div>
+            </div>
+        <sgpluse-opentextboxcontroller-view modelid="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+            <div class="openTextBoxController__button-container">
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__showButton show-answer show"><!--?lit$805333404$-->Mostrar todas las respuestas</button>    
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__hideButton hide-answer hide"><!--?lit$805333404$-->Ocultar todas las respuestas</button>    
+                <button class="btn-text resetbtn openTextBoxController__resetButton"><!--?lit$805333404$-->Borrar mis respuestas</button>         
+            </div>
+            <!--?lit$805333404$--><hr>
+            <!--?lit$805333404$-->
+                <div class="post-text" tabindex="0">
+                    <!--?lit$805333404$--><b><span> <span style="padding-right:5px;float:left;font-family:arial;font-size:12px;"> © 2017 - 2022 Cisco and/or its affiliates. All rights reserved. Cisco Public </span> </span></b>
+                </div>
+                   
+        </sgpluse-opentextboxcontroller-view><script></script>
+<script>
+    window.addEventListener("load", function () {
+      console.log("loaded");
+      document?.querySelectorAll(".answergray").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".show-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.remove("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.add("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      let event = new Event("click", {
+        bubbles: true,
+        cancelable: true,
+      });
+      document
+        ?.querySelectorAll(".openTextBoxController__showButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".show-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__hideButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__resetButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            document?.querySelectorAll("textArea").forEach(function (ele) {
+              ele.value = "";
+            });
+          });
+        });
+
+      document
+      ?.querySelectorAll('textarea')
+      .forEach(function (ele){
+        ele.defaultValue = ele.defaultValue.replace(/<!--.*?-->/g, '');
+      })
+        let checkButtonLabel = "check_button_label_placeHolder";
+        let hideButtonLabel = "hide_button_label_placeHolder";
+        document?.querySelectorAll(".check__button").forEach(function (ele) {
+        let answerBox = document.querySelector(".check__solution")
+        if (!answerBox.classList.contains("check__hidden")) {
+          answerBox.classList.add("check__hidden");
+          ele.innerText = checkButtonLabel;
+        }
+          ele.addEventListener("click", function (e) {
+            if (answerBox.classList.contains("check__hidden")) {
+              answerBox.classList.remove("check__hidden")
+              ele.innerText = hideButtonLabel;
+            } else {
+              answerBox.classList.add("check__hidden")
+              ele.innerText = checkButtonLabel;
+            }
+          })
+        })
+    });
+  </script>
+  </body></html>

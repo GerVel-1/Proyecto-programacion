@@ -1,0 +1,2530 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 1rem;
+      }
+      ol,
+      ul {
+        margin-bottom: 0in;
+      }
+      table {
+        margin-top: 1rem;
+        border: 1px solid gray;
+        width: 7in;
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > .openTableTextBox__table-header-data {
+        text-align: center;
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0in;
+        text-align: center;
+        line-height: 115%;
+        page-break-after: avoid;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        font-weight: bold;
+        background: #dbe5f1;
+        padding: 0.5rem;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .openTextBox__textArea-container {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 50%;
+      }
+      .openTableTextBox__fieldset {
+        padding: 5px;
+      }
+      td {
+        margin-top: 3pt;
+        margin-right: 0in;
+        margin-bottom: 3pt;
+        margin-left: 0in;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 98.85pt;
+        border: solid windowtext 1pt;
+        border-top: none;
+        padding: 0.7pt 5.75pt 0.7pt 5.75pt;
+      }
+      textarea {
+        width: 100%;
+      }
+      .answergray {
+        padding: 0.2rem;
+      }
+
+      .openTableTextBox__widget {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0.25in;
+      }
+
+      .show-answer,
+      .hide-answer {
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border: 0px;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .openTextBoxController__button-container {
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .openTextBoxController__button-container .btn-text {
+        margin: 10px;
+      }
+
+      .btn-text {
+        border: 0px;
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border-radius: 0;
+        cursor: pointer;
+      }
+
+      .u-display-none {
+        display: none;
+      }
+      .openTextBox__postText, openTableTextBox__postText {
+        margin-top: 0.5rem;
+      }
+      .edit-comment {
+        display: none;
+      }
+      .js-heading-inner {
+        display: none;
+      }
+      .block__title-inner,
+      .article__title-inner {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+      h2{
+        font-size: 1.25em;
+      }
+      h3{
+        font-size: 1.125em;
+      }
+      .table
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: solid windowtext 1pt;
+      }
+      table tbody tr th, table thead tr th{
+        border: solid windowtext 1pt;
+        background-color: #d6d8dc;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .command-output > .table-inner > .table-wrapper > .table-widget > table,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > td,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: none !important;
+        text-align: right !important;
+      }
+      .simple-table > .table-inner > .table-wrapper{
+        margin-left: 1.5rem;
+      }
+      .openTextBox__widget {
+        margin-left: 1.5rem;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      .answergray {
+        background-color: #ccc;
+      }
+      .openTableTextBox__widget > .answergray {
+        background-color: #fff !important;
+      }
+      li > ul,ol > li{
+        margin-left: 0px !important;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      
+      .component__title{
+        font-family: inherit;
+        font-size: 1.65em;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .component__body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .accessibility-completion-indicator{
+        display: none;
+      }
+
+      .check__hidden {
+        display: none;
+      }
+
+      .check__button {
+        border: none;
+        border-radius: 6px !important;
+        background-color: #6abf4b;
+        color: #fff;
+        min-width: 100px;
+        margin: 0.625rem 0;
+        padding: 0.7rem;
+      }
+
+      .check__widget .check__solution .DevConfigGray {
+        background-color: rgb(214,216,220);
+        font-weight: bold;
+      }
+
+      .check-inner .check__widget .check__solution .DevConfigs {
+        margin: 0px;
+        line-height: 115%;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .check__solution  {
+        line-height: 1.5;
+      }
+      .mcq__inner .mcq__widget .mcq__widget-inner {
+        margin-block: 1rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item {
+        display: flex;
+        gap: 0.2rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item .mcq__item-label .mcq__item-text .screenReader-position-text{
+        display: none;
+      }
+      .opentabletextbox-inner .opentabletextBox__widget .openTableTextBox__answerText.answergray {
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox{
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox img{
+        margin-block: 1rem;
+        margin-left: initial;
+      }
+      .component__content .component__body-inner .pageTracer-h4-title-hide {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        font-size: 0px;
+        color: rgb(var(--neutral-2));
+        font-weight: normal;
+      }
+      .table-inner .table__widget table tr.TableHeading th, .table-inner .table__widget table tr.TableHeading td, .table-inner .table__widget table tr td.TableHeading, .opentabletextbox-table thead tr.TableHeading th, .opentabletextbox-table tbody tr.TableHeading td, .opentabletextbox-table tbody tr td.TableHeading {
+        background-color: #d6d8dc;
+        text-align: center;
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .CMD, .component__content .component__body-inner .CMDOutput, .component__content .component__body-inner .CMDOutput__table{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        margin-inline-start: 30px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      [dir="rtl"] .component__content .component__body-inner .CMDOutput__table span {
+        direction: ltr;
+        display: inline-block;
+      }
+      .openTextBox__inner .openTextBox__widget .CMD, .openTextBox__inner .openTextBox__widget .CMDOutput{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .openTextBox__inner .openTextBox__widget .DnTbold, .openTextBox__inner .openTextBox__widget .BodyTextL25Bold, .component__content .component__body-inner .BodyTextL25Bold, .component__content .component__body-inner .DnTbold, .table-inner .table__widget table tr .DnTbold {
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .SubStepNum {
+        text-indent: -25.5px;
+        margin-inline-start: 50px;
+      }
+      .component__content .component__body-inner .BodyTextL50 {
+        margin-inline-start: 30px;
+      }
+      .component__content .component__body-inner .Bulletlevel1 {
+        text-indent: -19px;
+        margin-inline-start: 48px;
+      }
+      .component__content .component__body-inner .Bulletlevel2 {
+          text-indent: -19px;
+          margin-inline-start: 72px;
+      }
+      .openTextBox__inner .openTextBox__widget .ReflectionQ, .component__content .component__body-inner .SubStepAlpha {
+          text-indent: -25.5px;
+          margin-inline-start: 30px;
+      }
+    </style>
+
+</head><body><!---->
+            <div class="article 06f92837-1aca-47cb-a496-7bb0fd4dc502 remove-padding-top remove-padding-bottom ">
+                <div class="article__inner">
+                <div class=" no-adaptive-scroll">
+                    <!--?lit$1944096033$-->
+                        <div class=""> 
+                            <base-view type="article" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="article__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="article__header ">
+          <div class="article__header-inner ">
+            <!--?lit$1944096033$-->
+      <div class="article__title ">
+        <!--?lit$1944096033$--><heading-view aria-hidden="true" id="06f92837-1aca-47cb-a496-7bb0fd4dc502-heading-view" headingtitle="Práctica de laboratorio: Documentar los problemas de ciberseguridad de la empresa" modelid="06f92837-1aca-47cb-a496-7bb0fd4dc502" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="js-heading is-incomplete">
+        <div class="js-heading-inner" role="heading" id="article-heading" aria-level="2">
+        <span class="aria-label"> <!--?lit$1944096033$-->Incompleto &nbsp;<!--?lit$1944096033$-->Práctica de laboratorio: Documentar los problemas de ciberseguridad de la empresa</span>
+        </div>
+      </div>
+    </heading-view>
+        <div tabindex="0" role="heading" class="article__title-inner " aria-level="2">
+          <span class="accessibility-completion-indicator"><!--?lit$1944096033$-->Incompleto </span>
+          <!--?lit$1944096033$-->Práctica de laboratorio: Documentar los problemas de ciberseguridad de la empresa
+        </div>
+      </div>
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                            <div class="block__container " style="">
+                                <!--?lit$1944096033$--><!---->
+                                    <block-view modelid="81ebffab-1314-42d3-a255-2e0b75bc40c6" style="width: 9.09091%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="81ebffab-1314-42d3-a255-2e0b75bc40c6" class="81ebffab-1314-42d3-a255-2e0b75bc40c6 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="81ebffab-1314-42d3-a255-2e0b75bc40c6" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$1944096033$--><!----><text-view modelid="d06e5ff4-925f-4f7f-b5a0-e350cb3ab930" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="d06e5ff4-925f-4f7f-b5a0-e350cb3ab930" class="component text d06e5ff4-925f-4f7f-b5a0-e350cb3ab930  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$1944096033$--><h2>Objetivos</h2> <p class="BodyTextL25Bold">Parte 1: Registre su evaluación de los problemas de ciberseguridad de Athena.</p> <p class="BodyTextL25Bold">Parte 2: Registre los diferentes tipos de bienes que posee Athena.</p> <p class="BodyTextL25Bold">Parte 3: Enumere las amenazas para cada tipo de activo.</p> <p class="BodyTextL25Bold">Parte 4: Recomiende técnicas de mitigación para hacer frente a cada amenaza. </p> <p class="BodyTextL25"><b>Nota</b>: Esta práctica de laboratorio supone que tiene conocimientos básicos de vulnerabilidades, amenazas y técnicas de mitigación.</p> <h2>Situación</h2> <p class="BodyTextL25">Athena Learning Incorporated es un proveedor de servicios educativos. Athena tiene dos líneas principales de negocios: creación de contenido de cursos y servicios de aprendizaje en línea. Athena crea contenidos de aprendizaje y aloja contenidos de aprendizaje. Athena también ofrece servicios de venta por Internet que permiten a sus socios cobrar a sus alumnos por asistir a sus cursos. </p> <p class="BodyTextL25">Athena emplea a unas 100 personas en su sede central, y a unas 5 personas en cada una de sus oficinas de Londres y Singapur. Dado que presta servicios de contenido y distribución a nivel mundial, Athena debe cumplir con diversas normas de privacidad y seguridad. </p> <p class="BodyTextL25">Athena actúa como custodio de sus propios contenidos y de los que pertenecen a sus socios. Ese contenido incluye texto, gráficos, video y recursos interactivos. Este contenido es la propiedad intelectual esencial de la empresa. También gestiona la información de las cuentas de los estudiantes, incluida la inscripción, la autenticación, los registros y la información de pago. Athena administra sus propias bases de datos SQL, algunas de las cuales están conectadas a portales web.</p> <p class="BodyTextL25">La red de Athena se compone principalmente de clientes de MS Windows y Apple IOS con una combinación de servidores de Microsoft y Linux para almacenar registros comerciales y de empleados, recursos de contenido de aprendizaje e información financiera, incluidos datos de clientes. Los hosts incluyen varias marcas y modelos de PC de diferente antigüedad. Se utilizan diferentes versiones de sistemas operativos. Athena utiliza servicios en la nube para ofrecer cursos al público, pero debe alojar los cursos montados en la red interna para su creación y edición. Cuando los cursos están disponibles, son espejados en la nube. Los empleados pueden usar sus teléfonos y tablets personales para el trabajo. Además, algunos empleados trabajan desde su casa, pero requieren acceso completo a la red para hacerlo. Athena también aloja sus propios servicios de DNS, correo electrónico e intranet.</p> <p class="BodyTextL25">Los empleados de Athena utilizan software de aplicaciones ofimáticas comunes, aplicaciones personalizadas y herramientas creadas internamente.</p> <p class="BodyTextL25">Athena proporciona acceso a partes de su red interna a sus socios a través de un portal web seguro. Los clientes pueden obtener una vista previa del contenido del curso y entregar los recursos del curso a Athena para su montaje en el sistema de administración del aprendizaje de Athena. Los estudiantes interactúan con la plataforma de aprendizaje gestionada en la nube a través de los inicios de sesión de sus cuentas web.</p> <p class="BodyTextL25">En esta práctica de laboratorio aplicará sus conocimientos sobre amenazas de ciberseguridad y técnicas de mitigación a un entorno corporativo. Leerá sobre una empresa, clasificará sus activos y luego enumerará las posibles vulnerabilidades y amenazas que enfrenta la empresa. Por último, recomendará medidas de mitigación de amenazas para las amenazas que identifique.</p> <h2>Recursos necesarios</h2> <p class="Bulletlevel1"><span style="font-size:7.0pt;font-family:Webdings">=</span><span>&nbsp;&nbsp;</span>Dispositivos con acceso a Internet </p> <h2>Instrucciones</h2> <h2>Parte 1: Registre su evaluación de los problemas de ciberseguridad de Athena.</h2> <p class="BodyTextL25">Estudie el <b>escenario</b> anterior sobre Athena Learning Incorporated. Céntrese en identificar los datos, el software, el hardware y los recursos de red que deben protegerse para garantizar que la empresa no se vea afectada por diversos tipos de amenazas que se han analizado en el curso hasta ahora.</p> <p class="BodyTextL25">Use las tablas a continuación para registrar sus respuestas.</p></div>
+        </div>
+      </div>
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="eb1f50c9-b754-43f3-92ec-d966056d1f56" style="width: 9.09091%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="eb1f50c9-b754-43f3-92ec-d966056d1f56" class="eb1f50c9-b754-43f3-92ec-d966056d1f56 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="eb1f50c9-b754-43f3-92ec-d966056d1f56" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$1944096033$--><!----><opentabletextbox-view modelid="b8059189-c032-437b-ac78-b655b95a3f49" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+      <div class="component">
+        <div class="opentabletextbox-inner component__inner">
+          <div data-socialgoodpulse-id="b8059189-c032-437b-ac78-b655b95a3f49" class="component opentabletextbox b8059189-c032-437b-ac78-b655b95a3f49  is-full   ">
+            <div class="component__header-container">
+              <div data-socialgoodpulse-id="b8059189-c032-437b-ac78-b655b95a3f49" class="opentabletextbox ">
+                <base-view type="component" lowercase_component="openTableTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTableTextBox__header">
+          <div class="component__header-inner openTableTextBox__header-inner">
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+              </div>
+            </div>
+            <div class="component__widget opentabletextBox__widget question-container ">
+              <div class="openTableTextBox__preText">
+                <!--?lit$1944096033$-->
+              </div>
+              <div class="opentabletextbox-container openTableTextBox__table-container">
+                <table class="opentabletextbox-table" tabindex="0">
+                  <!--?lit$1944096033$-->
+                        <thead class="openTableTextBox__table-header">
+                          <tr>
+                            <!--?lit$1944096033$--><!----><th tabindex="0" scope="col"><!--?lit$1944096033$-->Información/Activos de datos</th><!----><!----><th tabindex="0" scope="col"><!--?lit$1944096033$-->Amenazas</th><!----><!----><th tabindex="0" scope="col"><!--?lit$1944096033$-->Mitigación</th><!---->
+                          </tr>
+                        </thead>
+                  <tbody>
+                    <!--?lit$1944096033$--><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$1944096033$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$1944096033$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$1944096033$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$1944096033$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$1944096033$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!---->
+                  </tbody>
+                </table>
+              </div>
+              <div class="openTableTextBox__answerText answergray openTableTextBox__table-container is-full hide">
+                <table class="opentabletextbox-table openTableTextBox__table-inner" tabindex="0">
+                  <!--?lit$1944096033$-->
+                        <thead class="openTableTextBox__table-header">
+                          <tr tabindex="0">
+                            <!--?lit$1944096033$--><!----><th scope="col"><!--?lit$1944096033$-->Información/Activos de datos</th><!----><!----><th scope="col"><!--?lit$1944096033$-->Amenazas</th><!----><!----><th scope="col"><!--?lit$1944096033$-->Mitigación</th><!---->
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <!--?lit$1944096033$--><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$1944096033$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$-->Información personal identificable de los estudiantes en los servidores</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Robo de datos de información protegida</li><li>Robo de identidad</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Cifrar los datos almacenados</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$1944096033$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$-->Información de ventas del alumno</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Robo de identidad</li><li>Robo de información de tarjetas de crédito</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Cifrar los datos almacenados</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$1944096033$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$-->Contenido de aprendizaje en el sitio web del curso</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Acceso no autorizado</li><li>Robo de datos</li><li>Alteración del contenido</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Autenticación robusta</li><li>Fortalecimiento de la aplicación web</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$1944096033$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$-->Recursos del cliente durante la carga en Apollo</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Manipulación de datos</li><li>Robo de datos</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>VPN</li><li>Hash de activos</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$1944096033$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$-->Datos y servicios requeridos por los empleados que trabajan desde su casa</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Robo de datos</li><li>Manipulación de datos</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>VPN</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!---->
+                      </tbody>
+                </table>
+              </div>
+              <div class="btn__container">
+                <button class="btn-text openTableTextBox__showButton show-answer show"><!--?lit$1944096033$-->Mostrar respuesta</button>
+                <button class="btn-text openTableTextBox__showButton hide-answer hide"><!--?lit$1944096033$-->Ocultar respuesta</button>
+              </div>
+              <div class="openTableTextBox__postText">
+                <!--?lit$1944096033$-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </opentabletextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="2dab3edc-8aa8-48ba-829a-6c3f6ab24c9e" style="width: 9.09091%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="2dab3edc-8aa8-48ba-829a-6c3f6ab24c9e" class="2dab3edc-8aa8-48ba-829a-6c3f6ab24c9e block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="2dab3edc-8aa8-48ba-829a-6c3f6ab24c9e" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$1944096033$--><!----><opentabletextbox-view modelid="da7990f7-499f-498e-9411-18948f61b89e" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+      <div class="component">
+        <div class="opentabletextbox-inner component__inner">
+          <div data-socialgoodpulse-id="da7990f7-499f-498e-9411-18948f61b89e" class="component opentabletextbox da7990f7-499f-498e-9411-18948f61b89e  is-full   ">
+            <div class="component__header-container">
+              <div data-socialgoodpulse-id="da7990f7-499f-498e-9411-18948f61b89e" class="opentabletextbox ">
+                <base-view type="component" lowercase_component="openTableTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTableTextBox__header">
+          <div class="component__header-inner openTableTextBox__header-inner">
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+              </div>
+            </div>
+            <div class="component__widget opentabletextBox__widget question-container ">
+              <div class="openTableTextBox__preText">
+                <!--?lit$1944096033$-->
+              </div>
+              <div class="opentabletextbox-container openTableTextBox__table-container">
+                <table class="opentabletextbox-table" tabindex="0">
+                  <!--?lit$1944096033$-->
+                        <thead class="openTableTextBox__table-header">
+                          <tr>
+                            <!--?lit$1944096033$--><!----><th tabindex="0" scope="col"><!--?lit$1944096033$-->Activos de software</th><!----><!----><th tabindex="0" scope="col"><!--?lit$1944096033$-->Amenazas</th><!----><!----><th tabindex="0" scope="col"><!--?lit$1944096033$-->Mitigación</th><!---->
+                          </tr>
+                        </thead>
+                  <tbody>
+                    <!--?lit$1944096033$--><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$1944096033$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$1944096033$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$1944096033$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$1944096033$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$1944096033$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!---->
+                  </tbody>
+                </table>
+              </div>
+              <div class="openTableTextBox__answerText answergray openTableTextBox__table-container is-full hide">
+                <table class="opentabletextbox-table openTableTextBox__table-inner" tabindex="0">
+                  <!--?lit$1944096033$-->
+                        <thead class="openTableTextBox__table-header">
+                          <tr tabindex="0">
+                            <!--?lit$1944096033$--><!----><th scope="col"><!--?lit$1944096033$-->Activos de software</th><!----><!----><th scope="col"><!--?lit$1944096033$-->Amenazas</th><!----><!----><th scope="col"><!--?lit$1944096033$-->Mitigación</th><!---->
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <!--?lit$1944096033$--><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$1944096033$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$-->Sistemas operativos de host</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Malware</li><li>Phishing= Sitios web maliciosos= Vulnerabilidades deseguridad</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Software antivirus</li><li>Bloquear el acceso a sitios maliciosos conocidos</li><li>Formación en seguridad para usuario</li><li>Parcheo</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$1944096033$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$-->Aplicaciones de oficina</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Explotación de vulnerabilidades sin parches</li><li>Varios ataques a aplicaciones</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Parcheo</li><li>Políticas de seguridad relacionadas con el uso de software no autorizado</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$1944096033$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$-->Bases de datos SQL</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Errores de entrada de datos</li><li>Inyección XML o SQL</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Validación de entrada de datos</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$1944096033$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$-->Software de servidor web</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Software de servidor vulnerable</li><li>Cross-site scripting</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Parcheo</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$1944096033$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$-->Aplicaciones internas</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Varias vulnerabilidades de aplicaciones</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Desarrollo de software seguro</li><li>Validación de entrada robusta</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!---->
+                      </tbody>
+                </table>
+              </div>
+              <div class="btn__container">
+                <button class="btn-text openTableTextBox__showButton show-answer show"><!--?lit$1944096033$-->Mostrar respuesta</button>
+                <button class="btn-text openTableTextBox__showButton hide-answer hide"><!--?lit$1944096033$-->Ocultar respuesta</button>
+              </div>
+              <div class="openTableTextBox__postText">
+                <!--?lit$1944096033$-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </opentabletextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="38718973-72ea-47b3-8509-ae98961953f7" style="width: 9.09091%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="38718973-72ea-47b3-8509-ae98961953f7" class="38718973-72ea-47b3-8509-ae98961953f7 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="38718973-72ea-47b3-8509-ae98961953f7" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$1944096033$--><!----><opentabletextbox-view modelid="36e1235d-2f0d-4718-91d1-6f8f092579b6" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+      <div class="component">
+        <div class="opentabletextbox-inner component__inner">
+          <div data-socialgoodpulse-id="36e1235d-2f0d-4718-91d1-6f8f092579b6" class="component opentabletextbox 36e1235d-2f0d-4718-91d1-6f8f092579b6  is-full   ">
+            <div class="component__header-container">
+              <div data-socialgoodpulse-id="36e1235d-2f0d-4718-91d1-6f8f092579b6" class="opentabletextbox ">
+                <base-view type="component" lowercase_component="openTableTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTableTextBox__header">
+          <div class="component__header-inner openTableTextBox__header-inner">
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+              </div>
+            </div>
+            <div class="component__widget opentabletextBox__widget question-container ">
+              <div class="openTableTextBox__preText">
+                <!--?lit$1944096033$-->
+              </div>
+              <div class="opentabletextbox-container openTableTextBox__table-container">
+                <table class="opentabletextbox-table" tabindex="0">
+                  <!--?lit$1944096033$-->
+                        <thead class="openTableTextBox__table-header">
+                          <tr>
+                            <!--?lit$1944096033$--><!----><th tabindex="0" scope="col"><!--?lit$1944096033$-->Activos físicos</th><!----><!----><th tabindex="0" scope="col"><!--?lit$1944096033$-->Amenazas</th><!----><!----><th tabindex="0" scope="col"><!--?lit$1944096033$-->Mitigación</th><!---->
+                          </tr>
+                        </thead>
+                  <tbody>
+                    <!--?lit$1944096033$--><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$1944096033$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$1944096033$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$1944096033$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$1944096033$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!---->
+                  </tbody>
+                </table>
+              </div>
+              <div class="openTableTextBox__answerText answergray openTableTextBox__table-container is-full hide">
+                <table class="opentabletextbox-table openTableTextBox__table-inner" tabindex="0">
+                  <!--?lit$1944096033$-->
+                        <thead class="openTableTextBox__table-header">
+                          <tr tabindex="0">
+                            <!--?lit$1944096033$--><!----><th scope="col"><!--?lit$1944096033$-->Activos físicos</th><!----><!----><th scope="col"><!--?lit$1944096033$-->Amenazas</th><!----><!----><th scope="col"><!--?lit$1944096033$-->Mitigación</th><!---->
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <!--?lit$1944096033$--><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$1944096033$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$-->Equipos de escritorio</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Interrupción de energía</li><li>Falla del disco duro</li><li>Otros daños físicos</li><li>Interrupción de energía falla del disco duro</li><li>Control de acceso a las instalaciones</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Copias de respaldo de datos</li><li>Protección de la energía</li><li>Control de acceso biométrico o basado en credenciales</li><li>Formación en seguridad para usuarios</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$1944096033$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$-->PC portátiles</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Pérdida, robo o daño</li><li>Falla del disco duro</li><li>Otros daños físicos</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Antivirus</li><li>Firewall basado en el host</li><li>Copias de respaldo de datos periódicas</li><li>Cifrado de unidades</li><li>Control de acceso físico</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$1944096033$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$-->Servidores de archivos</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Interrupción de la energía</li><li>Falla del disco duro</li><li>Daño físico</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Protección de la energía</li><li>Copias de respaldo automatizadas</li><li>Sala de servidores físicamente segura</li><li>Servidores redundantes</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$1944096033$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$-->Equipos de red</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Interrupción de la energía</li><li>Daño físico</li><li>Acceso administrativo no autorizado</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Protección de la energía</li><li>Seguridad física en armarios de cableado y ubicaciones de equipos</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!---->
+                      </tbody>
+                </table>
+              </div>
+              <div class="btn__container">
+                <button class="btn-text openTableTextBox__showButton show-answer show"><!--?lit$1944096033$-->Mostrar respuesta</button>
+                <button class="btn-text openTableTextBox__showButton hide-answer hide"><!--?lit$1944096033$-->Ocultar respuesta</button>
+              </div>
+              <div class="openTableTextBox__postText">
+                <!--?lit$1944096033$-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </opentabletextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="70b87f97-1d83-472e-b603-b11ff7260d30" style="width: 9.09091%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="70b87f97-1d83-472e-b603-b11ff7260d30" class="70b87f97-1d83-472e-b603-b11ff7260d30 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="70b87f97-1d83-472e-b603-b11ff7260d30" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$1944096033$--><!----><opentabletextbox-view modelid="58539b3b-e6c7-460b-bde0-5aed9dc137b2" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+      <div class="component">
+        <div class="opentabletextbox-inner component__inner">
+          <div data-socialgoodpulse-id="58539b3b-e6c7-460b-bde0-5aed9dc137b2" class="component opentabletextbox 58539b3b-e6c7-460b-bde0-5aed9dc137b2  is-full   ">
+            <div class="component__header-container">
+              <div data-socialgoodpulse-id="58539b3b-e6c7-460b-bde0-5aed9dc137b2" class="opentabletextbox ">
+                <base-view type="component" lowercase_component="openTableTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTableTextBox__header">
+          <div class="component__header-inner openTableTextBox__header-inner">
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+              </div>
+            </div>
+            <div class="component__widget opentabletextBox__widget question-container ">
+              <div class="openTableTextBox__preText">
+                <!--?lit$1944096033$-->
+              </div>
+              <div class="opentabletextbox-container openTableTextBox__table-container">
+                <table class="opentabletextbox-table" tabindex="0">
+                  <!--?lit$1944096033$-->
+                        <thead class="openTableTextBox__table-header">
+                          <tr>
+                            <!--?lit$1944096033$--><!----><th tabindex="0" scope="col"><!--?lit$1944096033$-->Recursos de red</th><!----><!----><th tabindex="0" scope="col"><!--?lit$1944096033$-->Amenazas</th><!----><!----><th tabindex="0" scope="col"><!--?lit$1944096033$-->Mitigación</th><!---->
+                          </tr>
+                        </thead>
+                  <tbody>
+                    <!--?lit$1944096033$--><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$1944096033$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$1944096033$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$1944096033$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$1944096033$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$1944096033$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!---->
+                  </tbody>
+                </table>
+              </div>
+              <div class="openTableTextBox__answerText answergray openTableTextBox__table-container is-full hide">
+                <table class="opentabletextbox-table openTableTextBox__table-inner" tabindex="0">
+                  <!--?lit$1944096033$-->
+                        <thead class="openTableTextBox__table-header">
+                          <tr tabindex="0">
+                            <!--?lit$1944096033$--><!----><th scope="col"><!--?lit$1944096033$-->Recursos de red</th><!----><!----><th scope="col"><!--?lit$1944096033$-->Amenazas</th><!----><!----><th scope="col"><!--?lit$1944096033$-->Mitigación</th><!---->
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <!--?lit$1944096033$--><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$1944096033$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$-->Servicios IP (DNS, IMAP, DHCP)</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Suplantación de direcciones DNS</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Firewalls de próxima generación capaces de realizar una inspección profunda de paquetes</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$1944096033$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$-->Conexión con el ISP</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>DoS, DDoS</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Bloquee los paquetes ICMP externos con firewalls</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$1944096033$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$-->LAN cableada</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Man-in-the-middle</li><li>Acceso no autorizado</li><li>Detectar el análisis de red no autorizado</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Contraseñas robustas</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$1944096033$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$-->LAN inalámbrica</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Man-in-the-middle</li><li>Acceso no autorizado</li><li>Puntos de acceso no autorizados</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$1944096033$--><ul><li>Usar autenticación y encriptación robustas</li><li>Ubicación del punto de acceso</li><li>Utilizar herramientas para detectar puntos de acceso dudosos</li><li>VPN para usuarios inalámbricos remotos</li></ul></div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!---->
+                      </tbody>
+                </table>
+              </div>
+              <div class="btn__container">
+                <button class="btn-text openTableTextBox__showButton show-answer show"><!--?lit$1944096033$-->Mostrar respuesta</button>
+                <button class="btn-text openTableTextBox__showButton hide-answer hide"><!--?lit$1944096033$-->Ocultar respuesta</button>
+              </div>
+              <div class="openTableTextBox__postText">
+                <!--?lit$1944096033$-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </opentabletextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="c20188c1-da07-4dea-aae1-3dd50850baa1" style="width: 9.09091%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="c20188c1-da07-4dea-aae1-3dd50850baa1" class="c20188c1-da07-4dea-aae1-3dd50850baa1 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="c20188c1-da07-4dea-aae1-3dd50850baa1" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$1944096033$--><!----><text-view modelid="346d4faa-d386-4656-be6d-d5666cd16c89" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="346d4faa-d386-4656-be6d-d5666cd16c89" class="component text 346d4faa-d386-4656-be6d-d5666cd16c89  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$1944096033$--><h2>Parte 2: Registre los diferentes tipos de bienes que posee Athena. </h2> <p class="BodyTextL25">A partir de la información del <b>escenario</b> y de su conocimiento del negocio en general, complete las primeras columnas de cada tabla con los activos relevantes que son propiedad de Athena. Debería tener al menos tres entradas en cada tabla.</p> <p class="BodyTextL25">Los diferentes tipos de activos se definen de la siguiente manera:</p> <p class="Bulletlevel1"><span style="font-size:7.0pt;font-family:Webdings">=</span><span>&nbsp;&nbsp;</span><b>Información/Recursos de datos</b>: cualquier dato utilizado por la empresa en cualquiera de los tres estados de datos. Estos datos pueden ser los datos empresariales de Athena, los contenidos de aprendizaje de Athena, los datos de ventas y aprendizaje de los alumnos o los datos de los socios.</p> <p class="Bulletlevel1"><span style="font-size:7.0pt;font-family:Webdings">=</span><span>&nbsp;&nbsp;</span><b>Recursos de software</b>: cualquier software utilizado por Athena, incluidas las aplicaciones empresariales comerciales, los sistemas operativos, el software de servidor, el software de base de datos y el software personalizado.</p> <p class="Bulletlevel1"><span style="font-size:7.0pt;font-family:Webdings">=</span><span>&nbsp;&nbsp;</span><b>Activos físicos</b> : los dispositivos físicos, equipos y otros bienes que son utilizados por Athena en el curso de su actividad.</p> <p class="Bulletlevel1"><span style="font-size:7.0pt;font-family:Webdings">=</span><span>&nbsp;&nbsp;</span><b>Recursos de red</b>: los tipos de redes y conexiones de red que Athena aloja o utiliza en el curso de su actividad.</p> <h2>Parte 3: Enumere las amenazas para cada tipo de activo.</h2> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Revise la información que ha aprendido en este itinerario sobre las vulnerabilidades y amenazas.</p> <h4 class="pageTracer-h4-title-hide">Pregunta:</h4></div>
+        </div>
+      </div>
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="2e7e3dfa-52e4-4186-b00d-158d2e9b60a8" style="width: 9.09091%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="2e7e3dfa-52e4-4186-b00d-158d2e9b60a8" class="2e7e3dfa-52e4-4186-b00d-158d2e9b60a8 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="2e7e3dfa-52e4-4186-b00d-158d2e9b60a8" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$1944096033$--><!----><opentextbox-view modelid="11817a09-6e1c-48e9-a19e-7b593faceb57" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="11817a09-6e1c-48e9-a19e-7b593faceb57" class="component opentextbox 11817a09-6e1c-48e9-a19e-7b593faceb57  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="11817a09-6e1c-48e9-a19e-7b593faceb57" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$1944096033$--> <div class="openTextBox__preText"><!--?lit$1944096033$--><p class="BodyTextL50">¿Cuál es la diferencia entre una amenaza y una vulnerabilidad?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$1944096033$-->
+                      <!--?lit$1944096033$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span style="color:black; border:none"><span style="border:none">Las vulnerabilidades son debilidades o características de un activo que pueden provocar daños o la pérdida dedichos activos. Las amenazas son las posibles acciones o eventos que aprovechan las vulnerabilidades. Las amenazas pueden provenir de las personas o de la naturaleza.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$1944096033$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$1944096033$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$1944096033$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="81736ce2-d6a3-4566-969c-0d5870a6010d" style="width: 9.09091%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="81736ce2-d6a3-4566-969c-0d5870a6010d" class="81736ce2-d6a3-4566-969c-0d5870a6010d block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="81736ce2-d6a3-4566-969c-0d5870a6010d" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$1944096033$--><!----><text-view modelid="5e96a99f-8b86-4ea9-bb17-b71d676f29c5" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="5e96a99f-8b86-4ea9-bb17-b71d676f29c5" class="component text 5e96a99f-8b86-4ea9-bb17-b71d676f29c5  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$1944096033$--><p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>Complete la segunda columna de la tabla con las amenazas que podrían aprovechar vulnerabilidades para cada recurso que enumeró. Por lo general, hay más de una amenaza para cada recurso.</p> <h2>Parte 4: Recomiende técnicas de mitigación para hacer frente a cada amenaza.</h2> <p class="BodyTextL25">Revise la información que ha aprendido hasta ahora sobre formas de mitigar diversas amenazas de ciberseguridad. Complete la tercera columna de la tabla con las técnicas de mitigación que se pueden realizar para evitar o limitar el daño causado por cada amenaza potencial.</p> <h2>Reflexión</h2></div>
+        </div>
+      </div>
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="43080f62-aed8-44da-8c4c-d6cb4239d31a" style="width: 9.09091%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="43080f62-aed8-44da-8c4c-d6cb4239d31a" class="43080f62-aed8-44da-8c4c-d6cb4239d31a block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="43080f62-aed8-44da-8c4c-d6cb4239d31a" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$1944096033$--><!----><opentextbox-view modelid="0d0dfa99-f10d-4554-bf6b-a2f7f74a248f" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="0d0dfa99-f10d-4554-bf6b-a2f7f74a248f" class="component opentextbox 0d0dfa99-f10d-4554-bf6b-a2f7f74a248f  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="0d0dfa99-f10d-4554-bf6b-a2f7f74a248f" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$1944096033$--> <div class="openTextBox__preText"><!--?lit$1944096033$--><p class="ReflectionQ">1.<span>&nbsp;&nbsp;</span>¿Por qué es útil clasificar los recursos al identificar amenazas y técnicas de mitigación?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$1944096033$-->
+                      <!--?lit$1944096033$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span style="color:black; border:none"><span style="border:none">La clasificación de recursos por tipo ayuda a organizar el pensamiento en torno a las amenazas que pueden existir. De lo contrario, hay tantos recursos que es difícil comenzar con el análisis.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$1944096033$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$1944096033$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$1944096033$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="3606cf42-8ab7-43bc-a419-0cf531441d37" style="width: 9.09091%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="3606cf42-8ab7-43bc-a419-0cf531441d37" class="3606cf42-8ab7-43bc-a419-0cf531441d37 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="3606cf42-8ab7-43bc-a419-0cf531441d37" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$1944096033$--><!----><opentextbox-view modelid="a413bc03-5ba9-46a2-8944-9261a697ff69" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="a413bc03-5ba9-46a2-8944-9261a697ff69" class="component opentextbox a413bc03-5ba9-46a2-8944-9261a697ff69  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="a413bc03-5ba9-46a2-8944-9261a697ff69" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$1944096033$--> <div class="openTextBox__preText"><!--?lit$1944096033$--><p class="ReflectionQ">2.<span>&nbsp;&nbsp;</span>¿Algunas amenazas tienen medidas de mitigación iguales o similares? ¿Por qué es importante señalar esto?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$1944096033$-->
+                      <!--?lit$1944096033$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span style="color:black; border:none"><span style="border:none">Sí, algunas amenazas pueden mitigarse utilizando los mismos medios. Por ejemplo, un sistema de actualización de software de host y servidor puede ayudar a mitigar las amenazas a los datos de clientes y empresas. Las VPN pueden cifrar los datos cargados en los servidores de Athena por los clientes y también pueden proteger los activos enviados a la nube. Saber esto ayuda a orientar la elección y la aplicación de soluciones de mitigación de amenazas.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$1944096033$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$1944096033$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$1944096033$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="3498bc66-f866-40ad-b1b1-747f7479af63" style="width: 9.09091%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="3498bc66-f866-40ad-b1b1-747f7479af63" class="3498bc66-f866-40ad-b1b1-747f7479af63 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="3498bc66-f866-40ad-b1b1-747f7479af63" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$1944096033$--><!----><opentextbox-view modelid="869f0389-3fcf-4d9a-9b22-b495f7a0264b" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="869f0389-3fcf-4d9a-9b22-b495f7a0264b" class="component opentextbox 869f0389-3fcf-4d9a-9b22-b495f7a0264b  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="869f0389-3fcf-4d9a-9b22-b495f7a0264b" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+            <!--?lit$1944096033$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$1944096033$--> <div class="openTextBox__preText"><!--?lit$1944096033$--><p class="ReflectionQ">3.<span>&nbsp;&nbsp;</span>¿Qué ha aprendido sobre la aplicación del conocimiento sobre amenazas de ciberseguridad y técnicas de mitigación en el contexto de una organización simulada?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$1944096033$--><!--?lit$1944096033$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$1944096033$-->
+                      <!--?lit$1944096033$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span style="color:black; border:none"><span style="border:none">La respuesta varía. Debería ser evidente que un programa integral de ciberseguridad requiere muchos tiposdiferentes de medidas que funcionan en conjunto para proteger los diversos activos de una organización. No existe una solución única para proteger los recursos de la amplia gama de amenazas que existen en el mundo en la actualidad.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$1944096033$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$1944096033$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$1944096033$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!---->
+                            </div>
+                        </div>
+                        <!--?lit$1944096033$-->
+                    </div>
+                </div>
+            </div>
+        <sgpluse-opentextboxcontroller-view modelid="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+            <div class="openTextBoxController__button-container">
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__showButton show-answer show"><!--?lit$1944096033$-->Mostrar todas las respuestas</button>    
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__hideButton hide-answer hide"><!--?lit$1944096033$-->Ocultar todas las respuestas</button>    
+                <button class="btn-text resetbtn openTextBoxController__resetButton"><!--?lit$1944096033$-->Borrar mis respuestas</button>         
+            </div>
+            <!--?lit$1944096033$--><hr>
+            <!--?lit$1944096033$-->
+                <div class="post-text" tabindex="0">
+                    <!--?lit$1944096033$--><span> <span style="padding-right:5px;float:left;font-family:arial;font-size:12px;">© 2017 - 2022 Cisco and/or its affiliates. All rights reserved. Cisco Public </span> </span>
+                </div>
+                   
+        </sgpluse-opentextboxcontroller-view><script></script>
+<script>
+    window.addEventListener("load", function () {
+      console.log("loaded");
+      document?.querySelectorAll(".answergray").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".show-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.remove("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.add("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      let event = new Event("click", {
+        bubbles: true,
+        cancelable: true,
+      });
+      document
+        ?.querySelectorAll(".openTextBoxController__showButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".show-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__hideButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__resetButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            document?.querySelectorAll("textArea").forEach(function (ele) {
+              ele.value = "";
+            });
+          });
+        });
+
+      document
+      ?.querySelectorAll('textarea')
+      .forEach(function (ele){
+        ele.defaultValue = ele.defaultValue.replace(/<!--.*?-->/g, '');
+      })
+        let checkButtonLabel = "check_button_label_placeHolder";
+        let hideButtonLabel = "hide_button_label_placeHolder";
+        document?.querySelectorAll(".check__button").forEach(function (ele) {
+        let answerBox = document.querySelector(".check__solution")
+        if (!answerBox.classList.contains("check__hidden")) {
+          answerBox.classList.add("check__hidden");
+          ele.innerText = checkButtonLabel;
+        }
+          ele.addEventListener("click", function (e) {
+            if (answerBox.classList.contains("check__hidden")) {
+              answerBox.classList.remove("check__hidden")
+              ele.innerText = hideButtonLabel;
+            } else {
+              answerBox.classList.add("check__hidden")
+              ele.innerText = checkButtonLabel;
+            }
+          })
+        })
+    });
+  </script>
+  </body></html>

@@ -1,0 +1,1796 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 1rem;
+      }
+      ol,
+      ul {
+        margin-bottom: 0in;
+      }
+      table {
+        margin-top: 1rem;
+        border: 1px solid gray;
+        width: 7in;
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > .openTableTextBox__table-header-data {
+        text-align: center;
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0in;
+        text-align: center;
+        line-height: 115%;
+        page-break-after: avoid;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        font-weight: bold;
+        background: #dbe5f1;
+        padding: 0.5rem;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .openTextBox__textArea-container {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 50%;
+      }
+      .openTableTextBox__fieldset {
+        padding: 5px;
+      }
+      td {
+        margin-top: 3pt;
+        margin-right: 0in;
+        margin-bottom: 3pt;
+        margin-left: 0in;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 98.85pt;
+        border: solid windowtext 1pt;
+        border-top: none;
+        padding: 0.7pt 5.75pt 0.7pt 5.75pt;
+      }
+      textarea {
+        width: 100%;
+      }
+      .answergray {
+        padding: 0.2rem;
+      }
+
+      .openTableTextBox__widget {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0.25in;
+      }
+
+      .show-answer,
+      .hide-answer {
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border: 0px;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .openTextBoxController__button-container {
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .openTextBoxController__button-container .btn-text {
+        margin: 10px;
+      }
+
+      .btn-text {
+        border: 0px;
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border-radius: 0;
+        cursor: pointer;
+      }
+
+      .u-display-none {
+        display: none;
+      }
+      .openTextBox__postText, openTableTextBox__postText {
+        margin-top: 0.5rem;
+      }
+      .edit-comment {
+        display: none;
+      }
+      .js-heading-inner {
+        display: none;
+      }
+      .block__title-inner,
+      .article__title-inner {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+      h2{
+        font-size: 1.25em;
+      }
+      h3{
+        font-size: 1.125em;
+      }
+      .table
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: solid windowtext 1pt;
+      }
+      table tbody tr th, table thead tr th{
+        border: solid windowtext 1pt;
+        background-color: #d6d8dc;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .command-output > .table-inner > .table-wrapper > .table-widget > table,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > td,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: none !important;
+        text-align: right !important;
+      }
+      .simple-table > .table-inner > .table-wrapper{
+        margin-left: 1.5rem;
+      }
+      .openTextBox__widget {
+        margin-left: 1.5rem;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      .answergray {
+        background-color: #ccc;
+      }
+      .openTableTextBox__widget > .answergray {
+        background-color: #fff !important;
+      }
+      li > ul,ol > li{
+        margin-left: 0px !important;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      
+      .component__title{
+        font-family: inherit;
+        font-size: 1.65em;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .component__body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .accessibility-completion-indicator{
+        display: none;
+      }
+
+      .check__hidden {
+        display: none;
+      }
+
+      .check__button {
+        border: none;
+        border-radius: 6px !important;
+        background-color: #6abf4b;
+        color: #fff;
+        min-width: 100px;
+        margin: 0.625rem 0;
+        padding: 0.7rem;
+      }
+
+      .check__widget .check__solution .DevConfigGray {
+        background-color: rgb(214,216,220);
+        font-weight: bold;
+      }
+
+      .check-inner .check__widget .check__solution .DevConfigs {
+        margin: 0px;
+        line-height: 115%;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .check__solution  {
+        line-height: 1.5;
+      }
+      .mcq__inner .mcq__widget .mcq__widget-inner {
+        margin-block: 1rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item {
+        display: flex;
+        gap: 0.2rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item .mcq__item-label .mcq__item-text .screenReader-position-text{
+        display: none;
+      }
+      .opentabletextbox-inner .opentabletextBox__widget .openTableTextBox__answerText.answergray {
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox{
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox img{
+        margin-block: 1rem;
+        margin-left: initial;
+      }
+      .component__content .component__body-inner .pageTracer-h4-title-hide {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        font-size: 0px;
+        color: rgb(var(--neutral-2));
+        font-weight: normal;
+      }
+      .table-inner .table__widget table tr.TableHeading th, .table-inner .table__widget table tr.TableHeading td, .table-inner .table__widget table tr td.TableHeading, .opentabletextbox-table thead tr.TableHeading th, .opentabletextbox-table tbody tr.TableHeading td, .opentabletextbox-table tbody tr td.TableHeading {
+        background-color: #d6d8dc;
+        text-align: center;
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .CMD, .component__content .component__body-inner .CMDOutput, .component__content .component__body-inner .CMDOutput__table{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        margin-inline-start: 30px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      [dir="rtl"] .component__content .component__body-inner .CMDOutput__table span {
+        direction: ltr;
+        display: inline-block;
+      }
+      .openTextBox__inner .openTextBox__widget .CMD, .openTextBox__inner .openTextBox__widget .CMDOutput{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .openTextBox__inner .openTextBox__widget .DnTbold, .openTextBox__inner .openTextBox__widget .BodyTextL25Bold, .component__content .component__body-inner .BodyTextL25Bold, .component__content .component__body-inner .DnTbold, .table-inner .table__widget table tr .DnTbold {
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .SubStepNum {
+        text-indent: -25.5px;
+        margin-inline-start: 50px;
+      }
+      .component__content .component__body-inner .BodyTextL50 {
+        margin-inline-start: 30px;
+      }
+      .component__content .component__body-inner .Bulletlevel1 {
+        text-indent: -19px;
+        margin-inline-start: 48px;
+      }
+      .component__content .component__body-inner .Bulletlevel2 {
+          text-indent: -19px;
+          margin-inline-start: 72px;
+      }
+      .openTextBox__inner .openTextBox__widget .ReflectionQ, .component__content .component__body-inner .SubStepAlpha {
+          text-indent: -25.5px;
+          margin-inline-start: 30px;
+      }
+    </style>
+
+</head><body><!---->
+            <div class="article 5fe2967b-f5f9-4bd5-89fc-60e7198b4ed0 remove-padding-top remove-padding-bottom ">
+                <div class="article__inner">
+                <div class=" no-adaptive-scroll">
+                    <!--?lit$5100847473$-->
+                        <div class=""> 
+                            <base-view type="article" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="article__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="article__header ">
+          <div class="article__header-inner ">
+            <!--?lit$5100847473$-->
+      <div class="article__title ">
+        <!--?lit$5100847473$--><heading-view aria-hidden="true" id="5fe2967b-f5f9-4bd5-89fc-60e7198b4ed0-heading-view" headingtitle="Práctica de laboratorio: Recomendar una solución de seguridad en la nube" modelid="5fe2967b-f5f9-4bd5-89fc-60e7198b4ed0" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="js-heading is-incomplete">
+        <div class="js-heading-inner" role="heading" id="article-heading" aria-level="2">
+        <span class="aria-label"> <!--?lit$5100847473$-->Incompleto &nbsp;<!--?lit$5100847473$-->Práctica de laboratorio: Recomendar una solución de seguridad en la nube</span>
+        </div>
+      </div>
+    </heading-view>
+        <div tabindex="0" role="heading" class="article__title-inner " aria-level="2">
+          <span class="accessibility-completion-indicator"><!--?lit$5100847473$-->Incompleto </span>
+          <!--?lit$5100847473$-->Práctica de laboratorio: Recomendar una solución de seguridad en la nube
+        </div>
+      </div>
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                            <div class="block__container " style="">
+                                <!--?lit$5100847473$--><!---->
+                                    <block-view modelid="04363415-0541-42b8-9151-535b30d6eb0b" style="width: 7.69231%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="04363415-0541-42b8-9151-535b30d6eb0b" class="04363415-0541-42b8-9151-535b30d6eb0b block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="04363415-0541-42b8-9151-535b30d6eb0b" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$5100847473$--><!----><text-view modelid="47d57f0b-d7c6-40b7-a187-7da04f63f680" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="47d57f0b-d7c6-40b7-a187-7da04f63f680" class="component text 47d57f0b-d7c6-40b7-a187-7da04f63f680  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$5100847473$--><h2>Objetivos</h2> <p class="BodyTextL25Bold">Parte 1: Investigar y recomendar un modelo de nube y un modelo de servicio en la nube </p> <p class="BodyTextL25Bold">Parte 2: Identificar la responsabilidad compartida por los servicios en la nube y la seguridad en la nube</p> <p class="BodyTextL25Bold">Parte 3: Identificar cinco amenazas de seguridad relacionadas con la computación en la nube</p> <p class="BodyTextL25Bold">Parte 4: Identificar cinco medidas de seguridad para implementar el comercio electrónico en la nube</p> <h2>Trasfondo/Situación</h2> <p class="BodyTextL25">En esta práctica de laboratorio orientada a la investigación investigará información sobre la seguridad de la computación en la nube y preparará una recomendación para una organización que está desplegando su opción de comercio electrónico en la nube.</p> <p class="BodyTextL25">Una empresa emergente está considerando una solución en la nube para su negocio de comercio electrónico. La empresa diseña y vende ropa personalizada y artículos de decoración para el hogar a clientes de todo el mundo. La empresa espera que la solución en la nube pueda proporcionar funciones clave, entre ellas:</p> <p class="Bulletlevel1"><span style="font-family:Symbol">·<span>&nbsp;&nbsp;&nbsp;</span></span>Búsqueda y visualización de productos con múltiples presentaciones (búsqueda, ampliación y visualización desde diferentes ángulos, etc.)</p> <p class="Bulletlevel1"><span style="font-family:Symbol">·<span>&nbsp;&nbsp;&nbsp;</span></span>Pedido de productos (confirmación del pedido, seguimiento y notificación de la entrega, historial de pedidos, etc.)</p> <p class="Bulletlevel1"><span style="font-family:Symbol">·<span>&nbsp;&nbsp;&nbsp;</span></span>Servicio de atención al cliente</p> <p class="Bulletlevel1"><span style="font-family:Symbol">·<span>&nbsp;&nbsp;&nbsp;</span></span>Publicidad y promoción</p> <p class="Bulletlevel1"><span style="font-family:Symbol">·<span>&nbsp;&nbsp;&nbsp;</span></span>Seguimiento e informes de ventas</p> <p class="BodyTextL25">Como especialista en seguridad de TI, se le solicita que investigue y prepare un informe que evalúe las posibles soluciones de nube y sus implicaciones de seguridad.</p> <h2>Recursos necesarios</h2> <p class="Bulletlevel1"><span style="font-size:7.0pt;font-family:Webdings">=</span><span>&nbsp;&nbsp;</span>Una computadora con acceso a Internet</p> <h2>Instrucciones</h2> <h2>Parte 1: Investigar y recomendar un modelo de nube y un modelo de servicio en la nube</h2> <p class="BodyTextL25">Los modelos de nube incluyen la nube pública, la nube privada, la nube híbrida y la nube comunitaria. Los modelos de servicios en la nube incluyen el software como servicio (SaaS), la plataforma como servicio (PaaS) y la infraestructura como servicio (IaaS).</p> <h4 class="pageTracer-h4-title-hide">Pregunta:</h4></div>
+        </div>
+      </div>
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6099f704-5551-4b82-9696-1ddd158520c0" style="width: 7.69231%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6099f704-5551-4b82-9696-1ddd158520c0" class="6099f704-5551-4b82-9696-1ddd158520c0 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6099f704-5551-4b82-9696-1ddd158520c0" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$5100847473$--><!----><opentextbox-view modelid="01ae06bf-979e-425e-8d52-f2b007bd2c37" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="01ae06bf-979e-425e-8d52-f2b007bd2c37" class="component opentextbox 01ae06bf-979e-425e-8d52-f2b007bd2c37  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="01ae06bf-979e-425e-8d52-f2b007bd2c37" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$5100847473$--> <div class="openTextBox__preText"><!--?lit$5100847473$--><p class="BodyTextL25">¿Qué modelo de servicio en la nube recomendaría para satisfacer las necesidades de la empresa? Explique.</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$5100847473$--><!--?lit$5100847473$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$5100847473$-->
+                      <!--?lit$5100847473$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span style="color:black; border:none"><span style="border:none">La respuesta puede variar. La respuesta típica para el modelo de nube debe ser la nube pública porque los clientes están en todo el mundo. El modelo de servicio en la nube debería ser SaaS.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$5100847473$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$5100847473$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$5100847473$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="91c08727-8f34-44ca-ad88-1e84d498947b" style="width: 7.69231%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="91c08727-8f34-44ca-ad88-1e84d498947b" class="91c08727-8f34-44ca-ad88-1e84d498947b block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="91c08727-8f34-44ca-ad88-1e84d498947b" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$5100847473$--><!----><text-view modelid="83f9cc5a-6455-451f-bfa3-91626ad4920c" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="83f9cc5a-6455-451f-bfa3-91626ad4920c" class="component text 83f9cc5a-6455-451f-bfa3-91626ad4920c  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$5100847473$--><h2>Parte 2: Identificar la responsabilidad compartida para los servicios en la nube y la seguridad en la nube </h2> <p class="BodyTextL25">Piense en la responsabilidad compartida de la seguridad entre la empresa y el proveedor de la nube para el modelo de servicio en la nube recomendado. Utilice la tabla a continuación y marque cada casilla con Cliente, Compartido o Proveedor de nube.</p></div>
+        </div>
+      </div>
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="7133f5c0-c507-413c-9573-7603ba6ec38a" style="width: 7.69231%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="7133f5c0-c507-413c-9573-7603ba6ec38a" class="7133f5c0-c507-413c-9573-7603ba6ec38a block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="7133f5c0-c507-413c-9573-7603ba6ec38a" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$5100847473$--><!----><opentextbox-view modelid="22770ad8-fb27-49bf-b174-d70872218dce" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="22770ad8-fb27-49bf-b174-d70872218dce" class="component opentextbox 22770ad8-fb27-49bf-b174-d70872218dce  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="22770ad8-fb27-49bf-b174-d70872218dce" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$5100847473$--> <div class="openTextBox__preText"><!--?lit$5100847473$--><p class="BodyTextL25">Registre su modelo de servicio en la nube elegido:</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$5100847473$--><!--?lit$5100847473$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$5100847473$-->
+                      <!--?lit$5100847473$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span style="color:black; border:none"><span style="border:none">Las respuestas pueden variar. Sus opciones son SaaS, PaaS e IaaS. En este ejemplo se utiliza SaaS. En un modelo típico de SaaS público, el proveedor de la nube es responsable del funcionamiento y el tiempo de actividad de todos los servicios en la nube que utiliza la empresa. Para la implementación de seguridad, la responsabilidad de seguridad compartida debería ser similar a la siguiente tabla.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$5100847473$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$5100847473$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$5100847473$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="87f332b7-139b-45eb-bab7-d361d81b008b" style="width: 7.69231%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="87f332b7-139b-45eb-bab7-d361d81b008b" class="87f332b7-139b-45eb-bab7-d361d81b008b block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="87f332b7-139b-45eb-bab7-d361d81b008b" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$5100847473$--><!----><text-view modelid="02498716-f12d-40e6-98f7-233a576c8cf1" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="02498716-f12d-40e6-98f7-233a576c8cf1" class="component text 02498716-f12d-40e6-98f7-233a576c8cf1  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$5100847473$--><p class="BodyTextL25">Ingrese las responsabilidades de seguridad para su modelo de servicio en la nube elegido:</p></div>
+        </div>
+      </div>
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="14418888-f1ac-4e9b-aa1f-13cdc50baef4" style="width: 7.69231%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="14418888-f1ac-4e9b-aa1f-13cdc50baef4" class="14418888-f1ac-4e9b-aa1f-13cdc50baef4 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="14418888-f1ac-4e9b-aa1f-13cdc50baef4" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$5100847473$--><!----><opentabletextbox-view modelid="60d664fe-8372-4ac1-8d39-1119737dbce7" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+      <div class="component">
+        <div class="opentabletextbox-inner component__inner">
+          <div data-socialgoodpulse-id="60d664fe-8372-4ac1-8d39-1119737dbce7" class="component opentabletextbox 60d664fe-8372-4ac1-8d39-1119737dbce7  is-full   ">
+            <div class="component__header-container">
+              <div data-socialgoodpulse-id="60d664fe-8372-4ac1-8d39-1119737dbce7" class="opentabletextbox ">
+                <base-view type="component" lowercase_component="openTableTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTableTextBox__header">
+          <div class="component__header-inner openTableTextBox__header-inner">
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+              </div>
+            </div>
+            <div class="component__widget opentabletextBox__widget question-container ">
+              <div class="openTableTextBox__preText">
+                <!--?lit$5100847473$-->
+              </div>
+              <div class="opentabletextbox-container openTableTextBox__table-container">
+                <table class="opentabletextbox-table" tabindex="0">
+                  <!--?lit$5100847473$-->
+                        <thead class="openTableTextBox__table-header">
+                          <tr>
+                            <!--?lit$5100847473$--><!----><th tabindex="0" scope="col"><!--?lit$5100847473$-->Descripción</th><!----><!----><th tabindex="0" scope="col"><!--?lit$5100847473$-->Responsabilidad de seguridad del servicio en la nube</th><!---->
+                          </tr>
+                        </thead>
+                  <tbody>
+                    <!--?lit$5100847473$--><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$5100847473$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$5100847473$--><div><!--?lit$5100847473$-->Datos</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$5100847473$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$5100847473$--><!--?lit$5100847473$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$5100847473$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$5100847473$--><div><!--?lit$5100847473$-->Terminales</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$5100847473$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$5100847473$--><!--?lit$5100847473$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$5100847473$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$5100847473$--><div><!--?lit$5100847473$-->Administración de identidades</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$5100847473$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$5100847473$--><!--?lit$5100847473$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$5100847473$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$5100847473$--><div><!--?lit$5100847473$-->Aplicación</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$5100847473$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$5100847473$--><!--?lit$5100847473$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$5100847473$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$5100847473$--><div><!--?lit$5100847473$-->Política de control de red</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$5100847473$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$5100847473$--><!--?lit$5100847473$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$5100847473$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$5100847473$--><div><!--?lit$5100847473$-->Sistema operativo</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$5100847473$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$5100847473$--><!--?lit$5100847473$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$5100847473$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$5100847473$--><div><!--?lit$5100847473$-->Infraestructura física</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$5100847473$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$5100847473$--><!--?lit$5100847473$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!---->
+                  </tbody>
+                </table>
+              </div>
+              <div class="openTableTextBox__answerText answergray openTableTextBox__table-container is-full hide">
+                <table class="opentabletextbox-table openTableTextBox__table-inner" tabindex="0">
+                  <!--?lit$5100847473$-->
+                        <thead class="openTableTextBox__table-header">
+                          <tr tabindex="0">
+                            <!--?lit$5100847473$--><!----><th scope="col"><!--?lit$5100847473$-->Descripción</th><!----><!----><th scope="col"><!--?lit$5100847473$-->Responsabilidad de seguridad del servicio en la nube</th><!---->
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <!--?lit$5100847473$--><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$5100847473$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$5100847473$-->Datos</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$5100847473$-->Cliente</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$5100847473$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$5100847473$-->Terminales</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$5100847473$-->Compartidas</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$5100847473$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$5100847473$-->Administración de identidades</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$5100847473$-->Compartidas</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$5100847473$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$5100847473$-->Aplicación</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$5100847473$-->Proveedor de la nube</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$5100847473$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$5100847473$-->Política de control de red</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$5100847473$-->Proveedor de la nube</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$5100847473$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$5100847473$-->Sistema operativo</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$5100847473$-->Proveedor de la nube</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$5100847473$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$5100847473$-->Infraestructura física</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$5100847473$-->Proveedor de la nube</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!---->
+                      </tbody>
+                </table>
+              </div>
+              <div class="btn__container">
+                <button class="btn-text openTableTextBox__showButton show-answer show"><!--?lit$5100847473$-->Mostrar respuesta</button>
+                <button class="btn-text openTableTextBox__showButton hide-answer hide"><!--?lit$5100847473$-->Ocultar respuesta</button>
+              </div>
+              <div class="openTableTextBox__postText">
+                <!--?lit$5100847473$-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </opentabletextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="0c4feb5f-c343-407b-80cb-5fdd5f86992f" style="width: 7.69231%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="0c4feb5f-c343-407b-80cb-5fdd5f86992f" class="0c4feb5f-c343-407b-80cb-5fdd5f86992f block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="0c4feb5f-c343-407b-80cb-5fdd5f86992f" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$5100847473$--><!----><text-view modelid="6a7d9e4a-ead3-46ac-974b-513e9bb4c021" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="6a7d9e4a-ead3-46ac-974b-513e9bb4c021" class="component text 6a7d9e4a-ead3-46ac-974b-513e9bb4c021  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$5100847473$--><h2>Parte 3: Identificar cinco amenazas de seguridad relacionadas con la computación en la nube</h2> <p class="BodyTextL25">Enumere al menos 5 amenazas de seguridad relacionadas con la computación en la nube.</p></div>
+        </div>
+      </div>
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="8c88a350-d275-4845-857e-043cd9ca12e7" style="width: 7.69231%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="8c88a350-d275-4845-857e-043cd9ca12e7" class="8c88a350-d275-4845-857e-043cd9ca12e7 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="8c88a350-d275-4845-857e-043cd9ca12e7" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$5100847473$--><!----><opentabletextbox-view modelid="5eb07191-a73b-4ef0-b1e7-54ffc820434b" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+      <div class="component">
+        <div class="opentabletextbox-inner component__inner">
+          <div data-socialgoodpulse-id="5eb07191-a73b-4ef0-b1e7-54ffc820434b" class="component opentabletextbox 5eb07191-a73b-4ef0-b1e7-54ffc820434b  is-full   ">
+            <div class="component__header-container">
+              <div data-socialgoodpulse-id="5eb07191-a73b-4ef0-b1e7-54ffc820434b" class="opentabletextbox ">
+                <base-view type="component" lowercase_component="openTableTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTableTextBox__header">
+          <div class="component__header-inner openTableTextBox__header-inner">
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+              </div>
+            </div>
+            <div class="component__widget opentabletextBox__widget question-container ">
+              <div class="openTableTextBox__preText">
+                <!--?lit$5100847473$-->
+              </div>
+              <div class="opentabletextbox-container openTableTextBox__table-container">
+                <table class="opentabletextbox-table" tabindex="0">
+                  <!--?lit$5100847473$-->
+                        <thead class="openTableTextBox__table-header">
+                          <tr>
+                            <!--?lit$5100847473$--><!----><th tabindex="0" scope="col"><!--?lit$5100847473$-->Amenaza</th><!----><!----><th tabindex="0" scope="col"><!--?lit$5100847473$-->Descripción</th><!---->
+                          </tr>
+                        </thead>
+                  <tbody>
+                    <!--?lit$5100847473$--><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$5100847473$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$5100847473$--><div><!--?lit$5100847473$--><span style="white-space: nowrap;">Amenaza 1</span></div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$5100847473$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$5100847473$--><!--?lit$5100847473$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$5100847473$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$5100847473$--><div><!--?lit$5100847473$-->Amenaza 2</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$5100847473$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$5100847473$--><!--?lit$5100847473$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$5100847473$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$5100847473$--><div><!--?lit$5100847473$-->Amenaza 3</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$5100847473$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$5100847473$--><!--?lit$5100847473$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$5100847473$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$5100847473$--><div><!--?lit$5100847473$-->Amenaza 4</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$5100847473$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$5100847473$--><!--?lit$5100847473$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$5100847473$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$5100847473$--><div><!--?lit$5100847473$-->Amenaza 5</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$5100847473$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$5100847473$--><!--?lit$5100847473$-->Área de respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!---->
+                  </tbody>
+                </table>
+              </div>
+              <div class="openTableTextBox__answerText answergray openTableTextBox__table-container is-full hide">
+                <table class="opentabletextbox-table openTableTextBox__table-inner" tabindex="0">
+                  <!--?lit$5100847473$-->
+                        <thead class="openTableTextBox__table-header">
+                          <tr tabindex="0">
+                            <!--?lit$5100847473$--><!----><th scope="col"><!--?lit$5100847473$-->Amenaza</th><!----><!----><th scope="col"><!--?lit$5100847473$-->Descripción</th><!---->
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <!--?lit$5100847473$--><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$5100847473$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$5100847473$--><span style="white-space: nowrap;">Amenaza 1</span></div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$5100847473$-->Las respuestas pueden variar. Entre las amenazas a la computación en nube se encuentran las violaciones de datos, el control insuficiente de la IAM, el secuestro de cuentas o el compromiso de las mismas, la inseguridad de la interfaz de usuario del software y de la API, y la gestión inadecuada de la información (clientes en todo el mundo). .</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$5100847473$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$5100847473$-->Amenaza 2</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$5100847473$--><!--?--></div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$5100847473$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$5100847473$-->Amenaza 3</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$5100847473$--><!--?--></div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$5100847473$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$5100847473$-->Amenaza 4</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$5100847473$--><!--?--></div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$5100847473$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$5100847473$-->Amenaza 5</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$5100847473$--><!--?--></div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!---->
+                      </tbody>
+                </table>
+              </div>
+              <div class="btn__container">
+                <button class="btn-text openTableTextBox__showButton show-answer show"><!--?lit$5100847473$-->Mostrar respuesta</button>
+                <button class="btn-text openTableTextBox__showButton hide-answer hide"><!--?lit$5100847473$-->Ocultar respuesta</button>
+              </div>
+              <div class="openTableTextBox__postText">
+                <!--?lit$5100847473$-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </opentabletextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="32b4badb-ff99-496e-94c6-bd22edb6705b" style="width: 7.69231%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="32b4badb-ff99-496e-94c6-bd22edb6705b" class="32b4badb-ff99-496e-94c6-bd22edb6705b block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="32b4badb-ff99-496e-94c6-bd22edb6705b" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$5100847473$--><!----><text-view modelid="e7d40347-90b9-41f0-97a3-2e4374bb6860" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="e7d40347-90b9-41f0-97a3-2e4374bb6860" class="component text e7d40347-90b9-41f0-97a3-2e4374bb6860  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$5100847473$--><h2>Parte 4: Identificar cinco medidas de seguridad para la implementación de la solución de comercio electrónico en la nube</h2></div>
+        </div>
+      </div>
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="f2e3af5d-66c1-4a6d-9533-b8fa8826cfa2" style="width: 7.69231%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="f2e3af5d-66c1-4a6d-9533-b8fa8826cfa2" class="f2e3af5d-66c1-4a6d-9533-b8fa8826cfa2 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="f2e3af5d-66c1-4a6d-9533-b8fa8826cfa2" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$5100847473$--><!----><opentextbox-view modelid="fe81d5f4-95a4-4a4d-8e14-79fe1f147b04" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="fe81d5f4-95a4-4a4d-8e14-79fe1f147b04" class="component opentextbox fe81d5f4-95a4-4a4d-8e14-79fe1f147b04  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="fe81d5f4-95a4-4a4d-8e14-79fe1f147b04" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$5100847473$--> <div class="openTextBox__preText"><!--?lit$5100847473$--><p class="BodyTextL25">Realice una búsqueda en Internet para conocer las medidas de seguridad necesarias para proteger una solución de comercio electrónico en la nube.</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$5100847473$--><!--?lit$5100847473$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$5100847473$-->
+                      <!--?lit$5100847473$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span style="color:black; border:none"><span style="border:none">La respuesta puede variar. Desde la perspectiva de la empresa (usuario del servicio en la nube) existen varias medidas de seguridad que son fundamentales para el éxito del comercio electrónico, entre ellas: </span></span></span></p><ul> <li>Política de seguridad de la empresa</li> <li>Configuración de IAM adecuada y suficiente</li> <li>Configuración de firewall (denegar/permitir) e IPS virtual</li> <li>Seguridad de datos (cifrado, firma digital, certificado digital)</li> <li>Uso de una interfaz web segura, HTTPS con SSL/TLS</li> <li>VPN para acceso remoto para administrar servicios</li> <li>Medidas de protección de máquinas virtuales</li> </ul><p></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$5100847473$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$5100847473$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$5100847473$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="c19e2983-e8d7-481a-ad84-7ba56dee4fbc" style="width: 7.69231%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="c19e2983-e8d7-481a-ad84-7ba56dee4fbc" class="c19e2983-e8d7-481a-ad84-7ba56dee4fbc block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="c19e2983-e8d7-481a-ad84-7ba56dee4fbc" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$5100847473$--><!----><text-view modelid="6529f1fa-bb06-467b-b944-a038d2366d6b" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="6529f1fa-bb06-467b-b944-a038d2366d6b" class="component text 6529f1fa-bb06-467b-b944-a038d2366d6b  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$5100847473$--><h2>Preguntas de reflexión</h2></div>
+        </div>
+      </div>
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="d7a1ec69-e0ba-46a4-8e40-f9cf6080e462" style="width: 7.69231%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="d7a1ec69-e0ba-46a4-8e40-f9cf6080e462" class="d7a1ec69-e0ba-46a4-8e40-f9cf6080e462 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="d7a1ec69-e0ba-46a4-8e40-f9cf6080e462" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$5100847473$--><!----><opentextbox-view modelid="34755ca1-7d0e-4200-89d5-4eb3ffd18289" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="34755ca1-7d0e-4200-89d5-4eb3ffd18289" class="component opentextbox 34755ca1-7d0e-4200-89d5-4eb3ffd18289  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="34755ca1-7d0e-4200-89d5-4eb3ffd18289" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$5100847473$--> <div class="openTextBox__preText"><!--?lit$5100847473$--><p class="ReflectionQ">1.<span>&nbsp;&nbsp;</span>¿Cuáles son algunos de los beneficios de implementar servicios en línea en la nube?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$5100847473$--><!--?lit$5100847473$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$5100847473$-->
+                      <!--?lit$5100847473$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span style="color:black; border:none"><span style="border:none">La respuesta puede variar. Algunos beneficios del uso de la computación en la nube incluyen: </span></span></span></p><ul> <li>Ahorro de costos</li> <li>Seguridad</li> <li>Flexibilidad</li> <li>Movilidad</li> <li>Mayor colaboración</li> <li>Recuperación de desastre</li> <li>Actualizaciones automáticas de software</li> </ul><p></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$5100847473$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$5100847473$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$5100847473$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="82ee3f4b-cac4-40cc-bd5f-51f13a27c0b6" style="width: 7.69231%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="82ee3f4b-cac4-40cc-bd5f-51f13a27c0b6" class="82ee3f4b-cac4-40cc-bd5f-51f13a27c0b6 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="82ee3f4b-cac4-40cc-bd5f-51f13a27c0b6" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$5100847473$--><!----><opentextbox-view modelid="b65fc6ce-10aa-4c05-9857-d2e5d46da5c8" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="b65fc6ce-10aa-4c05-9857-d2e5d46da5c8" class="component opentextbox b65fc6ce-10aa-4c05-9857-d2e5d46da5c8  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="b65fc6ce-10aa-4c05-9857-d2e5d46da5c8" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+            <!--?lit$5100847473$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$5100847473$--> <div class="openTextBox__preText"><!--?lit$5100847473$--><p class="ReflectionQ">2.<span>&nbsp;&nbsp;</span>¿Puede la empresa confiar en el proveedor de soluciones en la nube para todo, incluidos los servicios y la seguridad? Explique.</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$5100847473$--><!--?lit$5100847473$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$5100847473$-->
+                      <!--?lit$5100847473$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span style="color:black; border:none"><span style="border:none">La respuesta puede variar. La respuesta debería ser no porque, debido a la naturaleza de la computación en la nube, es una responsabilidad compartida entre un proveedor de servicios en la nube y sus clientes.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$5100847473$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$5100847473$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$5100847473$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!---->
+                            </div>
+                        </div>
+                        <!--?lit$5100847473$-->
+                    </div>
+                </div>
+            </div>
+        <sgpluse-opentextboxcontroller-view modelid="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+            <div class="openTextBoxController__button-container">
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__showButton show-answer show"><!--?lit$5100847473$-->Mostrar todas las respuestas</button>    
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__hideButton hide-answer hide"><!--?lit$5100847473$-->Ocultar todas las respuestas</button>    
+                <button class="btn-text resetbtn openTextBoxController__resetButton"><!--?lit$5100847473$-->Borrar mis respuestas</button>         
+            </div>
+            <!--?lit$5100847473$--><hr>
+            <!--?lit$5100847473$-->
+                <div class="post-text" tabindex="0">
+                    <!--?lit$5100847473$--><span> <span style="padding-right:5px;float:left;font-family:arial;font-size:12px;">© 2017 - 2022 Cisco and/or its affiliates. All rights reserved. Cisco Public </span> </span>
+                </div>
+                   
+        </sgpluse-opentextboxcontroller-view><script></script>
+<script>
+    window.addEventListener("load", function () {
+      console.log("loaded");
+      document?.querySelectorAll(".answergray").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".show-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.remove("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.add("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      let event = new Event("click", {
+        bubbles: true,
+        cancelable: true,
+      });
+      document
+        ?.querySelectorAll(".openTextBoxController__showButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".show-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__hideButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__resetButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            document?.querySelectorAll("textArea").forEach(function (ele) {
+              ele.value = "";
+            });
+          });
+        });
+
+      document
+      ?.querySelectorAll('textarea')
+      .forEach(function (ele){
+        ele.defaultValue = ele.defaultValue.replace(/<!--.*?-->/g, '');
+      })
+        let checkButtonLabel = "check_button_label_placeHolder";
+        let hideButtonLabel = "hide_button_label_placeHolder";
+        document?.querySelectorAll(".check__button").forEach(function (ele) {
+        let answerBox = document.querySelector(".check__solution")
+        if (!answerBox.classList.contains("check__hidden")) {
+          answerBox.classList.add("check__hidden");
+          ele.innerText = checkButtonLabel;
+        }
+          ele.addEventListener("click", function (e) {
+            if (answerBox.classList.contains("check__hidden")) {
+              answerBox.classList.remove("check__hidden")
+              ele.innerText = hideButtonLabel;
+            } else {
+              answerBox.classList.add("check__hidden")
+              ele.innerText = checkButtonLabel;
+            }
+          })
+        })
+    });
+  </script>
+  </body></html>

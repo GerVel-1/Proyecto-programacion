@@ -1,0 +1,888 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 1rem;
+      }
+      ol,
+      ul {
+        margin-bottom: 0in;
+      }
+      table {
+        margin-top: 1rem;
+        border: 1px solid gray;
+        width: 7in;
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > .openTableTextBox__table-header-data {
+        text-align: center;
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0in;
+        text-align: center;
+        line-height: 115%;
+        page-break-after: avoid;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        font-weight: bold;
+        background: #dbe5f1;
+        padding: 0.5rem;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .openTextBox__textArea-container {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 50%;
+      }
+      .openTableTextBox__fieldset {
+        padding: 5px;
+      }
+      td {
+        margin-top: 3pt;
+        margin-right: 0in;
+        margin-bottom: 3pt;
+        margin-left: 0in;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 98.85pt;
+        border: solid windowtext 1pt;
+        border-top: none;
+        padding: 0.7pt 5.75pt 0.7pt 5.75pt;
+      }
+      textarea {
+        width: 100%;
+      }
+      .answergray {
+        padding: 0.2rem;
+      }
+
+      .openTableTextBox__widget {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0.25in;
+      }
+
+      .show-answer,
+      .hide-answer {
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border: 0px;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .openTextBoxController__button-container {
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .openTextBoxController__button-container .btn-text {
+        margin: 10px;
+      }
+
+      .btn-text {
+        border: 0px;
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border-radius: 0;
+        cursor: pointer;
+      }
+
+      .u-display-none {
+        display: none;
+      }
+      .openTextBox__postText, openTableTextBox__postText {
+        margin-top: 0.5rem;
+      }
+      .edit-comment {
+        display: none;
+      }
+      .js-heading-inner {
+        display: none;
+      }
+      .block__title-inner,
+      .article__title-inner {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+      h2{
+        font-size: 1.25em;
+      }
+      h3{
+        font-size: 1.125em;
+      }
+      .table
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: solid windowtext 1pt;
+      }
+      table tbody tr th, table thead tr th{
+        border: solid windowtext 1pt;
+        background-color: #d6d8dc;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .command-output > .table-inner > .table-wrapper > .table-widget > table,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > td,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: none !important;
+        text-align: right !important;
+      }
+      .simple-table > .table-inner > .table-wrapper{
+        margin-left: 1.5rem;
+      }
+      .openTextBox__widget {
+        margin-left: 1.5rem;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      .answergray {
+        background-color: #ccc;
+      }
+      .openTableTextBox__widget > .answergray {
+        background-color: #fff !important;
+      }
+      li > ul,ol > li{
+        margin-left: 0px !important;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      
+      .component__title{
+        font-family: inherit;
+        font-size: 1.65em;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .component__body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .accessibility-completion-indicator{
+        display: none;
+      }
+
+      .check__hidden {
+        display: none;
+      }
+
+      .check__button {
+        border: none;
+        border-radius: 6px !important;
+        background-color: #6abf4b;
+        color: #fff;
+        min-width: 100px;
+        margin: 0.625rem 0;
+        padding: 0.7rem;
+      }
+
+      .check__widget .check__solution .DevConfigGray {
+        background-color: rgb(214,216,220);
+        font-weight: bold;
+      }
+
+      .check-inner .check__widget .check__solution .DevConfigs {
+        margin: 0px;
+        line-height: 115%;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .check__solution  {
+        line-height: 1.5;
+      }
+      .mcq__inner .mcq__widget .mcq__widget-inner {
+        margin-block: 1rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item {
+        display: flex;
+        gap: 0.2rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item .mcq__item-label .mcq__item-text .screenReader-position-text{
+        display: none;
+      }
+      .opentabletextbox-inner .opentabletextBox__widget .openTableTextBox__answerText.answergray {
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox{
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox img{
+        margin-block: 1rem;
+        margin-left: initial;
+      }
+      .component__content .component__body-inner .pageTracer-h4-title-hide {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        font-size: 0px;
+        color: rgb(var(--neutral-2));
+        font-weight: normal;
+      }
+      .table-inner .table__widget table tr.TableHeading th, .table-inner .table__widget table tr.TableHeading td, .table-inner .table__widget table tr td.TableHeading, .opentabletextbox-table thead tr.TableHeading th, .opentabletextbox-table tbody tr.TableHeading td, .opentabletextbox-table tbody tr td.TableHeading {
+        background-color: #d6d8dc;
+        text-align: center;
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .CMD, .component__content .component__body-inner .CMDOutput, .component__content .component__body-inner .CMDOutput__table{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        margin-inline-start: 30px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      [dir="rtl"] .component__content .component__body-inner .CMDOutput__table span {
+        direction: ltr;
+        display: inline-block;
+      }
+      .openTextBox__inner .openTextBox__widget .CMD, .openTextBox__inner .openTextBox__widget .CMDOutput{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .openTextBox__inner .openTextBox__widget .DnTbold, .openTextBox__inner .openTextBox__widget .BodyTextL25Bold, .component__content .component__body-inner .BodyTextL25Bold, .component__content .component__body-inner .DnTbold, .table-inner .table__widget table tr .DnTbold {
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .SubStepNum {
+        text-indent: -25.5px;
+        margin-inline-start: 50px;
+      }
+      .component__content .component__body-inner .BodyTextL50 {
+        margin-inline-start: 30px;
+      }
+      .component__content .component__body-inner .Bulletlevel1 {
+        text-indent: -19px;
+        margin-inline-start: 48px;
+      }
+      .component__content .component__body-inner .Bulletlevel2 {
+          text-indent: -19px;
+          margin-inline-start: 72px;
+      }
+      .openTextBox__inner .openTextBox__widget .ReflectionQ, .component__content .component__body-inner .SubStepAlpha {
+          text-indent: -25.5px;
+          margin-inline-start: 30px;
+      }
+    </style>
+
+</head><body><!---->
+            <div class="article ab044fd8-71fd-4c39-a3cf-c0abed3a7e6d remove-padding-top remove-padding-bottom ">
+                <div class="article__inner">
+                <div class=" no-adaptive-scroll">
+                    <!--?lit$514848234$-->
+                        <div class=""> 
+                            <base-view type="article" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="article__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="article__header ">
+          <div class="article__header-inner ">
+            <!--?lit$514848234$-->
+      <div class="article__title ">
+        <!--?lit$514848234$--><heading-view aria-hidden="true" id="ab044fd8-71fd-4c39-a3cf-c0abed3a7e6d-heading-view" headingtitle="Práctica de Laboratorio - Convertir elementos en hashes (Hashing)" modelid="ab044fd8-71fd-4c39-a3cf-c0abed3a7e6d" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="js-heading is-incomplete">
+        <div class="js-heading-inner" role="heading" id="article-heading" aria-level="2">
+        <span class="aria-label"> <!--?lit$514848234$-->Incompleto &nbsp;<!--?lit$514848234$-->Práctica de Laboratorio - Convertir elementos en hashes (Hashing)</span>
+        </div>
+      </div>
+    </heading-view>
+        <div tabindex="0" role="heading" class="article__title-inner " aria-level="2">
+          <span class="accessibility-completion-indicator"><!--?lit$514848234$-->Incompleto </span>
+          <!--?lit$514848234$-->Práctica de Laboratorio - Convertir elementos en hashes (Hashing)
+        </div>
+      </div>
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                            <div class="block__container " style="">
+                                <!--?lit$514848234$--><!---->
+                                    <block-view modelid="d27fd61c-4a84-4fcb-9941-d319fd1f4082" style="width: 14.2857%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="d27fd61c-4a84-4fcb-9941-d319fd1f4082" class="d27fd61c-4a84-4fcb-9941-d319fd1f4082 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="d27fd61c-4a84-4fcb-9941-d319fd1f4082" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$514848234$--><!----><text-view modelid="0e6c3b4e-c95a-4ff9-9b02-13feaed91aa0" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="0e6c3b4e-c95a-4ff9-9b02-13feaed91aa0" class="component text 0e6c3b4e-c95a-4ff9-9b02-13feaed91aa0  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$514848234$--><h2>Objetivos</h2> <p class="BodyTextL25Bold">Parte 1: Crear un hash de un Archivo de texto con OpenSSL</p> <p class="BodyTextL25Bold">Parte&nbsp;2: Verificar hashes</p> <h2>Trasfondo/Situación</h2> <p class="InstNoteRedL25"><span>Las funciones de hash son algoritmos matemáticos diseñados para tomar datos como entrada y generar una cadena de caracteres única de tamaño fijo, también conocida como hash. Diseñadas para que sean veloces, las funciones de hash son muy difíciles de revertir; es muy difícil recuperar los datos que crearon un hash determinado, basándose solamente en el hash. Otra de las propiedades importantes de las funciones hash es que hasta el cambio más pequeño realizado en los datos de entrada genera un hash completamente diferente.</span></p> <p class="InstNoteRedL25"><span>Aunque se puede utilizar OpenSSL para generar y comparara hashes, hay otras herramientas disponibles. Algunas de estas herramientas están también incluidas en esta práctica de laboratorio<span class="BodyTextL25Char">.</span></span></p> <h2>Recursos necesarios</h2> <p class="Bulletlevel1">Máquina virtual Security Workstation</p> <h2>Instrucciones</h2> <h2>Parte 1: Hashing de un archivo de texto con OpenSSL</h2> <p class="BodyTextL25">OpenSSL se puede utilizar como una herramienta independiente para tareas de hash. Sigan los pasos que se indican a continuación para crear un hash de un archivo de texto:</p> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Abra una ventana de terminal en la máquina virtual Security Workstation.</p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>Como el archivo de texto desde el que se quiere generar el hash se encuentra en el directorio/home/analyst/lab.support.files/, cambie a ese directorio:</p> <p class="CMD">[analyst@secOps ~]$ <b>cd /home/analyst/lab.support.files/</b></p> <p class="SubStepAlpha">c.<span>&nbsp;&nbsp;</span>Escriba el siguiente comando para listar en la pantalla el contenido del archivo de texto letter_to_grandma.txt:</p> <p class="CMD">[analyst@secOps lab.support.files]$ <b>cat letter_to_grandma.txt </b></p> <p class="CMDOutput">Hi Grandma,</p> <p class="CMDOutput">I am writing this letter to thank you for the chocolate chip cookies you sent me. I got them this morning and I have already eaten half of the box! They are absolutely delicious!</p> <p class="CMDOutput">I wish you all the best. Love,</p> <p class="CMDOutput">Your cookie-eater grandchild.</p> <p class="SubStepAlpha">d.<span>&nbsp;&nbsp;</span>En la misma ventana de terminal ingrese el siguiente comando para generar un hash del archivo de texto. El comando utilizara SHA-2-256 como algoritmo de hashing para generar un hash del archivo de texto. El hash aparecerá en la pantalla después de que OpenSSL lo haya computado.</p> <p class="CMD">[analyst@secOps lab.support.files]$ <b>openssl sha256 letter_to_grandma.txt</b></p> <p class="CMD">SHA256(letter_to_grandma.txt)= deff9c9bbece44866796ff6cf21f2612fbb77aa1b2515a900bafb29be118080b</p> <p class="SubStepAlpha" style="text-indent:0in">Observe el formato de la salida. OpenSSL muestra el algoritmo de hashing utilizado, SHA-256, seguido por el nombre del archivo utilizado como datos de entrada. El hash SHA-256 se muestra a si mismo después del signo igual (´=´).</p> <p class="SubStepAlpha">e.<span>&nbsp;&nbsp;</span>Las funciones de hash son útiles para verificar la integridad de los datos independientemente de que se trate de una imagen, una canción o un simple archivo de texto. El cambio más pequeño produce un hash completamente diferente. Los hashes se pueden calcular antes y después de la transmisión, para luego compararlos. Si los hashes no coinciden, los datos fueron modificados durante la transmisión.</p> <p class="SubStepAlpha" style="text-indent:0in">Modifiquemos el archivo de texto&nbsp;letter_to_grandma.txt y volvamos a calcular el hash&nbsp;MD5. Ejecute el siguiente comando para abrir <b>nano, </b>un editor de texto de línea de comandos.</p> <p class="CMD">[analyst@secOps lab.support.files]$ <b>nano letter_to_grandma.txt</b></p> <p class="SubStepAlpha" style="text-indent:0in">Utilizando <b>nano</b>, cambie la primera oración de <b>‘Hi Grandma’</b> a <b>‘Hi Grandpa’</b>. Observe que solo estamos cambiando un carácter: la <b>‘m’</b> a una <b>‘p’</b>. Después de hacer el cambio presione las teclas <b>&lt;CONTROL+X&gt;</b> para guardar el archivo modificado. Presione <b>‘Y’</b> (Sí) para confirmar el nombre y guardar el archivo. Presione la tecla <b>&lt;Intro&gt;</b> y saldrá de nano para continuar con el siguiente paso. </p> <p class="SubStepAlpha">f.<span>&nbsp;&nbsp;&nbsp;</span>Ahora que se ha modificado y guardado el archivo, vuelva a ejecutar el comando para generar un hash SHA-2-256 del archivo.</p> <p class="CMD">[analyst@secOps lab.support.files]$ <b>openssl sha256 letter_to_grandma.txt</b></p> <p class="CMD">SHA256(letter_to_grandma.txt)= 43302c4500b7c4b8e574ba27a59d83267812493c029fd054c9242f3ac73100bc</p> <h4 class="pageTracer-h4-title-hide">Pregunta:</h4></div>
+        </div>
+      </div>
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="5dfbcb78-ad2e-459e-b4ca-94c06894255c" style="width: 14.2857%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="5dfbcb78-ad2e-459e-b4ca-94c06894255c" class="5dfbcb78-ad2e-459e-b4ca-94c06894255c block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="5dfbcb78-ad2e-459e-b4ca-94c06894255c" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$514848234$--><!----><opentextbox-view modelid="e915f05b-bc40-4ed9-a829-caf0e72aa689" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="e915f05b-bc40-4ed9-a829-caf0e72aa689" class="component opentextbox e915f05b-bc40-4ed9-a829-caf0e72aa689  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="e915f05b-bc40-4ed9-a829-caf0e72aa689" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$514848234$--> <div class="openTextBox__preText"><!--?lit$514848234$--><p class="SubStepAlpha">El hash nuevo, ¿es diferente al calculado en el punto&nbsp;(d)? ¿Es muy diferente?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$514848234$--><!--?lit$514848234$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$514848234$-->
+                      <!--?lit$514848234$--><p class="BodyTextL50Answer"><span class="AnswerGray"><span style=" border:none"><span style="border:none">Sí. El nuevo hash es completamente diferente al hash anterior.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$514848234$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$514848234$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$514848234$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="51405954-548c-49b1-ae4e-b71bce8179aa" style="width: 14.2857%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="51405954-548c-49b1-ae4e-b71bce8179aa" class="51405954-548c-49b1-ae4e-b71bce8179aa block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="51405954-548c-49b1-ae4e-b71bce8179aa" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$514848234$--><!----><text-view modelid="e370ed3e-64bb-456f-a7e1-9c40af173dd8" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="e370ed3e-64bb-456f-a7e1-9c40af173dd8" class="component text e370ed3e-64bb-456f-a7e1-9c40af173dd8  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$514848234$--><p class="SubStepAlpha">g.<span>&nbsp;&nbsp;</span>También se puede usar un algoritmo de hashing con una longitud de bits más larga, como SHA-2-512. Utilice el siguiente comando para generar un hash SHA-2-512 del archivo letter_to_grandma.txt :</p> <p class="CMD">[analyst@secOps lab.support.files]$ <b>openssl sha512 letter_to_grandma.txt</b></p> <p class="CMD">SHA512(letter_to_grandma.txt)= 7c35db79a06aa30ae0f6de33f2322fd419560ee9af9cedeb6e251f2f1c4e99e0bbe5d2fc32ce501468891150e3be7e288e3e568450812980c9f8288e3103a1d3 </p> <p class="CMDOutput">[analyst@secOps lab.support.files]$</p> <p class="SubStepAlpha">h.<span>&nbsp;&nbsp;</span>Utilice <b>sha256sum</b> y <b>sha512sum</b> para generar un hash SHA-2-256 y SHA-2-512 del archivo letter_to_grandma.txt: </p> <p class="CMD">[analyst@secOps lab.support.files]$ <b>sha256sum letter_to_grandma.txt</b></p> <p class="CMD">43302c4500b7c4b8e574ba27a59d83267812493c029fd054c9242f3ac73100bc letter_to_grandma.txt</p> <p class="CMD">[analyst@secOps lab.support.files]$ <b>sha512sum letter_to_grandma.txt</b></p> <p class="CMD"><span lang="PT-BR">7c35db79a06aa30ae0f6de33f2322fd419560ee9af9cedeb6e251f2f1c4e99e0bbe5d2fc32ce501468891150e3be7e288e3e568450812980c9f8288e3103a1d3&nbsp; letter_to_grandma.txt</span></p> <h4 class="pageTracer-h4-title-hide">Pregunta:</h4></div>
+        </div>
+      </div>
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="3cd2d8fa-c5b1-4343-94d1-2e698fdcaf4e" style="width: 14.2857%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="3cd2d8fa-c5b1-4343-94d1-2e698fdcaf4e" class="3cd2d8fa-c5b1-4343-94d1-2e698fdcaf4e block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="3cd2d8fa-c5b1-4343-94d1-2e698fdcaf4e" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$514848234$--><!----><opentextbox-view modelid="625bcc05-dd1f-46a8-a48a-1ff87a55d73b" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="625bcc05-dd1f-46a8-a48a-1ff87a55d73b" class="component opentextbox 625bcc05-dd1f-46a8-a48a-1ff87a55d73b  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="625bcc05-dd1f-46a8-a48a-1ff87a55d73b" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$514848234$--> <div class="openTextBox__preText"><!--?lit$514848234$--><p class="SubStepAlpha">¿Coinciden los hashes generados con <b>sha256sum</b> y <b>sha512sum</b> con los hashes generados en los puntos (f.) y (g.) respectivamente? Explique. </p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$514848234$--><!--?lit$514848234$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$514848234$-->
+                      <!--?lit$514848234$--><p class="BodyTextL50Answer"><span class="AnswerGray"><span style=" border:none"><span style="border:none">Sí. Si bien se utilizan diferentes herramientas, utilizan el mismo algoritmo hash y datos de entrada.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$514848234$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$514848234$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$514848234$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="8f6a4ee5-ec21-4d45-abe5-d236bd38e41e" style="width: 14.2857%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="8f6a4ee5-ec21-4d45-abe5-d236bd38e41e" class="8f6a4ee5-ec21-4d45-abe5-d236bd38e41e block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="8f6a4ee5-ec21-4d45-abe5-d236bd38e41e" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$514848234$--><!----><text-view modelid="fe79333a-6840-4cb7-8a3c-8f969d089830" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="fe79333a-6840-4cb7-8a3c-8f969d089830" class="component text fe79333a-6840-4cb7-8a3c-8f969d089830  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$514848234$--><p class="BodyTextL25"><b>Nota</b>: SHA-2 es el estándar recomendado para hashing. Si bien SHA-2 aún no se ha visto comprometido de manera efectiva, las computadoras se vuelven cada vez más poderosas. Se espera que esta evolución natural pronto permita que los atacantes comprometan (vulneren)&nbsp;SHA-2.</p> <p class="BodyTextL25">SHA-3 es el algoritmo de hashing más nuevo, y eventualmente será el reemplazo de la familia de hashes SHA-2.</p> <p class="BodyTextL50"><b>Nota</b>: La máquina virtual Security Workstation solo soporta SHA-2-224, SHA-2-256 y SHA-2-512 (<b>sha224sum</b>, <b>sha256sum</b> y <b>sha512sum</b> respectivamente).</p> <h2>Parte&nbsp;2: Verificar hashes</h2> <p class="BodyTextL25">Como se mencionó antes, un uso común de los hashes es verificar la integridad de los archivos. Sigan los pasos que se detallan a continuación para utilizar hashes&nbsp;SHA-2-256 y verificar la integridad de sample.img, un archivo que se descargó de Internet.</p> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Junto con sample.img también se descargó sample.img_SHA256.sig, un archivo que contiene el SHA-2-256 calculado por el sitio web. En primer lugar, utilicen el comando&nbsp;cat para mostrar el contenido del archivo&nbsp;sample.img_SHA256.sig:</p> <p class="CMD">[analyst@secOps lab.support.files]$ <b>cat sample.img_SHA256.sig</b></p> <p class="CMD">c56c4724c26eb0157963c0d62b76422116be31804a39c82fd44ddf0ca5013e6a</p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>Utilice SHA256sum para calcular el hash SHA-2-256 del archivo sample.img:</p> <p class="CMD">[analyst@secOps lab.support.files]$ <b>sha256sum sample.img</b></p> <p class="CMD">c56c4724c26eb0157963c0d62b76422116be31804a39c82fd44ddf0ca5013e6a&nbsp; sample.img</p> <h4 class="pageTracer-h4-title-hide">Pregunta:</h4></div>
+        </div>
+      </div>
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="0f150347-e624-4602-9d59-9462b7cd966c" style="width: 14.2857%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="0f150347-e624-4602-9d59-9462b7cd966c" class="0f150347-e624-4602-9d59-9462b7cd966c block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="0f150347-e624-4602-9d59-9462b7cd966c" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$514848234$--><!----><opentextbox-view modelid="65cb3e2f-0936-441e-a1c2-4e45bd35805b" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="65cb3e2f-0936-441e-a1c2-4e45bd35805b" class="component opentextbox 65cb3e2f-0936-441e-a1c2-4e45bd35805b  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="65cb3e2f-0936-441e-a1c2-4e45bd35805b" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$514848234$--> <div class="openTextBox__preText"><!--?lit$514848234$--><p class="BodyTextL50">¿Se descargó el archivo sample.img sin ningún tipo de error? Explique.</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$514848234$--><!--?lit$514848234$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$514848234$-->
+                      <!--?lit$514848234$--><p class="BodyTextL50Answer"><span class="AnswerGray"><span style=" border:none"><span style="border:none">Sí. Como ambos hash, el hash calculado antes de la descarga y el que se calculó después, coinciden, es correcto afirmar que no se introdujeron errores durante la descarga.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$514848234$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$514848234$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$514848234$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="df79227e-afa6-4894-a00e-6c8d04664933" style="width: 14.2857%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="df79227e-afa6-4894-a00e-6c8d04664933" class="df79227e-afa6-4894-a00e-6c8d04664933 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="df79227e-afa6-4894-a00e-6c8d04664933" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$514848234$--><!----><text-view modelid="13dd75cf-ba63-44a8-b04f-bb1362b6701d" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="13dd75cf-ba63-44a8-b04f-bb1362b6701d" class="component text 13dd75cf-ba63-44a8-b04f-bb1362b6701d  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$514848234$--><p class="BodyTextL50"><b>Nota</b>: Si bien comparar hashes un método relativamente robusto para detectar errores de transmisión, hay mejores formas de garantizar que el archivo no ha sido modificado. Diversas herramientas como <b>gpg</b> son un método mucho mejor para garantizar que el archivo descargado no ha sido modificado por terceros y que es, efectivamente, el archivo que el editor quería publicar.</p></div>
+        </div>
+      </div>
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!---->
+                            </div>
+                        </div>
+                        <!--?lit$514848234$-->
+                    </div>
+                </div>
+            </div>
+        <sgpluse-opentextboxcontroller-view modelid="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+            <div class="openTextBoxController__button-container">
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__showButton show-answer show"><!--?lit$514848234$-->Mostrar todas las respuestas</button>    
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__hideButton hide-answer hide"><!--?lit$514848234$-->Ocultar todas las respuestas</button>    
+                <button class="btn-text resetbtn openTextBoxController__resetButton"><!--?lit$514848234$-->Borrar mis respuestas</button>         
+            </div>
+            <!--?lit$514848234$--><hr>
+            <!--?lit$514848234$-->
+                <div class="post-text" tabindex="0">
+                    <!--?lit$514848234$--><span> <span style="padding-right:5px;float:left;font-family:arial;font-size:12px;">© 2017 - 2022 Cisco and/or its affiliates. All rights reserved. Cisco Public </span> </span>
+                </div>
+                   
+        </sgpluse-opentextboxcontroller-view><script></script>
+<script>
+    window.addEventListener("load", function () {
+      console.log("loaded");
+      document?.querySelectorAll(".answergray").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".show-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.remove("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.add("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      let event = new Event("click", {
+        bubbles: true,
+        cancelable: true,
+      });
+      document
+        ?.querySelectorAll(".openTextBoxController__showButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".show-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__hideButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__resetButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            document?.querySelectorAll("textArea").forEach(function (ele) {
+              ele.value = "";
+            });
+          });
+        });
+
+      document
+      ?.querySelectorAll('textarea')
+      .forEach(function (ele){
+        ele.defaultValue = ele.defaultValue.replace(/<!--.*?-->/g, '');
+      })
+        let checkButtonLabel = "check_button_label_placeHolder";
+        let hideButtonLabel = "hide_button_label_placeHolder";
+        document?.querySelectorAll(".check__button").forEach(function (ele) {
+        let answerBox = document.querySelector(".check__solution")
+        if (!answerBox.classList.contains("check__hidden")) {
+          answerBox.classList.add("check__hidden");
+          ele.innerText = checkButtonLabel;
+        }
+          ele.addEventListener("click", function (e) {
+            if (answerBox.classList.contains("check__hidden")) {
+              answerBox.classList.remove("check__hidden")
+              ele.innerText = hideButtonLabel;
+            } else {
+              answerBox.classList.add("check__hidden")
+              ele.innerText = checkButtonLabel;
+            }
+          })
+        })
+    });
+  </script>
+  </body></html>

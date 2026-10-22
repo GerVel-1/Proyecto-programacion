@@ -1,0 +1,1879 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 1rem;
+      }
+      ol,
+      ul {
+        margin-bottom: 0in;
+      }
+      table {
+        margin-top: 1rem;
+        border: 1px solid gray;
+        width: 7in;
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > .openTableTextBox__table-header-data {
+        text-align: center;
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0in;
+        text-align: center;
+        line-height: 115%;
+        page-break-after: avoid;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        font-weight: bold;
+        background: #dbe5f1;
+        padding: 0.5rem;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .openTextBox__textArea-container {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 50%;
+      }
+      .openTableTextBox__fieldset {
+        padding: 5px;
+      }
+      td {
+        margin-top: 3pt;
+        margin-right: 0in;
+        margin-bottom: 3pt;
+        margin-left: 0in;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 98.85pt;
+        border: solid windowtext 1pt;
+        border-top: none;
+        padding: 0.7pt 5.75pt 0.7pt 5.75pt;
+      }
+      textarea {
+        width: 100%;
+      }
+      .answergray {
+        padding: 0.2rem;
+      }
+
+      .openTableTextBox__widget {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0.25in;
+      }
+
+      .show-answer,
+      .hide-answer {
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border: 0px;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .openTextBoxController__button-container {
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .openTextBoxController__button-container .btn-text {
+        margin: 10px;
+      }
+
+      .btn-text {
+        border: 0px;
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border-radius: 0;
+        cursor: pointer;
+      }
+
+      .u-display-none {
+        display: none;
+      }
+      .openTextBox__postText, openTableTextBox__postText {
+        margin-top: 0.5rem;
+      }
+      .edit-comment {
+        display: none;
+      }
+      .js-heading-inner {
+        display: none;
+      }
+      .block__title-inner,
+      .article__title-inner {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+      h2{
+        font-size: 1.25em;
+      }
+      h3{
+        font-size: 1.125em;
+      }
+      .table
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: solid windowtext 1pt;
+      }
+      table tbody tr th, table thead tr th{
+        border: solid windowtext 1pt;
+        background-color: #d6d8dc;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .command-output > .table-inner > .table-wrapper > .table-widget > table,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > td,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: none !important;
+        text-align: right !important;
+      }
+      .simple-table > .table-inner > .table-wrapper{
+        margin-left: 1.5rem;
+      }
+      .openTextBox__widget {
+        margin-left: 1.5rem;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      .answergray {
+        background-color: #ccc;
+      }
+      .openTableTextBox__widget > .answergray {
+        background-color: #fff !important;
+      }
+      li > ul,ol > li{
+        margin-left: 0px !important;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      
+      .component__title{
+        font-family: inherit;
+        font-size: 1.65em;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .component__body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .accessibility-completion-indicator{
+        display: none;
+      }
+
+      .check__hidden {
+        display: none;
+      }
+
+      .check__button {
+        border: none;
+        border-radius: 6px !important;
+        background-color: #6abf4b;
+        color: #fff;
+        min-width: 100px;
+        margin: 0.625rem 0;
+        padding: 0.7rem;
+      }
+
+      .check__widget .check__solution .DevConfigGray {
+        background-color: rgb(214,216,220);
+        font-weight: bold;
+      }
+
+      .check-inner .check__widget .check__solution .DevConfigs {
+        margin: 0px;
+        line-height: 115%;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .check__solution  {
+        line-height: 1.5;
+      }
+      .mcq__inner .mcq__widget .mcq__widget-inner {
+        margin-block: 1rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item {
+        display: flex;
+        gap: 0.2rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item .mcq__item-label .mcq__item-text .screenReader-position-text{
+        display: none;
+      }
+      .opentabletextbox-inner .opentabletextBox__widget .openTableTextBox__answerText.answergray {
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox{
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox img{
+        margin-block: 1rem;
+        margin-left: initial;
+      }
+      .component__content .component__body-inner .pageTracer-h4-title-hide {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        font-size: 0px;
+        color: rgb(var(--neutral-2));
+        font-weight: normal;
+      }
+      .table-inner .table__widget table tr.TableHeading th, .table-inner .table__widget table tr.TableHeading td, .table-inner .table__widget table tr td.TableHeading, .opentabletextbox-table thead tr.TableHeading th, .opentabletextbox-table tbody tr.TableHeading td, .opentabletextbox-table tbody tr td.TableHeading {
+        background-color: #d6d8dc;
+        text-align: center;
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .CMD, .component__content .component__body-inner .CMDOutput, .component__content .component__body-inner .CMDOutput__table{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        margin-inline-start: 30px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      [dir="rtl"] .component__content .component__body-inner .CMDOutput__table span {
+        direction: ltr;
+        display: inline-block;
+      }
+      .openTextBox__inner .openTextBox__widget .CMD, .openTextBox__inner .openTextBox__widget .CMDOutput{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .openTextBox__inner .openTextBox__widget .DnTbold, .openTextBox__inner .openTextBox__widget .BodyTextL25Bold, .component__content .component__body-inner .BodyTextL25Bold, .component__content .component__body-inner .DnTbold, .table-inner .table__widget table tr .DnTbold {
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .SubStepNum {
+        text-indent: -25.5px;
+        margin-inline-start: 50px;
+      }
+      .component__content .component__body-inner .BodyTextL50 {
+        margin-inline-start: 30px;
+      }
+      .component__content .component__body-inner .Bulletlevel1 {
+        text-indent: -19px;
+        margin-inline-start: 48px;
+      }
+      .component__content .component__body-inner .Bulletlevel2 {
+          text-indent: -19px;
+          margin-inline-start: 72px;
+      }
+      .openTextBox__inner .openTextBox__widget .ReflectionQ, .component__content .component__body-inner .SubStepAlpha {
+          text-indent: -25.5px;
+          margin-inline-start: 30px;
+      }
+    </style>
+
+</head><body><!---->
+            <div class="article 64883b7c10c3402246b75e53 background-color-white remove-padding-top remove-padding-bottom ">
+                <div class="article__inner">
+                <div class=" no-adaptive-scroll">
+                    <!--?lit$27644491$-->
+                        <div class=""> 
+                            <base-view type="article" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="article__header-wrapper background-color-white remove-padding-top remove-padding-bottom ">
+        <div class="article__header ">
+          <div class="article__header-inner ">
+            <!--?lit$27644491$-->
+      <div class="article__title ">
+        <!--?lit$27644491$--><heading-view aria-hidden="true" id="64883b7c10c3402246b75e53-heading-view" headingtitle="Práctica de laboratorio - Búsqueda de información a partir de certificados SSL" modelid="64883b7c10c3402246b75e53" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="js-heading is-incomplete">
+        <div class="js-heading-inner" role="heading" id="article-heading" aria-level="2">
+        <span class="aria-label"> <!--?lit$27644491$-->Incompleto &nbsp;<!--?lit$27644491$-->Práctica de laboratorio - Búsqueda de información a partir de certificados SSL</span>
+        </div>
+      </div>
+    </heading-view>
+        <div tabindex="0" role="heading" class="article__title-inner " aria-level="2">
+          <span class="accessibility-completion-indicator"><!--?lit$27644491$-->Incompleto </span>
+          <!--?lit$27644491$-->Práctica de laboratorio - Búsqueda de información a partir de certificados SSL
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                            <div class="block__container " style="">
+                                <!--?lit$27644491$--><!---->
+                                    <block-view modelid="64883b8510c3402246b75f00" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b8510c3402246b75f00" class="64883b8510c3402246b75f00 block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b8510c3402246b75f00" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bb510c3402246b762f5" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bb510c3402246b762f5" class="component text 64883bb510c3402246b762f5 remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><h1>Objetivos</h1><ul><li>Ver información de certificados en hosts</li><li><!--[endif]-->Acceder a la información detallada del certificado<!--[if !supportLists]--></li><li>Usar herramientas de escaneo de SSL en Kali<!--[if !supportLists]--></li><li>Usar las herramientas de Kali para recopilar información del certificado</li></ul><h1>Trasfondo / Escenario</h1><p>Los certificados SSL / TLS proporcionan dos amplias funciones. En primer lugar, proporcionan una forma de que las personas que acceden a él puedan validar la propiedad de un sitio web. En segundo lugar, proporcionan un medio por el cual se cifra la comunicación entre un cliente y un servidor para que no pueda ser leída o alterada por partes no autorizadas. También proporcionan la información necesaria para que un navegador cree una conexión segura y cifrada a un sitio web a través del protocolo HTTPS. Los certificados se utilizan detrás de escena cuando los usuarios navegan por Internet. En la mayoría de los casos, los usuarios no saben que están en uso. Los usuarios los detectan si falta un certificado, está desactualizado o está mal configurado.</p><p>La información del certificado se puede ver localmente para un sitio web que se muestra actualmente en un navegador haciendo clic en el icono de candado junto a la URL en el navegador. Los certificados también se almacenan localmente para las propias autoridades de certificación. Hay varias formas de verlos. El formato de la información del certificado de clave pública lo especifica el estándar X.509.</p><p>Los hackers éticos pueden utilizar la información de los certificados públicos en la fase de reconocimiento de las pruebas de penetración. La información del certificado puede revelar detalles sobre una organización, incluidos nombres de dominio y subdominio, fechas de emisión y vencimiento y claves públicas de certificados. Además, ciertas versiones de software, como OpenSSL, tienen vulnerabilidades ampliamente conocidas que pueden aprovecharse, incluida la vulnerabilidad al error Heartbleed. Además, es posible que algunos certificados utilicen algoritmos de cifrado débiles.</p><h1>Recursos necesarios</h1><ul><li><!--[endif]-->Kali VM personalizada para el curso de Ethical Hacker</li><li><!--[endif]-->Acceso a Internet</li></ul></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b8810c3402246b75f32" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b8810c3402246b75f32" class="64883b8810c3402246b75f32 block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b8810c3402246b75f32" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bb410c3402246b762f4" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bb410c3402246b762f4" class="component text 64883bb410c3402246b762f4 remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><h1>Instrucciones</h1><h2 style="margin-left:0in"><!--[if !supportLists]--><span><span>Parte 1: </span></span><!--[endif]-->Ver información del certificado en hosts</h2><p>Algunos certificados SSL se almacenan localmente en hosts de red. Estos certificados permiten una comunicación segura entre un host y un servidor a través de una cadena de certificados. Un host almacena certificados intermedios y raíz como parte del proceso de autenticación SSL.</p><h3 style="margin-left:0in"><!--[if !supportLists]--><span><span>Paso 1: </span></span><!--[endif]-->Vea los certificados del sitio desde un navegador.</h3><ol start="1" style="list-style-type:lower-alpha"><li>Navegue hasta <a href="http://netacad.com" target="_blank">netacad.com.</a></li><li><!--[endif]-->En la mayoría de los navegadores, aparece un icono de candado junto a la URL del sitio que se muestra actualmente. Haga clic en el icono del candado y explore las configuraciones disponibles.</li><li><!--[endif]-->La mayoría de los navegadores tienen un administrador de certificados que permite ver los detalles de los certificados para sitios web o los certificados raíz para las autoridades de certificación. Vea la información del certificado mientras navega, usa el candado o abre la información del certificado desde la configuración de seguridad del navegador.</li><li><!--[endif]-->Mire los detalles del certificado Cisco netacad y responda las siguientes preguntas.</li></ol></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b8a10c3402246b75f60" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b8a10c3402246b75f60" class="64883b8a10c3402246b75f60 block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b8a10c3402246b75f60" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883bb510c3402246b762f6" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883bb510c3402246b762f6" class="component opentextbox 64883bb510c3402246b762f6 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bb510c3402246b762f6" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->¿Para qué dominio se emitió el certificado? ¿Qué organización lo emitió?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->socialgoodplatform.com. Fue emitido por IdenTrust.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b8b10c3402246b75f7d" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b8b10c3402246b75f7d" class="64883b8b10c3402246b75f7d block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b8b10c3402246b75f7d" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883bae10c3402246b76244" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883bae10c3402246b76244" class="component opentextbox 64883bae10c3402246b76244 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bae10c3402246b76244" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->Vea el certificado. ¿Cuándo caducará?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->Las respuestas pueden variar. En el momento de redactar este curso, el certificado caduca el 6 de enero de 2024.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b8d10c3402246b75fa0" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b8d10c3402246b75fa0" class="64883b8d10c3402246b75fa0 block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b8d10c3402246b75fa0" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883bad10c3402246b76242" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883bad10c3402246b76242" class="component opentextbox 64883bad10c3402246b76242 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bad10c3402246b76242" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->¿Cuál es el algoritmo de cifrado de firmas de certificados?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->Las respuestas pueden variar. En el momento de redactar este curso, el algoritmo de cifrado es SHA-256 con cifrado RSA.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9010c3402246b75fd3" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9010c3402246b75fd3" class="64883b9010c3402246b75fd3 block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9010c3402246b75fd3" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bb510c3402246b762f7" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bb510c3402246b762f7" class="component text 64883bb510c3402246b762f7 remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><h3 style="margin-left:0in"><span><span>Paso 2: </span></span><!--[endif]-->Vea los certificados almacenados en el sistema operativo.</h3><ol start="1" style="list-style-type:lower-alpha"><li><!--[if !supportLists]--><!--[endif]-->Microsoft Windows tiene una aplicación de administración de seguridad que forma parte de Microsoft Management Console. Ingrese <strong>certmgr.msc</strong> en el cuadro de búsqueda y presione Intro para abrirlo.</li></ol><p style="margin-left:40px">En Kali, puede encontrar los certificados almacenados en la carpeta /usr/share/ca-certificates/mozilla. Haga clic con el botón derecho en un certificado y seleccione <strong>Open With “ViewFile”</strong> para acceder a la información de un certificado.</p><ol start="2" style="list-style-type:lower-alpha"><li><!--[endif]-->Acceda a la información sobre certificados raíz e intermedios de confianza en Windows seleccionando las carpetas de certificados correspondientes en la aplicación de administración.</li></ol><p style="margin-left:40px">En Kali, acceda a la carpeta de certificados y use <strong>ls -l | grep root</strong> para enumerar los archivos de certificados raíz, o busque la palabra <strong>root</strong> en la ventana del administrador de archivos.</p></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9110c3402246b75fdf" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9110c3402246b75fdf" class="64883b9110c3402246b75fdf block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9110c3402246b75fdf" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883bae10c3402246b76246" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883bae10c3402246b76246" class="component opentextbox 64883bae10c3402246b76246 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bae10c3402246b76246" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->Los nombres de los archivos de certificado raíz hacen referencia a la autoridad de certificación que los otorgó. ¿Cuáles son las tres autoridades de certificación más comunes en su equipo? Investíguelas en internet. ¿Cuál es el costo de un certificado SSL básico de un solo dominio durante un año?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->Las respuestas pueden variar. Al momento de escribir este curso, el precio de GobalSign es de $ 249 USD / año. De Digicert son $ 274,55. De GoDaddy, un certificado autoadministrado cuesta $ 99 y un certificado administrado es de $ 249,98.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9210c3402246b75ff8" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9210c3402246b75ff8" class="64883b9210c3402246b75ff8 block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9210c3402246b75ff8" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bb510c3402246b762f8" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bb510c3402246b762f8" class="component text 64883bb510c3402246b762f8 remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><h2 style="margin-left:0in"><span><span>Parte 2: </span></span><!--[endif]-->Acceda a información detallada del certificado en línea</h2><p>La transparencia de certificados (CT) es un marco abierto para monitorear y auditar la emisión de certificados SSL / TLS. CT requiere que todas las autoridades de certificación (CA) de confianza pública registren todos los certificados emitidos en registros auditables, a prueba de manipulaciones y disponibles públicamente. Estos registros se pueden monitorear para detectar cualquier emisión fraudulenta o maliciosa de certificados SSL / TLS, incluidos los certificados emitidos para dominios que el atacante no controla.</p><p>En OSINT, los registros de CT se pueden utilizar para recopilar información sobre los certificados SSL / TLS utilizados por una organización o un dominio específico. Al analizar los registros de TC, los analistas pueden identificar las emisiones de certificados y sus dominios asociados, así como cualquier anomalía o irregularidad en la emisión de certificados. Los registros de TC también se pueden usar para monitorear cualquier emisión no autorizada de certificados SSL / TLS, lo que podría indicar una posible violación de la seguridad.</p><p>Se puede acceder a los registros de CT a través de varios servidores de registros de CT y API. También hay varias herramientas de monitoreo de TC disponibles, como CertSpotter y Censys, que pueden ayudar a automatizar el proceso de monitoreo de registros de TC para dominios específicos o certificados SSL / TLS.</p><ol start="1" style="list-style-type:lower-alpha"><li><!--[if !supportLists]--><!--[endif]-->Abra un navegador y navegue a <strong><a href="https://crt.sh" target="_blank">https://crt.sh.</a></strong></li><li><!--[if !supportLists]--><!--[endif]-->Ingrese la URL de netacad en el cuadro de búsqueda y haga clic en <strong>Search</strong>.</li><li><!--[if !supportLists]-->La tabla resultante enumera información completa de los certificados emitidos a netacad.com y subdominios relacionados. La lista se remonta a 2019. crt.sh proporciona ID para los certificados, pero estos ID son relevantes solo para crt.sh. Hacer clic en una ID lo lleva a los detalles del certificado disponibles.</li></ol></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9310c3402246b7600e" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9310c3402246b7600e" class="64883b9310c3402246b7600e block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9310c3402246b7600e" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883bb510c3402246b762f9" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883bb510c3402246b762f9" class="component opentextbox 64883bb510c3402246b762f9 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bb510c3402246b762f9" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->Tenga en cuenta que crt.sh revela varios subdominios que no son conocidos por los usuarios normales de netacad. Anote los nombres de los subdominios. ¿Quién cree que deben utilizar estos subdominios? Explique.</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->Con nombres que comienzan con dev y stage, parece que estos subdominios están diseñados para desarrolladores que trabajan en el sitio web de netacad.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9410c3402246b76019" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9410c3402246b76019" class="64883b9410c3402246b76019 block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9410c3402246b76019" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883bae10c3402246b76245" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883bae10c3402246b76245" class="component opentextbox 64883bae10c3402246b76245 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bae10c3402246b76245" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->¿Qué otro dominio está asociado con el dominio netacad según la información de crt.sh?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->socialgoodplatform.com
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9410c3402246b76028" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9410c3402246b76028" class="64883b9410c3402246b76028 block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9410c3402246b76028" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883bae10c3402246b76247" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883bae10c3402246b76247" class="component opentextbox 64883bae10c3402246b76247 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bae10c3402246b76247" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->Busque crt.sh en el dominio afiliado a netacad.com. ¿Qué observación general puede hacer sobre los dominios revelados en esta búsqueda? ¿Qué implica esto sobre la red?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->Hay muchos subdominios para socialgoodplatform.com. Más que netacad. Tiene una gran superficie de ataque.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9510c3402246b76039" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9510c3402246b76039" class="64883b9510c3402246b76039 block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9510c3402246b76039" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bb510c3402246b762fa" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bb510c3402246b762fa" class="component text 64883bb510c3402246b762fa remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><h2 style="margin-left:0in"><!--[if !supportLists]--><span><span>Parte 3: </span></span><!--[endif]-->Usar las herramientas de escaneo de SSL en Kali</h2><h3 style="margin-left:0in"><span><span>Paso 1: </span></span><!--[endif]-->Investigar las herramientas de Kali</h3><ol start="1" style="list-style-type:lower-alpha"><li><!--[if !supportLists]--><!--[endif]-->Iniciar la máquina Kali virtual e iniciar sesión</li><li><!--[if !supportLists]--><!--[endif]-->Inicie una sesión de terminal.</li><li><!--[if !supportLists]--><!--[endif]-->Kali incluye varias herramientas relacionadas con SSL. Haga clic en el icono de programas de Kali y busque el término <strong>ssl</strong>.</li><li><!--[if !supportLists]--><!--[endif]-->Utilice la referencia de herramientas de Kali para completar la tabla a continuación para las cinco herramientas de SSL incluidas con su distribución de Kali.</li></ol></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9610c3402246b7604b" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9610c3402246b7604b" class="64883b9610c3402246b7604b block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9610c3402246b7604b" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentabletextbox-view modelid="64883bb510c3402246b762fb" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+      <div class="component">
+        <div class="opentabletextbox-inner component__inner">
+          <div data-socialgoodpulse-id="64883bb510c3402246b762fb" class="component opentabletextbox 64883bb510c3402246b762fb remove-top-padding remove-padding-bottom is-full   ">
+            <div class="component__header-container">
+              <div data-socialgoodpulse-id="64883bb510c3402246b762fb" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                <base-view type="component" lowercase_component="openTableTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTableTextBox__header">
+          <div class="component__header-inner openTableTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+              </div>
+            </div>
+            <div class="component__widget opentabletextBox__widget question-container ">
+              <div class="openTableTextBox__preText">
+                <!--?lit$27644491$-->
+              </div>
+              <div class="opentabletextbox-container openTableTextBox__table-container">
+                <table class="opentabletextbox-table" tabindex="0">
+                  <!--?lit$27644491$-->
+                        <thead class="openTableTextBox__table-header">
+                          <tr>
+                            <!--?lit$27644491$--><!----><th tabindex="0" scope="col"><!--?lit$27644491$-->Herramienta</th><!----><!----><th tabindex="0" scope="col"><!--?lit$27644491$-->Descripción</th><!----><!----><th tabindex="0" scope="col"><!--?lit$27644491$-->Reconocimiento, explotación o utilidad</th><!---->
+                          </tr>
+                        </thead>
+                  <tbody>
+                    <!--?lit$27644491$--><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$27644491$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$27644491$--><div><!--?lit$27644491$-->sslscan</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$27644491$--><div><!--?lit$27644491$-->Consulta los servicios SSL para determinar qué cifrados se admiten</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$27644491$--><div><!--?lit$27644491$-->Reconocimiento</div>
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$27644491$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$27644491$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$27644491$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$27644491$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$27644491$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$27644491$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$27644491$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$27644491$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$27644491$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$27644491$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$27644491$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$27644491$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$27644491$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$27644491$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$27644491$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$27644491$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!---->
+                  </tbody>
+                </table>
+              </div>
+              <div class="openTableTextBox__answerText answergray openTableTextBox__table-container is-full hide">
+                <table class="opentabletextbox-table openTableTextBox__table-inner" tabindex="0">
+                  <!--?lit$27644491$-->
+                        <thead class="openTableTextBox__table-header">
+                          <tr tabindex="0">
+                            <!--?lit$27644491$--><!----><th scope="col"><!--?lit$27644491$-->Herramienta</th><!----><!----><th scope="col"><!--?lit$27644491$-->Descripción</th><!----><!----><th scope="col"><!--?lit$27644491$-->Reconocimiento, explotación o utilidad</th><!---->
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <!--?lit$27644491$--><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$27644491$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$27644491$-->sslscan</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$27644491$-->Consulta los servicios SSL para determinar qué cifrados se admiten</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$27644491$-->Reconocimiento</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$27644491$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$27644491$-->ssldump</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$27644491$-->Analiza y decodifica el tráfico SSL</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$27644491$-->Explotación</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$27644491$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$27644491$-->sslh</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$27644491$-->Ejecuta varios servicios en el puerto 443</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$27644491$-->Utilidad</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$27644491$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$27644491$-->sslsplit</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$27644491$-->Habilita los ataques MitM en conexiones de red cifradas con SSL</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$27644491$-->Explotación</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$27644491$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$27644491$-->sslyze</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$27644491$-->Analiza la configuración de SSL de un servidor conectándose a él</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$27644491$-->Reconocimiento </div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!---->
+                      </tbody>
+                </table>
+              </div>
+              <div class="btn__container">
+                <button class="btn-text openTableTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>
+                <button class="btn-text openTableTextBox__showButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>
+              </div>
+              <div class="openTableTextBox__postText">
+                <!--?lit$27644491$-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </opentabletextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9710c3402246b7605b" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9710c3402246b7605b" class="64883b9710c3402246b7605b block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9710c3402246b7605b" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bb510c3402246b762fc" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bb510c3402246b762fc" class="component text 64883bb510c3402246b762fc remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><h2>Parte 4: Usar las herramientas de Kali para recopilar información del certificado</h2><p>Como sabe, <strong>sslscan</strong> es una herramienta de reconocimiento de Kali que recopila información sobre los certificados SSL asociados con los dominios. Es una utilidad de línea de comandos. Usaremos <strong>sslscan</strong> para recopilar información sobre certificados y usaremos otra utilidad, llamada <strong>aha</strong>, para enviar los resultados a un archivo HTML.</p><h3>Paso 1: Instale aha.</h3><p>La aplicación <strong>aha</strong> crea un archivo HTML estándar que captura la salida de los comandos del terminal en archivos HTML estándar. Aha captura cualquier código de color y formato básico de la salida del comando. También tiene opciones de línea de comandos que le permiten especificar su propio formato, como el color de fondo, las hojas de estilo para aplicar y el ajuste de palabras, entre otras configuraciones.</p><ol start="1" style="list-style-type:lower-alpha"><li>Actualice la información de su paquete de apto con el comando <strong>apt update</strong>. Esto requiere privilegios de root.</li></ol><pre style="margin-left: 40px;">┌──(kali㉿Kali)-[~]</pre><pre style="margin-left: 40px;">└─$ <strong>sudo apt update</strong></pre><ol start="2" style="list-style-type:lower-alpha"><li>Instale aha con el comando <strong>sudo apt install -y aha</strong>. La opción -y supone que <strong>sí</strong> son las respuestas a todas las solicitudes y que se puede ejecutar de forma no interactiva. En este caso, está dando permiso para instalar aha.</li></ol></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9810c3402246b76065" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9810c3402246b76065" class="64883b9810c3402246b76065 block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9810c3402246b76065" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bb510c3402246b762fd" class="is-full remove-top-padding remove-padding-bottom packetTracer_wrap_text zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bb510c3402246b762fd" class="component text 64883bb510c3402246b762fd remove-top-padding remove-padding-bottom packetTracer_wrap_text is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><h3>Paso 2: Ejecute sslscan y guarde el resultado en un archivo HTML.</h3><ol start="1" style="list-style-type:lower-alpha"><li><!--[if !supportLists]<span style='mso-fareast-font-family:
+Arial;mso-bidi-font-family:Arial'><span style='mso-list:Ignore'>a.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>[endif]-->Desde la línea de comandos de un terminal, ejecute el comando para ejecutar <strong>sslscan</strong> con el objetivo netacad.com.</li></ol><pre style="margin-left: 40px;">┌──(kali<span>㉿</span>Kali)-[~]</pre><pre style="margin-left: 40px;">└─$<strong> sslscan netacad.com</strong></pre><p style="margin-left:40px">Después de una breve demora, debería ver que los resultados del escaneo comienzan a aparecer en la ventana de terminal. La salida está codificada por colores para facilitar la interpretación de la gravedad de los problemas detectados. El significado de la codificación de colores es el siguiente:</p><ul style="margin-left:40px"><li><!--[if !supportLists]<span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;mso-fareast-font-family:Arial;
+mso-bidi-font-family:Arial'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>[endif]-->Texto de fondo rojo: cifrado NULO. No se utilizó cifrado.</li><li><!--[if !supportLists]<span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;mso-fareast-font-family:Arial;
+mso-bidi-font-family:Arial'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>[endif]-->Rojo: cifrado roto (menor o igual a 40 bits), protocolo vulnerable o roto como SSLv2 o SSLv3 o algoritmo de firma de certificados roto como MD5.</li><li><!--[if !supportLists]<span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;mso-fareast-font-family:Arial;
+mso-bidi-font-family:Arial'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>[endif]-->Amarillo: cifrado débil (menor o igual a 56 bits) o algoritmo de firma débil, como SHA-1.</li><li><!--[if !supportLists]<span
+style='font-size:8.0pt;mso-bidi-font-size:11.0pt;mso-fareast-font-family:Arial;
+mso-bidi-font-family:Arial'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>[endif]-->Violeta: cifrado anónimo, como ADH o AECDH.</li></ul><ol start="2" style="list-style-type:lower-alpha"><li><!--[if !supportLists]<span style='mso-fareast-font-family:
+Arial;mso-bidi-font-family:Arial'><span style='mso-list:Ignore'>b.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>[endif]-->Si bien sslscan ofrece opciones para generar resultados en formatos de archivo de texto o XML, aha proporciona la legibilidad de HTML y la preservación de la codificación de colores. Para usar aha, canalice la salida del comando sslscan a aha y luego redirija la salida de aha a un archivo HTML.</li></ol><pre style="margin-left: 40px;">┌──(kali<span>㉿</span>Kali)-[~]</pre><pre style="margin-left: 40px;">└─$ <strong>sslscan netacad.com | aha &gt; sfa_cert.html</strong></pre><p style="margin-left:40px">sslscan guardará el archivo en el directorio de inicio de Kali como lo indica el indicador. Puede agregar una ruta al nombre del archivo o ejecutar el terminal desde un directorio de destino para guardarlo en otro lugar.</p><ol start="3" style="list-style-type:lower-alpha"><li><!--[if !supportLists]<span style='mso-fareast-font-family:
+Arial;mso-bidi-font-family:Arial'><span style='mso-list:Ignore'>c.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>[endif]-->Busque el archivo HTML y ábralo con Firefox. La salida debe ser similar a la del terminal, excepto que el fondo es blanco. La codificación de colores original debe estar intacta.</li></ol></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9910c3402246b76079" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9910c3402246b76079" class="64883b9910c3402246b76079 block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9910c3402246b76079" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bb510c3402246b762ff" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bb510c3402246b762ff" class="component text 64883bb510c3402246b762ff remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><h1><span>Pregunta de reflexión</span></h1></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9a10c3402246b76096" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9a10c3402246b76096" class="64883b9a10c3402246b76096 block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9a10c3402246b76096" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883bb510c3402246b762fe" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883bb510c3402246b762fe" class="component opentextbox 64883bb510c3402246b762fe remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bb510c3402246b762fe" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->Compare el resultado de las herramientas utilizadas en esta práctica de laboratorio. ¿Qué herramienta parece brindar la información más útil?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->Crt.sh es, con mucho, el más detallado. Busca subdominios que otras herramientas no vieron.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!---->
+                            </div>
+                        </div>
+                        <!--?lit$27644491$-->
+                    </div>
+                </div>
+            </div>
+        <sgpluse-opentextboxcontroller-view modelid="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+            <div class="openTextBoxController__button-container">
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__showButton show-answer show"><!--?lit$27644491$-->Mostrar todas las respuestas</button>    
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar todas las respuestas</button>    
+                <button class="btn-text resetbtn openTextBoxController__resetButton"><!--?lit$27644491$-->Borrar mis respuestas</button>         
+            </div>
+            <!--?lit$27644491$--><hr>
+            <!--?lit$27644491$-->
+                <div class="post-text" tabindex="0">
+                    <!--?lit$27644491$-->© 2017 - 2023 Cisco and/or its affiliates. All rights reserved. Cisco Public
+                </div>
+                   
+        </sgpluse-opentextboxcontroller-view><script></script>
+<script>
+    window.addEventListener("load", function () {
+      console.log("loaded");
+      document?.querySelectorAll(".answergray").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".show-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.remove("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.add("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      let event = new Event("click", {
+        bubbles: true,
+        cancelable: true,
+      });
+      document
+        ?.querySelectorAll(".openTextBoxController__showButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".show-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__hideButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__resetButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            document?.querySelectorAll("textArea").forEach(function (ele) {
+              ele.value = "";
+            });
+          });
+        });
+
+      document
+      ?.querySelectorAll('textarea')
+      .forEach(function (ele){
+        ele.defaultValue = ele.defaultValue.replace(/<!--.*?-->/g, '');
+      })
+        let checkButtonLabel = "check_button_label_placeHolder";
+        let hideButtonLabel = "hide_button_label_placeHolder";
+        document?.querySelectorAll(".check__button").forEach(function (ele) {
+        let answerBox = document.querySelector(".check__solution")
+        if (!answerBox.classList.contains("check__hidden")) {
+          answerBox.classList.add("check__hidden");
+          ele.innerText = checkButtonLabel;
+        }
+          ele.addEventListener("click", function (e) {
+            if (answerBox.classList.contains("check__hidden")) {
+              answerBox.classList.remove("check__hidden")
+              ele.innerText = hideButtonLabel;
+            } else {
+              answerBox.classList.add("check__hidden")
+              ele.innerText = checkButtonLabel;
+            }
+          })
+        })
+    });
+  </script>
+  </body></html>

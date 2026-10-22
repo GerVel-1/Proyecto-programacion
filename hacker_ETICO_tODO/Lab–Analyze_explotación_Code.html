@@ -1,0 +1,1560 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 1rem;
+      }
+      ol,
+      ul {
+        margin-bottom: 0in;
+      }
+      table {
+        margin-top: 1rem;
+        border: 1px solid gray;
+        width: 7in;
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > .openTableTextBox__table-header-data {
+        text-align: center;
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0in;
+        text-align: center;
+        line-height: 115%;
+        page-break-after: avoid;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        font-weight: bold;
+        background: #dbe5f1;
+        padding: 0.5rem;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .openTextBox__textArea-container {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 50%;
+      }
+      .openTableTextBox__fieldset {
+        padding: 5px;
+      }
+      td {
+        margin-top: 3pt;
+        margin-right: 0in;
+        margin-bottom: 3pt;
+        margin-left: 0in;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 98.85pt;
+        border: solid windowtext 1pt;
+        border-top: none;
+        padding: 0.7pt 5.75pt 0.7pt 5.75pt;
+      }
+      textarea {
+        width: 100%;
+      }
+      .answergray {
+        padding: 0.2rem;
+      }
+
+      .openTableTextBox__widget {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0.25in;
+      }
+
+      .show-answer,
+      .hide-answer {
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border: 0px;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .openTextBoxController__button-container {
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .openTextBoxController__button-container .btn-text {
+        margin: 10px;
+      }
+
+      .btn-text {
+        border: 0px;
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border-radius: 0;
+        cursor: pointer;
+      }
+
+      .u-display-none {
+        display: none;
+      }
+      .openTextBox__postText, openTableTextBox__postText {
+        margin-top: 0.5rem;
+      }
+      .edit-comment {
+        display: none;
+      }
+      .js-heading-inner {
+        display: none;
+      }
+      .block__title-inner,
+      .article__title-inner {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+      h2{
+        font-size: 1.25em;
+      }
+      h3{
+        font-size: 1.125em;
+      }
+      .table
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: solid windowtext 1pt;
+      }
+      table tbody tr th, table thead tr th{
+        border: solid windowtext 1pt;
+        background-color: #d6d8dc;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .command-output > .table-inner > .table-wrapper > .table-widget > table,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > td,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: none !important;
+        text-align: right !important;
+      }
+      .simple-table > .table-inner > .table-wrapper{
+        margin-left: 1.5rem;
+      }
+      .openTextBox__widget {
+        margin-left: 1.5rem;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      .answergray {
+        background-color: #ccc;
+      }
+      .openTableTextBox__widget > .answergray {
+        background-color: #fff !important;
+      }
+      li > ul,ol > li{
+        margin-left: 0px !important;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      
+      .component__title{
+        font-family: inherit;
+        font-size: 1.65em;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .component__body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .accessibility-completion-indicator{
+        display: none;
+      }
+
+      .check__hidden {
+        display: none;
+      }
+
+      .check__button {
+        border: none;
+        border-radius: 6px !important;
+        background-color: #6abf4b;
+        color: #fff;
+        min-width: 100px;
+        margin: 0.625rem 0;
+        padding: 0.7rem;
+      }
+
+      .check__widget .check__solution .DevConfigGray {
+        background-color: rgb(214,216,220);
+        font-weight: bold;
+      }
+
+      .check-inner .check__widget .check__solution .DevConfigs {
+        margin: 0px;
+        line-height: 115%;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .check__solution  {
+        line-height: 1.5;
+      }
+      .mcq__inner .mcq__widget .mcq__widget-inner {
+        margin-block: 1rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item {
+        display: flex;
+        gap: 0.2rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item .mcq__item-label .mcq__item-text .screenReader-position-text{
+        display: none;
+      }
+      .opentabletextbox-inner .opentabletextBox__widget .openTableTextBox__answerText.answergray {
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox{
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox img{
+        margin-block: 1rem;
+        margin-left: initial;
+      }
+      .component__content .component__body-inner .pageTracer-h4-title-hide {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        font-size: 0px;
+        color: rgb(var(--neutral-2));
+        font-weight: normal;
+      }
+      .table-inner .table__widget table tr.TableHeading th, .table-inner .table__widget table tr.TableHeading td, .table-inner .table__widget table tr td.TableHeading, .opentabletextbox-table thead tr.TableHeading th, .opentabletextbox-table tbody tr.TableHeading td, .opentabletextbox-table tbody tr td.TableHeading {
+        background-color: #d6d8dc;
+        text-align: center;
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .CMD, .component__content .component__body-inner .CMDOutput, .component__content .component__body-inner .CMDOutput__table{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        margin-inline-start: 30px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      [dir="rtl"] .component__content .component__body-inner .CMDOutput__table span {
+        direction: ltr;
+        display: inline-block;
+      }
+      .openTextBox__inner .openTextBox__widget .CMD, .openTextBox__inner .openTextBox__widget .CMDOutput{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .openTextBox__inner .openTextBox__widget .DnTbold, .openTextBox__inner .openTextBox__widget .BodyTextL25Bold, .component__content .component__body-inner .BodyTextL25Bold, .component__content .component__body-inner .DnTbold, .table-inner .table__widget table tr .DnTbold {
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .SubStepNum {
+        text-indent: -25.5px;
+        margin-inline-start: 50px;
+      }
+      .component__content .component__body-inner .BodyTextL50 {
+        margin-inline-start: 30px;
+      }
+      .component__content .component__body-inner .Bulletlevel1 {
+        text-indent: -19px;
+        margin-inline-start: 48px;
+      }
+      .component__content .component__body-inner .Bulletlevel2 {
+          text-indent: -19px;
+          margin-inline-start: 72px;
+      }
+      .openTextBox__inner .openTextBox__widget .ReflectionQ, .component__content .component__body-inner .SubStepAlpha {
+          text-indent: -25.5px;
+          margin-inline-start: 30px;
+      }
+    </style>
+
+</head><body><!---->
+            <div class="article 64a8b6f1ca8b3750b71a8f72 remove-padding-bottom remove-padding-top ">
+                <div class="article__inner">
+                <div class=" no-adaptive-scroll">
+                    <!--?lit$654583296$-->
+                        <div class=""> 
+                            <base-view type="article" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="article__header-wrapper remove-padding-bottom remove-padding-top ">
+        <div class="article__header ">
+          <div class="article__header-inner ">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                            <div class="block__container " style="">
+                                <!--?lit$654583296$--><!---->
+                                    <block-view modelid="64a8b6f1ca8b3750b71a8f73" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64a8b6f1ca8b3750b71a8f73" class="64a8b6f1ca8b3750b71a8f73 block remove-top-padding remove-padding-bottom background-color-white is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64a8b6f1ca8b3750b71a8f73" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$654583296$-->
+      <div class="block__title ">
+        <!--?lit$654583296$--><heading-view aria-hidden="true" id="64a8b6f1ca8b3750b71a8f73-heading-view" headingtitle="Práctica de laboratorio - Analizar el código de explotación" modelid="64a8b6f1ca8b3750b71a8f73" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="js-heading is-complete">
+        <div class="js-heading-inner" role="heading" id="block-heading" aria-level="3">
+        <span class="aria-label"> <!--?lit$654583296$-->Completo &nbsp;<!--?lit$654583296$-->Práctica de laboratorio - Analizar el código de explotación</span>
+        </div>
+      </div>
+    </heading-view>
+        <div tabindex="0" role="heading" class="block__title-inner " aria-level="3">
+          <span class="accessibility-completion-indicator"><!--?lit$654583296$-->Completo </span>
+          <!--?lit$654583296$-->Práctica de laboratorio - Analizar el código de explotación
+        </div>
+      </div>
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$654583296$--><!----><text-view modelid="64a8b73cc8f7454ef9f42f5f" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64a8b73cc8f7454ef9f42f5f" class="component text 64a8b73cc8f7454ef9f42f5f  is-full is-complete  ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$654583296$--><h1>Objetivos</h1><p>En esta práctica de laboratorio, investigará y analizará ejemplos de código de vulnerabilidad.</p><ul><li><!--[if !supportLists]--><!--[endif]-->Realice investigaciones y analice ejemplos de código.</li></ul><h1>Trasfondo / Escenario</h1><p>En esta práctica de laboratorio, interpretará instrucciones de la línea de comandos y ejemplos de código.</p><h1>Recursos necesarios</h1><ul><li><!--[if !supportLists]--><!--[endif]-->PC o dispositivo móvil</li><li><!--[if !supportLists]--><!--[endif]-->Acceso a Internet</li></ul></div>
+        </div>
+      </div>
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64ab2e60c8f7454ef9f42f61" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64ab2e60c8f7454ef9f42f61" class="64ab2e60c8f7454ef9f42f61 block remove-top-padding remove-padding-bottom background-color-white is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64ab2e60c8f7454ef9f42f61" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$654583296$--><!----><text-view modelid="64ab2e60c8f7454ef9f42f62" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64ab2e60c8f7454ef9f42f62" class="component text 64ab2e60c8f7454ef9f42f62  is-full is-complete  ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$654583296$--><h1>Instrucciones</h1><h2 style="margin-left:0in"><!--[if !supportLists]--><span><span>Parte 1: </span></span><!--[endif]-->Investigue y analice ejemplos de códigos de explotaciones.</h2></div>
+        </div>
+      </div>
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64ab492b6fe90d50967f6de4" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64ab492b6fe90d50967f6de4" class="64ab492b6fe90d50967f6de4 block remove-top-padding remove-padding-bottom background-color-white is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64ab492b6fe90d50967f6de4" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$654583296$--><!----><text-view modelid="64ab4943ca8b3750b71a8f78" class="is-full packetTracer_wrap_text" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64ab4943ca8b3750b71a8f78" class="component text 64ab4943ca8b3750b71a8f78 packetTracer_wrap_text is-full is-complete  ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$654583296$--><ol><li><!--[if !supportLists]-->Consulte el siguiente comando.</li></ol><pre style="margin-left:80px">nmap -sV --script vulners --script-args mincvss=4 10.6.6.23</pre></div>
+        </div>
+      </div>
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64a9e27c6fe90d50967f6dc9" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64a9e27c6fe90d50967f6dc9" class="64a9e27c6fe90d50967f6dc9 block remove-top-padding remove-padding-bottom background-color-white is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64a9e27c6fe90d50967f6dc9" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$654583296$--><!----><opentextbox-view modelid="64a9e30a6fe90d50967f6dcb" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64a9e30a6fe90d50967f6dcb" class="component opentextbox 64a9e30a6fe90d50967f6dcb  is-full is-complete  ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64a9e30a6fe90d50967f6dcb" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$654583296$--> <div class="openTextBox__preText"><!--?lit$654583296$-->¿Qué información se mostrará en el comando?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$654583296$--><!--?lit$654583296$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$654583296$-->
+                      <!--?lit$654583296$-->Este comando mostrará las vulnerabilidades conocidas y su CVE correspondiente. El argumento mincvss limitará la salida solo a las CVE con puntuaciones de CVSS superiores a 4.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$654583296$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$654583296$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$654583296$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64ab4a588501764d025c1abd" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64ab4a588501764d025c1abd" class="64ab4a588501764d025c1abd block remove-top-padding remove-padding-bottom background-color-white is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64ab4a588501764d025c1abd" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$654583296$--><!----><text-view modelid="64ab4a588501764d025c1abf" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64ab4a588501764d025c1abf" class="component text 64ab4a588501764d025c1abf  is-full is-complete  ">
+                    <base-view type="component" lowercase_component="text"></base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64ab2c248501764d025c1ab2" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64ab2c248501764d025c1ab2" class="64ab2c248501764d025c1ab2 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64ab2c248501764d025c1ab2" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$654583296$--><!----><opentextbox-view modelid="64ab2c248501764d025c1ab3" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64ab2c248501764d025c1ab3" class="component opentextbox 64ab2c248501764d025c1ab3  is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64ab2c248501764d025c1ab3" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$654583296$--> <div class="openTextBox__preText"><!--?lit$654583296$-->¿Qué herramienta de Kali se inicia con el guion (script) anterior?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$654583296$--><!--?lit$654583296$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$654583296$-->
+                      <!--?lit$654583296$-->El escáner GVM
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$654583296$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$654583296$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$654583296$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64ab2e928501764d025c1ab4" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64ab2e928501764d025c1ab4" class="64ab2e928501764d025c1ab4 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64ab2e928501764d025c1ab4" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$654583296$--><!----><opentextbox-view modelid="64ab2e968501764d025c1ab6" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64ab2e968501764d025c1ab6" class="component opentextbox 64ab2e968501764d025c1ab6  is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64ab2e968501764d025c1ab6" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$654583296$--> <div class="openTextBox__preText"><!--?lit$654583296$-->¿Qué lenguaje de secuencias de comandos cree que se utilizó?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$654583296$--><!--?lit$654583296$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$654583296$-->
+                      <!--?lit$654583296$-->Primero, al comienzo del guion, se identifica como !/bin/bash, lo que significa que es un guion de shell que usa la sintaxis de bash. Además, algunas de las líneas le resultarán familiares. Estos son comandos que hemos usado anteriormente en la línea de comandos. Los scripts de shell utilizan comandos de shell. y otras declaraciones para crear guiones ejecutables. El otro código puede constar de construcciones lógicas, como bucles y condicionales, entre otros.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$654583296$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$654583296$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$654583296$--> <div class="openTextBox__postText"> <!--?lit$654583296$-->Para obtener más información sobre las características y la sintaxis de los scripts de bash. Busque en la web "ejemplos de guiones de bash". </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64ab2f076fe90d50967f6dcc" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64ab2f076fe90d50967f6dcc" class="64ab2f076fe90d50967f6dcc block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64ab2f076fe90d50967f6dcc" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$654583296$--><!----><graphic-view modelid="64ab2f28c8f7454ef9f42f63" class="is-full padding: 50px" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="graphic-inner component__inner">
+            <div data-socialgoodpulse-id="64ab2f28c8f7454ef9f42f63" class="component graphic 64ab2f28c8f7454ef9f42f63 padding: 50px 50px 50px 50px is-full   ">
+                <div class="component__header-container">
+                    <base-view type="component" lowercase_component="graphic" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper padding: 50px 50px 50px 50px ">
+        <div class="component__header graphic__header">
+          <div class="component__header-inner graphic__header-inner">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body graphic__body">
+          <div class="component__body-inner graphic__body-inner"><!--?lit$654583296$--><ol start="3"><li>Consulte la línea de código que se muestra en el cuadro de mensaje.</li></ol></div>
+        </div>
+      </div>
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+                <div class="component__widget">
+                    <!--?lit$654583296$-->
+                        <div class="graphic__image-container ">
+                            <img id="graphic__image" aria-hidden="false" tabindex="0" class="graphic__image js-graphic-set-image-src" src="data:image/jpeg;base64,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1OsDCGhzdTd11fqwl8WpNdUcsPtX+KibpHB/FQ/vrj7lOwvbj71K9nEHmVnyUmpnDsEm4dfwXj40Sjw5UXTFyjuCU+m8uN2KUoc/h5NfwWsHi45/ZpCMnnSdiKCm/Woo2x74tcxrZpWn2gK+C0OjhOrd7grAe7hviD/X5Hb/AGYHzA1w1DsUaDGxtGG+oHf7M2rKsqyrKsqyrKsqyrKsqyrKsqyrKsqyr/8Ahz//xABIEAAABQAGBgYGCAYBAwUBAAAAAQIDBBESMjSU0QUTMzWSkxQhMUGRsyJRYXFzdBAgQGBygaKxFSMwQlBSYgZDoSQlRGOywf/aAAgBAQAGPwJyXLclrfVIeIzKUsuxZl6xamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczFqZjHMxamYxzMWpmMczBzIjstD6HmqDOUs+1xJesK+af8AMV97HfjM+akK+af8xX2cjQdClLJNIv74v74v74v74v74v74v74v74v74v74v74v74v74v74v74v74v74v74v74v74v74v74v74v74v74v74v74v74v74v74v74v74v74v74v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yh3V6QGiZgVJHwxkuVZaOW0GYy54plsHKU1LFJjEyIgU6pEd3Z2dDUeLgz4XQ7a6xUDmoXA67YuHpe8qRY/KoHyqlToPFnrASw2x5IKfQhgAFAFB+pdGep7vyMgBhbA3yh0lPVC3ScGkB0Ubh9GJNIn2iRlH2gmi+INoL9ooaRH6ThINon6ERGkphuv5ErSzpASxotj9/wA4EyqFI9SFmoNDVNur+QlNINoKRjR4bSx1q39Zc78SjWqHNQ/BQCgDQP8AqlbNJwaXUMs3TSwB+sdGep7v+8gA1lRU1XALf+TLm4MsyhfsmAOwJtCa0ziXJRziMoF06REdQ8IbBd6ZibxQpfZVMDi7YUZbp9dRruxH5btQqYoNlwMrIUIoaxrUrv8ADsisCs6TGf8ACbUANswtrUtOigHEY2wpn+MAujPU935GQBdvL81rdu2ZcExekvB1pZT7Owxp/wAYOFN0pomr6y0y+nJzDDGJIs+D07SmyvdZFT0YPFKITSroekPk/ksM3XgKzC/FqGhoaMPX3yVeh6HiX/GQXRnqe78/IADCGhWJ2Y1KFR2uuZr/ABsF0Z6nu/leQACC8VKgDVYK6etY1Hs7z1fd/KsgAF15kqANWFdjoonTwHVgM9D4MeoaKe77v1mQAuJY6ykPMENH7d57Peez3ns957Peez3ns957Peez3ns957Peez3ns957Peez3ns957Peez3ns957Peez3ns957Peez3ns957Peez3ns957Peez3ns957Peez3ns957Peez3ns957Peez3ns957Peez3ns957Peez3ns957Peez3ns957Peez3ns957Peez3ns957Peez3ns957Peez3ns957Peez3ns957Peez3ns957Peez3ns957Peez3ns957Peez3ns957PeOvEcmrprpAzQtXgrry8kdXeoUdVLyveXZi1qGA+c/rMgAUcYYvSnZI/3OPbzj2849vOPbzj2849vOPbzj2849vOPbzj2849vOPbzj2849vOPbzj2849vKd2QK/3OUnKTlJyk5ScpOUnKTlJyk5ScpOUnKTlJyk5ScpOUnKTlJyk5ScpOUnKTlJyk5ScpOUnKTlJyk5ScpOUnKTlJyk5ScpOUnKTlJyk5ScpOUnKTlJyk5ScpOUnKTlJyk5ScpFtz+syAGhhtrfVPpEij4y9ZoYDYnc3J/wCJs39yn2f/AGes/wCz1n/Z6z/sHsbubkQpF7O9PWf9nrP+z1n/AGes/wCwa6eteaes/wCz1n/Z6z/sHUI9jcibSD2dyKxgoEZ0WdRyPcsvvX8ZyAPwWPP9Ru+emFFoLeIHiq6Ua+T9I7I9VUtpw0y1AM4kBWLDsOIjHY6OQGRp6zx6+SFH3ZfG7meldcRC7o9NxSCUosG1Po6yqOzapYLBa6Stv0DOq64G+rKkRZEByOFazLLpyCAGheJRnj95arRjNRpW6q9gWUPEq2YNRWpcH3hFgt2jCYYmE7C0LOh3qCvWwz1Pd/GcgD/U5gaPVhgNQN2NYs7wGZRHJhqC+jCkIw0jCZX3itNg1cRQ8ZhMOrQGpTR9Y5mgmh1H3hDrIdWkcXCLsdmQebdoC/xTi2syeYiQjBSgURNMxCOFeDQhY9aiRHq3TYIpUVT1LCyopkrNwjK1CaTQuntMPjpriUChnrOnM39o1M+JQ3QclGkXiYHs2Qq6uNiC0o+KZ6nu/jGQAcqPq1W2iXEoEfxkdIGan1f9zVfbw/EVtkyYwDQrrJHVNDxAL63f8IQM1Pq/7i7fwVT/AOZMEq76v+4G39vD8RU0vo/6meGFVf0f9QM1PK78w67+p/uKo110BPiBr1+8XikBnOKAmUROjIUP7/jOQBlcyMrONzjc43ONzjc43ONzjc43ONzjc43ONzjc43ONzjc43NBIQCfwLIR6hQrAAIiWZH+WR48ePHjx48ePHjx48ePHjx48ePHjx48ePHjx48ePHjx48ePHjx48ePHjx48ePHjx48ePHjx48ePHjx48ePHjx48ePHjx48ePHjx48ePHjx48ePHjx48ePHjx48ePHdgGGlsJUFaMAs993/y3p//Z" data-large="./courses/content/m10/es-XL/assets/857bad18c0c9ed36275294ac21140bfa3fdb8812.jpg" data-small="./courses/content/m10/es-XL/assets/857bad18c0c9ed36275294ac21140bfa3fdb8812.jpg" alt="Cuadro de mensaje con el mensaje &lt;script&gt;alert(&quot;You have been hacked!&quot;)&lt;/script&gt;">
+
+                            <!--?lit$654583296$-->
+
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+        </graphic-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64ab30556fe90d50967f6dd4" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64ab30556fe90d50967f6dd4" class="64ab30556fe90d50967f6dd4 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64ab30556fe90d50967f6dd4" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$654583296$--><!----><opentextbox-view modelid="64ab30556fe90d50967f6dd5" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64ab30556fe90d50967f6dd5" class="component opentextbox 64ab30556fe90d50967f6dd5 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64ab30556fe90d50967f6dd5" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$654583296$--> <div class="openTextBox__preText"><!--?lit$654583296$-->¿Qué tipo de explotación se está creando? ¿La explotación se almacena en el lado del cliente o en el del servidor? ¿Qué lenguaje es?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$654583296$--><!--?lit$654583296$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$654583296$-->
+                      <!--?lit$654583296$-->Esta es una explotación de XSS almacenado. La explotación se almacena en el servidor. Es en JavaScript
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$654583296$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$654583296$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$654583296$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64ab30bf6fe90d50967f6dd7" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64ab30bf6fe90d50967f6dd7" class="64ab30bf6fe90d50967f6dd7 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64ab30bf6fe90d50967f6dd7" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$654583296$--><!----><opentextbox-view modelid="64ab30c06fe90d50967f6dd8" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64ab30c06fe90d50967f6dd8" class="component opentextbox 64ab30c06fe90d50967f6dd8 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64ab30c06fe90d50967f6dd8" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$654583296$--> <div class="openTextBox__preText"><!--?lit$654583296$-->En una explotación real, ¿qué podría hacer este código malicioso?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$654583296$--><!--?lit$654583296$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$654583296$-->
+                      <!--?lit$654583296$-->Las respuestas pueden variar. Uno de los más comunes es enviar a los usuarios a sitios web maliciosos.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$654583296$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$654583296$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$654583296$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64ab480a8501764d025c1aba" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64ab480a8501764d025c1aba" class="64ab480a8501764d025c1aba block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64ab480a8501764d025c1aba" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$654583296$--><!----><text-view modelid="64ab4bae8501764d025c1ac0" class="is-full packetTracer_wrap_text" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64ab4bae8501764d025c1ac0" class="component text 64ab4bae8501764d025c1ac0 packetTracer_wrap_text is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$654583296$--><ol start="4"><li>Consulte el siguiente comando.</li></ol><pre style="margin-left:80px">nmap --script smb-enum-users.nse -p139,445 10.6.6.23</pre></div>
+        </div>
+      </div>
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64ab4bdf6fe90d50967f6de9" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64ab4bdf6fe90d50967f6de9" class="64ab4bdf6fe90d50967f6de9 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64ab4bdf6fe90d50967f6de9" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$654583296$--><!----><opentextbox-view modelid="64ab4be06fe90d50967f6dea" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64ab4be06fe90d50967f6dea" class="component opentextbox 64ab4be06fe90d50967f6dea remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64ab4be06fe90d50967f6dea" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$654583296$--> <div class="openTextBox__preText"><!--?lit$654583296$-->¿Qué información se mostrará en el comando?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$654583296$--><!--?lit$654583296$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$654583296$-->
+                      <!--?lit$654583296$-->Nombres de usuario del bloque de mensajes del servidor (SMB) en el equipo de destino en 10.6.6.23
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$654583296$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$654583296$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$654583296$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64ab4d44c8f7454ef9f42f6a" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64ab4d44c8f7454ef9f42f6a" class="64ab4d44c8f7454ef9f42f6a block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64ab4d44c8f7454ef9f42f6a" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$654583296$--><!----><text-view modelid="64ab4d44c8f7454ef9f42f6c" class="is-full remove-top-padding remove-padding-bottom packetTracer_wrap_text" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64ab4d44c8f7454ef9f42f6c" class="component text 64ab4d44c8f7454ef9f42f6c remove-top-padding remove-padding-bottom packetTracer_wrap_text is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$654583296$--><ol start="5"><li>Consulte el siguiente comando.</li></ol><pre style="margin-left:80px">1' OR 1=1 UNION SELECT user, password FROM users #</pre></div>
+        </div>
+      </div>
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64ab310e8501764d025c1ab8" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64ab310e8501764d025c1ab8" class="64ab310e8501764d025c1ab8 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64ab310e8501764d025c1ab8" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$654583296$--><!----><opentextbox-view modelid="64ab310e8501764d025c1ab9" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64ab310e8501764d025c1ab9" class="component opentextbox 64ab310e8501764d025c1ab9 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64ab310e8501764d025c1ab9" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$654583296$--> <div class="openTextBox__preText"><!--?lit$654583296$-->¿Qué tipo de explotación se muestra? ¿Cuál es el propósito de la siguiente línea de código?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$654583296$--><!--?lit$654583296$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$654583296$-->
+                      <!--?lit$654583296$-->Es una explotación de inyección SQL. El propósito es recuperar nombres de usuario y contraseñas de una tabla de base de datos llamada "usuarios".
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$654583296$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$654583296$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$654583296$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64ab453a6fe90d50967f6ddb" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64ab453a6fe90d50967f6ddb" class="64ab453a6fe90d50967f6ddb block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64ab453a6fe90d50967f6ddb" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$654583296$--><!----><text-view modelid="64ab4d7c6fe90d50967f6ded" class="is-full remove-top-padding remove-padding-bottom packetTracer_wrap_text" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64ab4d7c6fe90d50967f6ded" class="component text 64ab4d7c6fe90d50967f6ded remove-top-padding remove-padding-bottom packetTracer_wrap_text is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$654583296$--><ol start="6"><li><!--[if !supportLists]-->Consulte los siguientes comandos.</li></ol><pre style="margin-left:80px">smbclient //172.17.0.2/tmp</pre><pre style="margin-left:80px">smb: &gt;put malicious_file.txt malicious_file.txt</pre></div>
+        </div>
+      </div>
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64ab4de98501764d025c1ac4" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64ab4de98501764d025c1ac4" class="64ab4de98501764d025c1ac4 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64ab4de98501764d025c1ac4" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$654583296$--><!----><opentextbox-view modelid="64ab4de98501764d025c1ac5" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64ab4de98501764d025c1ac5" class="component opentextbox 64ab4de98501764d025c1ac5 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64ab4de98501764d025c1ac5" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$654583296$--> <div class="openTextBox__preText"><!--?lit$654583296$-->¿Qué se está intentando con los comandos?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$654583296$--><!--?lit$654583296$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$654583296$-->
+                      <!--?lit$654583296$-->La transferencia de archivos entre sistemas mediante la utilidad smbclient
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$654583296$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$654583296$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$654583296$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64ab458f6fe90d50967f6dde" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64ab458f6fe90d50967f6dde" class="64ab458f6fe90d50967f6dde block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64ab458f6fe90d50967f6dde" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$654583296$--><!----><text-view modelid="64ab4e10c8f7454ef9f42f6e" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64ab4e10c8f7454ef9f42f6e" class="component text 64ab4e10c8f7454ef9f42f6e remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$654583296$--><h1><!--[if !supportLists]-->Reflexión</h1></div>
+        </div>
+      </div>
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64ab463e6fe90d50967f6de1" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64ab463e6fe90d50967f6de1" class="64ab463e6fe90d50967f6de1 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64ab463e6fe90d50967f6de1" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$654583296$--><!----><opentextbox-view modelid="64ab463e6fe90d50967f6de2" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64ab463e6fe90d50967f6de2" class="component opentextbox 64ab463e6fe90d50967f6de2 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64ab463e6fe90d50967f6de2" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+            <!--?lit$654583296$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$654583296$--> <div class="openTextBox__preText"><!--?lit$654583296$-->¿Por qué es importante que un hacker ético esté familiarizado con el código de explotaciones en varios lenguajes de secuencias de comandos?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$654583296$--><!--?lit$654583296$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$654583296$-->
+                      <!--?lit$654583296$-->Es posible que los hackers éticos deban crear o utilizar secuencias de comandos de explotaciones para evaluar la seguridad de varios sistemas, incluidas las aplicaciones web.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$654583296$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$654583296$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$654583296$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!---->
+                            </div>
+                        </div>
+                        <!--?lit$654583296$-->
+                    </div>
+                </div>
+            </div>
+        <sgpluse-opentextboxcontroller-view modelid="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+            <div class="openTextBoxController__button-container">
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__showButton show-answer show"><!--?lit$654583296$-->Mostrar todas las respuestas</button>    
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__hideButton hide-answer hide"><!--?lit$654583296$-->Ocultar todas las respuestas</button>    
+                <button class="btn-text resetbtn openTextBoxController__resetButton"><!--?lit$654583296$-->Borrar mis respuestas</button>         
+            </div>
+            <!--?lit$654583296$--><hr>
+            <!--?lit$654583296$-->
+                <div class="post-text" tabindex="0">
+                    <!--?lit$654583296$-->© 2017 - 2023 Cisco and/or its affiliates. All rights reserved. Cisco Public
+                </div>
+                   
+        </sgpluse-opentextboxcontroller-view><script></script>
+<script>
+    window.addEventListener("load", function () {
+      console.log("loaded");
+      document?.querySelectorAll(".answergray").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".show-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.remove("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.add("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      let event = new Event("click", {
+        bubbles: true,
+        cancelable: true,
+      });
+      document
+        ?.querySelectorAll(".openTextBoxController__showButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".show-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__hideButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__resetButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            document?.querySelectorAll("textArea").forEach(function (ele) {
+              ele.value = "";
+            });
+          });
+        });
+
+      document
+      ?.querySelectorAll('textarea')
+      .forEach(function (ele){
+        ele.defaultValue = ele.defaultValue.replace(/<!--.*?-->/g, '');
+      })
+        let checkButtonLabel = "check_button_label_placeHolder";
+        let hideButtonLabel = "hide_button_label_placeHolder";
+        document?.querySelectorAll(".check__button").forEach(function (ele) {
+        let answerBox = document.querySelector(".check__solution")
+        if (!answerBox.classList.contains("check__hidden")) {
+          answerBox.classList.add("check__hidden");
+          ele.innerText = checkButtonLabel;
+        }
+          ele.addEventListener("click", function (e) {
+            if (answerBox.classList.contains("check__hidden")) {
+              answerBox.classList.remove("check__hidden")
+              ele.innerText = hideButtonLabel;
+            } else {
+              answerBox.classList.add("check__hidden")
+              ele.innerText = checkButtonLabel;
+            }
+          })
+        })
+    });
+  </script>
+  </body></html>

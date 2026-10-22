@@ -1,0 +1,561 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 1rem;
+      }
+      ol,
+      ul {
+        margin-bottom: 0in;
+      }
+      table {
+        margin-top: 1rem;
+        border: 1px solid gray;
+        width: 7in;
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > .openTableTextBox__table-header-data {
+        text-align: center;
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0in;
+        text-align: center;
+        line-height: 115%;
+        page-break-after: avoid;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        font-weight: bold;
+        background: #dbe5f1;
+        padding: 0.5rem;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .openTextBox__textArea-container {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 50%;
+      }
+      .openTableTextBox__fieldset {
+        padding: 5px;
+      }
+      td {
+        margin-top: 3pt;
+        margin-right: 0in;
+        margin-bottom: 3pt;
+        margin-left: 0in;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 98.85pt;
+        border: solid windowtext 1pt;
+        border-top: none;
+        padding: 0.7pt 5.75pt 0.7pt 5.75pt;
+      }
+      textarea {
+        width: 100%;
+      }
+      .answergray {
+        padding: 0.2rem;
+      }
+
+      .openTableTextBox__widget {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0.25in;
+      }
+
+      .show-answer,
+      .hide-answer {
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border: 0px;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .openTextBoxController__button-container {
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .openTextBoxController__button-container .btn-text {
+        margin: 10px;
+      }
+
+      .btn-text {
+        border: 0px;
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border-radius: 0;
+        cursor: pointer;
+      }
+
+      .u-display-none {
+        display: none;
+      }
+      .openTextBox__postText, openTableTextBox__postText {
+        margin-top: 0.5rem;
+      }
+      .edit-comment {
+        display: none;
+      }
+      .js-heading-inner {
+        display: none;
+      }
+      .block__title-inner,
+      .article__title-inner {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+      h2{
+        font-size: 1.25em;
+      }
+      h3{
+        font-size: 1.125em;
+      }
+      .table
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: solid windowtext 1pt;
+      }
+      table tbody tr th, table thead tr th{
+        border: solid windowtext 1pt;
+        background-color: #d6d8dc;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .command-output > .table-inner > .table-wrapper > .table-widget > table,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > td,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: none !important;
+        text-align: right !important;
+      }
+      .simple-table > .table-inner > .table-wrapper{
+        margin-left: 1.5rem;
+      }
+      .openTextBox__widget {
+        margin-left: 1.5rem;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      .answergray {
+        background-color: #ccc;
+      }
+      .openTableTextBox__widget > .answergray {
+        background-color: #fff !important;
+      }
+      li > ul,ol > li{
+        margin-left: 0px !important;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      
+      .component__title{
+        font-family: inherit;
+        font-size: 1.65em;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .component__body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .accessibility-completion-indicator{
+        display: none;
+      }
+
+      .check__hidden {
+        display: none;
+      }
+
+      .check__button {
+        border: none;
+        border-radius: 6px !important;
+        background-color: #6abf4b;
+        color: #fff;
+        min-width: 100px;
+        margin: 0.625rem 0;
+        padding: 0.7rem;
+      }
+
+      .check__widget .check__solution .DevConfigGray {
+        background-color: rgb(214,216,220);
+        font-weight: bold;
+      }
+
+      .check-inner .check__widget .check__solution .DevConfigs {
+        margin: 0px;
+        line-height: 115%;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .check__solution  {
+        line-height: 1.5;
+      }
+      .mcq__inner .mcq__widget .mcq__widget-inner {
+        margin-block: 1rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item {
+        display: flex;
+        gap: 0.2rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item .mcq__item-label .mcq__item-text .screenReader-position-text{
+        display: none;
+      }
+      .opentabletextbox-inner .opentabletextBox__widget .openTableTextBox__answerText.answergray {
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox{
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox img{
+        margin-block: 1rem;
+        margin-left: initial;
+      }
+      .component__content .component__body-inner .pageTracer-h4-title-hide {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        font-size: 0px;
+        color: rgb(var(--neutral-2));
+        font-weight: normal;
+      }
+      .table-inner .table__widget table tr.TableHeading th, .table-inner .table__widget table tr.TableHeading td, .table-inner .table__widget table tr td.TableHeading, .opentabletextbox-table thead tr.TableHeading th, .opentabletextbox-table tbody tr.TableHeading td, .opentabletextbox-table tbody tr td.TableHeading {
+        background-color: #d6d8dc;
+        text-align: center;
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .CMD, .component__content .component__body-inner .CMDOutput, .component__content .component__body-inner .CMDOutput__table{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        margin-inline-start: 30px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      [dir="rtl"] .component__content .component__body-inner .CMDOutput__table span {
+        direction: ltr;
+        display: inline-block;
+      }
+      .openTextBox__inner .openTextBox__widget .CMD, .openTextBox__inner .openTextBox__widget .CMDOutput{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .openTextBox__inner .openTextBox__widget .DnTbold, .openTextBox__inner .openTextBox__widget .BodyTextL25Bold, .component__content .component__body-inner .BodyTextL25Bold, .component__content .component__body-inner .DnTbold, .table-inner .table__widget table tr .DnTbold {
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .SubStepNum {
+        text-indent: -25.5px;
+        margin-inline-start: 50px;
+      }
+      .component__content .component__body-inner .BodyTextL50 {
+        margin-inline-start: 30px;
+      }
+      .component__content .component__body-inner .Bulletlevel1 {
+        text-indent: -19px;
+        margin-inline-start: 48px;
+      }
+      .component__content .component__body-inner .Bulletlevel2 {
+          text-indent: -19px;
+          margin-inline-start: 72px;
+      }
+      .openTextBox__inner .openTextBox__widget .ReflectionQ, .component__content .component__body-inner .SubStepAlpha {
+          text-indent: -25.5px;
+          margin-inline-start: 30px;
+      }
+    </style>
+
+</head><body><!---->
+            <div class="article a7837574-3705-4945-9bda-28be11efa336 remove-padding-top remove-padding-bottom ">
+                <div class="article__inner">
+                <div class=" no-adaptive-scroll">
+                    <!--?lit$9826776457$-->
+                        <div class=""> 
+                            <base-view type="article" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="article__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="article__header ">
+          <div class="article__header-inner ">
+            <!--?lit$9826776457$-->
+      <div class="article__title ">
+        <!--?lit$9826776457$--><heading-view aria-hidden="true" id="a7837574-3705-4945-9bda-28be11efa336-heading-view" headingtitle="Lab - Recuperar contraseñas" modelid="a7837574-3705-4945-9bda-28be11efa336" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="js-heading is-incomplete">
+        <div class="js-heading-inner" role="heading" id="article-heading" aria-level="2">
+        <span class="aria-label"> <!--?lit$9826776457$-->Incompleto &nbsp;<!--?lit$9826776457$-->Lab - Recuperar contraseñas</span>
+        </div>
+      </div>
+    </heading-view>
+        <div tabindex="0" role="heading" class="article__title-inner " aria-level="2">
+          <span class="accessibility-completion-indicator"><!--?lit$9826776457$-->Incompleto </span>
+          <!--?lit$9826776457$-->Lab - Recuperar contraseñas
+        </div>
+      </div>
+            <!--?lit$9826776457$-->
+            <!--?lit$9826776457$-->
+            <!--?lit$9826776457$-->
+            <!--?lit$9826776457$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                            <div class="block__container " style="">
+                                <!--?lit$9826776457$--><!---->
+                                    <block-view modelid="63547364-0952-4383-9d24-61faf7e31a16" style="width: 50%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="63547364-0952-4383-9d24-61faf7e31a16" class="63547364-0952-4383-9d24-61faf7e31a16 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="63547364-0952-4383-9d24-61faf7e31a16" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$9826776457$-->
+            <!--?lit$9826776457$-->
+            <!--?lit$9826776457$-->
+            <!--?lit$9826776457$-->
+            <!--?lit$9826776457$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$9826776457$--><!----><text-view modelid="55ffde11-da26-4016-b473-3d660796ada3" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="55ffde11-da26-4016-b473-3d660796ada3" class="component text 55ffde11-da26-4016-b473-3d660796ada3  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$9826776457$-->
+            <!--?lit$9826776457$-->
+            <!--?lit$9826776457$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$9826776457$--><h2>Objetivos</h2> <p class="Bulletlevel1"><span style="font-size:7.0pt; line-height:115%;font-family:Webdings">=</span><span>&nbsp;&nbsp;</span>Utilice una herramienta para recuperar las contraseñas de los usuarios.</p> <p class="Bulletlevel1"><span style="font-size:7.0pt; line-height:115%;font-family:Webdings">=</span><span>&nbsp;&nbsp;</span>Cambiar una contraseña de usuario a una contraseña más segura.</p> <h2>Trasfondo/Situación</h2> <p class="BodyTextL25">Existen cuatro cuentas de usuario: Alice, Bob, Eve y Eric, en un sistema Linux. Tambiénestá la cuenta de superusuario Cisco. Las cuentas de usuario en la VM no están destinadas a ser seguras, yaque la VM es un entorno de espacio aislado y no está diseñada para aplicaciones del mundo real. En estapráctica de laboratorio, utilizará John the Ripper, una herramienta de recuperación de contraseña de códigoabierto, para recuperar las contraseñas de las cinco cuentas.</p> <h2 class="MsoNormal"><b><span>Recursos necesarios</span></b></h2> <p class="MsoNormal"><span>PC con <b>CSE-LABVM </b>instalada en VirtualBox</span></p><p class="SubStepAlpha">a.&nbsp;&nbsp;<span> </span>Inicie<b>CSE-LABVM</b>.</p> <p class="SubStepAlpha">b.&nbsp;&nbsp;<span> </span>Haga dobleclic en el icono de <b>Terminal</b> para abrir un terminal.</p> <h2>Parte 2: combinar contraseñas y nombres de usuario en un archivo detexto.</h2> <p class="SubStepAlpha">a.&nbsp;&nbsp;<span>Ingrese </span>elsiguiente comando para cambiar el directorio donde se encuentra John el Destripador:</p> <p class="CMD">cisco @ labvm: ~ $ cd Descargas / john / run <b></b></p> <p class="CMD">cisco @ labvm: ~ / Downloads / john / run $ </p> <p class="SubStepAlpha">b.&nbsp;&nbsp;<span>Utilice el</span>comando <b>unshadow </b>para combinar el archivo <b>/etc/passwd</b> donde se almacenan las cuentas deusuario, con el <b>archivo /etc/shadow</b> donde se almacenan las contraseñas de usuarios, en un nuevoarchivo denominado <b>“</b>mypasswd”. Introduzca "contraseña" como contraseña de superusuario, sise le solicita.<b></b> La sintaxis básica para el comando <b>es la siguiente:</b></p> <p class="CMD"><b>cisco@ubuntu:~/Downloads/john-1.8.0/run$ <b>sudo ./unshadow /etc/passwd /etc/shadow &gt;mypasswd</b></b></p> <p class="CMD"><b>[sudo] password for cisco: <b>password</b></b></p> <p class="CMD"><b>cisco @ labvm: ~ / Downloads / john / run $ </b></p> <h2><b>Parte 3: Ejecute John the Ripper para recuperar las contraseñas.</b></h2> <p class="SubStepAlpha">a.&nbsp;&nbsp;Para ver que las contraseñas aún no se han recuperado (descifrado), ingrese elcomando<b>./john --show mypasswd.</b></p> <p class="CMD">cisco@labvm:~/Downloads/john/run$ <b>./john --show mypasswd</b></p> <p class="CMDOutput">Directorio creado: /home/cisco/.john</p> <p class="CMDOutput"><span style="background:yellow; color: #000;">0 hashes de</span>contraseña descifrados,quedan 5</p> <p class="CMD">cisco @ labvm: ~ / Downloads / john / run $</p> <p class="SubStepAlpha">b.&nbsp;&nbsp;El programa, John el Destripador, utiliza un diccionariopredefinido llamado <span><b>password.lst</b> con un conjunto estándarde «reglas» predefinidas para administrar el diccionario y recuperar todos los hashes de la contraseñade md5crypt y el tipo de cifrado. En el commando prompt, introduzca el siguiente comando para recuperarlas contraseñas almacenadas en el archivo <b>mypasswd.</b></span></p> <p class="CMD">cisco@labvm:~/Downloads/john/run$ <b>./john --wordlist=password.lst --rules mypasswd--format=crypt</b></p> <p class="CMDOutput">Cargaron 5 hashes de contraseñas con 5 sales (salts) diferentes (cripta, cripta genérica (3)[? / 64])</p> <p class="CMDOutput">Presione 'q' o Ctrl-C para cancelar, casi cualquier otra tecla de estado.</p> <p class="CMDOutput"><span style="background:yellow; color: #000;">password1</span>&nbsp;&nbsp;&nbsp;(Eric)</p> <p class="CMDOutput"><span style="background:yellow; color: #000;">password</span>(cisco)</p> <p class="CMDOutput"><span style="background:yellow; color: #000;">password</span>(Eve)</p> <p class="CMDOutput"><span style="background:yellow; color: #000;">12345</span>&nbsp;&nbsp;&nbsp;(Bob)</p><p class="CMDOutput"><b><span style="background:yellow; color: #000;">123456</span> (Alicia)</b></p> <p class="CMDOutput">5g 0: 00: 00: 00 100% 6.097g / s 117.0p / s 585.3c / s 585.3C / s # Cuentas de cursos CSE delaboratorio - Contabilidad de autorización de autenticación..natasha</p> <p class="CMDOutput">Use la opción "--show" para mostrar todas las contraseñas descifradas de maneraconfiable</p> <p class="CMDOutput">Sesión completada</p> <p class="CMD">cisco @ labvm: ~ / Downloads / john / run $</p> <p class="SubStepAlpha">c.&nbsp;&nbsp;Ingrese el comando<b>./john --show mypasswd</b> nuevamente para ver si las contraseñas estándescifradas.<span></span></p> <p class="CMD" style="page-break-after:avoid">cisco@labvm:~/Downloads/john/run$ <b>./john --show mypasswd</b></p> <p class="CMDOutput">cisco: contraseña: 900: 900: Analista de ciberseguridad ,,,: / home / cisco: / bin / bash</p> <p class="CMDOutput">Alice:123456:1000:1000::/home/Alice:/bin/bash</p> <p class="CMDOutput">Bob:12345:1001:1001::/home/Bob:/bin/bash</p> <p class="CMDOutput">Eve:password:1002:1002::/home/Eve:/bin/bash</p> <p class="CMDOutput">Eric:password1:1003:1003::/home/Eric:/bin/bash</p> <p class="CMDOutput"><span style="background:yellow; color: #000;">5 hashes de</span>contraseña descifrados,quedan 0</p> <p class="CMD">cisco @ labvm: ~ / Downloads / john / run $</p> <h2>Parte 4: cambie la contraseña de un usuario a una versión más segurae intente recuperarla.</h2> <p class="SubStepAlpha">a.&nbsp;&nbsp;Cree su propia contraseña segura o utilice un generador de contraseñas en línea paracrear una.<span></span></p> <p class="SubStepAlpha">b.&nbsp;&nbsp;Busque un "verificador de seguridad de la contraseña" en línea para probar laseguridad de su contraseña.<span></span> Su contraseña debería tardaral menos miles de años en descifrarse.</p> <p class="SubStepAlpha">c.&nbsp;&nbsp;Utilice sus privilegios de superusuario para cambiar la contraseña de Eric de password1al valor de su nueva contraseña segura.<span></span><b></b> Asegúresede recibir el mensaje "La contraseña se actualizó correctamente".</p> <p class="CMD">cisco @ labvm: ~ / Downloads / john / run $ sudo passwd Eric </p> <p class="CMD"><b>[sudo] password for cisco: <b>password</b></b></p> <p class="CMD"><b>Nueva contraseña:&lt;your_new_strong_password&gt;</b></p><b> <p class="CMD"><b>Vuelva a escribir la contraseña nueva:&lt;your_new_strong_password&gt; </b></p><b> <p class="CMDOutput"><b>passwd: <span style="background:yellow; color: #000;">contraseña actualizadaexitosamente</span></b></p><b> <p class="CMD"><b>cisco @ labvm: ~ / Downloads / john / run $</b></p> <p class="SubStepAlpha"><b>d.&nbsp;&nbsp;Ejecute unshadow y luego vuelva a ver a John para ver si puede descifrar la contraseñade Eric.<span></span><b></b><b></b> Si cambió la contraseña de Eric poruna que sea lo suficientemente sólida como para demorar miles de años en descifrarla, esperará mucho tiempo.Cuando haya terminado de esperar, introduzca q o Ctrl + C para detener a John the Ripper.<b></b><b></b></b></p> <p class="CMD"><b>cisco@labvm:~/Downloads/john/run$ <b>./john --wordlist=password.lst --rules mypasswd--format=crypt</b></b></p> <p class="CMDOutput"><b>Cargaron 5 hashes de contraseñas con 5 sales (salts) diferentes (cripta, cripta genérica (3)[? / 64])</b></p> <p class="CMDOutput"><b>1 hash de contraseña restante</b></p> <p class="CMDOutput"><b>Presione 'q' o Ctrl-C para cancelar, casi cualquier otra tecla de estado.</b></p> <p class="CMDOutput"><b>0g 0: 00: 00: 17 7% 0g / s 599.6p / s 599.6c / s 599.6C / s reddog1..mark1</b></p> <p class="CMDOutput"><b>Sesión cancelada</b></p> <p class="SubStepAlpha">e.&nbsp;&nbsp;Ingrese el comando./john --show mypasswd para ver que solo se descifraron cuatrocontraseñas y que queda una.<span></span></p> <p class="CMD">cisco@labvm:~/Downloads/john/run$ ./john --show mypasswd</p> <p class="CMDOutput">cisco: contraseña: 900: 900: Analista de ciberseguridad ,,,: / home / cisco: / bin / bash</p> <p class="CMDOutput">Alicia: 123456: 1000: 1000 :: / home / Alicia: / bin / bash</p> <p class="CMDOutput">Bob: 12345: 1001: 1001 :: / home / Bob: / bin / bash</p> <p class="CMDOutput">Eva: contraseña: 1002: 1002 :: / home / Eve: / bin / bash</p> <p class="CMDOutput"><span style="background:yellow; color: #000;">4 hashes de</span>contraseña descifrados, queda1</p> <p class="CMD">cisco @ labvm: ~ / Downloads / john / run $</p></b></b></b></div>
+        </div>
+      </div>
+            <!--?lit$9826776457$-->
+            <!--?lit$9826776457$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="ea3e74a5-5a52-4e94-805d-e5eebfbd7fc9" style="width: 50%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="ea3e74a5-5a52-4e94-805d-e5eebfbd7fc9" class="ea3e74a5-5a52-4e94-805d-e5eebfbd7fc9 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="ea3e74a5-5a52-4e94-805d-e5eebfbd7fc9" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$9826776457$-->
+            <!--?lit$9826776457$-->
+            <!--?lit$9826776457$-->
+            <!--?lit$9826776457$-->
+            <!--?lit$9826776457$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$9826776457$--><!----><text-view modelid="2557ff9f-37a9-4bd4-a007-e013d86f94d9" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="2557ff9f-37a9-4bd4-a007-e013d86f94d9" class="component text 2557ff9f-37a9-4bd4-a007-e013d86f94d9  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$9826776457$-->
+            <!--?lit$9826776457$-->
+            <!--?lit$9826776457$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$9826776457$--><b><span><hr><span style="padding-right:5px;float:left;font-family:arial;font-size:12px;">© 2017 - 2022 Cisco and/or its affiliates. All rights reserved. Cisco Public</span></span></b></div>
+        </div>
+      </div>
+            <!--?lit$9826776457$-->
+            <!--?lit$9826776457$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!---->
+                            </div>
+                        </div>
+                        <!--?lit$9826776457$-->
+                    </div>
+                </div>
+            </div>
+        <script></script>
+<script>
+    window.addEventListener("load", function () {
+      console.log("loaded");
+      document?.querySelectorAll(".answergray").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".show-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.remove("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.add("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      let event = new Event("click", {
+        bubbles: true,
+        cancelable: true,
+      });
+      document
+        ?.querySelectorAll(".openTextBoxController__showButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".show-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__hideButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__resetButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            document?.querySelectorAll("textArea").forEach(function (ele) {
+              ele.value = "";
+            });
+          });
+        });
+
+      document
+      ?.querySelectorAll('textarea')
+      .forEach(function (ele){
+        ele.defaultValue = ele.defaultValue.replace(/<!--.*?-->/g, '');
+      })
+        let checkButtonLabel = "check_button_label_placeHolder";
+        let hideButtonLabel = "hide_button_label_placeHolder";
+        document?.querySelectorAll(".check__button").forEach(function (ele) {
+        let answerBox = document.querySelector(".check__solution")
+        if (!answerBox.classList.contains("check__hidden")) {
+          answerBox.classList.add("check__hidden");
+          ele.innerText = checkButtonLabel;
+        }
+          ele.addEventListener("click", function (e) {
+            if (answerBox.classList.contains("check__hidden")) {
+              answerBox.classList.remove("check__hidden")
+              ele.innerText = hideButtonLabel;
+            } else {
+              answerBox.classList.add("check__hidden")
+              ele.innerText = checkButtonLabel;
+            }
+          })
+        })
+    });
+  </script>
+  </body></html>

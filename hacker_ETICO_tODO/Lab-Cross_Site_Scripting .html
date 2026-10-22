@@ -1,0 +1,1612 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 1rem;
+      }
+      ol,
+      ul {
+        margin-bottom: 0in;
+      }
+      table {
+        margin-top: 1rem;
+        border: 1px solid gray;
+        width: 7in;
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > .openTableTextBox__table-header-data {
+        text-align: center;
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0in;
+        text-align: center;
+        line-height: 115%;
+        page-break-after: avoid;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        font-weight: bold;
+        background: #dbe5f1;
+        padding: 0.5rem;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .openTextBox__textArea-container {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 50%;
+      }
+      .openTableTextBox__fieldset {
+        padding: 5px;
+      }
+      td {
+        margin-top: 3pt;
+        margin-right: 0in;
+        margin-bottom: 3pt;
+        margin-left: 0in;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 98.85pt;
+        border: solid windowtext 1pt;
+        border-top: none;
+        padding: 0.7pt 5.75pt 0.7pt 5.75pt;
+      }
+      textarea {
+        width: 100%;
+      }
+      .answergray {
+        padding: 0.2rem;
+      }
+
+      .openTableTextBox__widget {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0.25in;
+      }
+
+      .show-answer,
+      .hide-answer {
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border: 0px;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .openTextBoxController__button-container {
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .openTextBoxController__button-container .btn-text {
+        margin: 10px;
+      }
+
+      .btn-text {
+        border: 0px;
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border-radius: 0;
+        cursor: pointer;
+      }
+
+      .u-display-none {
+        display: none;
+      }
+      .openTextBox__postText, openTableTextBox__postText {
+        margin-top: 0.5rem;
+      }
+      .edit-comment {
+        display: none;
+      }
+      .js-heading-inner {
+        display: none;
+      }
+      .block__title-inner,
+      .article__title-inner {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+      h2{
+        font-size: 1.25em;
+      }
+      h3{
+        font-size: 1.125em;
+      }
+      .table
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: solid windowtext 1pt;
+      }
+      table tbody tr th, table thead tr th{
+        border: solid windowtext 1pt;
+        background-color: #d6d8dc;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .command-output > .table-inner > .table-wrapper > .table-widget > table,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > td,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: none !important;
+        text-align: right !important;
+      }
+      .simple-table > .table-inner > .table-wrapper{
+        margin-left: 1.5rem;
+      }
+      .openTextBox__widget {
+        margin-left: 1.5rem;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      .answergray {
+        background-color: #ccc;
+      }
+      .openTableTextBox__widget > .answergray {
+        background-color: #fff !important;
+      }
+      li > ul,ol > li{
+        margin-left: 0px !important;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      
+      .component__title{
+        font-family: inherit;
+        font-size: 1.65em;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .component__body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .accessibility-completion-indicator{
+        display: none;
+      }
+
+      .check__hidden {
+        display: none;
+      }
+
+      .check__button {
+        border: none;
+        border-radius: 6px !important;
+        background-color: #6abf4b;
+        color: #fff;
+        min-width: 100px;
+        margin: 0.625rem 0;
+        padding: 0.7rem;
+      }
+
+      .check__widget .check__solution .DevConfigGray {
+        background-color: rgb(214,216,220);
+        font-weight: bold;
+      }
+
+      .check-inner .check__widget .check__solution .DevConfigs {
+        margin: 0px;
+        line-height: 115%;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .check__solution  {
+        line-height: 1.5;
+      }
+      .mcq__inner .mcq__widget .mcq__widget-inner {
+        margin-block: 1rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item {
+        display: flex;
+        gap: 0.2rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item .mcq__item-label .mcq__item-text .screenReader-position-text{
+        display: none;
+      }
+      .opentabletextbox-inner .opentabletextBox__widget .openTableTextBox__answerText.answergray {
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox{
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox img{
+        margin-block: 1rem;
+        margin-left: initial;
+      }
+      .component__content .component__body-inner .pageTracer-h4-title-hide {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        font-size: 0px;
+        color: rgb(var(--neutral-2));
+        font-weight: normal;
+      }
+      .table-inner .table__widget table tr.TableHeading th, .table-inner .table__widget table tr.TableHeading td, .table-inner .table__widget table tr td.TableHeading, .opentabletextbox-table thead tr.TableHeading th, .opentabletextbox-table tbody tr.TableHeading td, .opentabletextbox-table tbody tr td.TableHeading {
+        background-color: #d6d8dc;
+        text-align: center;
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .CMD, .component__content .component__body-inner .CMDOutput, .component__content .component__body-inner .CMDOutput__table{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        margin-inline-start: 30px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      [dir="rtl"] .component__content .component__body-inner .CMDOutput__table span {
+        direction: ltr;
+        display: inline-block;
+      }
+      .openTextBox__inner .openTextBox__widget .CMD, .openTextBox__inner .openTextBox__widget .CMDOutput{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .openTextBox__inner .openTextBox__widget .DnTbold, .openTextBox__inner .openTextBox__widget .BodyTextL25Bold, .component__content .component__body-inner .BodyTextL25Bold, .component__content .component__body-inner .DnTbold, .table-inner .table__widget table tr .DnTbold {
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .SubStepNum {
+        text-indent: -25.5px;
+        margin-inline-start: 50px;
+      }
+      .component__content .component__body-inner .BodyTextL50 {
+        margin-inline-start: 30px;
+      }
+      .component__content .component__body-inner .Bulletlevel1 {
+        text-indent: -19px;
+        margin-inline-start: 48px;
+      }
+      .component__content .component__body-inner .Bulletlevel2 {
+          text-indent: -19px;
+          margin-inline-start: 72px;
+      }
+      .openTextBox__inner .openTextBox__widget .ReflectionQ, .component__content .component__body-inner .SubStepAlpha {
+          text-indent: -25.5px;
+          margin-inline-start: 30px;
+      }
+    </style>
+
+</head><body><!---->
+            <div class="article 648ba1fef756a2285cdd4ff4 remove-top-padding remove-padding-bottom background-color-white ">
+                <div class="article__inner">
+                <div class=" no-adaptive-scroll">
+                    <!--?lit$855318395$-->
+                        <div class=""> 
+                            <base-view type="article" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="article__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="article__header ">
+          <div class="article__header-inner ">
+            <!--?lit$855318395$-->
+      <div class="article__title ">
+        <!--?lit$855318395$--><heading-view aria-hidden="true" id="648ba1fef756a2285cdd4ff4-heading-view" headingtitle="Práctica de Laboratorio - Secuencias de Comandos entre Sitios" modelid="648ba1fef756a2285cdd4ff4" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="js-heading is-incomplete">
+        <div class="js-heading-inner" role="heading" id="article-heading" aria-level="2">
+        <span class="aria-label"> <!--?lit$855318395$-->Incompleto &nbsp;<!--?lit$855318395$-->Práctica de Laboratorio - Secuencias de Comandos entre Sitios</span>
+        </div>
+      </div>
+    </heading-view>
+        <div tabindex="0" role="heading" class="article__title-inner " aria-level="2">
+          <span class="accessibility-completion-indicator"><!--?lit$855318395$-->Incompleto </span>
+          <!--?lit$855318395$-->Práctica de Laboratorio - Secuencias de Comandos entre Sitios
+        </div>
+      </div>
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                            <div class="block__container " style="">
+                                <!--?lit$855318395$--><!---->
+                                    <block-view modelid="648ba1fef756a2285cdd4ff5" style="width: 5%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="648ba1fef756a2285cdd4ff5" class="648ba1fef756a2285cdd4ff5 block remove-top-padding remove-padding-bottom background-color-white is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="648ba1fef756a2285cdd4ff5" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$855318395$--><!----><text-view modelid="648ba1fff756a2285cdd5011" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="648ba1fff756a2285cdd5011" class="component text 648ba1fff756a2285cdd5011 remove-top-padding remove-padding-bottom is-full is-complete  ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$855318395$--><h1>Objetivos</h1><p>En esta práctica de laboratorio, realizará ataques XSS reflejados y XSS almacenados contra DVWA (aplicación web vulnerable) a niveles de seguridad bajos, medios y altos.</p><p><!--[if !supportLists]--></p><ul><li><!--[if !supportLists]--><!--[endif]-->Part 1: Realizar explotaciones de secuencias de comandos entre sitios reflejados</li><li><!--[if !supportLists]--><!--[endif]-->Parte 2: Realizar explotaciones de secuencias de comandos entre sitios almacenados</li></ul><p>&nbsp;</p><h1>Trasfondo / Escenario</h1><p>En esta práctica de laboratorio, realizará pruebas de penetración de una aplicación web para determinar si se ha diseñado de forma segura.</p><p>DVWA (Damn Vulnerable Web Application!) es una aplicación web PHP/MySQL. Está diseñada para ser vulnerable a ataques comunes para permitir que los profesionales de seguridad prueben sus habilidades y herramientas, y que los estudiantes y profesores aprendan y comprendan la seguridad de las aplicaciones web en un entorno legal.</p><p>DVWA ofrece cuatro niveles de seguridad: bajo, medio, alto e imposible. Cada nivel de seguridad requiere diferentes habilidades para realizar explotaciones. Los niveles de seguridad reflejan diferentes niveles de seguridad que los desarrolladores pueden codificar en sus aplicaciones. En esta práctica de laboratorio, realizará exploits en tres de los niveles de seguridad, Bajo, Medio y Alto, lo que le permitirá ajustar sus ataques para comprometerlos.</p><h1>Recursos necesarios</h1><p><!--[if !supportLists]--><!--[endif]--></p><ul><li><!--[if !supportLists]--><!--[endif]-->Maquina Virtual Kali (Kali VM) personalizada para el curso de Pirata Ético</li><li><!--[if !supportLists]--><!--[endif]-->Acceso a Internet</li></ul></div>
+        </div>
+      </div>
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="648ba1fef756a2285cdd4ff6" style="width: 5%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="648ba1fef756a2285cdd4ff6" class="648ba1fef756a2285cdd4ff6 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="648ba1fef756a2285cdd4ff6" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$855318395$--><!----><text-view modelid="648ba1fff756a2285cdd5012" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="648ba1fff756a2285cdd5012" class="component text 648ba1fff756a2285cdd5012 remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$855318395$--><h1>Instrucciones</h1><h2 style="margin-left:0in"><!--[if !supportLists]--><span><span>Parte 1: </span></span><!--[endif]-->Realizar explotaciones de secuencias de comandos entre sitios reflejados</h2><p>Un ataque XSS reflejado es aquel en el que un script malicioso se refleja en el navegador del usuario desde un servidor web. El script se activa a través de un enlace en el que la víctima hace clic. Esto enviará una solicitud al sitio web que tiene una vulnerabilidad que permite la ejecución del script malicioso.</p><h3 style="margin-left:0in"><!--[if !supportLists]--><span><span>Paso 1: </span></span><!--[endif]-->Inicie sesión en DVWA.</h3><ol start="1" style="list-style-type:lower-alpha"><li>Desde la VM Kali Linux, abra un navegador y navegue hasta la aplicación DVWA.</li><li><!--[if !supportLists]--><!--[endif]-->Introduzca la siguiente URL en el navegador <a href="http://10.6.6.13" target="_blank">http://10.6.6.13</a>.</li><li><!--[if !supportLists]--><!--[endif]-->En la solicitud de inicio de sesión, introduzca las credenciales: <strong>admin</strong>/<strong>password</strong>.</li></ol></div>
+        </div>
+      </div>
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="648ba1fef756a2285cdd4ffa" style="width: 5%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="648ba1fef756a2285cdd4ffa" class="648ba1fef756a2285cdd4ffa block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="648ba1fef756a2285cdd4ffa" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$855318395$--><!----><text-view modelid="648ba1fff756a2285cdd5016" class="is-full remove-top-padding remove-padding-bottom packetTracer_wrap_text" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="648ba1fff756a2285cdd5016" class="component text 648ba1fff756a2285cdd5016 remove-top-padding remove-padding-bottom packetTracer_wrap_text is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$855318395$--><h3 style="margin-left:0in"><!--[if !supportLists]--><span><span>Paso 2: </span></span><!--[endif]-->Realizar un ataque XSS reflejado con un nivel de seguridad bajo.</h3><ol start="1" style="list-style-type: lower-alpha;"><li><!--[if !supportLists]-->Seleccione <strong>DVWA Security</strong> en el menú de la izquierda y seleccione <strong>Low</strong> en el menú desplegable Nivel de seguridad. Haga clic en <strong>Submit</strong>.</li><li><!--[if !supportLists]--><!--[endif]-->Seleccione <strong>XSS (Reflected)</strong> en el menú de la izquierda.</li><li><!--[if !supportLists]--><!--[endif]-->Escriba la cadena <strong>Reflected_Test</strong> en <strong>What's your name?</strong> y haga clic en <strong>Submit</strong>.</li></ol><p style="margin-left: 40px;">Verá que aparece el mensaje <span class="BodyTextL25Char"><strong>Hello Reflected_Test</strong></span>.</p><ol start="4" style="list-style-type: lower-alpha;"><li><!--[if !supportLists]-->Introduzca <strong>CTRL+U</strong> en el teclado para ver el código fuente de la página.</li><li><!--[if !supportLists]-->Busque la cadena <strong>Hello Reflected_Test</strong> ingresando CTRL+F para abrir un cuadro de búsqueda.</li></ol><p style="margin-left: 40px;">La presencia de la cadena en el código fuente HTML de la página indica que los valores ingresados en un campo de texto de respuesta del usuario se insertan en el código fuente de la página. Esto indica al atacante que la página puede ser vulnerable a los ataques XSS reflejados.</p><ol start="6" style="list-style-type: lower-alpha;"><li><!--[if !supportLists]--><!--[endif]-->Cierre la ventana de código fuente y vuelva a la página Reflected XSS Vulnerability.</li><li><!--[if !supportLists]-->Ingrese la siguiente carga útil en el campo <strong>What’s your name?</strong> y haga clic en <strong>Submit</strong>.</li></ol><pre style="margin-left: 1in;"><strong>&lt;script&gt;alert("You are hacked!")&lt;/script&gt;</strong></pre><p style="margin-left: 40px;">Aparecerá un cuadro emergente de alerta con las palabras <strong>You are hacked!</strong>. Esto significa que el sitio es vulnerable a ataques XSS reflejados y hemos explotado la vulnerabilidad con éxito.</p><ol start="8" style="list-style-type: lower-alpha;"><li><!--[if !supportLists]--><!--[endif]-->Seleccione y copie la URL de la página comprometida. Abra una nueva pestaña del navegador, pegue la URL en el campo URL y presione Enter.</li></ol><p style="margin-left: 40px;">Debería ver aparecer la misma página web mostrando el cuadro emergente <strong>You are hacked!</strong>. Esto significa que si un usuario abre la URL, se ejecutará un script malicioso. El cuadro emergente se usa para simular un script malicioso en esta práctica de laboratorio.</p><p style="margin-left: 40px;">En un compromiso de piratería ética, intentaría insertar un script de prueba simple en los campos de entrada para ver si el script se ejecuta. Si es así, el sitio web es vulnerable a los ataques XSS reflejados. Luego, podría distribuir el enlace en un ataque de suplantación de identidad (phishing) para determinar el nivel de conocimiento de la seguridad entre los empleados de sus clientes.</p></div>
+        </div>
+      </div>
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="648ba1fef756a2285cdd4ffb" style="width: 5%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="648ba1fef756a2285cdd4ffb" class="648ba1fef756a2285cdd4ffb block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="648ba1fef756a2285cdd4ffb" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$855318395$--><!----><text-view modelid="648ba1fff756a2285cdd5017" class="is-full remove-top-padding remove-padding-bottom packetTracer_wrap_texts" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="648ba1fff756a2285cdd5017" class="component text 648ba1fff756a2285cdd5017 remove-top-padding remove-padding-bottom packetTracer_wrap_texts is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom packetTracer_wrap_texts ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$855318395$--><h3 style="margin-left:0in"><!--[if !supportLists]--><span><span>Paso 3: </span></span><!--[endif]-->Realizar un ataque XSS reflejado en el nivel de seguridad medio.</h3><p>Intentará el mismo ataque, pero esta vez el nivel de seguridad del sitio web será medio.</p><ol start="1" style="list-style-type:lower-alpha"><li><!--[if !supportLists]-->Seleccione <strong>DVWA Security</strong> en el menú de la izquierda y seleccione <strong>Medium</strong> en el menú desplegable Nivel de seguridad. Haga clic en <strong>Submit</strong>.</li><li><!--[if !supportLists]-->Seleccione <strong>XSS (Reflected)</strong> en el menú de la izquierda.</li><li><!--[if !supportLists]-->Nuevamente, ingrese la siguiente carga útil en <strong>What's your name?</strong> y haga clic en <strong>Submit</strong>.</li></ol><pre style="margin-left:1in; text-wrap: auto;"><strong>&lt;script&gt;alert("You are hacked!")&lt;/script&gt;</strong></pre><p style="margin-left:40px">Verá una respuesta de saludo, pero esta vez no aparecerá ninguna ventana emergente. Esto indica que el script no se ejecutó. Tenga en cuenta que el script se muestra como texto literal.</p><p style="margin-left:40px">Podemos analizar el código en el backend del sitio web para investigar el motivo.</p><ol start="4" style="list-style-type:lower-alpha"><li><!--[if !supportLists]--><!--[endif]-->Haga clic en el botón <strong>View Source</strong> en la parte inferior derecha de la página y revise el código PHP.</li></ol><p style="margin-left:40px"><strong>Nota</strong>: En un servidor web real, no tendríamos acceso a este código fuente de back-end, pero sí en DVWS.</p><ol start="5" style="list-style-type:lower-alpha"><li><!--[if !supportLists]-->Tenga en cuenta la línea:</li></ol><pre style="margin-left:80px; text-wrap: auto;"><strong><span>$name = str_replace ( '&lt;script&gt;', '',$_GET[ 'name' ] );</span></strong></pre><p style="margin-left:40px"><span>Este código fuente crea un filtro, con la función </span><strong>str_replace()</strong><span>, que elimina la etiqueta <span><strong>&lt;script&gt;</strong><span> en nuestra carga útil y la reemplaza con un valor nulo. Esto hace que el script de carga útil sea ineficaz, por lo que el ataque falló y no se muestra ninguna ventana emergente. Dado que este script solo filtra &lt;script&gt; en minúsculas, podemos intentar evitar el filtro utilizando una etiqueta diferente en la carga útil. Utilizaremos </span><strong>&lt;ScRipt&gt;</strong>.</span></span></p><ol start="6" style="list-style-type:lower-alpha"><li><!--[if !supportLists]--><!--[endif]-->Cierre la ventana de código fuente y vuelva a la página Reflected XSS Vulnerability.</li><li><!--[if !supportLists]--><!--[endif]-->Ingrese la siguiente carga útil en el campo <strong>What's your name?</strong> y haga clic en <strong>Submit</strong>.</li></ol><pre style="margin-left:80px"><strong>&lt;ScRipt&gt;alert("You are hacked!")&lt;/ScRipt&gt;</strong></pre></div>
+        </div>
+      </div>
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="648cab7e2c1a5d29dfc18659" style="width: 5%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="648cab7e2c1a5d29dfc18659" class="648cab7e2c1a5d29dfc18659 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="648cab7e2c1a5d29dfc18659" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$855318395$--><!----><opentextbox-view modelid="648caba6189da229eda7dbf5" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="648caba6189da229eda7dbf5" class="component opentextbox 648caba6189da229eda7dbf5 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="648caba6189da229eda7dbf5" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$855318395$--> <div class="openTextBox__preText"><!--?lit$855318395$-->¿Apareció la ventana emergente? Si esto es correcto, ¿por qué?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$855318395$--><!--?lit$855318395$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$855318395$-->
+                      <!--?lit$855318395$-->La ventana emergente apareció porque la carga útil con la etiqueta &lt;ScRipt&gt; pudo eludir el filtro. Esto significa que el sitio sigue siendo vulnerable a los ataques XSS reflejados incluso en el nivel de seguridad medio.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$855318395$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$855318395$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$855318395$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="648ba1fef756a2285cdd4ffc" style="width: 5%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="648ba1fef756a2285cdd4ffc" class="648ba1fef756a2285cdd4ffc block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="648ba1fef756a2285cdd4ffc" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$855318395$--><!----><text-view modelid="648ba1fff756a2285cdd5018" class="is-full remove-top-padding remove-padding-bottom packetTracer_wrap_text" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="648ba1fff756a2285cdd5018" class="component text 648ba1fff756a2285cdd5018 remove-top-padding remove-padding-bottom packetTracer_wrap_text is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$855318395$--><h3 style="margin-left:0in"><!--[if !supportLists]--><span><span>Paso 4: </span></span><!--[endif]-->Realizar un ataque XSS reflejado en un nivel de seguridad alto.</h3><p>Se intentará el mismo ataque, pero esta vez el nivel de seguridad del sitio web será alto.</p><ol start="1" style="list-style-type:lower-alpha"><li><!--[if !supportLists]-->Seleccione <strong>DVWA Security</strong> en el menú de la izquierda y seleccione <strong>High</strong> en el menú desplegable Nivel de seguridad. Haga clic en <strong>Submit</strong>.</li><li><!--[if !supportLists]-->Seleccione <strong>XSS (Reflected)</strong> en el menú de la izquierda.</li><li><!--[if !supportLists]-->Ingrese la siguiente carga útil en el campo <strong>What's your name?</strong> y haga clic en <strong>Submit</strong>. <span>(Tenga en cuenta el uso de guiones bajos para reemplazar espacios).</span></li></ol><pre style="margin-left:1in"><strong>&lt;ScRipt&gt;alert("You_are_hacked!")&lt;/ScRipt&gt;</strong></pre><p style="margin-left:40px">Hay un mensaje de saludo y no hay un cuadro emergente de alerta. Nuevamente, podemos analizar el código fuente del back-end para investigar.</p><ol start="4" style="list-style-type:lower-alpha"><li><!--[if !supportLists]-->Haga clic en el botón <strong>View Source</strong> y revise el código PHP.</li></ol><p style="margin-left:40px">Tenga en cuenta la siguiente línea:</p><pre style="margin-left:80px"><strong>$name = preg_replace( '/&lt;(.*)s(.*)c(.*)r(.*)i(.*)p(.*)t/i', '', $_GET[ 'name' ] );</strong></pre><p style="margin-left:40px"><span>En este código, el desarrollador utilizó una expresión regular para reemplazar cualquier forma de la etiqueta </span><strong><span>&lt;script&gt;</span></strong><span>, sin importar qué mayúsculas y minúsculas se utilicen, con un valor nulo.</span></p></div>
+        </div>
+      </div>
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="648ba1fef756a2285cdd5000" style="width: 5%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="648ba1fef756a2285cdd5000" class="648ba1fef756a2285cdd5000 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="648ba1fef756a2285cdd5000" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$855318395$--><!----><opentextbox-view modelid="648ba200f756a2285cdd501c" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="648ba200f756a2285cdd501c" class="component opentextbox 648ba200f756a2285cdd501c  is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="648ba200f756a2285cdd501c" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$855318395$--> <div class="openTextBox__preText"><!--?lit$855318395$-->¿Qué carácter del script se omitió de la expresión regular? ¿Cómo lo sabe?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$855318395$--><!--?lit$855318395$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$855318395$-->
+                      <!--?lit$855318395$-->Se omitió el carácter “&gt;”. Aún puedes verlo en la salida para la entrada What's your name? enviada.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$855318395$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$855318395$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$855318395$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="648ba1fef756a2285cdd5001" style="width: 5%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="648ba1fef756a2285cdd5001" class="648ba1fef756a2285cdd5001 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="648ba1fef756a2285cdd5001" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$855318395$--><!----><text-view modelid="648bba01cebe6e27b9c9e27a" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="648bba01cebe6e27b9c9e27a" class="component text 648bba01cebe6e27b9c9e27a remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$855318395$--><ol start="5" style="list-style-type:lower-alpha"><li><!--[if !supportLists]-->Para evitar este filtro, debemos utilizar otra etiqueta HTML en lugar de <strong>&lt;script&gt;</strong> para atacar el sitio.</li></ol><p style="margin-left:40px">Cierre la ventana de código fuente y vuelva a la página Reflected XSS Vulnerability.</p><ol start="6" style="list-style-type:lower-alpha"><li><!--[if !supportLists]--><!--[endif]-->Ingrese la siguiente carga útil en el campo <strong>What's your name?</strong> y haga clic en <strong>Submit</strong>. <span>(Tenga en cuenta el uso de guiones bajos para reemplazar espacios).</span></li></ol><p style="margin-left:80px"><strong>&lt;img src=x onerror=alert("You_are_hacked!")&gt;</strong></p><p style="margin-left:40px">Esta vez aparecerá el cuadro emergente XSS. Hemos pasado por alto con éxito el filtro y hemos explotado la vulnerabilidad XSS reflejada en DVWA en seguridad de alto nivel.</p></div>
+        </div>
+      </div>
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="648ba1fef756a2285cdd4ffe" style="width: 5%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="648ba1fef756a2285cdd4ffe" class="648ba1fef756a2285cdd4ffe block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="648ba1fef756a2285cdd4ffe" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$855318395$--><!----><opentextbox-view modelid="648bba68ac937e28ca8d68bf" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="648bba68ac937e28ca8d68bf" class="component opentextbox 648bba68ac937e28ca8d68bf  is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="648bba68ac937e28ca8d68bf" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$855318395$--> <div class="openTextBox__preText"><!--?lit$855318395$-->Revise el texto que ingresó en el formulario web. ¿Cómo funcionó?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$855318395$--><!--?lit$855318395$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$855318395$-->
+                      <!--?lit$855318395$-->Obligó a ocurrir un error al intentar cargar una imagen inexistente. El error se detectó con onerror y se activó la respuesta de alerta para mostrar el cuadro de alerta.
+
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$855318395$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$855318395$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$855318395$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="648ba1fef756a2285cdd5003" style="width: 5%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="648ba1fef756a2285cdd5003" class="648ba1fef756a2285cdd5003 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="648ba1fef756a2285cdd5003" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$855318395$--><!----><text-view modelid="648bba98ac937e28ca8d68c1" class="is-full remove-top-padding remove-padding-bottom packetTracer_wrap_text" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="648bba98ac937e28ca8d68c1" class="component text 648bba98ac937e28ca8d68c1 remove-top-padding remove-padding-bottom packetTracer_wrap_text is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$855318395$--><h2 style="margin-left:0in"><!--[if !supportLists]--><span><span>Parte 2: </span></span><!--[endif]-->Realizar explotaciones de secuencias de comandos entre sitios almacenados</h2><p>Con el exploit XSS <span class="BodyTextL50Char">almacenado </span>, usted ingresa un script malicioso a través de la entrada del usuario y el script se almacena en el servidor de destino en un foro de mensajes, base de datos, registro de visitantes o campo de comentarios. Cuando un usuario visita el objetivo, el servidor lo expone al código malicioso.</p><h3 style="margin-left:0in"><!--[if !supportLists]--><span><span>Paso 1: </span></span><!--[endif]-->Realizar un ataque de XSS almacenado con un nivel de seguridad bajo.</h3><p>Explotar el XSS almacenado con un nivel de seguridad bajo es sencillo porque no existen medidas de seguridad. Puede simplemente enviar un &lt;script&gt; para lograr el exploit.</p><ol start="1" style="list-style-type:lower-alpha"><li><!--[if !supportLists]-->Seleccione <strong>DVWA Security</strong> en el menú de la izquierda y seleccione <strong>Low</strong> en el menú desplegable Nivel de seguridad. Haga clic en <strong>Submit</strong>.</li><li><!--[if !supportLists]--><!--[endif]-->Seleccione <strong>XSS (Stored)</strong> en el menú de la izquierda.</li><li><!--[if !supportLists]-->Escriba la cadena <strong>XSS Test#1</strong> en el campo <strong>Name*</strong> y escriba <strong>Stored XSS Test</strong> en el campo <strong>Message *</strong>. haga clic en <strong>Sign Guestbook</strong>.</li><li><!--[if !supportLists]--><!--[endif]-->Introduzca <strong>CTRL+U</strong> en el teclado para ver el código fuente de la página. Ingrese <strong>CTRL+F</strong> para buscar las cadenas <strong>XSS Test#1</strong><span> y </span><strong>Stored XSS Test</strong>.</li></ol><p style="margin-left:40px">Ambas cadenas, <strong>XSS Test#1</strong> y <strong>Stored XSS Test</strong>, estarán en el código fuente de la página, lo que indica que los dos campos de entrada pueden ser vulnerables a un ataque de XSS almacenado.</p><ol start="5" style="list-style-type:lower-alpha"><li><!--[if !supportLists]-->Cierre la ventana de código fuente y vuelva a la página Stored XSS Vulnerability.</li><li><!--[if !supportLists]-->Introduzca <strong>Test # 1</strong> en el cuadro <strong>Name*</strong> e introduzca la siguiente carga útil en el cuadro <strong>Message *</strong> y haga clic en <strong>Sign Guestbook</strong>.</li></ol><pre style="margin-left:1in"><strong>&lt;script&gt;alert("You are hacked!")&lt;/script&gt;</strong></pre><p style="margin-left:.5in">Aparecerá un cuadro emergente de alerta XSS con el mensaje "<strong>You_are_hacked!</strong>". Esto significa que el sitio era vulnerable a ataques XSS almacenados y hemos explotado la vulnerabilidad con éxito.</p><ol start="7" style="list-style-type:lower-alpha"><li><!--[if !supportLists]-->Actualice la página. Si recibe una alerta, haga clic en <strong>Resend</strong> para mostrar la página. El cuadro emergente de alerta XSS aparecerá nuevamente.</li></ol><p style="margin-left:40px">Debido a que la carga útil XSS se almacena en el libro de visitas, el cuadro emergente de alerta aparecerá cada vez que se actualice la página.</p><ol start="8" style="list-style-type:lower-alpha"><li><!--[if !supportLists]--><!--[endif]-->Antes de continuar con el siguiente paso, borre la carga útil XSS de la página. Haga clic en<strong> Setup / Reset DB</strong> en el menú de la izquierda y, a continuación, haga clic en <strong>Create / Reset Database</strong>.</li></ol></div>
+        </div>
+      </div>
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="648ba1fff756a2285cdd5005" style="width: 5%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="648ba1fff756a2285cdd5005" class="648ba1fff756a2285cdd5005 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="648ba1fff756a2285cdd5005" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$855318395$--><!----><text-view modelid="648ba200f756a2285cdd5021" class="is-full remove-top-padding remove-padding-bottom packetTracer_wrap_text" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="648ba200f756a2285cdd5021" class="component text 648ba200f756a2285cdd5021 remove-top-padding remove-padding-bottom packetTracer_wrap_text is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$855318395$--><h3 style="margin-left:0in"><!--[if !supportLists]--><span><span>Paso 2: </span></span><!--[endif]-->Realizar un ataque de XSS almacenado con un nivel de seguridad medio.</h3><p>Se intentará el mismo ataque, pero esta vez el nivel de seguridad del sitio web cambiará a Medio.</p><p>No es difícil explotar el XSS reflejado con una seguridad de nivel medio. El uso de &lt;script&gt; será rechazado, pero cambiarlo a un caso diferente como &lt;ScRipt&gt; evitará la seguridad y logrará el exploit.</p><ol start="1" style="list-style-type: lower-alpha;"><li><!--[if !supportLists]-->Seleccione <strong>DVWA Security</strong> en el menú de la izquierda y seleccione <strong>Medium</strong> en el menú desplegable Nivel de seguridad. Haga clic en <strong>Submit</strong>.</li><li><!--[if !supportLists]-->Seleccione <strong>XSS (Stored)</strong> en el menú de la izquierda.</li><li><!--[if !supportLists]-->Escriba la cadena <strong>XSS Test#1</strong> en el campo <strong>Name*</strong> y escriba <strong>Stored XSS Test</strong> en el campo <strong>Message *</strong>. haga clic en <strong>Sign Guestbook</strong>.</li><li><!--[if !supportLists]-->Introduzca <strong>CTRL+U</strong> en el teclado para ver el código fuente de la página. Ingrese <strong>CTRL+F</strong> para buscar las cadenas <strong>XSS Test#1</strong> y <strong>Stored XSS Test</strong>.</li></ol><p style="margin-left: 40px;">Ambas cadenas <span>estarán</span> en el código fuente de la página, lo que indica que los dos campos de entrada pueden ser vulnerables a un ataque de XSS almacenado.</p><ol start="5" style="list-style-type: lower-alpha;"><li><!--[if !supportLists]-->Cierre la ventana del código fuente y vuelva a la página de la vulnerabilidad.</li><li><!--[if !supportLists]--><!--[endif]-->Introduzca <strong>Test # 1</strong> en el cuadro <strong>Name*</strong> e introduzca la siguiente carga útil en el cuadro <strong>Message *</strong> y haga clic en <strong>Sign Guestbook</strong>.</li></ol><pre style="margin-left: 1in;"><strong>&lt;script&gt;alert("You are hacked!")&lt;/script&gt;</strong></pre><p style="margin-left: 40px;">No debe aparecer ningún cuadro emergente. Actualizar la página tampoco debe provocar la aparición del cuadro emergente de alerta.</p><p style="margin-left: 40px;">Esto significa que hay un código en el backend que sanitiza la entrada del usuario en el campo <strong>Message *</strong> para evitar que se envíen los scripts. Puede ver la entrada modificada en el último cuadro de mensaje rectangular debajo de los campos de entrada.</p></div>
+        </div>
+      </div>
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="648ba1fff756a2285cdd5006" style="width: 5%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="648ba1fff756a2285cdd5006" class="648ba1fff756a2285cdd5006 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="648ba1fff756a2285cdd5006" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$855318395$--><!----><opentextbox-view modelid="648ba200f756a2285cdd5022" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="648ba200f756a2285cdd5022" class="component opentextbox 648ba200f756a2285cdd5022 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="648ba200f756a2285cdd5022" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$855318395$--> <div class="openTextBox__preText"><!--?lit$855318395$-->¿Cómo modificó la entrada el script del filtro de entrada?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$855318395$--><!--?lit$855318395$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$855318395$-->
+                      <!--?lit$855318395$-->Eliminó las etiquetas html &lt;script&gt; y agregó barras inclinadas.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$855318395$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$855318395$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$855318395$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="648ba1fff756a2285cdd5007" style="width: 5%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="648ba1fff756a2285cdd5007" class="648ba1fff756a2285cdd5007 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="648ba1fff756a2285cdd5007" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$855318395$--><!----><text-view modelid="648ba200f756a2285cdd5023" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="648ba200f756a2285cdd5023" class="component text 648ba200f756a2285cdd5023 remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$855318395$--><ol start="7" style="list-style-type: lower-alpha;"><li><!--[if !supportLists]-->Haga clic en el botón <strong>View Source</strong> y revise el código PHP e investigue.</li></ol><p style="margin-left: 40px;">Verá dos bloques de código con la palabra <strong>Sanitize</strong>. El primer bloque de código, bajo <strong>// Sanitize message input</strong>, contiene dos funciones de PHP para realizar la sanitización de las entradas. La función <strong>strip_tags()</strong> elimina todas las etiquetas html del campo de mensaje antes de almacenarlas en la base de datos. La función <strong>htmlspecialchars()</strong> convierte todos los caracteres especiales en entidades HTML equivalentes para que no se reflejen en el navegador.</p></div>
+        </div>
+      </div>
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="648ba1fff756a2285cdd500b" style="width: 5%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="648ba1fff756a2285cdd500b" class="648ba1fff756a2285cdd500b block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="648ba1fff756a2285cdd500b" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$855318395$--><!----><opentextbox-view modelid="648ba200f756a2285cdd5027" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="648ba200f756a2285cdd5027" class="component opentextbox 648ba200f756a2285cdd5027 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="648ba200f756a2285cdd5027" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$855318395$--> <div class="openTextBox__preText"><!--?lit$855318395$-->Investigue la función addslashes() de PHP en Internet. ¿Cómo cambió la entrada?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$855318395$--><!--?lit$855318395$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$855318395$-->
+                      <!--?lit$855318395$-->Agregó barras diagonales antes de las comillas en el texto de la alerta. Esto "escapaba" de los caracteres de las comillas y hacía que se mostraran en la salida.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$855318395$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$855318395$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$855318395$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="648ba1fff756a2285cdd5009" style="width: 5%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="648ba1fff756a2285cdd5009" class="648ba1fff756a2285cdd5009 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="648ba1fff756a2285cdd5009" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$855318395$--><!----><text-view modelid="648ba200f756a2285cdd5025" class="is-full remove-top-padding remove-padding-bottom packetTracer_wrap_text" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="648ba200f756a2285cdd5025" class="component text 648ba200f756a2285cdd5025 remove-top-padding remove-padding-bottom packetTracer_wrap_text is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$855318395$--><p style="margin-left:40px">El segundo bloque de código, bajo <strong>// Sanitize name input</strong>, realiza la sanitización de la entrada en el campo <strong>Name *</strong>. Contiene la función <strong>str_replace()</strong> que reemplaza cualquier aparición de la etiqueta <strong>&lt;script&gt;</strong> con un valor nulo. Esto desactiva el script por completo.</p><p style="margin-left:40px">Podemos intentar eludir la seguridad en el campo <strong>Name *</strong> utilizando alguna otra carga útil que no contenga etiquetas <strong>&lt;script&gt;</strong>.</p><ol start="8" style="list-style-type:lower-alpha"><li><!--[if !supportLists]-->Cierre la ventana del código fuente.</li><li><!--[if !supportLists]--><!--[endif]-->Antes de ingresar cualquier carga útil en el campo <strong>Name *</strong>, se debe aumentar la restricción de longitud máxima de 10 caracteres en el campo. Esta es una configuración del lado del cliente, por lo que es fácil de cambiar con los siguientes pasos:<ol><li><!--[if !supportLists]--><span>Haga clic derecho en el campo <strong>Name *</strong> y seleccione <strong>Inspect</strong>. Esto abre la ventana Herramientas de Desarrollo Web y muestra el código fuente de la página</span>.</li><li><!--[if !supportLists]-->Busque y haga doble clic en <strong>maxlength</strong> en el origen de la página y cámbielo de <strong>10</strong> a <strong>100</strong>. La propiedad maxlength está dentro de la etiqueta &lt;input&gt; para el campo de texto.</li><li><!--[if !supportLists]-->Presione <strong>Enter</strong> en el teclado para aplicar los cambios.</li><li><!--[if !supportLists]-->Cierre la ventana Herramientas del desarrollador web<strong> </strong>.</li></ol></li></ol><p style="margin-left:40px"><!--[if !supportLists]-->Con la restricción <strong>maxlength</strong> modificada, la carga útil XSS ahora se puede ingresar en el campo <strong>Name *</strong>.</p><p style="margin-left:40px"><strong>Nota</strong>: El cambio del parámetro <strong>maxlength</strong> no persiste. Si actualiza la página, por ejemplo, la configuración debe cambiarse nuevamente.</p><ol start="10" style="list-style-type:lower-alpha"><li><!--[if !supportLists]-->Regrese a la página de vulnerabilidades e ingrese la siguiente carga útil en el campo <strong>Name *</strong>.</li></ol><pre style="margin-left:1in"><strong>&lt;ScRipt&gt;alert("You are hacked!")&lt;/ScRipt&gt;</strong></pre><ol start="11" style="list-style-type:lower-alpha"><li><!--[if !supportLists]--><!--[endif]-->En el campo <strong>Message *</strong>, puede escribir el texto que desee y hacer clic en <strong>Sign Guestbook</strong>.</li></ol><p style="margin-left:40px">Aparecerá un cuadro emergente de alerta XSS con el mensaje "<strong>You_are_hacked!</strong>".</p><p style="margin-left:40px">Debido a que la carga útil XSS se almacena en el libro de visitas, el cuadro emergente de alerta aparecerá cada vez que se actualice la página o cada vez que otros usuarios la visiten.</p><p style="margin-left:40px">La ventana emergente confirma que ha explotado con éxito la vulnerabilidad de XSS almacenado en el nivel de seguridad medio.</p><ol start="12" style="list-style-type:lower-alpha"><li><!--[if !supportLists]-->Antes de continuar con el siguiente paso, borre la carga útil XSS de la página. Haga clic en<strong> Setup / Reset DB</strong> en el menú de la izquierda y, a continuación, haga clic en <strong>Create / Reset Database</strong>.</li></ol></div>
+        </div>
+      </div>
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="648ba1fff756a2285cdd5008" style="width: 5%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="648ba1fff756a2285cdd5008" class="648ba1fff756a2285cdd5008 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="648ba1fff756a2285cdd5008" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$855318395$--><!----><text-view modelid="648ba200f756a2285cdd5024" class="is-full remove-top-padding remove-padding-bottom packetTracer_wrap_text" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="648ba200f756a2285cdd5024" class="component text 648ba200f756a2285cdd5024 remove-top-padding remove-padding-bottom packetTracer_wrap_text is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$855318395$--><h3 style="margin-left:0in"><!--[if !supportLists]--><span><span>Paso 3: </span></span><!--[endif]-->Realizar un ataque de XSS almacenado con un nivel de seguridad alto.</h3><p>Intentará el mismo ataque, pero esta vez el nivel de seguridad del sitio web se establecerá en Alto.</p><p>En el nivel alto, el código de seguridad incluye en la lista blanca &lt;scripts&gt; y rechaza todo lo demás. Sin embargo, otras etiquetas, como svg, funcionarán.</p><ol start="1" style="list-style-type: lower-alpha;"><li><!--[if !supportLists]-->Seleccione <strong>DVWA Security</strong> en el menú de la izquierda y seleccione <strong>High</strong> en el menú desplegable Nivel de seguridad. Haga clic en <strong>Submit</strong>.</li><li><!--[if !supportLists]-->Seleccione <strong>XSS (Stored)</strong> en el menú de la izquierda.</li><li><!--[if !supportLists]-->Escriba la cadena <strong>Test#1</strong> en el campo <strong>Name*</strong> y escriba <strong>Stored XSS Test</strong> en el campo <strong>Message *</strong> Haga clic en <strong>Sign Guestbook</strong>.</li><li><!--[if !supportLists]-->Introduzca <strong>CTRL+U</strong> en el teclado para ver el código fuente de la página. Ingrese <strong>CTRL+F</strong> para buscar las cadenas <strong>Test#1</strong> y <strong>Stored XSS Test</strong>.</li></ol><p style="margin-left: 40px;">Tanto <strong>Test#1</strong> como <strong>Stored XSS Test</strong> deben estar en el código fuente de la página, lo que indica que los dos campos de entrada pueden ser vulnerables a un ataque de XSS almacenado.</p><ol start="5" style="list-style-type: lower-alpha;"><li><!--[if !supportLists]--><!--[endif]-->Cierre la pestaña de código fuente de la página y vuelva a la página de la vulnerabilidad.</li><li><!--[if !supportLists]-->Introduzca <strong>Test # 1</strong> en el cuadro <strong>Name*</strong> e introduzca la siguiente carga útil en el cuadro <strong>Message *</strong> y haga clic en <strong>Sign Guestbook</strong>.</li></ol><pre style="margin-left: 80px;"><strong>&lt;ScRipt&gt;alert("You are hacked!")&lt;/ScRipt&gt;</strong></pre><p style="margin-left: 40px;">No aparecerá ningún cuadro emergente. Actualizar la página tampoco hará que aparezca el cuadro emergente de alerta.</p><p style="margin-left: 40px;">Esto significa que hay un código en el backend del sitio que sanitiza la entrada del usuario en el campo <strong>Message *</strong>.</p><ol start="7" style="list-style-type: lower-alpha;"><li><!--[if !supportLists]--><!--[endif]-->Haga clic en el botón <strong>View Source</strong> y revise el código PHP e investigue.</li></ol><p style="margin-left: 40px;">Verá dos bloques de código. Como antes con la seguridad Media, el primer bloque de código, bajo <strong>// Sanitize message input</strong>, contiene dos funciones php para realizar la sanitización de la entrada. La función <strong>strip_tags()</strong> elimina todas las etiquetas html del campo de mensaje antes de almacenarlas en la base de datos. La función <strong>htmlspecialchars()</strong> convierte todos los caracteres especiales en caracteres HTML equivalentes para que no se reflejen en el navegador.</p><p style="margin-left: 40px;">El segundo bloque de código, bajo <strong>// Sanitize name input</strong>, está realizando la sanitización de la entrada en el campo <strong>Name *</strong>. Contiene la función <strong>preg_replace()</strong>. Esta función utiliza una expresión regular para reemplazar cualquier aparición de la etiqueta <strong>&lt;script&gt;</strong>, independientemente de si el carácter es mayúscula o minúscula, con un valor nulo.</p><p style="margin-left: 40px;">Podemos intentar eludir la seguridad en el campo <strong>Name *</strong> utilizando alguna otra carga útil que no contenga etiquetas <strong>&lt;script&gt;</strong>.</p><ol start="8" style="list-style-type: lower-alpha;"><li><!--[if !supportLists]--><!--[endif]-->Antes de ingresar cualquier carga útil en el campo <strong>Name *</strong>, será necesario cambiar la restricción de longitud máxima de caracteres en el campo, como se hizo anteriormente.</li></ol><p style="margin-left: 40px;">Con la restricción <strong>maxlength</strong> modificada, la carga útil XSS ahora se puede ingresar en el campo <strong>Name *</strong>.</p><ol start="9" style="list-style-type: lower-alpha;"><li><!--[if !supportLists]--><!--[endif]-->Regrese a la página de vulnerabilidades e ingrese la siguiente carga útil en el campo <strong>Name *</strong>. (Tenga en cuenta el uso de guiones bajos para reemplazar espacios).</li></ol><pre style="margin-left: 80px;"><strong>&lt;svg onload=alert("You_are_hacked!")&gt;</strong></pre><ol start="10" style="list-style-type: lower-alpha;"><li><!--[if !supportLists]-->En el campo <strong>Message *</strong>, puede escribir el texto que desee y hacer clic en <strong>Sign Guestbook</strong>.</li></ol><p style="margin-left: 40px;">Aparecerá un cuadro emergente de alerta XSS con el mensaje "<strong><span>You_are_hacked!</span></strong>".</p><p style="margin-left: 40px;">Debido a que la carga útil XSS se almacena en el libro de visitas, el cuadro emergente de alerta aparecerá cada vez que se actualice la página.</p><p style="margin-left: 40px;">La ventana emergente confirma que ha explotado con éxito una vulnerabilidad de XSS almacenada en el nivel de seguridad alto.</p><ol start="11" style="list-style-type: lower-alpha;"><li><!--[if !supportLists]--><!--[endif]-->Antes de continuar con el siguiente paso, borre la carga útil XSS de la página. Haga clic en<strong> Setup / Reset DB</strong> en el menú de la izquierda y, a continuación, haga clic en <strong>Create / Reset Database</strong>.</li></ol></div>
+        </div>
+      </div>
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="648ba1fff756a2285cdd500d" style="width: 5%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="648ba1fff756a2285cdd500d" class="648ba1fff756a2285cdd500d block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="648ba1fff756a2285cdd500d" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$855318395$--><!----><text-view modelid="648ba200f756a2285cdd5029" class="is-full remove-top-padding remove-padding-bottom packetTracer_wrap_text" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="648ba200f756a2285cdd5029" class="component text 648ba200f756a2285cdd5029 remove-top-padding remove-padding-bottom packetTracer_wrap_text is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$855318395$--><h3 style="margin-left:0in"><!--[if !supportLists]--><span><span>Paso 4: </span></span><!--[endif]-->Realizar una explotación de iframe almacenado.</h3><ol start="1" style="list-style-type: lower-alpha;"><li><!--[if !supportLists]--><!--[endif]-->Seleccione <strong>DVWA Security</strong> en el menú de la izquierda y seleccione <strong>Low</strong> en el menú desplegable Nivel de seguridad. Haga clic en <strong>Submit</strong>.</li><li><!--[if !supportLists]--><!--[endif]-->Seleccione <strong>XSS (Stored)</strong> en el menú de la izquierda.</li><li><!--[if !supportLists]-->Escriba la cadena <strong>iframe</strong> en el campo <strong>Name*</strong> y escriba el siguiente mensaje en el campo <strong>Message *</strong>. haga clic en <strong>Sign Guestbook</strong>.</li></ol><pre style="margin-left: 80px;"><strong>&lt;iframe src="http://h4cker.org"&gt;&lt;/iframe&gt;</strong></pre><p style="margin-left: 40px;">El sitio web de H4cker ahora debería mostrarse debajo del mensaje de prueba de iframe.</p><p style="margin-left: 40px;">Este es un exploit potente porque el actor de la amenaza podría enviar el navegador a un sitio web malicioso.</p><ol start="4" style="list-style-type: lower-alpha;"><li><!--[if !supportLists]--><!--[endif]-->Antes de continuar con el siguiente paso, borre la carga útil XSS de la página. Haga clic en<strong> Setup / Reset DB</strong> en el menú de la izquierda y, a continuación, haga clic en <strong>Create / Reset Database</strong>.</li></ol></div>
+        </div>
+      </div>
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="648ba1fef756a2285cdd4fff" style="width: 5%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="648ba1fef756a2285cdd4fff" class="648ba1fef756a2285cdd4fff block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="648ba1fef756a2285cdd4fff" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$855318395$--><!----><text-view modelid="648ba200f756a2285cdd501b" class="is-full remove-top-padding remove-padding-bottom packetTracer_wrap_text" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="648ba200f756a2285cdd501b" class="component text 648ba200f756a2285cdd501b remove-top-padding remove-padding-bottom packetTracer_wrap_text is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$855318395$--><h3 style="margin-left:0in"><!--[if !supportLists]--><span><span>Paso 5: </span></span><!--[endif]-->Realizar un exploit de cookies almacenadas.</h3><p>Robar las cookies de los visitantes del sitio web tiene implicaciones de seguridad. Las cookies contienen información sobre cómo y cuándo los usuarios visitan un sitio web y, a veces, información de autenticación, como nombres de usuario y contraseñas. Sin las medidas de seguridad adecuadas, un actor de amenazas puede capturar cookies y usarlas para hacerse pasar por usuarios específicos y obtener acceso a su información y cuentas.</p><ol start="1" style="list-style-type: lower-alpha;"><li><!--[if !supportLists]--><!--[endif]-->Seleccione <strong>DVWA Security</strong> en el menú de la izquierda y seleccione <strong>Low</strong> en el menú desplegable Nivel de seguridad. Haga clic en <strong>Submit</strong>.</li><li><!--[if !supportLists]-->Seleccione <strong>XSS (Stored)</strong> en el menú de la izquierda.</li><li><!--[if !supportLists]-->Escriba la cadena <strong>cookie</strong> en el campo <strong>Name*</strong> y escriba el siguiente mensaje en el campo <strong>Message *</strong>. haga clic en <strong>Sign Guestbook</strong>.</li></ol><pre style="margin-left: 80px;"><strong><span>&lt;script&gt;alert(document.cookie)&lt;/script&gt;</span></strong></pre><p style="margin-left: 40px;">Se presentará un cuadro emergente con la cookie. Esta es una cookie que PHP utiliza para realizar un seguimiento de las sesiones en ejecución.</p><p style="margin-left: 40px;">Una explotación podría modificar el script XSS para que la cookie se envíe a otro destino en lugar de solo mostrarla.</p><ol start="4" style="list-style-type: lower-alpha;"><li><!--[if !supportLists]-->Haga clic en <strong>OK</strong> en el cuadro emergente.</li><li><!--[if !supportLists]-->Intente robar cookies en los niveles de seguridad medio y alto mediante las técnicas que aprendió en esta práctica de laboratorio.</li></ol></div>
+        </div>
+      </div>
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="648ba1fff756a2285cdd500e" style="width: 5%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="648ba1fff756a2285cdd500e" class="648ba1fff756a2285cdd500e block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="648ba1fff756a2285cdd500e" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$855318395$--><!----><text-view modelid="648ba200f756a2285cdd502a" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="648ba200f756a2285cdd502a" class="component text 648ba200f756a2285cdd502a remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$855318395$--><p><!--[if !supportLists]--><!--[endif]--></p><p><!--[if !supportLists]--></p><h1>Pregunta de reflexión</h1></div>
+        </div>
+      </div>
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="648ba1fff756a2285cdd5010" style="width: 5%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="648ba1fff756a2285cdd5010" class="648ba1fff756a2285cdd5010 block remove-top-padding remove-padding-bottom background-color-white ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="648ba1fff756a2285cdd5010" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom background-color-white ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$855318395$--><!----><opentextbox-view modelid="648ba200f756a2285cdd502c" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="648ba200f756a2285cdd502c" class="component opentextbox 648ba200f756a2285cdd502c  is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="648ba200f756a2285cdd502c" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+            <!--?lit$855318395$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$855318395$--> <div class="openTextBox__preText"><!--?lit$855318395$-->Al realizar una prueba de piratería ética de una aplicación web de cliente, ¿qué le dice si la aplicación es vulnerable a XSS en el nivel bajo, medio o alto?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$855318395$--><!--?lit$855318395$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$855318395$-->
+                      <!--?lit$855318395$-->Las respuestas pueden variar. Debe indicarle que la aplicación tiene graves vulnerabilidades de seguridad y que es probable que existan otras vulnerabilidades. La aplicación web debe evaluarse en busca de más vulnerabilidades dañinas.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$855318395$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$855318395$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$855318395$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!---->
+                            </div>
+                        </div>
+                        <!--?lit$855318395$-->
+                    </div>
+                </div>
+            </div>
+        <sgpluse-opentextboxcontroller-view modelid="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+            <div class="openTextBoxController__button-container">
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__showButton show-answer show"><!--?lit$855318395$-->Mostrar todas las respuestas</button>    
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__hideButton hide-answer hide"><!--?lit$855318395$-->Ocultar todas las respuestas</button>    
+                <button class="btn-text resetbtn openTextBoxController__resetButton"><!--?lit$855318395$-->Borrar mis respuestas</button>         
+            </div>
+            <!--?lit$855318395$--><hr>
+            <!--?lit$855318395$-->
+                <div class="post-text" tabindex="0">
+                    <!--?lit$855318395$-->© 2017 - 2023 Cisco and/or its affiliates. All rights reserved. Cisco Public
+                </div>
+                   
+        </sgpluse-opentextboxcontroller-view><script></script>
+<script>
+    window.addEventListener("load", function () {
+      console.log("loaded");
+      document?.querySelectorAll(".answergray").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".show-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.remove("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.add("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      let event = new Event("click", {
+        bubbles: true,
+        cancelable: true,
+      });
+      document
+        ?.querySelectorAll(".openTextBoxController__showButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".show-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__hideButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__resetButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            document?.querySelectorAll("textArea").forEach(function (ele) {
+              ele.value = "";
+            });
+          });
+        });
+
+      document
+      ?.querySelectorAll('textarea')
+      .forEach(function (ele){
+        ele.defaultValue = ele.defaultValue.replace(/<!--.*?-->/g, '');
+      })
+        let checkButtonLabel = "check_button_label_placeHolder";
+        let hideButtonLabel = "hide_button_label_placeHolder";
+        document?.querySelectorAll(".check__button").forEach(function (ele) {
+        let answerBox = document.querySelector(".check__solution")
+        if (!answerBox.classList.contains("check__hidden")) {
+          answerBox.classList.add("check__hidden");
+          ele.innerText = checkButtonLabel;
+        }
+          ele.addEventListener("click", function (e) {
+            if (answerBox.classList.contains("check__hidden")) {
+              answerBox.classList.remove("check__hidden")
+              ele.innerText = hideButtonLabel;
+            } else {
+              answerBox.classList.add("check__hidden")
+              ele.innerText = checkButtonLabel;
+            }
+          })
+        })
+    });
+  </script>
+  </body></html>

@@ -1,0 +1,561 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 1rem;
+      }
+      ol,
+      ul {
+        margin-bottom: 0in;
+      }
+      table {
+        margin-top: 1rem;
+        border: 1px solid gray;
+        width: 7in;
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > .openTableTextBox__table-header-data {
+        text-align: center;
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0in;
+        text-align: center;
+        line-height: 115%;
+        page-break-after: avoid;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        font-weight: bold;
+        background: #dbe5f1;
+        padding: 0.5rem;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .openTextBox__textArea-container {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 50%;
+      }
+      .openTableTextBox__fieldset {
+        padding: 5px;
+      }
+      td {
+        margin-top: 3pt;
+        margin-right: 0in;
+        margin-bottom: 3pt;
+        margin-left: 0in;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 98.85pt;
+        border: solid windowtext 1pt;
+        border-top: none;
+        padding: 0.7pt 5.75pt 0.7pt 5.75pt;
+      }
+      textarea {
+        width: 100%;
+      }
+      .answergray {
+        padding: 0.2rem;
+      }
+
+      .openTableTextBox__widget {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0.25in;
+      }
+
+      .show-answer,
+      .hide-answer {
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border: 0px;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .openTextBoxController__button-container {
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .openTextBoxController__button-container .btn-text {
+        margin: 10px;
+      }
+
+      .btn-text {
+        border: 0px;
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border-radius: 0;
+        cursor: pointer;
+      }
+
+      .u-display-none {
+        display: none;
+      }
+      .openTextBox__postText, openTableTextBox__postText {
+        margin-top: 0.5rem;
+      }
+      .edit-comment {
+        display: none;
+      }
+      .js-heading-inner {
+        display: none;
+      }
+      .block__title-inner,
+      .article__title-inner {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+      h2{
+        font-size: 1.25em;
+      }
+      h3{
+        font-size: 1.125em;
+      }
+      .table
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: solid windowtext 1pt;
+      }
+      table tbody tr th, table thead tr th{
+        border: solid windowtext 1pt;
+        background-color: #d6d8dc;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .command-output > .table-inner > .table-wrapper > .table-widget > table,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > td,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: none !important;
+        text-align: right !important;
+      }
+      .simple-table > .table-inner > .table-wrapper{
+        margin-left: 1.5rem;
+      }
+      .openTextBox__widget {
+        margin-left: 1.5rem;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      .answergray {
+        background-color: #ccc;
+      }
+      .openTableTextBox__widget > .answergray {
+        background-color: #fff !important;
+      }
+      li > ul,ol > li{
+        margin-left: 0px !important;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      
+      .component__title{
+        font-family: inherit;
+        font-size: 1.65em;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .component__body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .accessibility-completion-indicator{
+        display: none;
+      }
+
+      .check__hidden {
+        display: none;
+      }
+
+      .check__button {
+        border: none;
+        border-radius: 6px !important;
+        background-color: #6abf4b;
+        color: #fff;
+        min-width: 100px;
+        margin: 0.625rem 0;
+        padding: 0.7rem;
+      }
+
+      .check__widget .check__solution .DevConfigGray {
+        background-color: rgb(214,216,220);
+        font-weight: bold;
+      }
+
+      .check-inner .check__widget .check__solution .DevConfigs {
+        margin: 0px;
+        line-height: 115%;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .check__solution  {
+        line-height: 1.5;
+      }
+      .mcq__inner .mcq__widget .mcq__widget-inner {
+        margin-block: 1rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item {
+        display: flex;
+        gap: 0.2rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item .mcq__item-label .mcq__item-text .screenReader-position-text{
+        display: none;
+      }
+      .opentabletextbox-inner .opentabletextBox__widget .openTableTextBox__answerText.answergray {
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox{
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox img{
+        margin-block: 1rem;
+        margin-left: initial;
+      }
+      .component__content .component__body-inner .pageTracer-h4-title-hide {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        font-size: 0px;
+        color: rgb(var(--neutral-2));
+        font-weight: normal;
+      }
+      .table-inner .table__widget table tr.TableHeading th, .table-inner .table__widget table tr.TableHeading td, .table-inner .table__widget table tr td.TableHeading, .opentabletextbox-table thead tr.TableHeading th, .opentabletextbox-table tbody tr.TableHeading td, .opentabletextbox-table tbody tr td.TableHeading {
+        background-color: #d6d8dc;
+        text-align: center;
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .CMD, .component__content .component__body-inner .CMDOutput, .component__content .component__body-inner .CMDOutput__table{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        margin-inline-start: 30px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      [dir="rtl"] .component__content .component__body-inner .CMDOutput__table span {
+        direction: ltr;
+        display: inline-block;
+      }
+      .openTextBox__inner .openTextBox__widget .CMD, .openTextBox__inner .openTextBox__widget .CMDOutput{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .openTextBox__inner .openTextBox__widget .DnTbold, .openTextBox__inner .openTextBox__widget .BodyTextL25Bold, .component__content .component__body-inner .BodyTextL25Bold, .component__content .component__body-inner .DnTbold, .table-inner .table__widget table tr .DnTbold {
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .SubStepNum {
+        text-indent: -25.5px;
+        margin-inline-start: 50px;
+      }
+      .component__content .component__body-inner .BodyTextL50 {
+        margin-inline-start: 30px;
+      }
+      .component__content .component__body-inner .Bulletlevel1 {
+        text-indent: -19px;
+        margin-inline-start: 48px;
+      }
+      .component__content .component__body-inner .Bulletlevel2 {
+          text-indent: -19px;
+          margin-inline-start: 72px;
+      }
+      .openTextBox__inner .openTextBox__widget .ReflectionQ, .component__content .component__body-inner .SubStepAlpha {
+          text-indent: -25.5px;
+          margin-inline-start: 30px;
+      }
+    </style>
+
+</head><body><!---->
+            <div class="article ad856cab-52d2-44d0-a50d-4ec8bc5ba715 remove-padding-top remove-padding-bottom ">
+                <div class="article__inner">
+                <div class=" no-adaptive-scroll">
+                    <!--?lit$514848234$-->
+                        <div class=""> 
+                            <base-view type="article" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="article__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="article__header ">
+          <div class="article__header-inner ">
+            <!--?lit$514848234$-->
+      <div class="article__title ">
+        <!--?lit$514848234$--><heading-view aria-hidden="true" id="ad856cab-52d2-44d0-a50d-4ec8bc5ba715-heading-view" headingtitle="Laboratorio: generación y uso de una firma digital" modelid="ad856cab-52d2-44d0-a50d-4ec8bc5ba715" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="js-heading is-incomplete">
+        <div class="js-heading-inner" role="heading" id="article-heading" aria-level="2">
+        <span class="aria-label"> <!--?lit$514848234$-->Incompleto &nbsp;<!--?lit$514848234$-->Laboratorio: generación y uso de una firma digital</span>
+        </div>
+      </div>
+    </heading-view>
+        <div tabindex="0" role="heading" class="article__title-inner " aria-level="2">
+          <span class="accessibility-completion-indicator"><!--?lit$514848234$-->Incompleto </span>
+          <!--?lit$514848234$-->Laboratorio: generación y uso de una firma digital
+        </div>
+      </div>
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                            <div class="block__container " style="">
+                                <!--?lit$514848234$--><!---->
+                                    <block-view modelid="4465d7e6-bd41-4c5a-8aef-871d0253af72" style="width: 50%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="4465d7e6-bd41-4c5a-8aef-871d0253af72" class="4465d7e6-bd41-4c5a-8aef-871d0253af72 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="4465d7e6-bd41-4c5a-8aef-871d0253af72" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$514848234$--><!----><text-view modelid="d2f90102-55a9-409d-8045-a2bfc624475a" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="d2f90102-55a9-409d-8045-a2bfc624475a" class="component text d2f90102-55a9-409d-8045-a2bfc624475a  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$514848234$--><h2>Objetivos</h2> <p class="Bulletlevel1"><span style="font-size:7.0pt;font-family:Webdings">=</span><span>&nbsp;&nbsp;</span>Utilice OpenSSL para generar una firma digital.</p> <p class="Bulletlevel1"><span style="font-size:7.0pt;font-family:Webdings">=</span><span>&nbsp;&nbsp;</span>Firmar un documento con la firma digital.</p> <p class="Bulletlevel1"><span style="font-size:7.0pt;font-family:Webdings">=</span><span>&nbsp;&nbsp;</span>Verifique que un documento firmado ha sido modificado.</p> <h2>Trasfondo/Situación</h2> <p class="BodyTextL25">Una firma digital es una técnica matemática utilizada para validar la autenticidad y la integridad de un mensaje digital. El propósito de una firma digital es evitar la manipulación y la suplantación de identidad en las comunicaciones digitales. En muchos países, incluido Estados Unidos, las firmas digitales tienen la misma importancia legal que las formas tradicionales de documentos firmados. El gobierno de los Estados Unidos actualmente publica las versiones electrónicas de presupuestos, leyes y proyectos parlamentarios con firmas digitales.</p> <p class="BodyTextL25">Un algoritmo de firma digital consiste en un proceso de creación y verificación de firma. El usuario A genera la firma digital y el usuario B verifica la firma mediante el proceso de verificación. Tanto el firmante como el verificador tienen una clave pública y una privada que utilizan para completar cada proceso. </p> <p class="BodyTextL25">En esta práctica de laboratorio utilizará el kit de herramientas OpenSSL para generar una firma digital. Luego generará un documento, lo firmará con la firma digital y finalmente validará la autenticidad e integridad del documento. Por último, cambiará el documento y luego validará que el documento ya no es auténtico porque su integridad se ha visto comprometida.</p> <h2>Recursos necesarios</h2> <p class="BodyTextL25">PC con <b>CSE-LABVM</b> instalado en Virtualbox</p> <h2>Instrucciones</h2> <h2>Parte 1: abra una ventana de terminal en CSE-LABVM.</h2> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Inicie <b>CSE-LABVM</b>. </p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>Haga doble clic en el icono de <b>Terminal</b> para abrir un terminal.</p> <h2>Parte 2: generar y ver una clave privada.</h2> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Para generar una clave privada, use el comando <b>openSSL genpkey</b>. El comando genera una clave privada usando el algoritmo RSA y la envía a un archivo denominado <b>private_key.pem</b>.</p> <p class="CMD">cisco@labvm:~$ <b>openssl genpkey -algorithm RSA -out private_key.pem</b></p> <p class="CMD">........................+++++</p> <p class="CMD">...+++++</p> <p class="CMD">cisco@labvm:~$ </p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>Utilice el comando <b>cat</b> para ver <b>private_key.pem</b>.</p> <p class="CMD">cisco@labvm:~$ <b>cat private_key.pem</b></p> <p class="CMDOutput">-----BEGIN PRIVATE KEY-----</p> <p class="CMDOutput">MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC1db50XOYeDTAy</p> <p class="CMDOutput">GnQLRwGusr7us0Mi44hfFUmai3QHzelqRBxO06ujv9fFwQ8e5QsaQWbph+RVTQBu</p> <p class="CMDOutput">&lt;output omitted&gt;</p> <p class="CMDOutput">R7TLUOrewnIlkMuVLk8II2EQAXTMmvvZOICCiTSvm8gflx/FRJmUEiTf0I0MVUai</p> <p class="CMDOutput">X6O9rDJOjnoHBbi67+fgN0sn</p> <p class="CMDOutput">-----END PRIVATE KEY-----</p> <p class="CMD">cisco@labvm:~$</p> <h2>Parte 3: generar y ver una clave pública.</h2> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Para generar una clave pública utilice el comando <b>openssl pkey</b>. El comando toma su <b>private_key.pem</b> como entrada y luego envía una clave pública (<b>-pubout -out</b>) a un archivo llamado <b>public_key.pem</b>. </p> <p class="CMD">cisco@labvm:~$ <b>openssl pkey -in private_key.pem -pubout -out public_key.pem</b></p> <p class="CMD">cisco@labvm:~$ </p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>Utilice el comando <b>cat</b> para ver <b>public_key.pem</b>.</p> <p class="CMD">cisco@labvm:~$ <b>cat public_key.pem</b></p> <p class="CMDOutput">-----BEGIN PUBLIC KEY-----</p> <p class="CMDOutput">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtXW+dFzmHg0wMhp0C0cB</p> <p class="CMDOutput">rrK+7rNDIuOIXxVJmot0B83pakQcTtOro7/XxcEPHuULGkFm6YfkVU0Abq/1ccub</p> <p class="CMDOutput">SFZFb1kKobMutMhxvfBQjQr3jo1j6aG12yMvrQudvSlaxHTvuDpMlhPY3IrBjkMz</p> <p class="CMDOutput">2Lx0SjjOC9uD3CzaMwu6JWnhRt0svH7n6cZNXDfIlsYpcjLg9JqKrWEO3Ooq05q1</p> <p class="CMDOutput">e2JEAuDOXte+M2O0ZC7cjSyxCiOfD2IEXkBq41H7xgIKTq2WJ8f+/RXEdC5Mx6Xx</p> <p class="CMDOutput">fu7pQXN9gT9LbUPlLJfUG7vTCs2d2AA6TBUyUuzH2mS61KwWcT8VRAWtWdr/sPSK</p> <p class="CMDOutput">AQIDAQAB</p> <p class="CMDOutput">-----END PUBLIC KEY-----</p> <p class="CMD">cisco@labvm:~$</p> <h2>Parte 4: cree un nuevo documento que será firmado digitalmente.</h2> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Utilice el comando <b>echo</b> para crear un archivo de texto llamado <b>contract.txt</b>.</p> <p class="CMD">cisco@labvm:~$ <b>echo Please transfer 2,000,000 US Dollars to Mr. Jester by 6pm today! &gt; contract.txt</b></p> <p class="CMD">cisco@labvm:~$ </p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>Utilice el comando <b>cat</b> para ver el archivo <b>contract.txt</b>.</p> <p class="CMD">cisco@labvm:~$ <b>cat contract.txt</b></p> <p class="CMDOutput">Please transfer 2,000,000 US Dollars to Mr. Jester by 6pm today!</p> <h2>Parte 5: use la clave privada para firmar digitalmente el nuevo documento.</h2> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Para firmar el documento use el comando <b>openSSL dgst</b>. El comando <b>dgst</b> puede tomar cualquier número de valores de resumen de mensaje. En este ejemplo utilizará SHA 256 y luego utilizará <b>private_key.pem</b> para generar una <b>firma</b> para el documento <b>contract.txt</b>.</p> <p class="CMD">cisco@labvm:~$ <b>openssl dgst -sha256 -sign private_key.pem -out signature contract.txt</b></p> <p class="CMD">cisco@labvm:~$ </p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>Utilice el comando <b>cat</b> para ver el archivo de <b>firma</b>. El archivo es un archivo binario. Presionar <b>Enter</b> para obtener una nueva línea. </p><p class="CMD">cisco@labvm:~$ <b>cat signature</b></p><p class="CMDOutput">H<span style="font-family:&quot;Tahoma&quot;,sans-serif">�</span>&amp;/J<span style="font-family:&quot;Tahoma&quot;,sans-serif">�</span>c<span style="font-family:&quot;Tahoma&quot;,sans-serif">�</span>M<span style="font-family:&quot;Tahoma&quot;,sans-serif">�</span>$R<span style="font-family: &quot;Tahoma&quot;,sans-serif">�</span>xpA<span style="font-family:&quot;Tahoma&quot;,sans-serif">��</span>*t<span style="font-family:&quot;Tahoma&quot;,sans-serif">�</span>&gt;<span style="font-family: &quot;Tahoma&quot;,sans-serif">�</span>ѣmr<span style="font-family:&quot;Tahoma&quot;,sans-serif">�</span>C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; jw<span style="font-family:&quot;Tahoma&quot;,sans-serif">��</span>q]t'<span style="font-family: &quot;Tahoma&quot;,sans-serif">�</span>#ot'%_B<span style="font-family:&quot;Tahoma&quot;,sans-serif">�</span>X<span style="font-family:&quot;Tahoma&quot;,sans-serif">���</span>~<span style="font-family: &quot;Tahoma&quot;,sans-serif">�</span>k<span style="font-family:&quot;Tahoma&quot;,sans-serif">��</span>p3<span style="font-family:&quot;Tahoma&quot;,sans-serif">����</span>-<span style="font-family: &quot;Tahoma&quot;,sans-serif">���</span></p> <p class="CMDOutput">&lt;output omitted&gt;</p> <p class="CMDOutput">ROˤ&nbsp;&nbsp;&nbsp; <span style="font-family:&quot;Tahoma&quot;,sans-serif">��</span>D?Nz<span style="font-family:&quot;Tahoma&quot;,sans-serif">�����</span>f<span style="font-family: &quot;Tahoma&quot;,sans-serif">�</span>&lt;<span style="font-family:&quot;Tahoma&quot;,sans-serif">�</span>H<span style="font-family:&quot;Tahoma&quot;,sans-serif">�</span>~<span style="font-family:&quot;Tahoma&quot;,sans-serif">�</span>P5nJ<span style="font-family:&quot;Tahoma&quot;,sans-serif">���</span>hqG<span style="font-family: &quot;Tahoma&quot;,sans-serif">�</span>&amp;28Jcisco@labvm:~$ </p><h2>Parte 6: Verificar la autenticidad e integridad del documento.</h2> <p class="BodyTextL25">La tecnología de firma digital permite al destinatario verificar la autenticidad e integridad del archivo. El proceso de verificación de la firma digital es para garantizar que un mensaje dado haya sido firmado por la clave privada que corresponde a una clave pública determinada. </p> <p class="BodyTextL25">Para verificar que el documento sea auténtico y no haya sido alterado, utilice el comando <b>openSSL dgst</b> con la opción <b>verify</b> y <b>public_key.pem</b>. </p> <p class="CMD">cisco@labvm:~$ <b>openssl dgst -sha256 -verify public_key.pem -signature signature contract.txt</b></p> <p class="CMDOutput">Verified OK </p> <h2>Parte 7: simular un agente de amenaza cambiando el destinatario especificado en el archivo contract.txt. </h2> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Utilice <b>gedit</b> para abrir el archivo <b>contract.txt</b>. </p> <p class="CMD">cisco@labvm:~$ <b>gedit contract.txt</b></p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>Cambie <b>Mr. Jester</b> por <b>Mr. Viper</b>.</p> <p class="SubStepAlpha">c.<span>&nbsp;&nbsp;</span>Haga clic en <b>File</b> &gt; <b>Quit</b>y luego en <b>Save</b> en el cuadro de diálogo. </p> <h2>Parte 8: Verifique que se haya comprometido la integridad del documento.</h2> <p class="BodyTextL25">Vuelva a usar el comando <b>openSSL dgst</b> con la opción <b>verify</b> para validar que la verificación del documento ahora falla.</p> <p class="CMD">cisco@labvm:~$ <b>openssl dgst -sha256 -verify public_key.pem -signature signature contract.txt</b></p> <p class="CMDOutput">Verification Failure</p> <p class="CMD">cisco@labvm:~$</p></div>
+        </div>
+      </div>
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="3bd5918f-abe0-4595-af82-421e5e0261d5" style="width: 50%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="3bd5918f-abe0-4595-af82-421e5e0261d5" class="3bd5918f-abe0-4595-af82-421e5e0261d5 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="3bd5918f-abe0-4595-af82-421e5e0261d5" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$514848234$--><!----><text-view modelid="d27df868-32c6-401e-876f-6245debd1db6" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="d27df868-32c6-401e-876f-6245debd1db6" class="component text d27df868-32c6-401e-876f-6245debd1db6  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$514848234$--><span> <hr><span style="padding-right:5px;float:left;font-family:arial;font-size:12px;">© 2017 - 2022 Cisco and/or its affiliates. All rights reserved. Cisco Public </span> </span></div>
+        </div>
+      </div>
+            <!--?lit$514848234$-->
+            <!--?lit$514848234$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!---->
+                            </div>
+                        </div>
+                        <!--?lit$514848234$-->
+                    </div>
+                </div>
+            </div>
+        <script></script>
+<script>
+    window.addEventListener("load", function () {
+      console.log("loaded");
+      document?.querySelectorAll(".answergray").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".show-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.remove("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.add("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      let event = new Event("click", {
+        bubbles: true,
+        cancelable: true,
+      });
+      document
+        ?.querySelectorAll(".openTextBoxController__showButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".show-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__hideButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__resetButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            document?.querySelectorAll("textArea").forEach(function (ele) {
+              ele.value = "";
+            });
+          });
+        });
+
+      document
+      ?.querySelectorAll('textarea')
+      .forEach(function (ele){
+        ele.defaultValue = ele.defaultValue.replace(/<!--.*?-->/g, '');
+      })
+        let checkButtonLabel = "check_button_label_placeHolder";
+        let hideButtonLabel = "hide_button_label_placeHolder";
+        document?.querySelectorAll(".check__button").forEach(function (ele) {
+        let answerBox = document.querySelector(".check__solution")
+        if (!answerBox.classList.contains("check__hidden")) {
+          answerBox.classList.add("check__hidden");
+          ele.innerText = checkButtonLabel;
+        }
+          ele.addEventListener("click", function (e) {
+            if (answerBox.classList.contains("check__hidden")) {
+              answerBox.classList.remove("check__hidden")
+              ele.innerText = hideButtonLabel;
+            } else {
+              answerBox.classList.add("check__hidden")
+              ele.innerText = checkButtonLabel;
+            }
+          })
+        })
+    });
+  </script>
+  </body></html>

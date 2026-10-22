@@ -1,0 +1,1558 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 1rem;
+      }
+      ol,
+      ul {
+        margin-bottom: 0in;
+      }
+      table {
+        margin-top: 1rem;
+        border: 1px solid gray;
+        width: 7in;
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > .openTableTextBox__table-header-data {
+        text-align: center;
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0in;
+        text-align: center;
+        line-height: 115%;
+        page-break-after: avoid;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        font-weight: bold;
+        background: #dbe5f1;
+        padding: 0.5rem;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .openTextBox__textArea-container {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 50%;
+      }
+      .openTableTextBox__fieldset {
+        padding: 5px;
+      }
+      td {
+        margin-top: 3pt;
+        margin-right: 0in;
+        margin-bottom: 3pt;
+        margin-left: 0in;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 98.85pt;
+        border: solid windowtext 1pt;
+        border-top: none;
+        padding: 0.7pt 5.75pt 0.7pt 5.75pt;
+      }
+      textarea {
+        width: 100%;
+      }
+      .answergray {
+        padding: 0.2rem;
+      }
+
+      .openTableTextBox__widget {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0.25in;
+      }
+
+      .show-answer,
+      .hide-answer {
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border: 0px;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .openTextBoxController__button-container {
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .openTextBoxController__button-container .btn-text {
+        margin: 10px;
+      }
+
+      .btn-text {
+        border: 0px;
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border-radius: 0;
+        cursor: pointer;
+      }
+
+      .u-display-none {
+        display: none;
+      }
+      .openTextBox__postText, openTableTextBox__postText {
+        margin-top: 0.5rem;
+      }
+      .edit-comment {
+        display: none;
+      }
+      .js-heading-inner {
+        display: none;
+      }
+      .block__title-inner,
+      .article__title-inner {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+      h2{
+        font-size: 1.25em;
+      }
+      h3{
+        font-size: 1.125em;
+      }
+      .table
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: solid windowtext 1pt;
+      }
+      table tbody tr th, table thead tr th{
+        border: solid windowtext 1pt;
+        background-color: #d6d8dc;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .command-output > .table-inner > .table-wrapper > .table-widget > table,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > td,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: none !important;
+        text-align: right !important;
+      }
+      .simple-table > .table-inner > .table-wrapper{
+        margin-left: 1.5rem;
+      }
+      .openTextBox__widget {
+        margin-left: 1.5rem;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      .answergray {
+        background-color: #ccc;
+      }
+      .openTableTextBox__widget > .answergray {
+        background-color: #fff !important;
+      }
+      li > ul,ol > li{
+        margin-left: 0px !important;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      
+      .component__title{
+        font-family: inherit;
+        font-size: 1.65em;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .component__body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .accessibility-completion-indicator{
+        display: none;
+      }
+
+      .check__hidden {
+        display: none;
+      }
+
+      .check__button {
+        border: none;
+        border-radius: 6px !important;
+        background-color: #6abf4b;
+        color: #fff;
+        min-width: 100px;
+        margin: 0.625rem 0;
+        padding: 0.7rem;
+      }
+
+      .check__widget .check__solution .DevConfigGray {
+        background-color: rgb(214,216,220);
+        font-weight: bold;
+      }
+
+      .check-inner .check__widget .check__solution .DevConfigs {
+        margin: 0px;
+        line-height: 115%;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .check__solution  {
+        line-height: 1.5;
+      }
+      .mcq__inner .mcq__widget .mcq__widget-inner {
+        margin-block: 1rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item {
+        display: flex;
+        gap: 0.2rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item .mcq__item-label .mcq__item-text .screenReader-position-text{
+        display: none;
+      }
+      .opentabletextbox-inner .opentabletextBox__widget .openTableTextBox__answerText.answergray {
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox{
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox img{
+        margin-block: 1rem;
+        margin-left: initial;
+      }
+      .component__content .component__body-inner .pageTracer-h4-title-hide {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        font-size: 0px;
+        color: rgb(var(--neutral-2));
+        font-weight: normal;
+      }
+      .table-inner .table__widget table tr.TableHeading th, .table-inner .table__widget table tr.TableHeading td, .table-inner .table__widget table tr td.TableHeading, .opentabletextbox-table thead tr.TableHeading th, .opentabletextbox-table tbody tr.TableHeading td, .opentabletextbox-table tbody tr td.TableHeading {
+        background-color: #d6d8dc;
+        text-align: center;
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .CMD, .component__content .component__body-inner .CMDOutput, .component__content .component__body-inner .CMDOutput__table{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        margin-inline-start: 30px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      [dir="rtl"] .component__content .component__body-inner .CMDOutput__table span {
+        direction: ltr;
+        display: inline-block;
+      }
+      .openTextBox__inner .openTextBox__widget .CMD, .openTextBox__inner .openTextBox__widget .CMDOutput{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .openTextBox__inner .openTextBox__widget .DnTbold, .openTextBox__inner .openTextBox__widget .BodyTextL25Bold, .component__content .component__body-inner .BodyTextL25Bold, .component__content .component__body-inner .DnTbold, .table-inner .table__widget table tr .DnTbold {
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .SubStepNum {
+        text-indent: -25.5px;
+        margin-inline-start: 50px;
+      }
+      .component__content .component__body-inner .BodyTextL50 {
+        margin-inline-start: 30px;
+      }
+      .component__content .component__body-inner .Bulletlevel1 {
+        text-indent: -19px;
+        margin-inline-start: 48px;
+      }
+      .component__content .component__body-inner .Bulletlevel2 {
+          text-indent: -19px;
+          margin-inline-start: 72px;
+      }
+      .openTextBox__inner .openTextBox__widget .ReflectionQ, .component__content .component__body-inner .SubStepAlpha {
+          text-indent: -25.5px;
+          margin-inline-start: 30px;
+      }
+    </style>
+
+</head><body><!---->
+            <div class="article 93613eb2-b1e4-40cb-b9d7-1194d7ef29a0 remove-padding-top remove-padding-bottom ">
+                <div class="article__inner">
+                <div class=" no-adaptive-scroll">
+                    <!--?lit$3212577705$-->
+                        <div class=""> 
+                            <base-view type="article" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="article__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="article__header ">
+          <div class="article__header-inner ">
+            <!--?lit$3212577705$-->
+      <div class="article__title ">
+        <!--?lit$3212577705$--><heading-view aria-hidden="true" id="93613eb2-b1e4-40cb-b9d7-1194d7ef29a0-heading-view" headingtitle="Lab - Desafíos relacionados con la seguridad" modelid="93613eb2-b1e4-40cb-b9d7-1194d7ef29a0" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="js-heading is-incomplete">
+        <div class="js-heading-inner" role="heading" id="article-heading" aria-level="2">
+        <span class="aria-label"> <!--?lit$3212577705$-->Incompleto &nbsp;<!--?lit$3212577705$-->Lab - Desafíos relacionados con la seguridad</span>
+        </div>
+      </div>
+    </heading-view>
+        <div tabindex="0" role="heading" class="article__title-inner " aria-level="2">
+          <span class="accessibility-completion-indicator"><!--?lit$3212577705$-->Incompleto </span>
+          <!--?lit$3212577705$-->Lab - Desafíos relacionados con la seguridad
+        </div>
+      </div>
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                            <div class="block__container " style="">
+                                <!--?lit$3212577705$--><!---->
+                                    <block-view modelid="78cb758f-301c-44a8-9f35-94ba82afff6e" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="78cb758f-301c-44a8-9f35-94ba82afff6e" class="78cb758f-301c-44a8-9f35-94ba82afff6e block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="78cb758f-301c-44a8-9f35-94ba82afff6e" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3212577705$--><!----><text-view modelid="894c487d-4502-431f-958a-41df30cc76cf" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="894c487d-4502-431f-958a-41df30cc76cf" class="component text 894c487d-4502-431f-958a-41df30cc76cf  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$3212577705$--><h2>Objetivos</h2> <p class="BodyTextL25Bold">Parte 1: Datos seguros en reposo</p> <p class="BodyTextL25Bold">Parte 2: Datos seguros en tránsito</p> <p class="BodyTextL25Bold">Parte 3: Datos seguros en proceso</p> <h2>Trasfondo/Situación</h2> <p class="BodyTextL25">      Usted acaba de ser contratado como administrador de TI para XYZ, Inc.      Esta es una nueva empresa emergente que fabrica y distribuye equipos de      protección personal (EPP), como máscaras, guantes, batas y más, a      hospitales y servicios de emergencia.&nbsp;    </p> <p class="BodyTextL25">      El CEO de la empresa desea saber cómo va a proteger los datos      corporativos. Específicamente, debe explicar cómo proteger los datos en      reposo, los datos en tránsito y los datos en proceso.    </p> <p class="BodyTextL25">      En esta práctica de laboratorio, se le proporcionarán diversos      escenarios relacionados con XYZ, Inc. Cada escenario requerirá que      responda preguntas sobre la protección de los datos. Puede utilizar el      material del curso y las búsquedas en Internet para responder las      preguntas.    </p> <h2>Recursos necesarios</h2> <p class="Bulletlevel1"><span style="font-size: 7pt; font-family: Webdings">=</span><span>&nbsp;&nbsp;</span>1 computadora con acceso a Internet    </p> <h2></h2> <h2></h2> <p>XYZ, Inc. puede guardar todos sus datos mediante:</p> <ul><li>Almacenamiento con conexión</li><li>directa Sistemas de almacenamiento conectados en red</li><li>Almacenamiento en la nube</li></ul> <p>Usted investigará estos métodos para XYZ, Inc.</p> <h3>      Paso 1: Protege los datos mediante dispositivos de almacenamiento de      conexión directa    </h3> <p class="BodyTextL25">      El almacenamiento de conexión directa es el almacenamiento (p. Ej.,      Disco duro o unidad flash USB) conectado a un host.    </p> <h4 class="pageTracer-h4-title-hide">Preguntas:</h4></div>
+        </div>
+      </div>
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="ee940448-64c7-4b01-8208-153c1d2c5a04" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="ee940448-64c7-4b01-8208-153c1d2c5a04" class="ee940448-64c7-4b01-8208-153c1d2c5a04 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="ee940448-64c7-4b01-8208-153c1d2c5a04" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3212577705$--><!----><opentextbox-view modelid="5e127dac-3f5c-480c-92d6-9461a2262149" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="5e127dac-3f5c-480c-92d6-9461a2262149" class="component opentextbox 5e127dac-3f5c-480c-92d6-9461a2262149  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="5e127dac-3f5c-480c-92d6-9461a2262149" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$3212577705$--> <div class="openTextBox__preText"><!--?lit$3212577705$--><p class="BodyTextL25"> ¿Qué podría hacer para proteger los datos en dispositivos de almacenamiento de conexión directa? </p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$3212577705$--><!--?lit$3212577705$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$3212577705$-->
+                      <!--?lit$3212577705$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span style="border: none"><span style="border: none"> Las posibles respuestas que puede encontrar en su investigación son las siguientes: </span></span></span></p><p></p><ul><li> Autenticación de hardware: asegúrese de que solo usuarios válidos puedan acceder al dispositivo.<span></span></li><li> Software de cifrado de host: utilice el software para cifrar automáticamente todos los datos en el almacenamiento de conexión directa (p. Ej., Cifrado de unidad BitLocker, Veracrypt, Truecrypt, etc.).</li><li> Protección antimalware: proteja el host y sus datos contra el malware.</li><li> Copias de respaldo rutinarias: implemente un proceso automático o manual para hacer copias de respaldo rutinarias de los dispositivos de almacenamiento conectados directamente. </li></ul><p></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$3212577705$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$3212577705$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$3212577705$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="0b5b89c7-104f-41f5-a96d-2f11ecebbe62" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="0b5b89c7-104f-41f5-a96d-2f11ecebbe62" class="0b5b89c7-104f-41f5-a96d-2f11ecebbe62 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="0b5b89c7-104f-41f5-a96d-2f11ecebbe62" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3212577705$--><!----><opentextbox-view modelid="8cd62397-b952-45e6-87d0-edb09a6b73f8" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="8cd62397-b952-45e6-87d0-edb09a6b73f8" class="component opentextbox 8cd62397-b952-45e6-87d0-edb09a6b73f8  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="8cd62397-b952-45e6-87d0-edb09a6b73f8" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$3212577705$--> <div class="openTextBox__preText"><!--?lit$3212577705$--><p class="BodyTextL25"> ¿Recomendaría dispositivos de almacenamiento de conexión directa para XYZ, Inc.?Explique su respuesta. </p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$3212577705$--><!--?lit$3212577705$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$3212577705$-->
+                      <!--?lit$3212577705$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span style="color: black; border: none"><span style="border: none"> No, no debe recomendar dispositivos de almacenamiento de conexión directa para XYZ, Inc. Existen varios motivos por los que los datos corporativos no deben guardarse en dispositivos de almacenamiento de conexión directa. No puede garantizar que cada usuario proteja sus datos correctamente. Los sistemas generalmente no están configurados para compartir datos con otras computadoras en su red. La actualización de firmware y las aplicaciones de parches no se pueden completar de manera competente. No se puede realizar la copia de respaldo manual. </span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$3212577705$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$3212577705$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$3212577705$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="b4cee921-3c98-448d-8147-790da2d58c60" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="b4cee921-3c98-448d-8147-790da2d58c60" class="b4cee921-3c98-448d-8147-790da2d58c60 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="b4cee921-3c98-448d-8147-790da2d58c60" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3212577705$--><!----><text-view modelid="181482ae-fb14-4a35-9925-6b0e8a89585b" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="181482ae-fb14-4a35-9925-6b0e8a89585b" class="component text 181482ae-fb14-4a35-9925-6b0e8a89585b  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$3212577705$--><h3>      Paso 2: Proteja los datos mediante sistemas de almacenamiento conectados      a la red    </h3> <p class="BodyTextL25">      Los dispositivos de almacenamiento conectado a la red (NAS) almacenan      datos en una ubicación centralizada, lo que permite a los usuarios      autorizados de la red acceder a archivos y recursos. Los dispositivos      NAS son flexibles y escalables dentro de una ubicación física, lo que      permite a los administradores aumentar la capacidad de la red según sea      necesario.    </p> <h4 class="pageTracer-h4-title-hide">Preguntas:</h4></div>
+        </div>
+      </div>
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="90caf565-63ac-4ef7-bc1f-dabdd53b9877" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="90caf565-63ac-4ef7-bc1f-dabdd53b9877" class="90caf565-63ac-4ef7-bc1f-dabdd53b9877 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="90caf565-63ac-4ef7-bc1f-dabdd53b9877" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3212577705$--><!----><opentextbox-view modelid="695b015a-2a50-4b6c-b688-5e883a1ea35d" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="695b015a-2a50-4b6c-b688-5e883a1ea35d" class="component opentextbox 695b015a-2a50-4b6c-b688-5e883a1ea35d  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="695b015a-2a50-4b6c-b688-5e883a1ea35d" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$3212577705$--> <div class="openTextBox__preText"><!--?lit$3212577705$--><p class="BodyTextL25"> ¿Qué podría hacer para proteger los datos mediante dispositivos de almacenamiento de red? </p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$3212577705$--><!--?lit$3212577705$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$3212577705$-->
+                      <!--?lit$3212577705$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span style="color: black; border: none"><span style="border: none"> Entre las posibles respuestas que puede encontrar en su investigación se incluyen las siguientes: </span></span></span></p><p></p><ul><li> Solo los usuarios autorizados pueden acceder al NAS.</li><li>Implementar dispositivos de red (es decir, firewalls, sistemas de prevención de intrusiones (IPS)) para monitorear el tráfico hacia y desde el NAS.</li><li>Implementar procedimientos automáticos de respaldo para proteger los datos de manera rutinaria. </li><li>Asignar un técnico de TI dedicado para probar y monitorear continuamente el NAS. </li></ul><p></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$3212577705$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$3212577705$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$3212577705$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="eba16647-2411-4733-9b1d-f1d47d885fd0" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="eba16647-2411-4733-9b1d-f1d47d885fd0" class="eba16647-2411-4733-9b1d-f1d47d885fd0 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="eba16647-2411-4733-9b1d-f1d47d885fd0" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3212577705$--><!----><opentextbox-view modelid="f79685e6-8af9-42bb-857b-52bae925f310" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="f79685e6-8af9-42bb-857b-52bae925f310" class="component opentextbox f79685e6-8af9-42bb-857b-52bae925f310  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="f79685e6-8af9-42bb-857b-52bae925f310" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$3212577705$--> <div class="openTextBox__preText"><!--?lit$3212577705$--><p class="BodyTextL25"> ¿Recomendaría dispositivos NAS para XYZ Inc.?Explique su respuesta. </p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$3212577705$--><!--?lit$3212577705$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$3212577705$-->
+                      <!--?lit$3212577705$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span style="color: black; border: none"><span style="border: none"> Los dispositivos NAS podrían utilizarse para almacenar datos corporativos. Se pueden implementar políticas y recursos de seguridad para proteger adecuadamente los datos. Se pueden implementar copias de respaldo automatizadas para garantizar que las copias de respaldo se puedan realizar de manera rutinaria. Tenga en cuenta que se requiere acceso a la red. Sin embargo, si XYZ, Inc. tiene múltiples redes y múltiples ubicaciones, el almacenamiento N AS ya no es escalable. </span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$3212577705$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$3212577705$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$3212577705$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="717b8f9f-f467-49ae-bbf5-b08b3fadb260" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="717b8f9f-f467-49ae-bbf5-b08b3fadb260" class="717b8f9f-f467-49ae-bbf5-b08b3fadb260 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="717b8f9f-f467-49ae-bbf5-b08b3fadb260" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3212577705$--><!----><text-view modelid="bb33901a-a00e-453c-86b5-acd7fade68c6" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="bb33901a-a00e-453c-86b5-acd7fade68c6" class="component text bb33901a-a00e-453c-86b5-acd7fade68c6  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$3212577705$--><h3>      Paso 3: Proteja los datos mediante almacenamiento en la nube    </h3> <p class="BodyTextL25">      Los proveedores de la nube usan centros de datos para ofrecer soluciones      de almacenamiento de datos a sus clientes. El almacenamiento en la nube      permite el acceso a los datos desde cualquier usuario autorizado con      acceso a Internet.    </p> <h4 class="pageTracer-h4-title-hide">Pregunta:</h4></div>
+        </div>
+      </div>
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="e51cbba7-ca26-43e1-abd9-0182a1f73bd5" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="e51cbba7-ca26-43e1-abd9-0182a1f73bd5" class="e51cbba7-ca26-43e1-abd9-0182a1f73bd5 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="e51cbba7-ca26-43e1-abd9-0182a1f73bd5" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3212577705$--><!----><opentextbox-view modelid="e751c6f8-e0b8-4b61-b796-9914796d9c18" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="e751c6f8-e0b8-4b61-b796-9914796d9c18" class="component opentextbox e751c6f8-e0b8-4b61-b796-9914796d9c18  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="e751c6f8-e0b8-4b61-b796-9914796d9c18" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$3212577705$--> <div class="openTextBox__preText"><!--?lit$3212577705$--><p class="BodyTextL25"> ¿Qué podría hacer para proteger los datos mediante el almacenamiento en la nube? </p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$3212577705$--><!--?lit$3212577705$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$3212577705$-->
+                      <!--?lit$3212577705$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span style="color: black; border: none"><span style="border: none"> Las respuestas pueden variar. La seguridad en la nube generalmente la proporciona el proveedor de la nube. Garantizar que los dispositivos de los empleados estén protegidos (es decir, solo usuarios autorizados, protección contra malware, actualizaciones obligatorias de firmware y parches, y más). </span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$3212577705$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$3212577705$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$3212577705$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="30a57462-dc83-4024-9f9a-dd1c78c60e28" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="30a57462-dc83-4024-9f9a-dd1c78c60e28" class="30a57462-dc83-4024-9f9a-dd1c78c60e28 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="30a57462-dc83-4024-9f9a-dd1c78c60e28" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3212577705$--><!----><opentextbox-view modelid="567b3591-914a-43c3-9373-49a25a7269cd" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="567b3591-914a-43c3-9373-49a25a7269cd" class="component opentextbox 567b3591-914a-43c3-9373-49a25a7269cd  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="567b3591-914a-43c3-9373-49a25a7269cd" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$3212577705$--> <div class="openTextBox__preText"><!--?lit$3212577705$--><p class="BodyTextL25"> ¿Recomendaría almacenamiento en la nube para XYZ Inc.? Explique su respuesta. </p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$3212577705$--><!--?lit$3212577705$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$3212577705$-->
+                      <!--?lit$3212577705$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span style="color: black; border: none"><span style="border: none"> Las respuestas pueden variar. Según el tamaño y la cantidad de ubicaciones de XYZ, Inc., puede recomendar almacenamiento en la nube para datos corporativos. El almacenamiento en la nube también es un método ideal para realizar copias de seguridad de los datos corporativos almacenados en la vista, como en un NAS o un centro de datos de propiedad corporativa. Sin embargo, la mayoría de los nuevos emprendimientos optan hoy por almacenar todos sus datos en la nube para ahorrar en los gastos de capital y el tiempo que lleva implementar una solución de almacenamiento de datos físicos. El acceso de uso a los servicios de almacenamiento en la nube debe protegerse mediante procedimientos de administración de identidad y acceso (IAM). </span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$3212577705$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$3212577705$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$3212577705$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="37c23a84-d066-468a-bca1-cf6ca0db109d" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="37c23a84-d066-468a-bca1-cf6ca0db109d" class="37c23a84-d066-468a-bca1-cf6ca0db109d block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="37c23a84-d066-468a-bca1-cf6ca0db109d" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3212577705$--><!----><text-view modelid="b1420d0f-ee68-46f0-ac85-10ddbfc6d8ac" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="b1420d0f-ee68-46f0-ac85-10ddbfc6d8ac" class="component text b1420d0f-ee68-46f0-ac85-10ddbfc6d8ac  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$3212577705$--><h2>      Parte 2: Proteger los datos en tránsito    </h2> <p class="BodyTextL25">XYZ, Inc. implementará:</p> <p class="Bulletlevel1"><span lang="TR"><span style="font-family:Symbol">·</span><span>&nbsp;&nbsp;</span>Una red cableada e inalámbrica (Wi-Fi) en la ubicación      corporativa.</span></p> <p class="Bulletlevel1"><span lang="TR"><span style="font-family:Symbol">·</span><span>&nbsp;&nbsp;</span>Transferencia de datos a través de Internet entre la ubicación del      sitio central y la ubicación del sitio de la sucursal.</span></p> <p class="BodyTextL25">      Cada uno de estos métodos implica datos en tránsito. En esta parte,      investigará cómo proteger los datos en tránsito.    </p> <h3>      Paso 1: Proteja los datos en tránsito    </h3> <p class="BodyTextL25">      La transmisión de datos implica el envío de la información de un      dispositivo a otro. Desafíos en la protección de datos en tránsito      Existen diversos métodos para transmitir información entre dispositivos,      entre los que se incluyen los siguientes: Las redes inalámbricas a      menudo se implementan para proporcionar un fácil acceso a la red a los      usuarios corporativos. Esos usuarios luego acceden a los datos      corporativos.    </p> <h4 class="pageTracer-h4-title-hide">Pregunta:</h4></div>
+        </div>
+      </div>
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="ac4b0adb-94bd-447f-924c-c8af4b4d5941" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="ac4b0adb-94bd-447f-924c-c8af4b4d5941" class="ac4b0adb-94bd-447f-924c-c8af4b4d5941 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="ac4b0adb-94bd-447f-924c-c8af4b4d5941" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3212577705$--><!----><opentextbox-view modelid="85e5154a-3e32-4831-8925-d62c3c72032d" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="85e5154a-3e32-4831-8925-d62c3c72032d" class="component opentextbox 85e5154a-3e32-4831-8925-d62c3c72032d  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="85e5154a-3e32-4831-8925-d62c3c72032d" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$3212577705$--> <div class="openTextBox__preText"><!--?lit$3212577705$--><p class="BodyTextL25"> ¿Qué podría hacer para proteger los datos inalámbricos en tránsito? </p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$3212577705$--><!--?lit$3212577705$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$3212577705$-->
+                      <!--?lit$3212577705$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span style="color: black; border: none"><span style="border: none"> Las posibles respuestas que puede encontrar en su investigación son las siguientes: </span></span></span></p><p></p><ul><li>Autenticación de usuarios: debe implementar la autenticación de usuarios para garantizar que solo los usuarios autorizados tengan acceso a la red inalámbrica.</li><li>Habilite el cifrado inalámbrico: la mayoría de las redes inalámbricas admiten seguridad WPA2 y WPA3 mediante el cifrado AES.</li><li>Monitoree la red inalámbrica: Monitoree rutinariamente la red inalámbrica para detectar puntos de acceso inalámbricos dudosos y dispositivos que puedan interferir con la señal inalámbrica.</li></ul> <p></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$3212577705$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$3212577705$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$3212577705$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="bd642374-75de-43cc-989b-bdf41fb910e7" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="bd642374-75de-43cc-989b-bdf41fb910e7" class="bd642374-75de-43cc-989b-bdf41fb910e7 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="bd642374-75de-43cc-989b-bdf41fb910e7" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3212577705$--><!----><text-view modelid="a534e0dd-91ea-4b94-a281-e194efe0c0f7" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="a534e0dd-91ea-4b94-a281-e194efe0c0f7" class="component text a534e0dd-91ea-4b94-a281-e194efe0c0f7  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$3212577705$--><h3>      Paso 2: Proteja los datos a través de Internet entre dos sitios      corporativos    </h3> <p class="BodyTextL25">      Las organizaciones de varios sitios a menudo implementan redes privadas      virtuales (VPN) de sitio a sitio para proteger el tráfico entre sitios.    </p> <h4 class="pageTracer-h4-title-hide">Preguntas:</h4></div>
+        </div>
+      </div>
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="44a354e2-0644-4beb-ba93-1e84faf9da90" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="44a354e2-0644-4beb-ba93-1e84faf9da90" class="44a354e2-0644-4beb-ba93-1e84faf9da90 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="44a354e2-0644-4beb-ba93-1e84faf9da90" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3212577705$--><!----><opentextbox-view modelid="0fe7b176-2e06-46ba-86b8-ff870c72ecbd" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="0fe7b176-2e06-46ba-86b8-ff870c72ecbd" class="component opentextbox 0fe7b176-2e06-46ba-86b8-ff870c72ecbd  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="0fe7b176-2e06-46ba-86b8-ff870c72ecbd" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$3212577705$--> <div class="openTextBox__preText"><!--?lit$3212577705$--><p class="BodyTextL25"> ¿Qué podría hacer para proteger la confidencialidad de los datos en tránsito entre dos sitios corporativos? </p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$3212577705$--><!--?lit$3212577705$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$3212577705$-->
+                      <!--?lit$3212577705$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span style="color: black; border: none"><span style="border: none"> Las respuestas variarán, pero implementar una VPN con IPSec o SSL mediante cifrado seguro (es decir, AES) es la solución más común. </span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$3212577705$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$3212577705$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$3212577705$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="a525d7d9-2b64-4311-82ad-8a263b8aaa2b" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="a525d7d9-2b64-4311-82ad-8a263b8aaa2b" class="a525d7d9-2b64-4311-82ad-8a263b8aaa2b block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="a525d7d9-2b64-4311-82ad-8a263b8aaa2b" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3212577705$--><!----><opentextbox-view modelid="e50f680a-72e9-4dbb-b8f0-661d785f461c" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="e50f680a-72e9-4dbb-b8f0-661d785f461c" class="component opentextbox e50f680a-72e9-4dbb-b8f0-661d785f461c  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="e50f680a-72e9-4dbb-b8f0-661d785f461c" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$3212577705$--> <div class="openTextBox__preText"><!--?lit$3212577705$--><p class="BodyTextL25"> ¿Qué podría hacer para proteger la integridad de los datos en tránsito entre dos sitios corporativos? </p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$3212577705$--><!--?lit$3212577705$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$3212577705$-->
+                      <!--?lit$3212577705$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span style="color: black; border: none"><span style="border: none"> Las respuestas pueden variar. Sin embargo, la implementación de sistemas de integridad de datos (es decir, hash mediante SHA-2) que prueban la integridad y la autenticidad de los datos transmitidos protegería la integridad de los datos. </span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$3212577705$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$3212577705$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$3212577705$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="5313fe62-ae27-40d7-9790-3a93de5b0bfc" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="5313fe62-ae27-40d7-9790-3a93de5b0bfc" class="5313fe62-ae27-40d7-9790-3a93de5b0bfc block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="5313fe62-ae27-40d7-9790-3a93de5b0bfc" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3212577705$--><!----><opentextbox-view modelid="6025b2bd-a2c8-4a18-9bb0-d44591435f97" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="6025b2bd-a2c8-4a18-9bb0-d44591435f97" class="component opentextbox 6025b2bd-a2c8-4a18-9bb0-d44591435f97  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="6025b2bd-a2c8-4a18-9bb0-d44591435f97" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$3212577705$--> <div class="openTextBox__preText"><!--?lit$3212577705$--><p class="BodyTextL25"> ¿Qué podría hacer para proteger la disponibilidad de datos en tránsito entre dos sitios corporativos? </p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$3212577705$--><!--?lit$3212577705$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$3212577705$-->
+                      <!--?lit$3212577705$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span style="color: black; border: none"><span style="border: none"> Las respuestas pueden variar. Los sistemas de autenticación mutua requieren que el usuario autentique al servidor y solicita que el servidor autentique al usuario. De esta manera, el dispositivo de un usuario puede saber cuándo se está contactando o si está recibiendo solicitudes de datos de sistemas dudosos no autenticados. </span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$3212577705$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$3212577705$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$3212577705$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6d3194b6-a085-4bf0-897d-4748c254af79" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6d3194b6-a085-4bf0-897d-4748c254af79" class="6d3194b6-a085-4bf0-897d-4748c254af79 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6d3194b6-a085-4bf0-897d-4748c254af79" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3212577705$--><!----><text-view modelid="b9b052a2-66ca-493a-88a6-cfc42c5fe58b" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="b9b052a2-66ca-493a-88a6-cfc42c5fe58b" class="component text b9b052a2-66ca-493a-88a6-cfc42c5fe58b  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$3212577705$--><h2>      Parte 3: Datos seguros en proceso    </h2> <p class="BodyTextL25">      XYZ, Inc. desea evitar un problema de ingreso de datos que uno de sus      competidores encontró unos meses antes. El competidor hizo que un      empleado descontento cambiara manualmente los precios anunciados de los      dispositivos de PPE populares a precios más bajos. El error provocó la      pérdida de miles de dólares en ingresos.    </p> <h4 class="pageTracer-h4-title-hide">Pregunta:</h4></div>
+        </div>
+      </div>
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="c4c56dfd-7a8d-482a-8c30-036f7472a48f" style="width: 5.88235%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="c4c56dfd-7a8d-482a-8c30-036f7472a48f" class="c4c56dfd-7a8d-482a-8c30-036f7472a48f block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="c4c56dfd-7a8d-482a-8c30-036f7472a48f" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3212577705$--><!----><opentextbox-view modelid="fe5104b3-927a-4cba-9341-631bf1510d93" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="fe5104b3-927a-4cba-9341-631bf1510d93" class="component opentextbox fe5104b3-927a-4cba-9341-631bf1510d93  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="fe5104b3-927a-4cba-9341-631bf1510d93" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+            <!--?lit$3212577705$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$3212577705$--> <div class="openTextBox__preText"><!--?lit$3212577705$--><p class="BodyTextL25"> ¿Qué podría hacer para evitar el problema de ingreso de datos que se produjo en la competencia? </p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$3212577705$--><!--?lit$3212577705$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$3212577705$-->
+                      <!--?lit$3212577705$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span style="color: black; border: none"><span style="border: none"> Las respuestas pueden variar. Se puede habilitar una política de entrada de datos que requiera que un supervisor revise y apruebe cualquier cambio de precio. </span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$3212577705$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$3212577705$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$3212577705$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!---->
+                            </div>
+                        </div>
+                        <!--?lit$3212577705$-->
+                    </div>
+                </div>
+            </div>
+        <sgpluse-opentextboxcontroller-view modelid="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+            <div class="openTextBoxController__button-container">
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__showButton show-answer show"><!--?lit$3212577705$-->Mostrar todas las respuestas</button>    
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__hideButton hide-answer hide"><!--?lit$3212577705$-->Ocultar todas las respuestas</button>    
+                <button class="btn-text resetbtn openTextBoxController__resetButton"><!--?lit$3212577705$-->Borrar mis respuestas</button>         
+            </div>
+            <!--?lit$3212577705$--><hr>
+            <!--?lit$3212577705$-->
+                <div class="post-text" tabindex="0">
+                    <!--?lit$3212577705$--><span><span style="padding-right:5px;float:left;font-family:arial;font-size:12px;"> © 2017 - 2022 Cisco and/or its affiliates. All rights reserved. Cisco Public </span></span>
+                </div>
+                   
+        </sgpluse-opentextboxcontroller-view><script></script>
+<script>
+    window.addEventListener("load", function () {
+      console.log("loaded");
+      document?.querySelectorAll(".answergray").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".show-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.remove("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.add("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      let event = new Event("click", {
+        bubbles: true,
+        cancelable: true,
+      });
+      document
+        ?.querySelectorAll(".openTextBoxController__showButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".show-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__hideButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__resetButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            document?.querySelectorAll("textArea").forEach(function (ele) {
+              ele.value = "";
+            });
+          });
+        });
+
+      document
+      ?.querySelectorAll('textarea')
+      .forEach(function (ele){
+        ele.defaultValue = ele.defaultValue.replace(/<!--.*?-->/g, '');
+      })
+        let checkButtonLabel = "check_button_label_placeHolder";
+        let hideButtonLabel = "hide_button_label_placeHolder";
+        document?.querySelectorAll(".check__button").forEach(function (ele) {
+        let answerBox = document.querySelector(".check__solution")
+        if (!answerBox.classList.contains("check__hidden")) {
+          answerBox.classList.add("check__hidden");
+          ele.innerText = checkButtonLabel;
+        }
+          ele.addEventListener("click", function (e) {
+            if (answerBox.classList.contains("check__hidden")) {
+              answerBox.classList.remove("check__hidden")
+              ele.innerText = hideButtonLabel;
+            } else {
+              answerBox.classList.add("check__hidden")
+              ele.innerText = checkButtonLabel;
+            }
+          })
+        })
+    });
+  </script>
+  </body></html>

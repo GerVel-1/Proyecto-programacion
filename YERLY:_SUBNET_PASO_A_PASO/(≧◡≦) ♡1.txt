@@ -1,0 +1,11 @@
+PRIMER  DETERMINAS LA N PARA LA CANTIDAD DE REDES Y TIENE QUE SER MAYOR O GIUAL A LA CANYIDADE SUBREDES SOLICITSAS 
+ 2 ^n = c 
+  c =  al numero en eque quiere que dividir la rec 
+
+LA DIRECCION DE RED :  192.108.10.0/24 
+SE DIVIDE EN 4  entonces se le suma el n anterior =    192.108.10.0/26 
+
+PASO 3  : 
+N² - 2, porque no se cuenta a la misma direccion de red ni el broadcast
+
+

@@ -1,0 +1,1154 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 1rem;
+      }
+      ol,
+      ul {
+        margin-bottom: 0in;
+      }
+      table {
+        margin-top: 1rem;
+        border: 1px solid gray;
+        width: 7in;
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > .openTableTextBox__table-header-data {
+        text-align: center;
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0in;
+        text-align: center;
+        line-height: 115%;
+        page-break-after: avoid;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        font-weight: bold;
+        background: #dbe5f1;
+        padding: 0.5rem;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .openTextBox__textArea-container {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 50%;
+      }
+      .openTableTextBox__fieldset {
+        padding: 5px;
+      }
+      td {
+        margin-top: 3pt;
+        margin-right: 0in;
+        margin-bottom: 3pt;
+        margin-left: 0in;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 98.85pt;
+        border: solid windowtext 1pt;
+        border-top: none;
+        padding: 0.7pt 5.75pt 0.7pt 5.75pt;
+      }
+      textarea {
+        width: 100%;
+      }
+      .answergray {
+        padding: 0.2rem;
+      }
+
+      .openTableTextBox__widget {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0.25in;
+      }
+
+      .show-answer,
+      .hide-answer {
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border: 0px;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .openTextBoxController__button-container {
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .openTextBoxController__button-container .btn-text {
+        margin: 10px;
+      }
+
+      .btn-text {
+        border: 0px;
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border-radius: 0;
+        cursor: pointer;
+      }
+
+      .u-display-none {
+        display: none;
+      }
+      .openTextBox__postText, openTableTextBox__postText {
+        margin-top: 0.5rem;
+      }
+      .edit-comment {
+        display: none;
+      }
+      .js-heading-inner {
+        display: none;
+      }
+      .block__title-inner,
+      .article__title-inner {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+      h2{
+        font-size: 1.25em;
+      }
+      h3{
+        font-size: 1.125em;
+      }
+      .table
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: solid windowtext 1pt;
+      }
+      table tbody tr th, table thead tr th{
+        border: solid windowtext 1pt;
+        background-color: #d6d8dc;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .command-output > .table-inner > .table-wrapper > .table-widget > table,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > td,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: none !important;
+        text-align: right !important;
+      }
+      .simple-table > .table-inner > .table-wrapper{
+        margin-left: 1.5rem;
+      }
+      .openTextBox__widget {
+        margin-left: 1.5rem;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      .answergray {
+        background-color: #ccc;
+      }
+      .openTableTextBox__widget > .answergray {
+        background-color: #fff !important;
+      }
+      li > ul,ol > li{
+        margin-left: 0px !important;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      
+      .component__title{
+        font-family: inherit;
+        font-size: 1.65em;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .component__body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .accessibility-completion-indicator{
+        display: none;
+      }
+
+      .check__hidden {
+        display: none;
+      }
+
+      .check__button {
+        border: none;
+        border-radius: 6px !important;
+        background-color: #6abf4b;
+        color: #fff;
+        min-width: 100px;
+        margin: 0.625rem 0;
+        padding: 0.7rem;
+      }
+
+      .check__widget .check__solution .DevConfigGray {
+        background-color: rgb(214,216,220);
+        font-weight: bold;
+      }
+
+      .check-inner .check__widget .check__solution .DevConfigs {
+        margin: 0px;
+        line-height: 115%;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .check__solution  {
+        line-height: 1.5;
+      }
+      .mcq__inner .mcq__widget .mcq__widget-inner {
+        margin-block: 1rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item {
+        display: flex;
+        gap: 0.2rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item .mcq__item-label .mcq__item-text .screenReader-position-text{
+        display: none;
+      }
+      .opentabletextbox-inner .opentabletextBox__widget .openTableTextBox__answerText.answergray {
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox{
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox img{
+        margin-block: 1rem;
+        margin-left: initial;
+      }
+      .component__content .component__body-inner .pageTracer-h4-title-hide {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        font-size: 0px;
+        color: rgb(var(--neutral-2));
+        font-weight: normal;
+      }
+      .table-inner .table__widget table tr.TableHeading th, .table-inner .table__widget table tr.TableHeading td, .table-inner .table__widget table tr td.TableHeading, .opentabletextbox-table thead tr.TableHeading th, .opentabletextbox-table tbody tr.TableHeading td, .opentabletextbox-table tbody tr td.TableHeading {
+        background-color: #d6d8dc;
+        text-align: center;
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .CMD, .component__content .component__body-inner .CMDOutput, .component__content .component__body-inner .CMDOutput__table{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        margin-inline-start: 30px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      [dir="rtl"] .component__content .component__body-inner .CMDOutput__table span {
+        direction: ltr;
+        display: inline-block;
+      }
+      .openTextBox__inner .openTextBox__widget .CMD, .openTextBox__inner .openTextBox__widget .CMDOutput{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .openTextBox__inner .openTextBox__widget .DnTbold, .openTextBox__inner .openTextBox__widget .BodyTextL25Bold, .component__content .component__body-inner .BodyTextL25Bold, .component__content .component__body-inner .DnTbold, .table-inner .table__widget table tr .DnTbold {
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .SubStepNum {
+        text-indent: -25.5px;
+        margin-inline-start: 50px;
+      }
+      .component__content .component__body-inner .BodyTextL50 {
+        margin-inline-start: 30px;
+      }
+      .component__content .component__body-inner .Bulletlevel1 {
+        text-indent: -19px;
+        margin-inline-start: 48px;
+      }
+      .component__content .component__body-inner .Bulletlevel2 {
+          text-indent: -19px;
+          margin-inline-start: 72px;
+      }
+      .openTextBox__inner .openTextBox__widget .ReflectionQ, .component__content .component__body-inner .SubStepAlpha {
+          text-indent: -25.5px;
+          margin-inline-start: 30px;
+      }
+    </style>
+
+</head><body><!---->
+            <div class="article 7c01cc80-e926-40f0-a106-11904923a9a2 remove-padding-top remove-padding-bottom ">
+                <div class="article__inner">
+                <div class=" no-adaptive-scroll">
+                    <!--?lit$3605989904$-->
+                        <div class=""> 
+                            <base-view type="article" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="article__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="article__header ">
+          <div class="article__header-inner ">
+            <!--?lit$3605989904$-->
+      <div class="article__title ">
+        <!--?lit$3605989904$--><heading-view aria-hidden="true" id="7c01cc80-e926-40f0-a106-11904923a9a2-heading-view" headingtitle="Práctica de laboratorio: Configuración de autenticación y autorización en Linux" modelid="7c01cc80-e926-40f0-a106-11904923a9a2" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="js-heading is-incomplete">
+        <div class="js-heading-inner" role="heading" id="article-heading" aria-level="2">
+        <span class="aria-label"> <!--?lit$3605989904$-->Incompleto &nbsp;<!--?lit$3605989904$-->Práctica de laboratorio: Configuración de autenticación y autorización en Linux</span>
+        </div>
+      </div>
+    </heading-view>
+        <div tabindex="0" role="heading" class="article__title-inner " aria-level="2">
+          <span class="accessibility-completion-indicator"><!--?lit$3605989904$-->Incompleto </span>
+          <!--?lit$3605989904$-->Práctica de laboratorio: Configuración de autenticación y autorización en Linux
+        </div>
+      </div>
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                            <div class="block__container " style="">
+                                <!--?lit$3605989904$--><!---->
+                                    <block-view modelid="b6e65545-9560-4c42-90b7-1e37cab87122" style="width: 12.5%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="b6e65545-9560-4c42-90b7-1e37cab87122" class="b6e65545-9560-4c42-90b7-1e37cab87122 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="b6e65545-9560-4c42-90b7-1e37cab87122" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3605989904$--><!----><text-view modelid="2e855a32-cf2b-4608-82ad-68b5038e3c21" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="2e855a32-cf2b-4608-82ad-68b5038e3c21" class="component text 2e855a32-cf2b-4608-82ad-68b5038e3c21  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$3605989904$--><h2>Objetivos</h2> <p class="BodyTextL25Bold"> Parte 1: agregar un nuevo grupo para usuarios </p> <p class="BodyTextL25Bold">Parte 2: agregar usuarios al nuevo grupo</p> <p class="BodyTextL25Bold"> Parte 3: cambiar de usuario y modificar permisos </p> <p class="BodyTextL25Bold"> Parte 4: modificar los permisos en modo absoluto </p> <h2>Trasfondo/Situación</h2> <p class="BodyTextL25"> En esta práctica de laboratorio utilizará la línea de comandos de Linux para crear un grupo para nuevos usuarios y agregar usuarios al grupo. A cada usuario se le asignará una contraseña para la autenticación al iniciar sesión. Luego, modificará los permisos para autorizar los privilegios de lectura, escritura y ejecución para usuarios y grupos. </p> <h2>Recursos necesarios</h2> <p class="BodyTextL25">PC con <b>CSE-LABVM</b> instalada en VirtualBox</p> <h2>Instrucciones</h2> <h2> Parte 1: agregar un nuevo grupo para usuarios </h2> <p class="BodyTextL25"> En esta parte agregará un nuevo grupo para los usuarios a la máquina virtual. </p> <h3> Paso 1: Abra una ventana de terminal en el CSE-LABVM. </h3> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Inicie <b>CSE-LABVM</b>. </p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>Haga doble clic en el icono de <b>Terminal</b> para abrir un terminal. </p> <h3> Paso 2: Escalar los privilegios al nivel de root. </h3> <p class="BodyTextL25"> Ingrese el comando <b>sudo su</b> e ingrese <b>password</b> como contraseña cuando se le solicite. </p> <p class="CMD">cisco@labvm:~$ <b>sudo su</b></p> <p class="CMD">[sudo] password for cisco:</p> <p class="CMD">root@labvm:/home/cisco#</p> <h3> Paso 3: Agregue un nuevo grupo llamado HR. </h3> <p class="BodyTextL50">Ingrese el comando <b>groupadd HR</b>.</p> <p class="CMD">root@ubuntu:/home/cisco# <b>groupadd HR</b></p> <h3> Paso 4: Verifique que se haya agregado el nuevo grupo. </h3> <p class="BodyTextL25"> Ingrese el comando <b>cat /etc/group</b> para verificar que se agregó HR. </p> <p class="CMD">root@labvm:/home/cisco# <b>cat /etc/group</b></p> <p class="CMDOutput">root:x:0:</p> <p class="CMDOutput">daemon:x:1:</p> <p class="CMDOutput">bin:x:2:</p> <p class="CMDOutput">sys:x:3:</p> <p class="CMDOutput">&lt;output omitted&gt;</p> <p class="CMDOutput">Alice:x:1000:</p> <p class="CMDOutput">Bob:x:1001:</p> <p class="CMDOutput">Eve:x:1002:</p> <p class="CMDOutput">Eric:x:1003:</p> <p class="CMDOutput">Xnobody:x:1004:</p> <p class="CMDOutput"><span style="background: yellow;color:black">HR:x:1005:</span><span style="font-size: 10pt"></span></p> <p class="BodyTextL25"> El nuevo grupo HR se muestra en la parte inferior del archivo /etc/group con una ID de grupo de 1005. </p> <h2> Parte 2: agregar usuarios al nuevo grupo </h2> <p class="BodyTextL25"> En esta parte agregará las cuentas de usuario de Jenny y Joe al grupo HR. </p> <h3> Paso 1: Agregue a Jenny como usuario nuevo y muévala al grupo HR. </h3> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Complete lo siguiente para agregar a Jenny como usuario: </p> <p class="SubStepNum"> 1)<span>&nbsp;&nbsp;&nbsp; </span>Ingrese el comando <b>adduser jenny</b> y presione <b>Enter</b>. </p> <p class="SubStepNum"> 2)<span>&nbsp;&nbsp;&nbsp; </span>Ingrese <b>jenPass</b> como contraseña y presione <b>Enter</b>. </p> <p class="SubStepNum"> 3)<span>&nbsp;&nbsp;&nbsp; </span>Vuelva a escribir la nueva contraseña y presione <b>Enter</b>. </p> <p class="SubStepNum"> 4)<span>&nbsp;&nbsp;&nbsp; </span>Ingrese <b>Jenny</b> para el nombre completo y presione <b>Enter</b>. </p> <p class="SubStepNum"> 5)<span>&nbsp;&nbsp;&nbsp; </span>Para el resto de la configuración presione <b>Enter</b>. </p> <p class="SubStepNum"> 6)<span>&nbsp;&nbsp;&nbsp; </span>Ingrese <b>Y</b> para verificar que la información sea correcta y presione <b>Enter</b>. </p> <p class="CMD">root@labvm:/home/cisco# <b>adduser jenny</b></p> <p class="CMDOutput">Adding user `jenny' ...</p> <p class="CMDOutput">Adding new group `jenny' (1006) ...</p> <p class="CMDOutput"> Adding new user `jenny' (1005) with group `jenny' ... </p> <p class="CMDOutput">Creating home directory `/home/jenny' ...</p> <p class="CMDOutput">Copying files from `/etc/skel' ...</p> <p class="CMD">New password: <b>jenPass</b></p> <p class="CMD">Retype new password: <b>jenPass</b></p> <p class="CMDOutput">passwd: password updated successfully</p> <p class="CMDOutput">Changing the user information for jenny</p> <p class="CMDOutput"> Enter the new value, or press ENTER for the default </p> <p class="CMD"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Full Name []: <b>Jenny</b></p> <p class="CMD">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Room Number []:</p> <p class="CMD">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Work Phone []:</p> <p class="CMD">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Home Phone []:</p> <p class="CMD">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Other []:</p> <p class="CMD">Is the information correct? [Y/n] <b>Y</b></p> <p class="CMD">root@labvm:/home/cisco#</p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>Mueva a <b>jenny</b> al grupo HR. Ingrese el comando <b>usermod -G HR jenny</b> para mover a <b>jenny</b> al grupo HR. </p> <p class="CMD">root@ubuntu:/home/cisco# <b>usermod –G HR jenny</b></p> <h3> Paso 2: Agregue a Joe como nuevo usuario y muévalo al grupo HR. </h3> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Ingrese el comando <b>adduser joe</b> y complete los pasos para asignar a <b>joe</b> la contraseña <b>joePass </b>y el nombre completo <b>Joe</b>. </p> <p class="CMD">root@labvm:/home/cisco# <b>adduser joe</b></p> <p class="CMDOutput">Adding user `joe' ...</p> <p class="CMDOutput">Adding new group `joe' (1007) ...</p> <p class="CMDOutput">Adding new user `joe' (1006) with group `joe' ...</p> <p class="CMDOutput">Creating home directory `/home/joe' ...</p> <p class="CMDOutput">Copying files from `/etc/skel' ...</p> <p class="CMD">New password: <b>joePass</b></p> <p class="CMD">Retype new password: <b>joePass</b></p> <p class="CMDOutput">passwd: contraseña actualizada exitosamente</p> <p class="CMDOutput">Changing the user information for joe</p> <p class="CMDOutput"> Enter the new value, or press ENTER for the default </p> <p class="CMD"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Full Name []: <b>Joe</b></p> <p class="CMD">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Room Number []:</p> <p class="CMD">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Work Phone []:</p> <p class="CMD">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Home Phone []:</p> <p class="CMD">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Other []:</p> <p class="CMD">Is the information correct? [Y/n] <b>Y</b></p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>Coloque el usuario <b>Joe</b> en el grupo HR. </p> <p class="CMD">root@labvm:/home/cisco# <b>usermod –G HR joe</b></p> <h3> Paso 3: compruebe los usuarios creados recientemente en el archivo passwd. </h3> <p class="BodyTextL25"> Ingrese el comando <b>cat /etc/passwd</b> para verificar los nuevos usuarios en el archivo passwd. </p> <p class="CMD">root@labvm:/home/cisco# <b>cat /etc/passwd</b></p> <p class="CMDOutput">root:x:0:0:root:/root:/bin/bash</p> <p class="CMDOutput">daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin</p> <p class="CMDOutput">bin:x:2:2:bin:/bin:/usr/sbin/nologin</p> <p class="CMDOutput">sys:x:3:3:sys:/dev:/usr/sbin/nologin</p> <p class="CMDOutput">&lt;output omitted&gt;</p> <p class="CMDOutput">Xnobody:x:1004:1004::/home/Xnobody:/bin/sh</p> <p class="CMDOutput"><span style="background: yellow;color:black">jenny:x:1005:1006:Jenny,,,:/home/jenny:/bin/bash</span></p> <p class="CMDOutput"><span style="background: yellow;color:black">joe:x:1006:1007:Joe,,,:/home/joe:/bin/bash</span></p> <h3> Paso 4: vea los usuarios creados en el archivo shadow. </h3> <p class="BodyTextL25"> Ingrese el comando <b>cat /etc/shadow</b> para verificar los nuevos usuarios en el archivo shadow. </p> <p class="CMD">root@labvm:/home/cisco# <b>cat /etc/shadow</b></p> <p class="CMDOutput">root:!:18704:0:99999:7:::</p> <p class="CMDOutput">daemon:*:18704:0:99999:7:::</p> <p class="CMDOutput">bin:*:18704:0:99999:7:::</p> <p class="CMDOutput">sys:*:18704:0:99999:7:::</p> <p class="CMDOutput">&lt;output omitted&gt;</p> <p class="CMDOutput">Xnobody:!:18704:0:99999:7:::</p> <p class="CMDOutput"><span style="background: yellow;color:black">jenny:$6$VmEFD7wi6zHV8VH5$m2K8U2wpONkvTXzf9uSxSHitbcwAQMEmNiYg8ICnBpdct9dxqr3Hh8EGvxaIasa9fUw.mtB4GGkQYvoZHAFSa/:18705:0:99999:7:::</span></p> <p class="CMDOutput"><span style="background: yellow;color:black">joe:$6$Ga2C7801c2vb7ias$G9OdK91gnLCnq.5vgpUJjn0/KyWKkXmRemqoGJgBFH0QejpmRYZxQhmS42eZG0SBApc1Z2Q/gsfwuD6oLUh.W.:18705:0:99999:7:::</span></p> <h2> Parte 3: cambiar de usuario y modificar permisos </h2> <p class="BodyTextL25"> En esta parte iniciará sesión como jenny, explorará directorios y cambiará los permisos. </p> <h3> Paso 1: Cambiar el usuario de root a jenny. </h3> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Para cambiar al escritorio de Jenny, haga clic en <b>Menú</b> en la parte inferior izquierda del escritorio y haga clic en <b>Logout</b>. </p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>Haga clic en <b>Switch User</b> en el cuadro de diálogo. </p> <p class="SubStepAlpha">c.<span>&nbsp;&nbsp;</span>Haga clic en <b>Jenny</b> en la lista de usuarios disponibles e introduzca la contraseña <b>jenPass</b>. </p> <p class="SubStepAlpha">d.<span>&nbsp;&nbsp;</span>El escritorio de Jenny se carga. Desde aquí puede hacer clic con el botón derecho en el escritorio y elegir <b>Open in Terminal</b>. </p> <p class="CMD"><span style="background: yellow;color:black">jenny</span>@labvm:~/Desktop<span style="background: yellow;color:black">$</span></p> <h3> Paso 2: Explore el entorno de Jenny. </h3> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Ingrese en comando <b>pwd</b> para ostrar el contenido del directorio actual y luego cambie al directorio <b>/home</b> con el comando <b>cd ../..</b>. </p> <p class="CMD">jenny@labvm:~/Desktop$ <b>pwd</b></p> <p class="CMDOutput">/home/jenny/Desktop</p> <p class="CMD">jenny@labvm:~/Desktop$ <b>cd ../..</b></p> <p class="CMD">jenny@labvm:/home$</p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>Ingrese el comando <b>ls -l</b> para mostrar todos los directorios en <b>/home</b>, sus permisos y sus usuarios. </p> <p class="CMD">jenny@labvm:/home$ <b>ls -l</b></p> <p class="CMD">total 28</p> <p class="CMDOutput"> drwxr-xr-x&nbsp; 2 Alice Alice 4096 Mar 18 21:58 Alice </p> <p class="CMDOutput"> drwxr-xr-x&nbsp; 2 Bob&nbsp;&nbsp; Bob&nbsp;&nbsp; 4096 Mar 18 21:58 Bob </p> <p class="CMDOutput">drwxr-xr-x 12 cisco cisco 4096 Mar 19 20:02 cisco</p> <p class="CMDOutput"> drwxr-xr-x&nbsp; 2 Eric&nbsp; Eric&nbsp; 4096 Mar 18 21:58 Eric </p> <p class="CMDOutput"> drwxr-xr-x&nbsp; 2 Eve&nbsp;&nbsp; Eve&nbsp;&nbsp; 4096 Mar 18 21:58 Eve </p> <p class="CMDOutput"><span style="background: yellow;color:black">drwxr-xr-x&nbsp; 9 jenny jenny 4096 Mar 19 19:58 jenny</span></p> <p class="CMDOutput"> drwxr-xr-x&nbsp; 2 joe&nbsp;&nbsp; joe&nbsp;&nbsp; 4096 Mar 19 19:44 joe </p> <p class="BodyTextL50"> El sistema operativo Linux tiene un total de 10 letras o guiones en los campos de permiso: Por ejemplo, estos directorios principales tienen los siguientes permisos: drwxr-xr-x. </p> <p class="Bulletlevel2"><span style="font-family: 'Courier New'">o<span>&nbsp;&nbsp;&nbsp; </span></span>Una <b>d</b> en el primer campo indica que se trata de un directorio. Un guion (<b>-</b>) significa que es un archivo. </p> <p class="Bulletlevel2"><span style="font-family: 'Courier New'">o<span>&nbsp;&nbsp;&nbsp; </span></span>El siguiente conjunto de tres caracteres es para el permiso del usuario (<b>rwx</b>). Por ejemplo, el usuario <b>jenny</b> es el propietario del directorio y puede leer, escribir y ejecutar el archivo. (<b>r</b>ead, <b>w</b>rite y e<b>x</b>ecute). </p> <p class="Bulletlevel2"><span style="font-family: 'Courier New'">o<span>&nbsp;&nbsp;&nbsp; </span></span>El segundo conjunto de caracteres es para los permisos de grupo (<b>r-x</b>). El grupo es <b>jenny</b>, lo que significa que ningún grupo, excepto jenny, puede escribir en este directorio. </p> <p class="Bulletlevel2"><span style="font-family: 'Courier New'">o<span>&nbsp;&nbsp;&nbsp; </span></span>El tercer conjunto de caracteres es para los permisos de cualquier otro usuario o grupo (<b>r-x</b>). Cualquier otro usuario o grupo en la computadora puede leer o ejecutar, pero no puede escribir en el directorio. </p> <p class="SubStepAlpha">c.<span>&nbsp;&nbsp;</span>Como Jenny, ingrese el comando <b>cd joe</b> para entrar en el directorio de Joe. Tenga en cuenta que podemos navegar hasta el directorio de Joe porque el permiso para otros es <b>r-x</b>. La x permite que cualquier usuario ingrese al directorio. </p> <p class="CMD">jenny@labvm:/home$ <b>cd joe</b></p> <p class="CMD"> jenny@labvm:/home/<span style="background: yellow;color:black">joe</span>$ </p> <p class="SubStepAlpha">d.<span>&nbsp;&nbsp;</span>Mientras está en el directorio de Joe, introduzca el comando <b>touch new.txt</b> para crear un archivo. Se lo rechaza porque el usuario <b>Jenny</b> no tiene permiso para escribir en el directorio de Joe. </p> <p class="CMD">jenny@labvm:/home/joe$ <b>touch new.txt</b></p> <p class="CMD"> touch: cannot touch 'new.txt': <span style="background: yellow;color:black">Permission denied</span></p> <p class="CMD">jenny@labvm:/home/joe$</p> <p class="SubStepAlpha">e.<span>&nbsp;&nbsp;</span>Ingrese el comando <b>cd ..</b> para salir del directorio de inicio de Joe. </p> <p class="CMD">jenny@labvm:/home/joe$ <b>cd ..</b></p> <p class="CMD">jenny@labvm:/home$</p> <h3> Paso 3: Inicie sesión como root. </h3> <p class="BodyTextL25"> Joe puede no querer que Jenny pueda leer el contenido de su directorio. El acceso root u otro superusuario puede cambiar los permisos del directorio para denegar a Jenny, o cualquier otro usuario o grupo, acceso de lectura al directorio de inicio de Joe. </p> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Inicie sesión con el usuario <b>cisco</b> y <b>password</b> como contraseña. Utilice el comando <b>su cisco</b>. </p> <p class="CMD">jenny@labvm:/home$ <b>su cisco</b></p> <p class="CMD">Contraseña:</p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>Ingrese el comando <b>sudo -i</b> para cambiar a root e introduzca <b>password</b> como contraseña. </p> <p class="CMD">cisco@labvm:~$ <b>sudo -i</b></p> <p class="CMD">[sudo] password for cisco: <b>password</b></p> <h3> Paso 4: Modifique los permisos para el directorio de inicio de Joe. </h3> <p class="BodyTextL25"> Vaya al directorio de inicio e introduzca el comando <b>chmod o-x joe</b> para cambiar el permiso del directorio de inicio de Joe a no ejecutable para otros usuarios y grupos. </p> <p class="CMD">root@labvm:~# <b>cd /home</b></p> <p class="CMD">root@labvm:/home# <b>chmod o-x joe</b></p> <p class="CMD">root@labvm:/home# <b>ls -1</b></p> <p class="CMDOutput">total 28</p> <p class="CMDOutput"> drwxr-xr-x&nbsp; 2 Alice Alice&nbsp; 4096 Mar 18 21:58 </p> <p class="CMDOutput"> drwxr-xr-x&nbsp; 2 Bob&nbsp;&nbsp; Bob&nbsp;&nbsp;&nbsp; 4096 Mar 18 21:58 </p> <p class="CMDOutput">drwxr-xr-x 12 cisco cisco&nbsp; 4096 Mar 19 20:02</p> <p class="CMDOutput"> drwxr-xr-x&nbsp; 2 Eric&nbsp; Eric&nbsp;&nbsp; 4096 Mar 18 21:58 </p> <p class="CMDOutput"> drwxr-xr-x&nbsp; 2 Eve&nbsp;&nbsp; Eve&nbsp;&nbsp;&nbsp; 4096 Mar 18 21:58 </p> <p class="CMDOutput"> drwxr-xr-x&nbsp; 9 jenny jenny&nbsp; 4096 Mar 20 14:02 </p> <p class="CMDOutput"> drwxr-x<span style="background: yellow;color:black">r--</span>&nbsp; 2 joe&nbsp;&nbsp; joe&nbsp;&nbsp;&nbsp; 4096 Mar 19 19:44 </p> <h3> Paso 5: Verifique que Jenny ya no pueda acceder al directorio de Joe. </h3> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Cierre la sesión como usuario <b>root</b> y el usuario <b>cisco</b>. </p> <p class="CMD">root@labvm:/home# <b>exit</b></p> <p class="CMD">logout</p> <p class="CMD">cisco@labvm:~$ <b>exit</b></p> <p class="CMD">logout</p> <p class="CMD">jenny@labvm:/home$</p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>Ingrese el comando <b>cd joe</b> para intentar navegar al directorio de Joe. Observe que el permiso es denegado. </p> <p class="CMD">jenny@labvm:/home$ <b>cd joe</b></p> <p class="CMDOutput">bash: cd: joe: Permission denied</p> <p class="CMD">jenny@labvm:/home$</p> <p class="BodyTextL50"> La siguiente tabla muestra ejemplos de otras maneras en que se puede utilizar el comando <b>chmod</b>: </p></div>
+        </div>
+      </div>
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="071186fd-d2bf-43de-ae65-2ee4ae40a02e" style="width: 12.5%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="071186fd-d2bf-43de-ae65-2ee4ae40a02e" class="071186fd-d2bf-43de-ae65-2ee4ae40a02e block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="071186fd-d2bf-43de-ae65-2ee4ae40a02e" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3605989904$--><!----><table-view modelid="e1512c14-2556-414b-b29c-ebaea067e87f" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+        <div class="table-inner component__inner"> 
+            <div data-socialgoodpulse-id="e1512c14-2556-414b-b29c-ebaea067e87f" class="component table e1512c14-2556-414b-b29c-ebaea067e87f  is-full   ">
+                <div class="component__header-container">
+                    <div data-socialgoodpulse-id="e1512c14-2556-414b-b29c-ebaea067e87f" class="table ">
+                        <base-view type="component" lowercase_component="table" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header table__header">
+          <div class="component__header-inner table__header-inner">
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                    </div>
+                </div>
+
+
+                <div class="component__widget table__widget">
+                <!--?lit$3605989904$-->
+                <table tabindex="0" style="min-width: 800px" aria-labelledby="table-caption-e1512c14-2556-414b-b29c-ebaea067e87f">
+                <!--?lit$3605989904$--><!---->
+                    <tbody><tr class="table-row nth-child-0 TableHeading">
+                    <!--?lit$3605989904$--><!---->
+            <th scope="col" tabindex="0" rowspan="1" colspan="1" class="table-data table-heading nth-child-0 ">
+                <!--?lit$3605989904$--><p>comando chmod</p>
+                <!--?lit$3605989904$-->
+            </th>
+        <!----><!---->
+            <th scope="col" tabindex="0" rowspan="1" colspan="1" class="table-data table-heading nth-child-1 ">
+                <!--?lit$3605989904$--><p>Resultados</p>
+                <!--?lit$3605989904$-->
+            </th>
+        <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-1 ">
+                    <!--?lit$3605989904$--><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                <!--?lit$3605989904$--><p class="CMD"><b>chmod u+rwx</b></p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                <!--?lit$3605989904$--><p class="TableText"> Agrega permisos de lectura, escritura y ejecución para el usuario </p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-2 ">
+                    <!--?lit$3605989904$--><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                <!--?lit$3605989904$--><p class="CMD"><b>chmod u+rw</b></p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                <!--?lit$3605989904$--><p class="TableText"> Agrega permisos de lectura y escritura para el usuario </p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-3 ">
+                    <!--?lit$3605989904$--><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                <!--?lit$3605989904$--><p class="CMD"><b>chmod o+r</b></p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                <!--?lit$3605989904$--><p class="TableText">Agrega permisos de lectura para otros</p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-4 ">
+                    <!--?lit$3605989904$--><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                <!--?lit$3605989904$--><p class="CMD"><b>chmod g-rwx</b></p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                <!--?lit$3605989904$--><p class="TableText"> Elimina permisos de lectura, escritura y de ejecución para el grupo </p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!---->
+                   </tr>  
+                    <!---->
+                </tbody></table>
+                </div>
+            </div>
+        <div>
+        </div>
+        </div></div></table-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="50083e9d-5d74-4f26-b76f-b1a8672c2561" style="width: 12.5%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="50083e9d-5d74-4f26-b76f-b1a8672c2561" class="50083e9d-5d74-4f26-b76f-b1a8672c2561 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="50083e9d-5d74-4f26-b76f-b1a8672c2561" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3605989904$--><!----><text-view modelid="58ea7aad-bfe8-4c86-bd8f-8f50ff5e9ba6" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="58ea7aad-bfe8-4c86-bd8f-8f50ff5e9ba6" class="component text 58ea7aad-bfe8-4c86-bd8f-8f50ff5e9ba6  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$3605989904$--><h2> Parte 4: modificar los permisos en modo absoluto </h2> <p class="BodyTextL25"> En la parte anterior cambió los permisos en modo simbólico. En modo simbólico, el administrador utiliza el comando <b>chmod</b> con una combinación de letras y símbolos para agregar o eliminar permisos. En esta parte, utilizará el comando <b>chmod</b> y los valores octales para establecer permisos para cada triplete de permisos (rwx) para usuario, grupo y otros. </p> <h3> Paso 1: Cambie el usuario de jenny a joe. </h3> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Para cambiar al escritorio de Joe haga clic en <b>Menu</b> en la parte superior izquierda del escritorio. En la parte inferior del menú desplegable, haga clic en el botón con la información de herramientas <b>End the current session</b>. </p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>Haga clic en <b>Switch User</b> en el cuadro de diálogo. </p> <p class="SubStepAlpha">c.<span>&nbsp;&nbsp;</span>Haga clic en <b>Joe</b> en la lista de usuarios disponibles e introduzca la contraseña <b>joePass</b>. </p> <p class="SubStepAlpha">d.<span>&nbsp;&nbsp;</span>El escritorio de Joe se carga. Desde aquí puede hacer clic con el botón derecho en el escritorio y elegir <b>Open in Terminal</b>. </p> <p class="CMD">joe@labvm:~/Desktop$</p> <h3> Paso 2: Explore el entorno de Joe. </h3> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Ingrese en comando <b>pwd</b> para mostrar el contenido del directorio actual y luego cambie al directorio <b>/home</b> con el comando <b>cd ../..</b>. </p> <p class="CMD">joe@labvm:~/Desktop$ <b>pwd</b></p> <p class="CMDOutput">/home/joe/Desktop</p> <p class="CMD">joe@labvm:~/Desktop$ <b>cd ../..</b></p> <p class="CMD">joe@labvm:/home$</p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>Ingrese el comando <b>ls -l</b> para mostrar todos los directorios en <b>/home</b>, sus permisos y sus usuarios. Observe que la carpeta de Joe está configurada para que “otros” no puedan acceder a la carpeta. </p> <p class="CMD">joe@labvm:/home$ <b>ls -l</b></p> <p class="CMDOutput">total 28</p> <p class="CMDOutput"> drwxr-xr-x&nbsp; 2 Alice Alice 4096 Mar 18 21:58 Alice </p> <p class="CMDOutput"> drwxr-xr-x&nbsp; 2 Bob&nbsp;&nbsp; Bob&nbsp;&nbsp; 4096 Mar 18 21:58 Bob </p> <p class="CMDOutput">drwxr-xr-x 12 cisco cisco 4096 Mar 19 20:02 cisco</p> <p class="CMDOutput"> drwxr-xr-x&nbsp; 2 Eric&nbsp; Eric&nbsp; 4096 Mar 18 21:58 Eric </p> <p class="CMDOutput"> drwxr-xr-x&nbsp; 2 Eve&nbsp;&nbsp; Eve&nbsp;&nbsp; 4096 Mar 18 21:58 Eve </p> <p class="CMDOutput"> drwxr-xr-x&nbsp; 9 jenny jenny 4096 Mar 20 14:02 jenny </p> <p class="CMDOutput"><span style="background: yellow;color:black">drwxr-xr--&nbsp; 9 joe&nbsp;&nbsp; joe&nbsp;&nbsp; 4096 Mar 20 15:01 joe</span></p> <h3> Paso 3: utilice el modo absoluto para modificar y luego verifique los permisos para el directorio de Joe. </h3> <p class="BodyTextL25"> Otra manera de asignar permisos además de utilizar permisos simbólicos es utilizar permisos absolutos. Los permisos absolutos usan un número de tres dígitos octal para representar los permisos de propietario, de grupo y de otros. </p> <p class="BodyTextL25"> La siguiente tabla describe cada valor absoluto y los permisos correspondientes: </p></div>
+        </div>
+      </div>
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="26ad46dd-2787-48fc-a519-d5cd5a212e88" style="width: 12.5%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="26ad46dd-2787-48fc-a519-d5cd5a212e88" class="26ad46dd-2787-48fc-a519-d5cd5a212e88 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="26ad46dd-2787-48fc-a519-d5cd5a212e88" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3605989904$--><!----><table-view modelid="3e2d83b6-3b17-43d3-babc-59b2503b3b39" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+        <div class="table-inner component__inner"> 
+            <div data-socialgoodpulse-id="3e2d83b6-3b17-43d3-babc-59b2503b3b39" class="component table 3e2d83b6-3b17-43d3-babc-59b2503b3b39  is-full   ">
+                <div class="component__header-container">
+                    <div data-socialgoodpulse-id="3e2d83b6-3b17-43d3-babc-59b2503b3b39" class="table ">
+                        <base-view type="component" lowercase_component="table" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header table__header">
+          <div class="component__header-inner table__header-inner">
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                    </div>
+                </div>
+
+
+                <div class="component__widget table__widget">
+                <!--?lit$3605989904$-->
+                <table tabindex="0" style="min-width: 800px" aria-labelledby="table-caption-3e2d83b6-3b17-43d3-babc-59b2503b3b39">
+                <!--?lit$3605989904$--><!---->
+                    <tbody><tr class="table-row nth-child-0 TableHeading">
+                    <!--?lit$3605989904$--><!---->
+            <th scope="col" tabindex="0" rowspan="1" colspan="1" class="table-data table-heading nth-child-0 ">
+                <!--?lit$3605989904$--><p>Número</p>
+                <!--?lit$3605989904$-->
+            </th>
+        <!----><!---->
+            <th scope="col" tabindex="0" rowspan="1" colspan="1" class="table-data table-heading nth-child-1 ">
+                <!--?lit$3605989904$--><p>Permisos</p>
+                <!--?lit$3605989904$-->
+            </th>
+        <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-1 ">
+                    <!--?lit$3605989904$--><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                <!--?lit$3605989904$--><p class="TableText">7</p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                <!--?lit$3605989904$--><p class="TableText">Lectura, escritura y ejecución</p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-2 ">
+                    <!--?lit$3605989904$--><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                <!--?lit$3605989904$--><p class="TableText">6</p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                <!--?lit$3605989904$--><p class="TableText">Lectura y escritura</p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-3 ">
+                    <!--?lit$3605989904$--><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                <!--?lit$3605989904$--><p class="TableText">5</p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                <!--?lit$3605989904$--><p class="TableText">Lectura y ejecución</p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-4 ">
+                    <!--?lit$3605989904$--><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                <!--?lit$3605989904$--><p class="TableText">4</p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                <!--?lit$3605989904$--><p class="TableText">Lectura</p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-5 ">
+                    <!--?lit$3605989904$--><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                <!--?lit$3605989904$--><p class="TableText">3</p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                <!--?lit$3605989904$--><p class="TableText">Escritura y ejecución</p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-6 ">
+                    <!--?lit$3605989904$--><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                <!--?lit$3605989904$--><p class="TableText">2</p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                <!--?lit$3605989904$--><p class="TableText">Escritura</p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-7 ">
+                    <!--?lit$3605989904$--><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                <!--?lit$3605989904$--><p class="TableText">1</p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                <!--?lit$3605989904$--><p class="TableText">Ejecución</p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-8 ">
+                    <!--?lit$3605989904$--><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                <!--?lit$3605989904$--><p class="TableText">0</p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                <!--?lit$3605989904$--><p class="TableText">Ninguno</p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!---->
+                   </tr>  
+                    <!---->
+                </tbody></table>
+                </div>
+            </div>
+        <div>
+        </div>
+        </div></div></table-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="3f8efe24-f282-4072-bd8b-ca7fc3741650" style="width: 12.5%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="3f8efe24-f282-4072-bd8b-ca7fc3741650" class="3f8efe24-f282-4072-bd8b-ca7fc3741650 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="3f8efe24-f282-4072-bd8b-ca7fc3741650" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3605989904$--><!----><text-view modelid="f1dfb67b-9f21-4b70-8192-810702075df6" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="f1dfb67b-9f21-4b70-8192-810702075df6" class="component text f1dfb67b-9f21-4b70-8192-810702075df6  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$3605989904$--><p class="BodyTextL25"> Al escribir el comando <b>chmod 764 examplefile</b> se asignarán los siguientes permisos al archivo "examplefile": </p></div>
+        </div>
+      </div>
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="69553907-73b0-46ee-9a21-a4131792a866" style="width: 12.5%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="69553907-73b0-46ee-9a21-a4131792a866" class="69553907-73b0-46ee-9a21-a4131792a866 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="69553907-73b0-46ee-9a21-a4131792a866" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3605989904$--><!----><table-view modelid="88c42d72-b5c8-470f-9d05-65c990620002" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+        <div class="table-inner component__inner"> 
+            <div data-socialgoodpulse-id="88c42d72-b5c8-470f-9d05-65c990620002" class="component table 88c42d72-b5c8-470f-9d05-65c990620002  is-full   ">
+                <div class="component__header-container">
+                    <div data-socialgoodpulse-id="88c42d72-b5c8-470f-9d05-65c990620002" class="table ">
+                        <base-view type="component" lowercase_component="table" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header table__header">
+          <div class="component__header-inner table__header-inner">
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                    </div>
+                </div>
+
+
+                <div class="component__widget table__widget">
+                <!--?lit$3605989904$-->
+                <table tabindex="0" style="min-width: 800px" aria-labelledby="table-caption-88c42d72-b5c8-470f-9d05-65c990620002">
+                <!--?lit$3605989904$--><!---->
+                    <tbody><tr class="table-row nth-child-0 TableHeading">
+                    <!--?lit$3605989904$--><!---->
+            <th scope="col" tabindex="0" rowspan="1" colspan="1" class="table-data table-heading nth-child-0 ">
+                <!--?lit$3605989904$--><p>Dígito</p>
+                <!--?lit$3605989904$-->
+            </th>
+        <!----><!---->
+            <th scope="col" tabindex="0" rowspan="1" colspan="1" class="table-data table-heading nth-child-1 ">
+                <!--?lit$3605989904$--><p>Equivalente binario</p>
+                <!--?lit$3605989904$-->
+            </th>
+        <!----><!---->
+            <th scope="col" tabindex="0" rowspan="1" colspan="1" class="table-data table-heading nth-child-2 ">
+                <!--?lit$3605989904$--><p>Permiso</p>
+                <!--?lit$3605989904$-->
+            </th>
+        <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-1 ">
+                    <!--?lit$3605989904$--><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                <!--?lit$3605989904$--><p class="TableText">7 (usuario)</p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                <!--?lit$3605989904$--><p class="TableText">111</p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                <!--?lit$3605989904$--><p class="TableText">1-Lectura</p><p class="TableText">1-Escritura</p><p class="TableText">1-Ejecución</p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-2 ">
+                    <!--?lit$3605989904$--><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                <!--?lit$3605989904$--><p class="TableText">6 (grupo)</p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                <!--?lit$3605989904$--><p class="TableText">110</p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                <!--?lit$3605989904$--><p class="TableText">1-Lectura</p><p class="TableText">1-Escritura</p><p class="TableText">0-Sin ejecución</p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-3 ">
+                    <!--?lit$3605989904$--><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="200">
+                <!--?lit$3605989904$--><p class="TableText">4 (otros)</p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-1 " width="">
+                <!--?lit$3605989904$--><p class="TableText">100</p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-2 " width="">
+                <!--?lit$3605989904$--><p class="TableText">1-Lectura</p><p class="TableText">0-Sin escritura</p><p class="TableText">0-Sin ejecución</p>
+                <!--?lit$3605989904$-->
+            </td>
+        <!---->
+                   </tr>  
+                    <!---->
+                </tbody></table>
+                </div>
+            </div>
+        <div>
+        </div>
+        </div></div></table-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="d9283737-4e17-4319-b418-8fa90385d8dc" style="width: 12.5%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="d9283737-4e17-4319-b418-8fa90385d8dc" class="d9283737-4e17-4319-b418-8fa90385d8dc block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="d9283737-4e17-4319-b418-8fa90385d8dc" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3605989904$--><!----><text-view modelid="765b78fc-f374-4603-9a0e-0f0f12e52457" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="765b78fc-f374-4603-9a0e-0f0f12e52457" class="component text 765b78fc-f374-4603-9a0e-0f0f12e52457  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$3605989904$--><p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Modifique el campo "others" de la carpeta de Joe para que otros puedan leer y ejecutar, pero no escribir manteniendo el campo "user" con los permisos para leer, escribir y ejecutar. </p> <p class="CMD">joe@labvm:/home$ <b>chmod 705 joe</b></p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>Liste los permisos de archivo del directorio actual para ver que los cambios absolutos se hayan realizado. </p> <p class="CMD" style="page-break-after: avoid"> joe@labvm:/home$ <b>ls -l</b></p> <p class="CMDOutput">total 28</p> <p class="CMDOutput"> drwxr-xr-x&nbsp; 2 Alice Alice 4096 Mar 18 21:58 Alice </p> <p class="CMDOutput"> drwxr-xr-x&nbsp; 2 Bob&nbsp;&nbsp; Bob&nbsp;&nbsp; 4096 Mar 18 21:58 Bob </p> <p class="CMDOutput">drwxr-xr-x 12 cisco cisco 4096 Mar 19 20:02 cisco</p> <p class="CMDOutput"> drwxr-xr-x&nbsp; 2 Eric&nbsp; Eric&nbsp; 4096 Mar 18 21:58 Eric </p> <p class="CMDOutput"> drwxr-xr-x&nbsp; 2 Eve&nbsp;&nbsp; Eve&nbsp;&nbsp; 4096 Mar 18 21:58 Eve </p> <p class="CMDOutput"> drwxr-xr-x&nbsp; 9 jenny jenny 4096 Mar 20 14:02 jenny </p> <p class="CMDOutput"><span style="background: yellow;color:black">drwx---r-x&nbsp; 9 joe&nbsp;&nbsp; joe&nbsp;&nbsp; 4096 Mar 20 15:01 joe</span></p> <p class="CMDOutput">joe@labvm:/home$</p> <h3> Paso 4: Cree un archivo en el directorio Joe. </h3> <p class="BodyTextL25"> Cambie al directorio joe, utilice el comando <b>touch test.txt</b> para crear un archivo y luego liste el contenido del directorio. </p> <p class="CMD">joe@labvm:/home$ <b>cd joe</b></p> <p class="CMD">joe@labvm:~$ <b>touch test.txt</b></p> <p class="CMD">joe@labvm:~$ <b>ls -l</b></p> <p class="CMDOutput">total 12</p> <p class="CMDOutput">drwxr-xr-x 2 joe joe 4096 Mar 20 15:00 Desktop</p> <p class="CMDOutput">drwxr-xr-x 2 joe joe 4096 Mar 20 15:00 Documents</p> <p class="CMDOutput">drwxr-xr-x 2 joe joe 4096 Mar 20 15:00 Downloads</p> <p class="CMDOutput"><span style="background: yellow;color:black">-rw-rw-r-- 1 joe joe&nbsp;&nbsp;&nbsp; 0 Mar 20 15:33 test.txt</span></p> <p class="CMD">joe@labvm:~$</p> <h3> Paso 5: Cambie el usuario de Joe a Jenny. </h3> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Para cambiar al escritorio de Jenny, haga clic en <b>Menu</b> en la parte superior izquierda del escritorio. En la parte inferior del menú desplegable, haga clic en el botón con la información de herramientas <b>End the current session</b>. </p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>Haga clic en <b>Switch User</b> en el cuadro de diálogo. </p> <p class="SubStepAlpha">c.<span>&nbsp;&nbsp;</span>Haga clic en <b>Jenny</b> en la lista de usuarios disponibles e introduzca la contraseña <b>jenPass</b>. </p> <p class="SubStepAlpha">d.<span>&nbsp;&nbsp;</span>El escritorio de Jenny se carga. Desde aquí puede hacer clic con el botón derecho en el escritorio y elegir <b>Open in Terminal</b>. </p> <p class="CMD">jenny@labvm:~/Desktop$</p> <h3> Paso 6: Cambie al directorio de inicio y liste su contenido. </h3> <p class="CMD">jenny@labvm:~/Desktop$ <b>cd ../..</b></p> <p class="CMD">jenny@labvm:/home$ <b>ls -l</b></p> <p class="CMDOutput">total 28</p> <p class="CMDOutput"> drwxr-xr-x&nbsp; 2 Alice Alice 4096 Mar 18 21:58 Alice </p> <p class="CMDOutput"> drwxr-xr-x&nbsp; 2 Bob&nbsp;&nbsp; Bob&nbsp;&nbsp; 4096 Mar 18 21:58 Bob </p> <p class="CMDOutput">drwxr-xr-x 12 cisco cisco 4096 Mar 19 20:02 cisco</p> <p class="CMDOutput"> drwxr-xr-x&nbsp; 2 Eric&nbsp; Eric&nbsp; 4096 Mar 18 21:58 Eric </p> <p class="CMDOutput"> drwxr-xr-x&nbsp; 2 Eve&nbsp;&nbsp; Eve&nbsp;&nbsp; 4096 Mar 18 21:58 Eve </p> <p class="CMDOutput"> drwxr-xr-x&nbsp; 9 jenny jenny 4096 Mar 20 14:02 jenny </p> <p class="CMDOutput"><span style="background: yellow;color:black">drwx---r-x&nbsp; 9 joe&nbsp;&nbsp; joe&nbsp;&nbsp; 4096 Mar 20 15:01 joe</span></p> <p class="CMD">jenny@labvm:/home$</p> <h3> Paso 7: Cambie al directorio joe y liste el contenido del directorio. </h3> <p class="BodyTextL25"> Observe que el usuario jenny, como miembro de "others", tiene acceso de lectura al directorio joe y también tiene acceso de lectura para el archivo "test.txt". </p> <p class="CMD">jenny@labvm:/home$ <b>cd joe</b></p> <p class="CMD">jenny@labvm:/home/joe$ <b>ls -l</b></p> <p class="CMDOutput">total 12</p> <p class="CMDOutput">drwxr-xr-x 2 joe joe 4096 Mar 20 15:00 Desktop</p> <p class="CMDOutput">drwxr-xr-x 2 joe joe 4096 Mar 20 15:00 Documents</p> <p class="CMDOutput">drwxr-xr-x 2 joe joe 4096 Mar 20 15:00 Downloads</p> <p class="CMDOutput"> -rw-rw-r-- 1 joe joe&nbsp;&nbsp;&nbsp; 0 Mar 22 14:33 test.txt </p> <p class="CMD">jenny@labvm:/home/joe$</p> <h3> Paso 8: Intente crear un  archivo en el directorio joe. </h3> <p class="BodyTextL25"> Observe cómo se le niega al usuario jenny permiso para escribir en el directorio joe. </p> <p class="CMD">jenny@labvm:/home/joe$ <b>touch jenny.txt</b></p> <p class="CMDOutput"> touch: cannot touch 'jenny.txt': <span style="background: yellow;color:black">Permission denied</span></p> <p class="CMD">jenny@labvm:/home/joe$</p> <h3> Paso 9: Cambie el usuario de jenny a cisco y cierre la máquina virtual. </h3> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Haga clic en <b>Menu</b> en la parte superior izquierda del escritorio. En la parte inferior del menú desplegable, haga clic en el botón con la información de herramientas <b>End the current session</b>. </p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>Haga clic en <b>Switch User</b> en el cuadro de diálogo. </p> <p class="SubStepAlpha">c.<span>&nbsp;&nbsp;</span>Haga clic en <b>Cybersecurity Analyst</b> en la lista de usuarios disponibles e introduzca <b>password</b> como contraseña. </p> <p class="SubStepAlpha">d.<span>&nbsp;&nbsp;</span>Haga clic en <b>File</b> &gt; <b>Close</b>, elija <b>Save the machine state</b> y luego haga clic en <b>OK</b>. </p></div>
+        </div>
+      </div>
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="d6743a33-b892-4212-9603-c9b5c1679a3a" style="width: 12.5%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="d6743a33-b892-4212-9603-c9b5c1679a3a" class="d6743a33-b892-4212-9603-c9b5c1679a3a block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="d6743a33-b892-4212-9603-c9b5c1679a3a" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3605989904$--><!----><text-view modelid="e3d1529f-0abd-4265-8ee4-1d99bacdf80c" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="e3d1529f-0abd-4265-8ee4-1d99bacdf80c" class="component text e3d1529f-0abd-4265-8ee4-1d99bacdf80c  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$3605989904$--><span><br><hr><span style=" padding-right: 5px; float: left; font-family: arial; font-size: 12px; ">© 2017 - 2022 Cisco and/or its affiliates. All rights reserved. Cisco Public </span><br></span></div>
+        </div>
+      </div>
+            <!--?lit$3605989904$-->
+            <!--?lit$3605989904$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!---->
+                            </div>
+                        </div>
+                        <!--?lit$3605989904$-->
+                    </div>
+                </div>
+            </div>
+        <script></script>
+<script>
+    window.addEventListener("load", function () {
+      console.log("loaded");
+      document?.querySelectorAll(".answergray").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".show-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.remove("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.add("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      let event = new Event("click", {
+        bubbles: true,
+        cancelable: true,
+      });
+      document
+        ?.querySelectorAll(".openTextBoxController__showButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".show-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__hideButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__resetButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            document?.querySelectorAll("textArea").forEach(function (ele) {
+              ele.value = "";
+            });
+          });
+        });
+
+      document
+      ?.querySelectorAll('textarea')
+      .forEach(function (ele){
+        ele.defaultValue = ele.defaultValue.replace(/<!--.*?-->/g, '');
+      })
+        let checkButtonLabel = "check_button_label_placeHolder";
+        let hideButtonLabel = "hide_button_label_placeHolder";
+        document?.querySelectorAll(".check__button").forEach(function (ele) {
+        let answerBox = document.querySelector(".check__solution")
+        if (!answerBox.classList.contains("check__hidden")) {
+          answerBox.classList.add("check__hidden");
+          ele.innerText = checkButtonLabel;
+        }
+          ele.addEventListener("click", function (e) {
+            if (answerBox.classList.contains("check__hidden")) {
+              answerBox.classList.remove("check__hidden")
+              ele.innerText = hideButtonLabel;
+            } else {
+              answerBox.classList.add("check__hidden")
+              ele.innerText = checkButtonLabel;
+            }
+          })
+        })
+    });
+  </script>
+  </body></html>

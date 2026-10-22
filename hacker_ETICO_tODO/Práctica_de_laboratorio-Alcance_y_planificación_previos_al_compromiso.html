@@ -1,0 +1,2696 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 1rem;
+      }
+      ol,
+      ul {
+        margin-bottom: 0in;
+      }
+      table {
+        margin-top: 1rem;
+        border: 1px solid gray;
+        width: 7in;
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > .openTableTextBox__table-header-data {
+        text-align: center;
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0in;
+        text-align: center;
+        line-height: 115%;
+        page-break-after: avoid;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        font-weight: bold;
+        background: #dbe5f1;
+        padding: 0.5rem;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .openTextBox__textArea-container {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 50%;
+      }
+      .openTableTextBox__fieldset {
+        padding: 5px;
+      }
+      td {
+        margin-top: 3pt;
+        margin-right: 0in;
+        margin-bottom: 3pt;
+        margin-left: 0in;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 98.85pt;
+        border: solid windowtext 1pt;
+        border-top: none;
+        padding: 0.7pt 5.75pt 0.7pt 5.75pt;
+      }
+      textarea {
+        width: 100%;
+      }
+      .answergray {
+        padding: 0.2rem;
+      }
+
+      .openTableTextBox__widget {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0.25in;
+      }
+
+      .show-answer,
+      .hide-answer {
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border: 0px;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .openTextBoxController__button-container {
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .openTextBoxController__button-container .btn-text {
+        margin: 10px;
+      }
+
+      .btn-text {
+        border: 0px;
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border-radius: 0;
+        cursor: pointer;
+      }
+
+      .u-display-none {
+        display: none;
+      }
+      .openTextBox__postText, openTableTextBox__postText {
+        margin-top: 0.5rem;
+      }
+      .edit-comment {
+        display: none;
+      }
+      .js-heading-inner {
+        display: none;
+      }
+      .block__title-inner,
+      .article__title-inner {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+      h2{
+        font-size: 1.25em;
+      }
+      h3{
+        font-size: 1.125em;
+      }
+      .table
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: solid windowtext 1pt;
+      }
+      table tbody tr th, table thead tr th{
+        border: solid windowtext 1pt;
+        background-color: #d6d8dc;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .command-output > .table-inner > .table-wrapper > .table-widget > table,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > td,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: none !important;
+        text-align: right !important;
+      }
+      .simple-table > .table-inner > .table-wrapper{
+        margin-left: 1.5rem;
+      }
+      .openTextBox__widget {
+        margin-left: 1.5rem;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      .answergray {
+        background-color: #ccc;
+      }
+      .openTableTextBox__widget > .answergray {
+        background-color: #fff !important;
+      }
+      li > ul,ol > li{
+        margin-left: 0px !important;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      
+      .component__title{
+        font-family: inherit;
+        font-size: 1.65em;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .component__body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .accessibility-completion-indicator{
+        display: none;
+      }
+
+      .check__hidden {
+        display: none;
+      }
+
+      .check__button {
+        border: none;
+        border-radius: 6px !important;
+        background-color: #6abf4b;
+        color: #fff;
+        min-width: 100px;
+        margin: 0.625rem 0;
+        padding: 0.7rem;
+      }
+
+      .check__widget .check__solution .DevConfigGray {
+        background-color: rgb(214,216,220);
+        font-weight: bold;
+      }
+
+      .check-inner .check__widget .check__solution .DevConfigs {
+        margin: 0px;
+        line-height: 115%;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .check__solution  {
+        line-height: 1.5;
+      }
+      .mcq__inner .mcq__widget .mcq__widget-inner {
+        margin-block: 1rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item {
+        display: flex;
+        gap: 0.2rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item .mcq__item-label .mcq__item-text .screenReader-position-text{
+        display: none;
+      }
+      .opentabletextbox-inner .opentabletextBox__widget .openTableTextBox__answerText.answergray {
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox{
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox img{
+        margin-block: 1rem;
+        margin-left: initial;
+      }
+      .component__content .component__body-inner .pageTracer-h4-title-hide {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        font-size: 0px;
+        color: rgb(var(--neutral-2));
+        font-weight: normal;
+      }
+      .table-inner .table__widget table tr.TableHeading th, .table-inner .table__widget table tr.TableHeading td, .table-inner .table__widget table tr td.TableHeading, .opentabletextbox-table thead tr.TableHeading th, .opentabletextbox-table tbody tr.TableHeading td, .opentabletextbox-table tbody tr td.TableHeading {
+        background-color: #d6d8dc;
+        text-align: center;
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .CMD, .component__content .component__body-inner .CMDOutput, .component__content .component__body-inner .CMDOutput__table{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        margin-inline-start: 30px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      [dir="rtl"] .component__content .component__body-inner .CMDOutput__table span {
+        direction: ltr;
+        display: inline-block;
+      }
+      .openTextBox__inner .openTextBox__widget .CMD, .openTextBox__inner .openTextBox__widget .CMDOutput{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .openTextBox__inner .openTextBox__widget .DnTbold, .openTextBox__inner .openTextBox__widget .BodyTextL25Bold, .component__content .component__body-inner .BodyTextL25Bold, .component__content .component__body-inner .DnTbold, .table-inner .table__widget table tr .DnTbold {
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .SubStepNum {
+        text-indent: -25.5px;
+        margin-inline-start: 50px;
+      }
+      .component__content .component__body-inner .BodyTextL50 {
+        margin-inline-start: 30px;
+      }
+      .component__content .component__body-inner .Bulletlevel1 {
+        text-indent: -19px;
+        margin-inline-start: 48px;
+      }
+      .component__content .component__body-inner .Bulletlevel2 {
+          text-indent: -19px;
+          margin-inline-start: 72px;
+      }
+      .openTextBox__inner .openTextBox__widget .ReflectionQ, .component__content .component__body-inner .SubStepAlpha {
+          text-indent: -25.5px;
+          margin-inline-start: 30px;
+      }
+    </style>
+
+</head><body><!---->
+            <div class="article 64417f8e6a920d15779a38be remove-top-padding remove-padding-bottom ">
+                <div class="article__inner">
+                <div class=" no-adaptive-scroll">
+                    <!--?lit$856329173$-->
+                        <div class=""> 
+                            <base-view type="article" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="article__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="article__header ">
+          <div class="article__header-inner ">
+            <!--?lit$856329173$-->
+      <div class="article__title ">
+        <!--?lit$856329173$--><heading-view aria-hidden="true" id="64417f8e6a920d15779a38be-heading-view" headingtitle="Práctica de laboratorio - Alcance y planificación previos al compromiso" modelid="64417f8e6a920d15779a38be" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="js-heading is-incomplete">
+        <div class="js-heading-inner" role="heading" id="article-heading" aria-level="2">
+        <span class="aria-label"> <!--?lit$856329173$-->Incompleto &nbsp;<!--?lit$856329173$-->Práctica de laboratorio - Alcance y planificación previos al compromiso</span>
+        </div>
+      </div>
+    </heading-view>
+        <div tabindex="0" role="heading" class="article__title-inner " aria-level="2">
+          <span class="accessibility-completion-indicator"><!--?lit$856329173$-->Incompleto </span>
+          <!--?lit$856329173$-->Práctica de laboratorio - Alcance y planificación previos al compromiso
+        </div>
+      </div>
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                            <div class="block__container " style="">
+                                <!--?lit$856329173$--><!---->
+                                    <block-view modelid="6441806d6a920d15779a38c7" style="width: 4.54545%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6441806d6a920d15779a38c7" class="6441806d6a920d15779a38c7 block remove-top-padding is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6441806d6a920d15779a38c7" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$856329173$--><!----><dynamic-graphic-view modelid="644180ad6a920d15779a38cb" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component" style="--current-width: 540.75px; --current-height: 349.9336206896552px; --scale-factor: 0.621551724137931;" fadeoutoverlay=""><!---->
+      <!--?lit$856329173$--><link rel="stylesheet" href="_assets/media/2e3818c0-e276-11ed-9e51-f1cf306cb21a/6c510cb0-e277-11ed-86da-457cd4e337bc.css">
+      <!--?lit$856329173$-->
+      <style>
+        .dynamic-graphic-display {
+          padding: var(--container-padding);
+        }
+        .dynamic-graphic-content {
+          width: var(--current-width);
+          height: var(--current-height);
+
+          > * {
+            height: <!---->563px;
+            width: <!---->870px;
+            transform: scale(var(--scale-factor));
+            -webkit-transform: scale(var(--scale-factor), var(--scale-factor));
+          }
+        }
+      <!----></style>
+      <div data-socialgoodpulse-id="644180ad6a920d15779a38cb" class="component dynamic-graphic 644180ad6a920d15779a38cb  is-full is-complete  ">
+        <div class="component__header-container">
+          <base-view type="component" lowercase_component="dynamic-graphic" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header dynamic-graphic__header">
+          <div class="component__header-inner dynamic-graphic__header-inner">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body dynamic-graphic__body">
+          <div class="component__body-inner dynamic-graphic__body-inner"><!--?lit$856329173$--><h1>Topología</h1></div>
+        </div>
+      </div>
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+        </div>
+        <div class="component__widget">
+          <div class="a11y_description screen-reader-hide" aria-live="polite" id="a11y_description-2e3818c0-e276-11ed-9e51-f1cf306cb21a">
+            <!--?lit$856329173$--><!--?-->
+          </div>
+          <div tabindex="0" role="figure" id="2e3818c0-e276-11ed-9e51-f1cf306cb21a" class="dynamic-graphic-container 2e3818c0-e276-11ed-9e51-f1cf306cb21a" aria-labelledby="a11y_description-2e3818c0-e276-11ed-9e51-f1cf306cb21a">
+            <div dir="ltr" class="dynamic-graphic-display">
+              <div role="presentation" aria-hidden="true" class="overlay removed"></div>
+              <div class="dynamic-graphic-content">
+                <!-- Primary image, usually SVG -->
+                <div class="primary-image-wrapper">
+                  <inline-svg-viewer src="./_assets/media/2e3818c0-e276-11ed-9e51-f1cf306cb21a/6c4fad20-e277-11ed-86da-457cd4e337bc.svg" stylesheet="media/2e3818c0-e276-11ed-9e51-f1cf306cb21a/6c510cb0-e277-11ed-86da-457cd4e337bc.css"></inline-svg-viewer>
+                </div>
+                <!-- Text items for display -->
+                <!--?lit$856329173$-->
+                      <div class="dynamic-text" dir="ltr">
+                        <!--?lit$856329173$--><!---->
+                              <div id="text1" class="dynamic-text-item text1">
+                                <!--?lit$856329173$-->LAN
+                              </div>
+                            <!----><!---->
+                              <div id="text2" class="dynamic-text-item text2">
+                                <!--?lit$856329173$-->DMZ
+                              </div>
+                            <!----><!---->
+                              <div id="text3" class="dynamic-text-item text3">
+                                <!--?lit$856329173$-->Data Center
+                              </div>
+                            <!----><!---->
+                              <div id="text4" class="dynamic-text-item text4">
+                                <!--?lit$856329173$-->Admin
+                              </div>
+                            <!----><!---->
+                              <div id="text5" class="dynamic-text-item text5">
+                                <!--?lit$856329173$-->Warehouse
+                              </div>
+                            <!----><!---->
+                              <div id="text6" class="dynamic-text-item text6">
+                                <!--?lit$856329173$-->Finance
+                              </div>
+                            <!----><!---->
+                              <div id="text7" class="dynamic-text-item text7">
+                                <!--?lit$856329173$-->Customer Service
+                              </div>
+                            <!----><!---->
+                              <div id="text8" class="dynamic-text-item text8">
+                                <!--?lit$856329173$-->Shipping
+                              </div>
+                            <!----><!---->
+                              <div id="text9" class="dynamic-text-item text9">
+                                <!--?lit$856329173$-->Information Technology
+                              </div>
+                            <!----><!---->
+                              <div id="text10" class="dynamic-text-item text10">
+                                <!--?lit$856329173$-->Amazon Support
+                              </div>
+                            <!----><!---->
+                              <div id="text11" class="dynamic-text-item text11">
+                                <!--?lit$856329173$-->Admin
+                              </div>
+                            <!----><!---->
+                              <div id="text12" class="dynamic-text-item text12">
+                                <!--?lit$856329173$-->Operations
+                              </div>
+                            <!----><!---->
+                              <div id="text13" class="dynamic-text-item text13">
+                                <!--?lit$856329173$-->Logistics
+                              </div>
+                            <!----><!---->
+                              <div id="text14" class="dynamic-text-item text14">
+                                <!--?lit$856329173$-->SQL Server
+                              </div>
+                            <!----><!---->
+                              <div id="text15" class="dynamic-text-item text15">
+                                <!--?lit$856329173$-->SAN
+                              </div>
+                            <!---->
+                      </div>
+                    
+                <!-- Image items for display -->
+                <!--?lit$856329173$-->
+              </div>
+            </div>
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </dynamic-graphic-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6441822b713d6115ddf3b011" style="width: 4.54545%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6441822b713d6115ddf3b011" class="6441822b713d6115ddf3b011 block remove-top-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6441822b713d6115ddf3b011" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$856329173$--><!----><table-view modelid="64418387713d6115ddf3b013" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+        <div class="table-inner component__inner"> 
+            <div data-socialgoodpulse-id="64418387713d6115ddf3b013" class="component table 64418387713d6115ddf3b013 remove-top-padding remove-padding-bottom is-full   ">
+                <div class="component__header-container">
+                    <div data-socialgoodpulse-id="64418387713d6115ddf3b013" class="table remove-top-padding remove-padding-bottom">
+                        <base-view type="component" lowercase_component="table" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header table__header">
+          <div class="component__header-inner table__header-inner">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body table__body">
+          <div class="component__body-inner table__body-inner"><!--?lit$856329173$--><h1>Tabla de direccionamiento: Centro de datos</h1></div>
+        </div>
+      </div>
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                    </div>
+                </div>
+
+
+                <div class="component__widget table__widget">
+                <!--?lit$856329173$-->
+                    <!--?lit$856329173$-->Tabla de direccionamiento: Centro de datos
+                
+                <table tabindex="0" style="min-width: px" aria-labelledby="table-caption-64418387713d6115ddf3b013">
+                <!--?lit$856329173$--><!---->
+                    <tbody><tr class="table-row nth-child-0 ">
+                    <!--?lit$856329173$--><!---->
+            <th scope="col" tabindex="0" rowspan="1" colspan="1" class="table-data table-heading nth-child-0 ">
+                <!--?lit$856329173$--><p>Servidores</p>
+                <!--?lit$856329173$-->
+            </th>
+        <!----><!---->
+            <th scope="col" tabindex="0" rowspan="1" colspan="2" class="table-data table-heading nth-child-1 ">
+                <!--?lit$856329173$--><p>VLAN</p>
+                <!--?lit$856329173$-->
+            </th>
+        <!----><!---->
+            <th scope="col" tabindex="0" rowspan="1" colspan="3" class="table-data table-heading nth-child-2 ">
+                <!--?lit$856329173$--><p>Dirección IP</p>
+                <!--?lit$856329173$-->
+            </th>
+        <!----><!---->
+            <th scope="col" tabindex="0" rowspan="1" colspan="4" class="table-data table-heading nth-child-3 ">
+                <!--?lit$856329173$--><p>172.16.33.0/30</p>
+                <!--?lit$856329173$-->
+            </th>
+        <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-1 ">
+                    <!--?lit$856329173$--><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="">
+                <!--?lit$856329173$--><p><span class="DnTnobold"><span>Administración</span></span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="2" class="table-data nth-child-1 " width="">
+                <!--?lit$856329173$--><p><span class="DnTnobold"><span>2 - 5</span></span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="3" class="table-data nth-child-2 " width="">
+                <!--?lit$856329173$--><p><span>172.24.1.0/24</span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="4" class="table-data nth-child-3 " width="">
+                <!--?lit$856329173$--><p><span>(4) 255.255.255.192</span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-2 ">
+                    <!--?lit$856329173$--><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="">
+                <!--?lit$856329173$--><p><span class="DnTnobold"><span>Soporte de Amazon</span></span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="2" class="table-data nth-child-1 " width="">
+                <!--?lit$856329173$--><p><span class="DnTnobold"><span>10 - 25</span></span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="3" class="table-data nth-child-2 " width="">
+                <!--?lit$856329173$--><p><span>172.25.0.0/16</span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="4" class="table-data nth-child-3 " width="">
+                <!--?lit$856329173$--><p><span>(11) 255.255.252.0</span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-3 ">
+                    <!--?lit$856329173$--><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="">
+                <!--?lit$856329173$--><p><span class="DnTnobold"><span>Operaciones</span></span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="2" class="table-data nth-child-1 " width="">
+                <!--?lit$856329173$--><p><span class="DnTnobold"><span>50 - 55</span></span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="3" class="table-data nth-child-2 " width="">
+                <!--?lit$856329173$--><p><span>172.26.0.0/21</span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="4" class="table-data nth-child-3 " width="">
+                <!--?lit$856329173$--><p><span>(5) 255.255.255.0</span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-4 ">
+                    <!--?lit$856329173$--><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="">
+                <!--?lit$856329173$--><p><span class="DnTnobold"><span>Logística</span></span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="2" class="table-data nth-child-1 " width="">
+                <!--?lit$856329173$--><p><span class="DnTnobold"><span>80 – 85</span></span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="3" class="table-data nth-child-2 " width="">
+                <!--?lit$856329173$--><p><span>172.27.0.0/21</span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="4" class="table-data nth-child-3 " width="">
+                <!--?lit$856329173$--><p><span>(5) 255.255.255.0</span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-5 ">
+                    <!--?lit$856329173$--><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="">
+                <!--?lit$856329173$--><p><span class="DnTnobold"><span>Administración</span></span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="2" class="table-data nth-child-1 " width="">
+                <!--?lit$856329173$--><p><span class="DnTnobold"><span>100 - 110</span></span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="3" class="table-data nth-child-2 " width="">
+                <!--?lit$856329173$--><p><span>172.30.0.0/16</span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="4" class="table-data nth-child-3 " width="">
+                <!--?lit$856329173$--><p><span>varios según sea necesario</span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!---->
+                   </tr>  
+                    <!---->
+                </tbody></table>
+                </div>
+            </div>
+        <div>
+        </div>
+        </div></div></table-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6441859a713d6115ddf3b015" style="width: 4.54545%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6441859a713d6115ddf3b015" class="6441859a713d6115ddf3b015 block remove-top-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6441859a713d6115ddf3b015" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$856329173$--><!----><table-view modelid="6441859a713d6115ddf3b016" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+        <div class="table-inner component__inner"> 
+            <div data-socialgoodpulse-id="6441859a713d6115ddf3b016" class="component table 6441859a713d6115ddf3b016 remove-top-padding remove-padding-bottom is-full   ">
+                <div class="component__header-container">
+                    <div data-socialgoodpulse-id="6441859a713d6115ddf3b016" class="table remove-top-padding remove-padding-bottom">
+                        <base-view type="component" lowercase_component="table" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header table__header">
+          <div class="component__header-inner table__header-inner">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body table__body">
+          <div class="component__body-inner table__body-inner"><!--?lit$856329173$--><h1>Tabla de direccionamiento: LAN</h1></div>
+        </div>
+      </div>
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                    </div>
+                </div>
+
+
+                <div class="component__widget table__widget">
+                <!--?lit$856329173$-->
+                    <!--?lit$856329173$-->Tabla de direccionamiento: LAN
+                
+                <table tabindex="0" style="min-width: px" aria-labelledby="table-caption-6441859a713d6115ddf3b016">
+                <!--?lit$856329173$--><!---->
+                    <tbody><tr class="table-row nth-child-0 ">
+                    <!--?lit$856329173$--><!---->
+            <th scope="col" tabindex="0" rowspan="1" colspan="1" class="table-data table-heading nth-child-0 ">
+                <!--?lit$856329173$--><p>Departamento</p>
+                <!--?lit$856329173$-->
+            </th>
+        <!----><!---->
+            <th scope="col" tabindex="0" rowspan="1" colspan="2" class="table-data table-heading nth-child-1 ">
+                <!--?lit$856329173$--><p>VLAN</p>
+                <!--?lit$856329173$-->
+            </th>
+        <!----><!---->
+            <th scope="col" tabindex="0" rowspan="1" colspan="3" class="table-data table-heading nth-child-2 ">
+                <!--?lit$856329173$--><p>Dirección&nbsp;IP</p>
+                <!--?lit$856329173$-->
+            </th>
+        <!----><!---->
+            <th scope="col" tabindex="0" rowspan="1" colspan="4" class="table-data table-heading nth-child-3 ">
+                <!--?lit$856329173$--><p>Máscara de subred</p>
+                <!--?lit$856329173$-->
+            </th>
+        <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-1 ">
+                    <!--?lit$856329173$--><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="">
+                <!--?lit$856329173$--><p><span class="DnTnobold"><span>Administración</span></span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="2" class="table-data nth-child-1 " width="">
+                <!--?lit$856329173$--><p><span class="DnTnobold"><span>120</span></span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="3" class="table-data nth-child-2 " width="">
+                <!--?lit$856329173$--><p><span>172.16.1.0</span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="4" class="table-data nth-child-3 " width="">
+                <!--?lit$856329173$--><p><span>255.255.255.0</span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-2 ">
+                    <!--?lit$856329173$--><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="">
+                <!--?lit$856329173$--><p><span class="DnTnobold"><span>Subred de</span></span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="2" class="table-data nth-child-1 " width="">
+                <!--?lit$856329173$--><p><span class="DnTnobold"><span>130</span></span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="3" class="table-data nth-child-2 " width="">
+                <!--?lit$856329173$--><p><span>172.16.4.0</span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="4" class="table-data nth-child-3 " width="">
+                <!--?lit$856329173$--><p><span>255.255.255.0</span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-3 ">
+                    <!--?lit$856329173$--><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="">
+                <!--?lit$856329173$--><p><span class="DnTnobold"><span>Tecnología de la información</span></span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="2" class="table-data nth-child-1 " width="">
+                <!--?lit$856329173$--><p><span class="DnTnobold"><span>140</span></span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="3" class="table-data nth-child-2 " width="">
+                <!--?lit$856329173$--><p><span>172.16.8.0</span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="4" class="table-data nth-child-3 " width="">
+                <!--?lit$856329173$--><p><span>255.255.255.0</span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-4 ">
+                    <!--?lit$856329173$--><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="">
+                <!--?lit$856329173$--><p><span class="DnTnobold"><span>Depósito</span></span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="2" class="table-data nth-child-1 " width="">
+                <!--?lit$856329173$--><p><span class="DnTnobold"><span>150</span></span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="3" class="table-data nth-child-2 " width="">
+                <!--?lit$856329173$--><p><span>172.16.12.0</span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="4" class="table-data nth-child-3 " width="">
+                <!--?lit$856329173$--><p><span>255.255.255.0</span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-5 ">
+                    <!--?lit$856329173$--><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="">
+                <!--?lit$856329173$--><p><span class="DnTnobold"><span>Atención al cliente</span></span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="2" class="table-data nth-child-1 " width="">
+                <!--?lit$856329173$--><p><span class="DnTnobold"><span>160</span></span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="3" class="table-data nth-child-2 " width="">
+                <!--?lit$856329173$--><p><span>172.16.16.0</span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="4" class="table-data nth-child-3 " width="">
+                <!--?lit$856329173$--><p><span>255.255.255.0</span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!---->
+                   </tr>  
+                    <!----><!---->
+                    <tr class="table-row nth-child-6 ">
+                    <!--?lit$856329173$--><!---->
+            <td tabindex="0" rowspan="1" colspan="1" class="table-data nth-child-0 " width="">
+                <!--?lit$856329173$--><p><span class="DnTnobold"><span>Envío</span></span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="2" class="table-data nth-child-1 " width="">
+                <!--?lit$856329173$--><p><span class="DnTnobold"><span>170</span></span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="3" class="table-data nth-child-2 " width="">
+                <!--?lit$856329173$--><p><span>172.16.20.0</span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!----><!---->
+            <td tabindex="0" rowspan="1" colspan="4" class="table-data nth-child-3 " width="">
+                <!--?lit$856329173$--><p><span>255.255.255.0</span></p>
+                <!--?lit$856329173$-->
+            </td>
+        <!---->
+                   </tr>  
+                    <!---->
+                </tbody></table>
+                </div>
+            </div>
+        <div>
+        </div>
+        </div></div></table-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64418b616a920d15779a38ce" style="width: 4.54545%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64418b616a920d15779a38ce" class="64418b616a920d15779a38ce block remove-top-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64418b616a920d15779a38ce" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$856329173$--><!----><text-view modelid="64418b79713d6115ddf3b017" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64418b79713d6115ddf3b017" class="component text 64418b79713d6115ddf3b017 remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$856329173$--><h1>Objetivos</h1><p>Obtener un acuerdo sobre las reglas de enfrentamiento que se aplican a una prueba de penetración o auditoría de seguridad es el primer paso en cualquier compromiso con un cliente. Es importante dedicar tiempo a garantizar que tanto su empresa como el cliente tengan una comprensión clara de los términos y el alcance del trabajo de prueba.</p><ul><li><!--[if !supportLists]--><!--[endif]-->Cree un alcance de la prueba de penetración y planifique un documento que aborde los requisitos para los servicios de pruebas de penetración que se recopilaron del cliente.</li><li><!--[if !supportLists]-->Determinar las reglas de los elementos del compromiso.</li></ul></div>
+        </div>
+      </div>
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64418c5b6a920d15779a38d1" style="width: 4.54545%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64418c5b6a920d15779a38d1" class="64418c5b6a920d15779a38d1 block remove-top-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64418c5b6a920d15779a38d1" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$856329173$--><!----><text-view modelid="64418c5b6a920d15779a38d2" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64418c5b6a920d15779a38d2" class="component text 64418c5b6a920d15779a38d2 remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$856329173$--><h1>Trasfondo / Escenario</h1><p>Se estableció contacto con su empresa para realizar una auditoría de seguridad para Nexus Plaza, <span>una empresa minorista en línea</span>. Se le ha asignado para ayudar al auditor líder a desarrollar el alcance del trabajo de prueba. Utilice el diagrama de red y la transcripción de la entrevista con el CEO de la empresa y el director de TI para completar la Hoja de trabajo del alcance.</p><p><strong>Entrevista con CEO y director de TI</strong></p><p style="margin-left:.25in"><strong>CEO</strong>: Bienvenido a Nexus Plaza. Lo invitamos a iniciar nuestro compromiso y analizar lo que esperamos de esta auditoría de seguridad. Estamos ansiosos por garantizar que nuestra infraestructura de seguridad cumpla o supere las salvaguardas necesarias. Le pasaré esto a nuestro director de TI para que describa nuestro entorno de red.</p><p style="margin-left:.25in"><strong>Director de TI</strong>: Como sabe, somos principalmente una empresa minorista en línea. Nuestros sitios de comercio electrónico orientados al cliente se alojan en Amazon, pero todas nuestras comunicaciones, almacenamiento y servicios de TI de envío se manejan internamente. Operamos un centro de datos local en Houston que respalda nuestras instalaciones de fabricación y almacenamiento. Actualmente hay 25 servidores separados en tres clústeres: administración, operaciones y logística. Además, operamos un clúster que brinda soporte para nuestra tienda de Amazon. El acceso remoto a estos sistemas se realiza a través de SSL o IPsec VPN. Usamos dos ISP para conectarnos a Internet, pero uno se usa principalmente para las comunicaciones con Amazon para admitir pedidos en tiempo real, inventario y contacto con clientes.</p><p style="margin-left:.25in"><strong>CEO</strong>: Recientemente, uno de nuestros competidores sufrió un ataque de ransomware dirigido a su sistema de inventario de producción. Perdieron una cantidad significativa de pedidos de clientes debido a que no podían recoger y enviar el inventario a tiempo. Nos preocupa que nuestros sistemas de depósito y envío puedan tener vulnerabilidades que podrían cerrarnos de manera similar si se produce una infracción. Cuando depende de una entrega rápida a los clientes, cualquier demora es un desastre.</p><p style="margin-left:.25in"><strong>Director de TI</strong>: Los sistemas que soportan nuestro almacenamiento y envío se encuentran en dos clústeres en el centro de datos: operaciones y logística. El acceso interno a estos sistemas está restringido al personal de administración del almacén, el personal de TI y los empleados de control de inventario. Nuestro sistema de control de inventario es compatible con una base de datos Microsoft SQL Server. Como puede ver en el diagrama, la base de datos SQL se aloja en una SAN separada con conexiones tanto al almacén como a los sistemas de producción. Nuestro negocio depende de nuestro acceso a Amazon; por lo tanto, ninguna prueba debe invadir los clústeres de centros de datos que contienen los datos y el inventario de la tienda de Amazon. Estos se identifican en el diagrama.</p><p style="margin-left:.25in"><strong>CEO</strong>: Queremos que pruebe los controles de seguridad para garantizar que un atacante que obtenga correctamente el acceso a una cuenta de usuario final y una computadora dentro del depósito no pueda obtener acceso de administrador a ninguno de los servidores o tener acceso al inventario de producción base de datos. También queremos asegurarnos de que el software y los sistemas operativos estén actualizados y que no haya vulnerabilidades conocidas en nuestras aplicaciones.</p><p style="margin-left:.25in"><strong>Director de TI</strong>: le brindaremos acceso interno a través de una VLAN aislada dentro del departamento de TI desde la que podrá realizar las pruebas. Hay un cortafuego con IDS integrado que separa las redes del centro de datos de la LAN corporativa, incluido el departamento de TI. Dentro del centro de datos, cada servidor tiene un cortafuego local habilitado. El DNS interno se proporciona a través de los servicios de Microsoft Active Directory y el DNS externo es un servidor Linux ubicado en una DMZ separada. El acceso externo a los clústeres de operaciones y logística se limita a los empleados que se conectan a través de VPN. No se permite el acceso HTTP a estos clústeres. Los servidores de estos dos clústeres no tienen acceso a Internet, excepto para obtener actualizaciones de software automáticas.</p><p style="margin-left:.25in"><strong>CEO</strong>: Debido a que los sistemas que queremos que pruebe son sistemas de producción, esperamos limitar al mínimo las interrupciones causadas por las pruebas. Le daremos acceso a un sistema de desarrollo Microsoft SQL Server que está configurado de manera idéntica al sistema de producción con un espejo de la base de datos.</p><p style="margin-left:.25in"><strong>Director de TI</strong>: Sí, quiero reforzar la necesidad de mantener las interrupciones al mínimo. Le daremos un intervalo de tiempo durante nuestro período de mantenimiento programado normal para realizar pruebas de carga y simulaciones de ataques de denegación de servicio. Nuestro período de mantenimiento programado es entre las 2:00 a. M. Y las 6:00 a. M. Los viernes, sábados y domingos. Se pueden ejecutar otras pruebas no disruptivas durante el horario comercial normal.</p><p style="margin-left:.25in"><strong>CEO</strong>: Estamos limitando la cantidad de personal de TI que está al tanto de las pruebas. Solo se notificará al personal de TI directamente responsable del monitoreo de las operaciones y los sistemas de logística cuando se realizarán las pruebas. Proporcionaremos una lista de direcciones de correo electrónico del personal de operaciones y depósitos, ya que nos preocupa que la mayoría de los ransomware y las infracciones de datos comiencen con un ataque de ingeniería social exitoso. Los usuarios finales no se darán cuenta de que se están realizando las pruebas. Esperamos que el compromiso comience dos semanas después de la firma del contrato y el acuerdo de confidencialidad. Esperamos el informe final en un plazo de 60 días.</p><p>Sus contactos principales para esta interacción son el director de TI, el gerente de depósito y el gerente de operaciones. Programe un informe de actualización semanal y una teleconferencia para informarles sobre el progreso de las pruebas y los resultados intermedios.</p></div>
+        </div>
+      </div>
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64418d30713d6115ddf3b019" style="width: 4.54545%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64418d30713d6115ddf3b019" class="64418d30713d6115ddf3b019 block remove-top-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64418d30713d6115ddf3b019" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$856329173$--><!----><text-view modelid="64418d30713d6115ddf3b01a" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64418d30713d6115ddf3b01a" class="component text 64418d30713d6115ddf3b01a remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$856329173$--><h1>Instrucciones</h1><h2 style="margin-left:0in"><!--[if !supportLists]--><span><span>Parte 1: </span></span><!--[endif]-->Determine el alcance del compromiso</h2><h3 style="margin-left:0in"><!--[if !supportLists]--><span><span>Paso 1: </span></span><!--[endif]-->Analice la información obtenida del cliente.</h3><ol start="1" style="list-style-type:lower-alpha"><li><!--[if !supportLists]-->Revise la información obtenida en la entrevista con el CEO y el director de TI del cliente.</li><li><!--[if !supportLists]--><!--[endif]-->Identifique los puntos que influyen en el alcance del proyecto y las reglas para entablar combate.</li></ol><h3 style="margin-left:0in"><!--[if !supportLists]--><span><span>Paso 2: </span></span><!--[endif]-->Complete la hoja de trabajo del alcance.</h3><p>Utilice la información que identificó en la transcripción de la entrevista para completar la Hoja de trabajo del alcance.</p></div>
+        </div>
+      </div>
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64418d9e6a920d15779a38d4" style="width: 4.54545%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64418d9e6a920d15779a38d4" class="64418d9e6a920d15779a38d4 block remove-top-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64418d9e6a920d15779a38d4" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$856329173$--><!----><text-view modelid="64418d9e6a920d15779a38d5" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64418d9e6a920d15779a38d5" class="component text 64418d9e6a920d15779a38d5 remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$856329173$--><h2 style="text-align: center;"><strong>Hoja de trabajo del alcance</strong></h2><p>Para determinar el alcance y las reglas de participación del proyecto de pruebas de penetración, responda las preguntas en función de los resultados del análisis de la entrevista.</p></div>
+        </div>
+      </div>
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64418de1713d6115ddf3b01c" style="width: 4.54545%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64418de1713d6115ddf3b01c" class="64418de1713d6115ddf3b01c block remove-top-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64418de1713d6115ddf3b01c" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$856329173$--><!----><opentextbox-view modelid="64418e0e713d6115ddf3b01e" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64418e0e713d6115ddf3b01e" class="component opentextbox 64418e0e713d6115ddf3b01e remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64418e0e713d6115ddf3b01e" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$856329173$--> <div class="openTextBox__preText"><!--?lit$856329173$-->1.	¿Cuáles son las mayores preocupaciones de seguridad del cliente? (Los ejemplos incluyen la divulgación de información confidencial, la interrupción del procesamiento de producción, la vergüenza debido a la desfiguración del sitio web, etc.)</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$856329173$--><!--?lit$856329173$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$856329173$-->
+                      <!--?lit$856329173$-->Que los sistemas de inventario y envío pueden estar sujetos a ataques de ransomware y que la empresa no podrá cumplir con los pedidos de manera oportuna.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$856329173$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$856329173$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$856329173$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64418e40713d6115ddf3b020" style="width: 4.54545%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64418e40713d6115ddf3b020" class="64418e40713d6115ddf3b020 block remove-top-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64418e40713d6115ddf3b020" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$856329173$--><!----><opentextbox-view modelid="64418e40713d6115ddf3b021" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64418e40713d6115ddf3b021" class="component opentextbox 64418e40713d6115ddf3b021 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64418e40713d6115ddf3b021" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$856329173$--> <div class="openTextBox__preText"><!--?lit$856329173$-->2.	¿Qué clústeres de servidores, rangos de direcciones de red o aplicaciones específicos deben probarse?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$856329173$--><!--?lit$856329173$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$856329173$-->
+                      <!--?lit$856329173$-->Los servidores de los clústeres de operaciones y logística. Rangos de direcciones IP 172.26.0.0/21 y 172.27.0.0/21. Las aplicaciones de Microsoft SQL Server.
+
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$856329173$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$856329173$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$856329173$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64418ec16a920d15779a38d7" style="width: 4.54545%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64418ec16a920d15779a38d7" class="64418ec16a920d15779a38d7 block remove-top-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64418ec16a920d15779a38d7" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$856329173$--><!----><opentextbox-view modelid="64418ec16a920d15779a38d8" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64418ec16a920d15779a38d8" class="component opentextbox 64418ec16a920d15779a38d8 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64418ec16a920d15779a38d8" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$856329173$--> <div class="openTextBox__preText"><!--?lit$856329173$-->3.	¿Qué clústeres de servidores, rangos de direcciones de red o aplicaciones específicos NO deben probarse explícitamente?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$856329173$--><!--?lit$856329173$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$856329173$-->
+                      <!--?lit$856329173$-->Los clústeres de servidores de administración y soporte de Amazon, y los rangos de direcciones IP de la LAN.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$856329173$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$856329173$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$856329173$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64418eeb713d6115ddf3b023" style="width: 4.54545%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64418eeb713d6115ddf3b023" class="64418eeb713d6115ddf3b023 block remove-top-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64418eeb713d6115ddf3b023" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$856329173$--><!----><opentextbox-view modelid="64418eeb713d6115ddf3b024" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64418eeb713d6115ddf3b024" class="component opentextbox 64418eeb713d6115ddf3b024 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64418eeb713d6115ddf3b024" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$856329173$--> <div class="openTextBox__preText"><!--?lit$856329173$-->4.	¿La prueba se realizará en un entorno de producción en vivo o en un entorno de prueba?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$856329173$--><!--?lit$856329173$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$856329173$-->
+                      <!--?lit$856329173$-->La mayoría de las pruebas se realizarán en sistemas de producción. Solo se realizarán pruebas intrusivas de SQL Server en sistemas de desarrollo.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$856329173$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$856329173$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$856329173$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64419437653bb9165625641b" style="width: 4.54545%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64419437653bb9165625641b" class="64419437653bb9165625641b block remove-top-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64419437653bb9165625641b" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$856329173$--><!----><opentextbox-view modelid="64419437653bb9165625641c" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64419437653bb9165625641c" class="component opentextbox 64419437653bb9165625641c remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64419437653bb9165625641c" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$856329173$--> <div class="openTextBox__preText"><!--?lit$856329173$-->5.	¿La prueba de penetración incluirá pruebas de red internas? Si es así, ¿cómo se obtendrá el acceso?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$856329173$--><!--?lit$856329173$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$856329173$-->
+                      <!--?lit$856329173$-->Sí, el acceso se proporcionará a través de una VLAN aislada en la red interna.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$856329173$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$856329173$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$856329173$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64419468d7d52216200cfc30" style="width: 4.54545%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64419468d7d52216200cfc30" class="64419468d7d52216200cfc30 block remove-top-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64419468d7d52216200cfc30" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$856329173$--><!----><opentextbox-view modelid="64419468d7d52216200cfc31" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64419468d7d52216200cfc31" class="component opentextbox 64419468d7d52216200cfc31 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64419468d7d52216200cfc31" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$856329173$--> <div class="openTextBox__preText"><!--?lit$856329173$-->6.	¿Los sistemas de cliente / usuario final se incluyen en el alcance? Si es así, ¿cómo se aprovecharán los clientes?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$856329173$--><!--?lit$856329173$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$856329173$-->
+                      <!--?lit$856329173$-->No, los sistemas de usuario final del cliente no están en el alcance.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$856329173$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$856329173$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$856329173$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6441957624ad7b1676b2f3cf" style="width: 4.54545%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="6441957624ad7b1676b2f3cf" class="6441957624ad7b1676b2f3cf block remove-top-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6441957624ad7b1676b2f3cf" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$856329173$--><!----><opentextbox-view modelid="6441957624ad7b1676b2f3d0" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="6441957624ad7b1676b2f3d0" class="component opentextbox 6441957624ad7b1676b2f3d0 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="6441957624ad7b1676b2f3d0" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$856329173$--> <div class="openTextBox__preText"><!--?lit$856329173$-->¿Está permitida la ingeniería social? Si es así, ¿es limitado?
+</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$856329173$--><!--?lit$856329173$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$856329173$-->
+                      <!--?lit$856329173$-->Sí, está permitido, pero se limita a una lista específica de direcciones de correo electrónico.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$856329173$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$856329173$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$856329173$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="644199382ded3a16a28f9f27" style="width: 4.54545%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="644199382ded3a16a28f9f27" class="644199382ded3a16a28f9f27 block remove-top-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="644199382ded3a16a28f9f27" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$856329173$--><!----><opentextbox-view modelid="644199382ded3a16a28f9f28" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="644199382ded3a16a28f9f28" class="component opentextbox 644199382ded3a16a28f9f28 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="644199382ded3a16a28f9f28" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$856329173$--> <div class="openTextBox__preText"><!--?lit$856329173$-->¿Se permiten la denegación de servicio y otros ataques disruptivos? Si es así, ¿hay límites respecto de cuándo se pueden realizar las pruebas disruptivas?
+</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$856329173$--><!--?lit$856329173$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$856329173$-->
+                      <!--?lit$856329173$-->Sí, se pueden intentar ataques disruptivos durante un intervalo de tiempo programado durante los períodos de mantenimiento normales.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$856329173$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$856329173$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$856329173$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="644199648a9b941640d4abf0" style="width: 4.54545%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="644199648a9b941640d4abf0" class="644199648a9b941640d4abf0 block remove-top-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="644199648a9b941640d4abf0" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$856329173$--><!----><opentextbox-view modelid="644199648a9b941640d4abf1" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="644199648a9b941640d4abf1" class="component opentextbox 644199648a9b941640d4abf1 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="644199648a9b941640d4abf1" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$856329173$--> <div class="openTextBox__preText"><!--?lit$856329173$-->¿Existen dispositivos que puedan afectar los resultados de una prueba de penetración? De ser así, ¿cuáles?
+</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$856329173$--><!--?lit$856329173$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$856329173$-->
+                      <!--?lit$856329173$-->Sí, existen dispositivos de seguridad, incluidos cortafuegos y sistemas IDS.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$856329173$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$856329173$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$856329173$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="644199898a9b941640d4abf4" style="width: 4.54545%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="644199898a9b941640d4abf4" class="644199898a9b941640d4abf4 block remove-top-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="644199898a9b941640d4abf4" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$856329173$--><!----><opentextbox-view modelid="644199898a9b941640d4abf5" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="644199898a9b941640d4abf5" class="component opentextbox 644199898a9b941640d4abf5 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="644199898a9b941640d4abf5" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$856329173$--> <div class="openTextBox__preText"><!--?lit$856329173$-->7.	¿Probar el acceso inalámbrico es parte de este compromiso?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$856329173$--><!--?lit$856329173$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$856329173$-->
+                      <!--?lit$856329173$-->No, el acceso inalámbrico está fuera del alcance.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$856329173$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$856329173$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$856329173$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="644199ae2ded3a16a28f9f2a" style="width: 4.54545%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="644199ae2ded3a16a28f9f2a" class="644199ae2ded3a16a28f9f2a block remove-top-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="644199ae2ded3a16a28f9f2a" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$856329173$--><!----><opentextbox-view modelid="644199ae2ded3a16a28f9f2b" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="644199ae2ded3a16a28f9f2b" class="component opentextbox 644199ae2ded3a16a28f9f2b remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="644199ae2ded3a16a28f9f2b" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$856329173$--> <div class="openTextBox__preText"><!--?lit$856329173$-->8.	¿Los servicios web están incluidos en el alcance de las pruebas?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$856329173$--><!--?lit$856329173$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$856329173$-->
+                      <!--?lit$856329173$-->No, los servicios web no están incluidos en el alcance de las pruebas.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$856329173$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$856329173$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$856329173$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="644199da2ded3a16a28f9f2c" style="width: 4.54545%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="644199da2ded3a16a28f9f2c" class="644199da2ded3a16a28f9f2c block remove-top-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="644199da2ded3a16a28f9f2c" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$856329173$--><!----><opentextbox-view modelid="644199da2ded3a16a28f9f2d" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="644199da2ded3a16a28f9f2d" class="component opentextbox 644199da2ded3a16a28f9f2d remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="644199da2ded3a16a28f9f2d" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$856329173$--> <div class="openTextBox__preText"><!--?lit$856329173$-->9.	¿Los empleados conocen las pruebas y el plazo en que se realizarán?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$856329173$--><!--?lit$856329173$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$856329173$-->
+                      <!--?lit$856329173$-->No, solo los administradores y el personal de TI seleccionados conocen la prueba y el plazo.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$856329173$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$856329173$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$856329173$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64419a1b2ded3a16a28f9f2f" style="width: 4.54545%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64419a1b2ded3a16a28f9f2f" class="64419a1b2ded3a16a28f9f2f block remove-top-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64419a1b2ded3a16a28f9f2f" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$856329173$--><!----><opentextbox-view modelid="64419a1b2ded3a16a28f9f30" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64419a1b2ded3a16a28f9f30" class="component opentextbox 64419a1b2ded3a16a28f9f30 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64419a1b2ded3a16a28f9f30" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$856329173$--> <div class="openTextBox__preText"><!--?lit$856329173$-->10.	¿Dónde se encuentra físicamente el centro de datos del cliente?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$856329173$--><!--?lit$856329173$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$856329173$-->
+                      <!--?lit$856329173$-->El centro de datos está ubicado en Houston.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$856329173$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$856329173$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$856329173$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64419ad62ded3a16a28f9f35" style="width: 4.54545%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64419ad62ded3a16a28f9f35" class="64419ad62ded3a16a28f9f35 block remove-top-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64419ad62ded3a16a28f9f35" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$856329173$--><!----><text-view modelid="64419ad62ded3a16a28f9f36" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64419ad62ded3a16a28f9f36" class="component text 64419ad62ded3a16a28f9f36 remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$856329173$--><h2 style="margin-left:0in"><!--[if !supportLists]--><span><span>Parte 2: </span></span><!--[endif]-->Determine las reglas del compromiso</h2><h3 style="margin-left:0in"><!--[if !supportLists]--><span><span>Paso 1: </span></span><!--[endif]-->Revise la información de la hoja de trabajo del alcance.</h3><p>Usar la transcripción de la entrevista y la información de la Hoja de trabajo del alcance para completar la tabla de Elementos de las Reglas para participar.</p></div>
+        </div>
+      </div>
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64419b1d2ded3a16a28f9f38" style="width: 4.54545%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64419b1d2ded3a16a28f9f38" class="64419b1d2ded3a16a28f9f38 block remove-top-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64419b1d2ded3a16a28f9f38" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$856329173$--><!----><opentabletextbox-view modelid="64419b9d2f17db166e344feb" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+      <div class="component">
+        <div class="opentabletextbox-inner component__inner">
+          <div data-socialgoodpulse-id="64419b9d2f17db166e344feb" class="component opentabletextbox 64419b9d2f17db166e344feb remove-top-padding remove-padding-bottom is-full   ">
+            <div class="component__header-container">
+              <div data-socialgoodpulse-id="64419b9d2f17db166e344feb" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                <base-view type="component" lowercase_component="openTableTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTableTextBox__header">
+          <div class="component__header-inner openTableTextBox__header-inner">
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+            <!--?lit$856329173$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+              </div>
+            </div>
+            <div class="component__widget opentabletextBox__widget question-container ">
+              <div class="openTableTextBox__preText">
+                <!--?lit$856329173$-->
+              </div>
+              <div class="opentabletextbox-container openTableTextBox__table-container">
+                <table class="opentabletextbox-table" tabindex="0">
+                  <!--?lit$856329173$-->
+                        <thead class="openTableTextBox__table-header">
+                          <tr>
+                            <!--?lit$856329173$--><!----><th tabindex="0" scope="col"><!--?lit$856329173$-->Reglas de los elementos del compromiso.</th><!----><!----><th tabindex="0" scope="col"><!--?lit$856329173$-->Valor</th><!---->
+                          </tr>
+                        </thead>
+                  <tbody>
+                    <!--?lit$856329173$--><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$856329173$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$856329173$--><div><!--?lit$856329173$-->Prueba de línea de tiempo</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$856329173$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$856329173$--><!--?lit$856329173$-->Área de Respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$856329173$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$856329173$--><div><!--?lit$856329173$-->Ubicación de la prueba</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$856329173$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$856329173$--><!--?lit$856329173$-->Área de Respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$856329173$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$856329173$--><div><!--?lit$856329173$-->Ventanas de tiempo para la prueba (horas del día)</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$856329173$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$856329173$--><!--?lit$856329173$-->Área de Respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$856329173$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$856329173$--><div><!--?lit$856329173$-->Método de comunicación preferido</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$856329173$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$856329173$--><!--?lit$856329173$-->Área de Respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$856329173$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$856329173$--><div><!--?lit$856329173$-->Controles de seguridad que potencialmente podrían detectar o evitar las pruebas</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$856329173$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$856329173$--><!--?lit$856329173$-->Área de Respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$856329173$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$856329173$--><div><!--?lit$856329173$-->Manejo de datos sensibles</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$856329173$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$856329173$--><!--?lit$856329173$-->Área de Respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$856329173$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$856329173$--><div><!--?lit$856329173$-->Direcciones IP o redes desde las que se originarán las pruebas</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$856329173$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$856329173$--><!--?lit$856329173$-->Área de Respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$856329173$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$856329173$--><div><!--?lit$856329173$-->Tipos de pruebas permitidas o no permitidas</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$856329173$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$856329173$--><!--?lit$856329173$-->Área de Respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!----><!---->
+                        <tr class="openTableTextBox__table-row ">
+                          <!--?lit$856329173$--><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$856329173$--><div><!--?lit$856329173$-->Contactos del cliente</div>
+                                </div>
+                              </td>
+                            <!----><!---->
+                              <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                <div class="openTableTextBox__textArea-container">
+                                  <!--?lit$856329173$-->
+                                        <div class="openTableTextBox__textArea-container">
+                                          <fieldset class="openTableTextBox__fieldset">
+                                            <legend class="openTableTextBox__legend">
+                                              <!--?lit$856329173$--><!--?lit$856329173$-->Área de Respuesta<!--?-->
+                                            </legend>
+                                            <textarea class="openTableTextBox__textArea" rows="3" name="answerArea" tabindex="0" placeholder="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                                          </fieldset>
+                                        </div>
+                                      
+                                </div>
+                              </td>
+                            <!---->
+                        </tr>
+                      <!---->
+                  </tbody>
+                </table>
+              </div>
+              <div class="openTableTextBox__answerText answergray openTableTextBox__table-container is-full hide">
+                <table class="opentabletextbox-table openTableTextBox__table-inner" tabindex="0">
+                  <!--?lit$856329173$-->
+                        <thead class="openTableTextBox__table-header">
+                          <tr tabindex="0">
+                            <!--?lit$856329173$--><!----><th scope="col"><!--?lit$856329173$-->Reglas de los elementos del compromiso.</th><!----><!----><th scope="col"><!--?lit$856329173$-->Valor</th><!---->
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <!--?lit$856329173$--><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$856329173$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$856329173$-->Prueba de línea de tiempo</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$856329173$-->Comience en dos semanas, informe en 60 días</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$856329173$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$856329173$-->Ubicación de la prueba</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$856329173$-->Instalaciones de Houston</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$856329173$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$856329173$-->Ventanas de tiempo para la prueba (horas del día)</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$856329173$-->Pruebas no invasivas durante el horario comercial<br>Pruebas invasivas durante el horario de 2 a 6 a. M. De viernes a domingo</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$856329173$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$856329173$-->Método de comunicación preferido</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$856329173$-->Informes o teleconferencias</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$856329173$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$856329173$-->Controles de seguridad que potencialmente podrían detectar o evitar las pruebas</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$856329173$-->Cortafuegos e IDS implementados</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$856329173$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$856329173$-->Manejo de datos sensibles</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$856329173$-->Acuerdo de confidencialidad firmado</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$856329173$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$856329173$-->Direcciones IP o redes desde las que se originarán las pruebas</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$856329173$-->VLAN interna del departamento de TI</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$856329173$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$856329173$-->Tipos de pruebas permitidas o no permitidas</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$856329173$-->Pruebas limitadas a servidores de operaciones y logística. Pruebas de SQL limitadas al entorno de desarrollo. Ingeniería social limitada a las direcciones de correo electrónico proporcionadas.</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!----><!---->
+                                <tr class="openTableTextBox__table-row ">
+                                  <!--?lit$856329173$--><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$856329173$-->Contactos del cliente</div>
+                                        </div>
+                                      </td>
+                                    <!----><!---->
+                                      <td tabindex="0" class="openTableTextBox__table-row-data ">
+                                        <div class="openTableTextBox__textArea-container">
+                                          <div><!--?lit$856329173$-->Gerente de almacén, director de TI, gerente de operaciones</div>
+                                        </div>
+                                      </td>
+                                    <!---->
+                                </tr>
+                              <!---->
+                      </tbody>
+                </table>
+              </div>
+              <div class="btn__container">
+                <button class="btn-text openTableTextBox__showButton show-answer show"><!--?lit$856329173$-->Mostrar respuesta</button>
+                <button class="btn-text openTableTextBox__showButton hide-answer hide"><!--?lit$856329173$-->Ocultar respuesta</button>
+              </div>
+              <div class="openTableTextBox__postText">
+                <!--?lit$856329173$-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </opentabletextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!---->
+                            </div>
+                        </div>
+                        <!--?lit$856329173$-->
+                    </div>
+                </div>
+            </div>
+        <sgpluse-opentextboxcontroller-view modelid="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+            <div class="openTextBoxController__button-container">
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__showButton show-answer show"><!--?lit$856329173$-->Mostrar todas las respuestas</button>    
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__hideButton hide-answer hide"><!--?lit$856329173$-->Ocultar todas las respuestas</button>    
+                <button class="btn-text resetbtn openTextBoxController__resetButton"><!--?lit$856329173$-->Borrar mis respuestas</button>         
+            </div>
+            <!--?lit$856329173$--><hr>
+            <!--?lit$856329173$-->
+                <div class="post-text" tabindex="0">
+                    <!--?lit$856329173$-->© 2017 - 2023 Cisco and/or its affiliates. All rights reserved. Cisco Public
+                </div>
+                   
+        </sgpluse-opentextboxcontroller-view><script></script>
+<script>
+    window.addEventListener("load", function () {
+      console.log("loaded");
+      document?.querySelectorAll(".answergray").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".show-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.remove("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.add("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      let event = new Event("click", {
+        bubbles: true,
+        cancelable: true,
+      });
+      document
+        ?.querySelectorAll(".openTextBoxController__showButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".show-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__hideButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__resetButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            document?.querySelectorAll("textArea").forEach(function (ele) {
+              ele.value = "";
+            });
+          });
+        });
+
+      document
+      ?.querySelectorAll('textarea')
+      .forEach(function (ele){
+        ele.defaultValue = ele.defaultValue.replace(/<!--.*?-->/g, '');
+      })
+        let checkButtonLabel = "check_button_label_placeHolder";
+        let hideButtonLabel = "hide_button_label_placeHolder";
+        document?.querySelectorAll(".check__button").forEach(function (ele) {
+        let answerBox = document.querySelector(".check__solution")
+        if (!answerBox.classList.contains("check__hidden")) {
+          answerBox.classList.add("check__hidden");
+          ele.innerText = checkButtonLabel;
+        }
+          ele.addEventListener("click", function (e) {
+            if (answerBox.classList.contains("check__hidden")) {
+              answerBox.classList.remove("check__hidden")
+              ele.innerText = hideButtonLabel;
+            } else {
+              answerBox.classList.add("check__hidden")
+              ele.innerText = checkButtonLabel;
+            }
+          })
+        })
+    });
+  </script>
+  </body></html>

@@ -1,0 +1,888 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 1rem;
+      }
+      ol,
+      ul {
+        margin-bottom: 0in;
+      }
+      table {
+        margin-top: 1rem;
+        border: 1px solid gray;
+        width: 7in;
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > .openTableTextBox__table-header-data {
+        text-align: center;
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0in;
+        text-align: center;
+        line-height: 115%;
+        page-break-after: avoid;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        font-weight: bold;
+        background: #dbe5f1;
+        padding: 0.5rem;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .openTextBox__textArea-container {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 50%;
+      }
+      .openTableTextBox__fieldset {
+        padding: 5px;
+      }
+      td {
+        margin-top: 3pt;
+        margin-right: 0in;
+        margin-bottom: 3pt;
+        margin-left: 0in;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 98.85pt;
+        border: solid windowtext 1pt;
+        border-top: none;
+        padding: 0.7pt 5.75pt 0.7pt 5.75pt;
+      }
+      textarea {
+        width: 100%;
+      }
+      .answergray {
+        padding: 0.2rem;
+      }
+
+      .openTableTextBox__widget {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0.25in;
+      }
+
+      .show-answer,
+      .hide-answer {
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border: 0px;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .openTextBoxController__button-container {
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .openTextBoxController__button-container .btn-text {
+        margin: 10px;
+      }
+
+      .btn-text {
+        border: 0px;
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border-radius: 0;
+        cursor: pointer;
+      }
+
+      .u-display-none {
+        display: none;
+      }
+      .openTextBox__postText, openTableTextBox__postText {
+        margin-top: 0.5rem;
+      }
+      .edit-comment {
+        display: none;
+      }
+      .js-heading-inner {
+        display: none;
+      }
+      .block__title-inner,
+      .article__title-inner {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+      h2{
+        font-size: 1.25em;
+      }
+      h3{
+        font-size: 1.125em;
+      }
+      .table
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: solid windowtext 1pt;
+      }
+      table tbody tr th, table thead tr th{
+        border: solid windowtext 1pt;
+        background-color: #d6d8dc;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .command-output > .table-inner > .table-wrapper > .table-widget > table,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > td,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: none !important;
+        text-align: right !important;
+      }
+      .simple-table > .table-inner > .table-wrapper{
+        margin-left: 1.5rem;
+      }
+      .openTextBox__widget {
+        margin-left: 1.5rem;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      .answergray {
+        background-color: #ccc;
+      }
+      .openTableTextBox__widget > .answergray {
+        background-color: #fff !important;
+      }
+      li > ul,ol > li{
+        margin-left: 0px !important;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      
+      .component__title{
+        font-family: inherit;
+        font-size: 1.65em;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .component__body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .accessibility-completion-indicator{
+        display: none;
+      }
+
+      .check__hidden {
+        display: none;
+      }
+
+      .check__button {
+        border: none;
+        border-radius: 6px !important;
+        background-color: #6abf4b;
+        color: #fff;
+        min-width: 100px;
+        margin: 0.625rem 0;
+        padding: 0.7rem;
+      }
+
+      .check__widget .check__solution .DevConfigGray {
+        background-color: rgb(214,216,220);
+        font-weight: bold;
+      }
+
+      .check-inner .check__widget .check__solution .DevConfigs {
+        margin: 0px;
+        line-height: 115%;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .check__solution  {
+        line-height: 1.5;
+      }
+      .mcq__inner .mcq__widget .mcq__widget-inner {
+        margin-block: 1rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item {
+        display: flex;
+        gap: 0.2rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item .mcq__item-label .mcq__item-text .screenReader-position-text{
+        display: none;
+      }
+      .opentabletextbox-inner .opentabletextBox__widget .openTableTextBox__answerText.answergray {
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox{
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox img{
+        margin-block: 1rem;
+        margin-left: initial;
+      }
+      .component__content .component__body-inner .pageTracer-h4-title-hide {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        font-size: 0px;
+        color: rgb(var(--neutral-2));
+        font-weight: normal;
+      }
+      .table-inner .table__widget table tr.TableHeading th, .table-inner .table__widget table tr.TableHeading td, .table-inner .table__widget table tr td.TableHeading, .opentabletextbox-table thead tr.TableHeading th, .opentabletextbox-table tbody tr.TableHeading td, .opentabletextbox-table tbody tr td.TableHeading {
+        background-color: #d6d8dc;
+        text-align: center;
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .CMD, .component__content .component__body-inner .CMDOutput, .component__content .component__body-inner .CMDOutput__table{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        margin-inline-start: 30px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      [dir="rtl"] .component__content .component__body-inner .CMDOutput__table span {
+        direction: ltr;
+        display: inline-block;
+      }
+      .openTextBox__inner .openTextBox__widget .CMD, .openTextBox__inner .openTextBox__widget .CMDOutput{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .openTextBox__inner .openTextBox__widget .DnTbold, .openTextBox__inner .openTextBox__widget .BodyTextL25Bold, .component__content .component__body-inner .BodyTextL25Bold, .component__content .component__body-inner .DnTbold, .table-inner .table__widget table tr .DnTbold {
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .SubStepNum {
+        text-indent: -25.5px;
+        margin-inline-start: 50px;
+      }
+      .component__content .component__body-inner .BodyTextL50 {
+        margin-inline-start: 30px;
+      }
+      .component__content .component__body-inner .Bulletlevel1 {
+        text-indent: -19px;
+        margin-inline-start: 48px;
+      }
+      .component__content .component__body-inner .Bulletlevel2 {
+          text-indent: -19px;
+          margin-inline-start: 72px;
+      }
+      .openTextBox__inner .openTextBox__widget .ReflectionQ, .component__content .component__body-inner .SubStepAlpha {
+          text-indent: -25.5px;
+          margin-inline-start: 30px;
+      }
+    </style>
+
+</head><body><!---->
+            <div class="article 95081265-0697-4157-99d5-ca8b9d146e70 remove-padding-top remove-padding-bottom ">
+                <div class="article__inner">
+                <div class=" no-adaptive-scroll">
+                    <!--?lit$3095140433$-->
+                        <div class=""> 
+                            <base-view type="article" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="article__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="article__header ">
+          <div class="article__header-inner ">
+            <!--?lit$3095140433$-->
+      <div class="article__title ">
+        <!--?lit$3095140433$--><heading-view aria-hidden="true" id="95081265-0697-4157-99d5-ca8b9d146e70-heading-view" headingtitle="Packet Tracer: demostración de listas de control de acceso" modelid="95081265-0697-4157-99d5-ca8b9d146e70" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="js-heading is-incomplete">
+        <div class="js-heading-inner" role="heading" id="article-heading" aria-level="2">
+        <span class="aria-label"> <!--?lit$3095140433$-->Incompleto &nbsp;<!--?lit$3095140433$-->Packet Tracer: demostración de listas de control de acceso</span>
+        </div>
+      </div>
+    </heading-view>
+        <div tabindex="0" role="heading" class="article__title-inner " aria-level="2">
+          <span class="accessibility-completion-indicator"><!--?lit$3095140433$-->Incompleto </span>
+          <!--?lit$3095140433$-->Packet Tracer: demostración de listas de control de acceso
+        </div>
+      </div>
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                            <div class="block__container " style="">
+                                <!--?lit$3095140433$--><!---->
+                                    <block-view modelid="f1422e99-df7a-4231-9ef8-f62dc78a3030" style="width: 14.2857%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="f1422e99-df7a-4231-9ef8-f62dc78a3030" class="f1422e99-df7a-4231-9ef8-f62dc78a3030 block  is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="f1422e99-df7a-4231-9ef8-f62dc78a3030" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3095140433$--><!----><text-view modelid="12a0eb80-ac76-4939-8bd6-dadbacabd404" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="12a0eb80-ac76-4939-8bd6-dadbacabd404" class="component text 12a0eb80-ac76-4939-8bd6-dadbacabd404  is-full is-complete  ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$3095140433$--><h2>Objetivos</h2> <p class="BodyTextL25Bold">Parte 1: verificar la conectividad local y probar la lista de control de acceso</p> <p class="BodyTextL25Bold">Parte 2: eliminar la lista de control de acceso y repetir la prueba</p> <h2>Antecedentes</h2> <p class="BodyTextL25">En esta actividad, observará cómo se puede utilizar una lista de control de acceso (ACL) para evitar que un ping llegue a hosts en redes remotas. Después de eliminar la ACL de la configuración, los pings se realizarán correctamente.</p> <h2>Instrucciones</h2> <h2>Parte 1: Verificar la conectividad local y probar la lista de control de acceso</h2> <h3>Paso 1: Hacer ping a los dispositivos de la red local para verificar laconectividad.</h3> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Desde el command prompt de <b>PC1</b>, haga ping a <b>PC2</b>.</p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>Desde el command prompt de <b>PC1</b>, haga ping a <b>PC3</b>.</p> <h4 class="pageTracer-h4-title-hide">Pregunta:</h4></div>
+        </div>
+      </div>
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="7c53e16e-35ad-42e9-bbd0-3d5cb179690c" style="width: 14.2857%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="7c53e16e-35ad-42e9-bbd0-3d5cb179690c" class="7c53e16e-35ad-42e9-bbd0-3d5cb179690c block  is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="7c53e16e-35ad-42e9-bbd0-3d5cb179690c" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3095140433$--><!----><opentextbox-view modelid="a6a01815-bcdc-4881-b79b-d1db1bdfb30a" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="a6a01815-bcdc-4881-b79b-d1db1bdfb30a" class="component opentextbox a6a01815-bcdc-4881-b79b-d1db1bdfb30a  is-undefined is-complete  ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="a6a01815-bcdc-4881-b79b-d1db1bdfb30a" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$3095140433$--> <div class="openTextBox__preText"><!--?lit$3095140433$--><p class="BodyTextL50">¿Por qué se realizaron de forma correcta los pings?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$3095140433$--><!--?lit$3095140433$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$3095140433$-->
+                      <!--?lit$3095140433$--><p class="BodyTextL50Answer"><span class="AnswerGray"><span style=" border: none"><span style="border: none">Por que las capas 1 a 3 funcionan correctamente y no existe una política que filtre los mensajes ICMP entre las dos redes locales.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$3095140433$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$3095140433$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$3095140433$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="620b7a23-ca1a-4ef0-a881-d0da428771b7" style="width: 14.2857%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="620b7a23-ca1a-4ef0-a881-d0da428771b7" class="620b7a23-ca1a-4ef0-a881-d0da428771b7 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="620b7a23-ca1a-4ef0-a881-d0da428771b7" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3095140433$--><!----><text-view modelid="87043543-8539-4277-9336-33c6e1c7712d" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="87043543-8539-4277-9336-33c6e1c7712d" class="component text 87043543-8539-4277-9336-33c6e1c7712d  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$3095140433$--><h3>Paso 2: Hacer ping a los dispositivos en las redes remotas para probar la funcionalidad de la ACL.</h3> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Desde el símbolo del sistema de <b>PC1</b>, haga ping a <b>PC4</b>.</p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>Desde el símbolo del sistema de <b>PC1</b>, haga ping al<b> sevidor DNS</b>.</p> <h4 class="pageTracer-h4-title-hide">Pregunta:</h4></div>
+        </div>
+      </div>
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="773be605-82ff-4d1c-b652-40f5f5b1d49e" style="width: 14.2857%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="773be605-82ff-4d1c-b652-40f5f5b1d49e" class="773be605-82ff-4d1c-b652-40f5f5b1d49e block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="773be605-82ff-4d1c-b652-40f5f5b1d49e" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3095140433$--><!----><opentextbox-view modelid="6d408bda-38be-4589-9e4e-94840cada186" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="6d408bda-38be-4589-9e4e-94840cada186" class="component opentextbox 6d408bda-38be-4589-9e4e-94840cada186  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="6d408bda-38be-4589-9e4e-94840cada186" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$3095140433$--> <div class="openTextBox__preText"><!--?lit$3095140433$--><p class="BodyTextL50">¿Por qué fallaron los pings? (Sugerencia: utilice el modo de simulación o vea las configuraciones del router para investigar).</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$3095140433$--><!--?lit$3095140433$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$3095140433$-->
+                      <!--?lit$3095140433$--><p class="BodyTextL50Answer"><span class="AnswerGray"><span style=" border: none"><span style="border: none">Los pings fallan porque R1 está configurado con una ACL para denegar todo ping que salga de la interfaz serial 0/0/0.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$3095140433$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$3095140433$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$3095140433$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="fad23bb1-3d14-48c6-815c-c8c5ae465bdf" style="width: 14.2857%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="fad23bb1-3d14-48c6-815c-c8c5ae465bdf" class="fad23bb1-3d14-48c6-815c-c8c5ae465bdf block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="fad23bb1-3d14-48c6-815c-c8c5ae465bdf" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3095140433$--><!----><text-view modelid="9d451511-5499-4d74-acee-b0a32bbf90f5" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="9d451511-5499-4d74-acee-b0a32bbf90f5" class="component text 9d451511-5499-4d74-acee-b0a32bbf90f5  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$3095140433$--><h2>Parte 2: Remover la ACL y repetirla prueba</h2> <h3>Paso 1: Utilice el comando show para investigar la configuración de la ACL.</h3> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Utilice los comandos <b>show run</b> y <b>show access-lists</b>show access-lists. Introduzca el comando <b>show access-lists</b> seguido de un espacio y un signo de interrogación (?) para ver las opciones disponibles:</p> <p class="CMD">R1# <b>show access-lists ?</b></p> <p class="CMD">&nbsp; &lt;1-199&gt;&nbsp; ACL number</p> <p class="CMD">&nbsp; &lt;1-199&gt;&nbsp; ACL number</p> <p class="CMD">&nbsp; &lt;cr&gt;</p> <p class="BodyTextL50">Si conoce el número o el nombre de la ACL, puede filtrar aún más el resultado del comando <b> show</b>. Sin embargo, el <b>R1 </b> tiene solo una ACL, por lo que basta con el comando <b> show access-lists</b>.</p> <p class="CMD">R1# <b>show access-lists</b></p> <p class="CMDOutput">Standard IP access list 11</p> <p class="CMDOutput">&nbsp;&nbsp;&nbsp; 10 deny 192.168.10.0 0.0.0.255</p> <p class="CMDOutput">&nbsp;&nbsp;&nbsp; 20 permit any</p> <p class="BodyTextL50">La primera línea de la ACL impide cualquier paquete que se origine en la red <b>192.168.10.0/24</b> , lo que incluye los ecos del ⁪protocolo de mensajería de control de Internet (ICMP) (solicitudes de ping). La segunda línea de la ACL permite que todo el resto del tráfico <b>ip </b>de <b>cualquier </b>origen atraviese el router.</p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>Para que una ACL tenga efecto en el funcionamiento del router, debe aplicarse a una interfaz en una dirección específica. En esta situación, la ACL se utiliza para filtrar el tráfico que sale de una interfaz. Por lo tanto, todo el tráfico que sale de la interfaz especificada de R1 se examinará contra la ACL 11.</p> <p>Aunque pueda ver la información de IP con el comando <b>show ip interface</b> , en algunos casos puede ser más eficaz utilizar solo el comando <b>show run</b>.</p> <h4 class="pageTracer-h4-title-hide">Pregunta:</h4></div>
+        </div>
+      </div>
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="113db692-5853-4c71-ad8a-02e619b4cd3c" style="width: 14.2857%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="113db692-5853-4c71-ad8a-02e619b4cd3c" class="113db692-5853-4c71-ad8a-02e619b4cd3c block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="113db692-5853-4c71-ad8a-02e619b4cd3c" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3095140433$--><!----><opentextbox-view modelid="46496274-5674-4c44-a971-3f741986738f" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="46496274-5674-4c44-a971-3f741986738f" class="component opentextbox 46496274-5674-4c44-a971-3f741986738f  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="46496274-5674-4c44-a971-3f741986738f" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$3095140433$--> <div class="openTextBox__preText"><!--?lit$3095140433$--><p class="SubStepAlpha">Usando uno o los dos comandos, ¿a qué interfaz y dirección se aplica la ACL?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$3095140433$--><!--?lit$3095140433$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$3095140433$-->
+                      <!--?lit$3095140433$--><p class="BodyTextL50Answer"><span class="AnswerGray"></span><span class="AnswerGray"><span style=" border: none"><span>Serial 0/0/0, outgoing traffic.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$3095140433$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$3095140433$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$3095140433$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="f0e3f2c5-45b9-452c-9a85-414622e4d009" style="width: 14.2857%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="f0e3f2c5-45b9-452c-9a85-414622e4d009" class="f0e3f2c5-45b9-452c-9a85-414622e4d009 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="f0e3f2c5-45b9-452c-9a85-414622e4d009" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$3095140433$--><!----><text-view modelid="b73ff88e-9583-4abe-bb9f-8e60d50d8235" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="b73ff88e-9583-4abe-bb9f-8e60d50d8235" class="component text b73ff88e-9583-4abe-bb9f-8e60d50d8235  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$3095140433$--><h3>Paso 2: Eliminar la lista de acceso 11 de la configuración.</h3> <p class="BodyTextL25">Es posible eliminar las ACL de la configuración por medio de la emisión del comando <b>no access list</b> [<i>número de ACL</i>]. El comando<b>no access-list</b> elimina todas las ACL configuradas en el router. El comando <b>no access-list</b> [número de ACL] solo elimina una ACL específica.</p> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>En la interfaz serial0/0/0, quite la lista access-list 11, aplicada anteriormente a la interfaz como filtro de <b>salida</b>:</p> <p class="CMD">R1(config)# <b>int se0/0/0</b></p> <p class="CMD">R1(config-if)#<b>no ip access-group 11 out</b></p> <p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>En el modo de configuración global, elimine la ACL por medio del siguiente comando:</p> <p class="CMD">R1(config)# <b>no access-list 11</b></p> <p class="SubStepAlpha">c.<span>&nbsp;&nbsp;</span>Verifique que la <b> PC1</b> ahora pueda hacer ping al <b>servidor DNS </b>y<b> a la PC4.</b></p></div>
+        </div>
+      </div>
+            <!--?lit$3095140433$-->
+            <!--?lit$3095140433$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!---->
+                            </div>
+                        </div>
+                        <!--?lit$3095140433$-->
+                    </div>
+                </div>
+            </div>
+        <sgpluse-opentextboxcontroller-view modelid="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+            <div class="openTextBoxController__button-container">
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__showButton show-answer show"><!--?lit$3095140433$-->Mostrar todas las respuestas</button>    
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__hideButton hide-answer hide"><!--?lit$3095140433$-->Ocultar todas las respuestas</button>    
+                <button class="btn-text resetbtn openTextBoxController__resetButton"><!--?lit$3095140433$-->Borrar mis respuestas</button>         
+            </div>
+            <!--?lit$3095140433$--><hr>
+            <!--?lit$3095140433$-->
+                <div class="post-text" tabindex="0">
+                    <!--?lit$3095140433$--><span><span style="padding-right:5px;float:left;font-family:arial;font-size:12px;">© 2017 - 2022 Cisco and/or its affiliates. All rights reserved. Cisco Public</span></span>
+                </div>
+                   
+        </sgpluse-opentextboxcontroller-view><script></script>
+<script>
+    window.addEventListener("load", function () {
+      console.log("loaded");
+      document?.querySelectorAll(".answergray").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".show-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.remove("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.add("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      let event = new Event("click", {
+        bubbles: true,
+        cancelable: true,
+      });
+      document
+        ?.querySelectorAll(".openTextBoxController__showButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".show-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__hideButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__resetButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            document?.querySelectorAll("textArea").forEach(function (ele) {
+              ele.value = "";
+            });
+          });
+        });
+
+      document
+      ?.querySelectorAll('textarea')
+      .forEach(function (ele){
+        ele.defaultValue = ele.defaultValue.replace(/<!--.*?-->/g, '');
+      })
+        let checkButtonLabel = "check_button_label_placeHolder";
+        let hideButtonLabel = "hide_button_label_placeHolder";
+        document?.querySelectorAll(".check__button").forEach(function (ele) {
+        let answerBox = document.querySelector(".check__solution")
+        if (!answerBox.classList.contains("check__hidden")) {
+          answerBox.classList.add("check__hidden");
+          ele.innerText = checkButtonLabel;
+        }
+          ele.addEventListener("click", function (e) {
+            if (answerBox.classList.contains("check__hidden")) {
+              answerBox.classList.remove("check__hidden")
+              ele.innerText = hideButtonLabel;
+            } else {
+              answerBox.classList.add("check__hidden")
+              ele.innerText = checkButtonLabel;
+            }
+          })
+        })
+    });
+  </script>
+  </body></html>

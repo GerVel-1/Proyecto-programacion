@@ -1,0 +1,9 @@
+build/
+output/*
+!output/.gitkeep
+data/raw/
+*.csv
+!data/sample/*.csv
+*.log
+.vscode/
+.idea/

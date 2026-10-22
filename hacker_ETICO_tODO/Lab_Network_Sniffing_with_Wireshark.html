@@ -1,0 +1,2231 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 1rem;
+      }
+      ol,
+      ul {
+        margin-bottom: 0in;
+      }
+      table {
+        margin-top: 1rem;
+        border: 1px solid gray;
+        width: 7in;
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > .openTableTextBox__table-header-data {
+        text-align: center;
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0in;
+        text-align: center;
+        line-height: 115%;
+        page-break-after: avoid;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        font-weight: bold;
+        background: #dbe5f1;
+        padding: 0.5rem;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .openTextBox__textArea-container {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 50%;
+      }
+      .openTableTextBox__fieldset {
+        padding: 5px;
+      }
+      td {
+        margin-top: 3pt;
+        margin-right: 0in;
+        margin-bottom: 3pt;
+        margin-left: 0in;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 98.85pt;
+        border: solid windowtext 1pt;
+        border-top: none;
+        padding: 0.7pt 5.75pt 0.7pt 5.75pt;
+      }
+      textarea {
+        width: 100%;
+      }
+      .answergray {
+        padding: 0.2rem;
+      }
+
+      .openTableTextBox__widget {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0.25in;
+      }
+
+      .show-answer,
+      .hide-answer {
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border: 0px;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .openTextBoxController__button-container {
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .openTextBoxController__button-container .btn-text {
+        margin: 10px;
+      }
+
+      .btn-text {
+        border: 0px;
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border-radius: 0;
+        cursor: pointer;
+      }
+
+      .u-display-none {
+        display: none;
+      }
+      .openTextBox__postText, openTableTextBox__postText {
+        margin-top: 0.5rem;
+      }
+      .edit-comment {
+        display: none;
+      }
+      .js-heading-inner {
+        display: none;
+      }
+      .block__title-inner,
+      .article__title-inner {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+      h2{
+        font-size: 1.25em;
+      }
+      h3{
+        font-size: 1.125em;
+      }
+      .table
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: solid windowtext 1pt;
+      }
+      table tbody tr th, table thead tr th{
+        border: solid windowtext 1pt;
+        background-color: #d6d8dc;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .command-output > .table-inner > .table-wrapper > .table-widget > table,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > td,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: none !important;
+        text-align: right !important;
+      }
+      .simple-table > .table-inner > .table-wrapper{
+        margin-left: 1.5rem;
+      }
+      .openTextBox__widget {
+        margin-left: 1.5rem;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      .answergray {
+        background-color: #ccc;
+      }
+      .openTableTextBox__widget > .answergray {
+        background-color: #fff !important;
+      }
+      li > ul,ol > li{
+        margin-left: 0px !important;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      
+      .component__title{
+        font-family: inherit;
+        font-size: 1.65em;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .component__body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .accessibility-completion-indicator{
+        display: none;
+      }
+
+      .check__hidden {
+        display: none;
+      }
+
+      .check__button {
+        border: none;
+        border-radius: 6px !important;
+        background-color: #6abf4b;
+        color: #fff;
+        min-width: 100px;
+        margin: 0.625rem 0;
+        padding: 0.7rem;
+      }
+
+      .check__widget .check__solution .DevConfigGray {
+        background-color: rgb(214,216,220);
+        font-weight: bold;
+      }
+
+      .check-inner .check__widget .check__solution .DevConfigs {
+        margin: 0px;
+        line-height: 115%;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .check__solution  {
+        line-height: 1.5;
+      }
+      .mcq__inner .mcq__widget .mcq__widget-inner {
+        margin-block: 1rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item {
+        display: flex;
+        gap: 0.2rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item .mcq__item-label .mcq__item-text .screenReader-position-text{
+        display: none;
+      }
+      .opentabletextbox-inner .opentabletextBox__widget .openTableTextBox__answerText.answergray {
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox{
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox img{
+        margin-block: 1rem;
+        margin-left: initial;
+      }
+      .component__content .component__body-inner .pageTracer-h4-title-hide {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        font-size: 0px;
+        color: rgb(var(--neutral-2));
+        font-weight: normal;
+      }
+      .table-inner .table__widget table tr.TableHeading th, .table-inner .table__widget table tr.TableHeading td, .table-inner .table__widget table tr td.TableHeading, .opentabletextbox-table thead tr.TableHeading th, .opentabletextbox-table tbody tr.TableHeading td, .opentabletextbox-table tbody tr td.TableHeading {
+        background-color: #d6d8dc;
+        text-align: center;
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .CMD, .component__content .component__body-inner .CMDOutput, .component__content .component__body-inner .CMDOutput__table{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        margin-inline-start: 30px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      [dir="rtl"] .component__content .component__body-inner .CMDOutput__table span {
+        direction: ltr;
+        display: inline-block;
+      }
+      .openTextBox__inner .openTextBox__widget .CMD, .openTextBox__inner .openTextBox__widget .CMDOutput{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .openTextBox__inner .openTextBox__widget .DnTbold, .openTextBox__inner .openTextBox__widget .BodyTextL25Bold, .component__content .component__body-inner .BodyTextL25Bold, .component__content .component__body-inner .DnTbold, .table-inner .table__widget table tr .DnTbold {
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .SubStepNum {
+        text-indent: -25.5px;
+        margin-inline-start: 50px;
+      }
+      .component__content .component__body-inner .BodyTextL50 {
+        margin-inline-start: 30px;
+      }
+      .component__content .component__body-inner .Bulletlevel1 {
+        text-indent: -19px;
+        margin-inline-start: 48px;
+      }
+      .component__content .component__body-inner .Bulletlevel2 {
+          text-indent: -19px;
+          margin-inline-start: 72px;
+      }
+      .openTextBox__inner .openTextBox__widget .ReflectionQ, .component__content .component__body-inner .SubStepAlpha {
+          text-indent: -25.5px;
+          margin-inline-start: 30px;
+      }
+    </style>
+
+</head><body><!---->
+            <div class="article 64883b7c10c3402246b75e4f background-color-white remove-padding-top remove-padding-bottom ">
+                <div class="article__inner">
+                <div class=" no-adaptive-scroll">
+                    <!--?lit$27644491$-->
+                        <div class=""> 
+                            <base-view type="article" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="article__header-wrapper background-color-white remove-padding-top remove-padding-bottom ">
+        <div class="article__header ">
+          <div class="article__header-inner ">
+            <!--?lit$27644491$-->
+      <div class="article__title ">
+        <!--?lit$27644491$--><heading-view aria-hidden="true" id="64883b7c10c3402246b75e4f-heading-view" headingtitle="Práctica de laboratorio - Rastreo de redes con Wireshark" modelid="64883b7c10c3402246b75e4f" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="js-heading is-incomplete">
+        <div class="js-heading-inner" role="heading" id="article-heading" aria-level="2">
+        <span class="aria-label"> <!--?lit$27644491$-->Incompleto &nbsp;<!--?lit$27644491$-->Práctica de laboratorio - Rastreo de redes con Wireshark</span>
+        </div>
+      </div>
+    </heading-view>
+        <div tabindex="0" role="heading" class="article__title-inner " aria-level="2">
+          <span class="accessibility-completion-indicator"><!--?lit$27644491$-->Incompleto </span>
+          <!--?lit$27644491$-->Práctica de laboratorio - Rastreo de redes con Wireshark
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                            <div class="block__container " style="">
+                                <!--?lit$27644491$--><!---->
+                                    <block-view modelid="64883b8410c3402246b75ef3" style="width: 3.44828%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b8410c3402246b75ef3" class="64883b8410c3402246b75ef3 block remove-bottom-padding remove-top-padding is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b8410c3402246b75ef3" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-bottom-padding remove-top-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bab10c3402246b7620d" class="is-full zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bab10c3402246b7620d" class="component text 64883bab10c3402246b7620d  is-full is-complete  ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><h2>Objetivos</h2><p>En esta práctica de laboratorio, utilizará la utilidad de Linux <strong>tcpdump</strong> para capturar y guardar el tráfico de red. Luego utilizará Wireshark para investigar la captura de tráfico.</p><ul><li>Prepare el host para capturar el tráfico de red.</li><li>Capture y guarde el tráfico de red.</li><li>Ver y analizar la captura de paquetes.</li></ul></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b8710c3402246b75f29" style="width: 3.44828%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b8710c3402246b75f29" class="64883b8710c3402246b75f29 block remove-bottom-padding remove-top-padding is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b8710c3402246b75f29" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-bottom-padding remove-top-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bab10c3402246b7620e" class="is-full zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bab10c3402246b7620e" class="component text 64883bab10c3402246b7620e  is-full is-complete  ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><h2>Trasfondo / Escenario</h2><p>Wireshark es una utilidad de captura de paquetes de red que pueden utilizar los administradores de red para solucionar problemas de red. También se puede utilizar para espiar las comunicaciones de red para recopilar pasivamente información sobre usuarios y servicios. Wireshark se considera una herramienta pasiva porque no crea tráfico en la red.</p><h2>Recursos necesarios</h2><ul><li><!--[if !supportLists]-->Kali VM personalizada para el curso de Ethical Hacker</li><li><!--[if !supportLists]-->Acceso a Internet</li></ul></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b8910c3402246b75f52" style="width: 3.44828%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b8910c3402246b75f52" class="64883b8910c3402246b75f52 block remove-bottom-padding remove-top-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b8910c3402246b75f52" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-bottom-padding remove-top-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bab10c3402246b7620f" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bab10c3402246b7620f" class="component text 64883bab10c3402246b7620f remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><h1>Instrucciones</h1><h2>Parte 1: Preparar el host para capturar el tráfico de red.</h2><h3><strong>Paso 1: Iniciar la máquina virtual e iniciar sesión</strong></h3><ol style="list-style-type:lower-alpha"><li>Inicie la máquina virtual de la estación de trabajo Kali. Utilicen las siguientes credenciales de usuario:<pre>Username: <strong>kali</strong></pre><pre>Password: <strong>kali</strong></pre></li><li>Inicie una sesión de terminal haciendo clic en el icono de terminal en la barra de menús.</li></ol><h3><strong>Paso 2: Verificar el entorno.</strong></h3><ol style="list-style-type:lower-alpha"><li>Verifique el directorio de usuarios que se usará para almacenar el tráfico capturado. Para mostrar el directorio actual, use el comando <strong>pwd </strong>para mostrar la ruta completa al directorio de trabajo actual.<pre>┌──(kali㉿Kali)-[~]</pre><pre>└─$ <strong>pwd</strong></pre></li></ol></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b8b10c3402246b75f77" style="width: 3.44828%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b8b10c3402246b75f77" class="64883b8b10c3402246b75f77 block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b8b10c3402246b75f77" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883bab10c3402246b76210" class="is-full zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883bab10c3402246b76210" class="component opentextbox 64883bab10c3402246b76210  is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bab10c3402246b76210" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->Registre la ubicación del directorio.</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->generalmente /home/<nombredeusuario></nombredeusuario>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b8d10c3402246b75f9d" style="width: 3.44828%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b8d10c3402246b75f9d" class="64883b8d10c3402246b75f9d block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b8d10c3402246b75f9d" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bab10c3402246b76211" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bab10c3402246b76211" class="component text 64883bab10c3402246b76211 remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><ol start="2" style="list-style-type:lower-alpha"><li>Determine la dirección IP de la interfaz Ethernet de Kali con el comando [ <strong>ifconfig</strong>. La interfaz ethernet generalmente se denomina <strong>eth0</strong>.<pre>┌──(kali㉿Kali)-[~]</pre><pre>└─$  ifconfig</pre></li></ol></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9010c3402246b75fcc" style="width: 3.44828%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9010c3402246b75fcc" class="64883b9010c3402246b75fcc block remove-bottom-padding remove-top-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9010c3402246b75fcc" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-bottom-padding remove-top-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883bab10c3402246b76212" class="is-full zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883bab10c3402246b76212" class="component opentextbox 64883bab10c3402246b76212  is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bab10c3402246b76212" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->Registre la dirección IP y la dirección MAC de la interfaz de red Ethernet. Esta será la dirección de origen de los paquetes que se originan en la máquina Kali.</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->Las respuestas pueden variar.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9010c3402246b75fdd" style="width: 3.44828%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9010c3402246b75fdd" class="64883b9010c3402246b75fdd block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9010c3402246b75fdd" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bab10c3402246b76213" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bab10c3402246b76213" class="component text 64883bab10c3402246b76213 remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><ol start="3" style="list-style-type: lower-alpha;"><li>Determine la puerta de enlace predeterminada asignada al host Kali mediante el comando <strong>ip route</strong>.<pre>┌──(kali㉿Kali)-[~]</pre><pre>└─$ <strong>ip route</strong></pre></li></ol></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9210c3402246b75ff5" style="width: 3.44828%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9210c3402246b75ff5" class="64883b9210c3402246b75ff5 block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9210c3402246b75ff5" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883bac10c3402246b76214" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883bac10c3402246b76214" class="component opentextbox 64883bac10c3402246b76214  is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bac10c3402246b76214" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->Registre la dirección IP de la puerta de enlace predeterminada. La puerta de enlace predeterminada responde a las solicitudes ARP de direcciones IP de destino ubicadas fuera de la red de origen.</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->Las respuestas pueden variar.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--> <div class="openTextBox__postText"> <!--?lit$27644491$-->Nota: La dirección IP de la puerta de enlace predeterminada debe estar en la misma subred IP que la dirección de la interfaz Ethernet. </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9310c3402246b76009" style="width: 3.44828%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9310c3402246b76009" class="64883b9310c3402246b76009 block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9310c3402246b76009" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bac10c3402246b76215" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bac10c3402246b76215" class="component text 64883bac10c3402246b76215 remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><ol start="4" style="list-style-type: lower-alpha;"><li>Determine la dirección del servidor DNS predeterminado configurado mostrando el contenido del archivo <strong>/etc/resolv.conf</strong>. Puede ver el archivo con el comando <strong>cat <nombre del="" archivo=""></nombre></strong>.<pre>$<strong> cat /etc/resolv.conf</strong></pre></li></ol><p>&nbsp;</p></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9410c3402246b76018" style="width: 3.44828%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9410c3402246b76018" class="64883b9410c3402246b76018 block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9410c3402246b76018" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883bac10c3402246b76216" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883bac10c3402246b76216" class="component opentextbox 64883bac10c3402246b76216  is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bac10c3402246b76216" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->Registre la dirección IP del servidor DNS predeterminado configurado. La dirección IP del servidor DNS será la dirección de destino de los paquetes de consulta estándar y la dirección de origen de los paquetes de respuesta DNS.</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->Las respuestas pueden variar.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9410c3402246b76027" style="width: 3.44828%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9410c3402246b76027" class="64883b9410c3402246b76027 block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9410c3402246b76027" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bac10c3402246b76217" class="is-full packetTracer_wrap_text zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bac10c3402246b76217" class="component text 64883bac10c3402246b76217 packetTracer_wrap_text is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><h3>Parte 2: Capturar y guardar el tráfico de red.</h3><p>En esta parte utilizarán <strong>tcpdump</strong> para capturar el contenido del tráfico HTTP. Utilizarán opciones de comandos para guardar el tráfico en un archivo de captura de paquetes&nbsp;(pcap). Estos registros se pueden analizar posteriormente con diferentes aplicaciones que leen archivos&nbsp;pcap, incluida Wireshark.</p><p><strong>Paso 1: Abrir un terminal e iniciar tcpdump</strong></p><ol style="list-style-type:lower-alpha"><li>Abra una aplicación del terminal e introduzca el comando <strong>ifconfig</strong>.<pre>┌──(kali㉿Kali)-[~]</pre><pre>└─$ <strong>ifconfig</strong></pre></li><li>En la salida <strong>ifconfig</strong>, busque el nombre de la interfaz que corresponde al adaptador Ethernet (generalmente eth0). Haga clic con el botón derecho en el nombre de la interfaz y seleccione <strong>Copy Selection</strong> (Copiar selección).</li><li>Ingrese el comando <strong>sudo tcpdump</strong> como se muestra. Reemplace el texto <strong>&lt;<em>interface</em>&gt;</strong> con el nombre de la interfaz que copió en el paso anterior. Este comando requiere acceso de usuario root, así que introduzca <strong>kali</strong> como contraseña si se le solicita.<pre>┌──(kali㉿Kali)-[~]</pre><pre>└─$ <strong>sudo tcpdump -i eth0 -s 0 -w packetdump.pcap</strong></pre><p>La opción de comando <strong>-i</strong> le permite especificar la interfaz. Si no se la especifica, tcpdump capturará todo el tráfico en todas las interfaces.</p><p>La opción de comando <strong>-s</strong> especifica la longitud de la instantánea correspondiente a cada paquete. Al establecer esta opción en 0, se establece el valor predeterminado de 262144.</p><p>La opción de comando <strong>-w</strong> se utiliza para escribir el resultado del comando <strong>tcpdump</strong> en un archivo. Si se agrega la extensión <strong>.pcap</strong>, se garantiza que los sistemas operativos y las aplicaciones podrán leer el archivo. Todo el tráfico registrado se imprimirá al archivo <strong>httpsdump.pcap</strong>, en el directorio de inicio del usuario.</p></li></ol><p><strong>Paso 2: Generar tráfico de red mediante un navegador web.</strong></p><ol style="list-style-type:lower-alpha"><li>Para capturar una solicitud y una respuesta HTTP, abra un navegador web en el escritorio de Kali. Vaya a <strong>Google.com</strong>. No inicie sesión ni busque.</li><li>Abra una segunda pestaña en el navegador, ingrese <strong>netacad.com</strong> en la barra de inicio. Una vez que aparezca la página, haga clic en el icono de usuario en la parte superior derecha de la página. Inicie sesión con su información de inicio de sesión de netacad.</li><li>Regrese a la ventana de terminal que ejecuta la utilidad <strong>tcpdump</strong> e ingrese <strong>CTRL-C</strong> para completar la captura de paquetes.</li><li>La utilidad tcpdump guardó la salida en un archivo denominado <strong>packetdump.pcap</strong>. Este archivo debe guardarse en el directorio de inicio predeterminado. Verifique que el archivo exista en el directorio mediante el comando <strong>ls</strong>.<pre>┌──(kali㉿Kali)-[~]</pre><pre>└─$ <strong>ls packetdump.pcap</strong></pre><pre>packetdump.pcap</pre></li></ol></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9510c3402246b76036" style="width: 3.44828%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9510c3402246b76036" class="64883b9510c3402246b76036 block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9510c3402246b76036" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bac10c3402246b76225" class="is-full zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bac10c3402246b76225" class="component text 64883bac10c3402246b76225  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><h3>Parte 3: Ver y analizar la captura de paquetes.</h3><p>En esta parte, usará Wireshark para analizar el archivo de captura de paquetes que creó en la parte 2 de esta práctica de laboratorio.</p><p><strong>Paso 1: Abra la aplicación Wireshark para ver la captura de paquetes.</strong></p><ol style="list-style-type:lower-alpha"><li>Utilice Wireshark para ver los paquetes capturados. Inicie la aplicación gráfica Wireshark escribiendo <strong>wireshark</strong> en el indicador de la CLI.<pre>┌──(kali㉿Kali)-[~]</pre><pre>└─$ <strong>wireshark</strong></pre><p>La aplicación Wireshark debería abrirse en una ventana diferente. Expanda la ventana de Wireshark a pantalla completa.</p></li><li>Utilice la opción de menú <strong>File -&gt; Open</strong> e introduzca <strong>packetdump.pcap</strong> en el campo Nombre de archivo. Haga clic en <strong>Open</strong> (Abrir). Debe abrirse una pantalla que muestre el contenido del archivo <strong>packetdump.pcap</strong>.</li></ol><p><strong>Paso 2: Analizar el tráfico DNS.</strong></p><p>Cuando se escribe la URL de un sitio web en el navegador, la PC realiza una consulta de DNS a la dirección IP del servidor DNS. La observación de las consultas y respuestas del DNS proporciona los nombres (URL) y las direcciones IP de los sitios que visita un usuario. Conocer los sitios web que los usuarios visitan comúnmente puede ser valioso al formular ataques de ingeniería social.</p><ol style="list-style-type:lower-alpha"><li>Filtre el tráfico capturado para mostrar solo las consultas y respuestas de DNS. Introduzca <strong>dns</strong> en el campo Filtro de la pantalla principal de Wireshark. Observará que, además del sitio web <strong>netacad</strong> que solicitó, se muestran otras búsquedas de DNS. Corresponden a enlaces contenidos en las páginas de inicio de netacad y Google.</li></ol></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9610c3402246b76046" style="width: 3.44828%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9610c3402246b76046" class="64883b9610c3402246b76046 block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9610c3402246b76046" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883bac10c3402246b76218" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883bac10c3402246b76218" class="component opentextbox 64883bac10c3402246b76218  is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bac10c3402246b76218" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->¿Cuáles son algunos de los sitios web que se enumeran en las consultas estándar de DNS?
+</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->Las respuestas variarán, pero deben incluir sitios de medios sociales, sitios de análisis de Google y otros sitios de Cisco.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9710c3402246b76055" style="width: 3.44828%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9710c3402246b76055" class="64883b9710c3402246b76055 block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9710c3402246b76055" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bac10c3402246b76219" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bac10c3402246b76219" class="component text 64883bac10c3402246b76219  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><ol type="a" start="2"><li>Haga clic en el icono de búsqueda y busque el nombre de host <strong>netacad</strong>.com. Seleccione <strong>String</strong> en el cuadro desplegable e ingrese <strong>netacad</strong> en el cuadro de búsqueda.</li><li>Seleccione la primera consulta estándar para el sitio web <strong>netacad.com</strong>. Expanda el panel de detalles de la consulta debajo de la lista de paquetes para ver el contenido del paquete de consulta.</li><li>Expanda la información de <strong>Ethernet II</strong> para mostrar los datos del encabezado de capa 2 contenidos en el paquete. La dirección MAC de origen es la MAC de la interfaz del dispositivo de envío, en este caso la VM Kali, y la dirección MAC de destino es la MAC de la puerta de enlace predeterminada, ya que el servidor DNS no está en la misma red de capa 2.</li></ol></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9810c3402246b76064" style="width: 3.44828%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9810c3402246b76064" class="64883b9810c3402246b76064 block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9810c3402246b76064" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883bac10c3402246b7621a" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883bac10c3402246b7621a" class="component opentextbox 64883bac10c3402246b7621a  is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bac10c3402246b7621a" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->¿La dirección MAC de origen coincide con la dirección que registró en la parte 1?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->Sí
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9810c3402246b76072" style="width: 3.44828%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9810c3402246b76072" class="64883b9810c3402246b76072 block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9810c3402246b76072" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bac10c3402246b7621b" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bac10c3402246b7621b" class="component text 64883bac10c3402246b7621b  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><p></p><ol type="a" start="5"><li>Expanda la sección <strong>Domain Name System (query)</strong> para ver los detalles de lo que se envía al servidor DNS. También indica la línea que contiene el paquete de respuesta que se recibió en respuesta a la consulta. Haga doble clic en el enlace a la respuesta. Se muestran los detalles del paquete de respuesta a la consulta estándar.</li></ol><p></p></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9910c3402246b76082" style="width: 3.44828%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9910c3402246b76082" class="64883b9910c3402246b76082 block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9910c3402246b76082" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883bac10c3402246b7621c" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883bac10c3402246b7621c" class="component opentextbox 64883bac10c3402246b7621c  is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bac10c3402246b7621c" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$--> ¿Qué direcciones IP están asociadas con la URL netacad.com?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->Las respuestas pueden variar, por ejemplo, 13.33.21.125, 13.33.21.5, 13.33.21.122, 13.33.21.30
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9a10c3402246b7608f" style="width: 3.44828%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9a10c3402246b7608f" class="64883b9a10c3402246b7608f block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9a10c3402246b7608f" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bac10c3402246b7621d" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bac10c3402246b7621d" class="component text 64883bac10c3402246b7621d remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><ol start="6" style="list-style-type: lower-alpha;"><li>Cierre Wireshark para volver al indicador de la CLI.</li></ol><p><strong>Paso 3: Analizar una sesión HTTP</strong></p><p>En este paso, capturará y analizará una solicitud y una respuesta web. Utilizará Wireshark para capturar el tráfico y analizar los mensajes intercambiados entre el servidor web y el cliente. El servidor del sitio web es un servidor de VM que se ejecuta en un contenedor de Docker en el host de Kali Linux.</p><ol style="list-style-type:lower-alpha"><li>Utilice <strong>ifconfig</strong> para determinar qué interfaz de la VM Kali Linux está configurada en la red 10.6.6.0/24.<pre>┌──(kali㉿Kali)-[~]</pre><pre>└─$ <strong>ifconfig</strong></pre></li></ol></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9a10c3402246b7609c" style="width: 3.44828%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9a10c3402246b7609c" class="64883b9a10c3402246b7609c block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9a10c3402246b7609c" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883bac10c3402246b7621e" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883bac10c3402246b7621e" class="component opentextbox 64883bac10c3402246b7621e  is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bac10c3402246b7621e" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->¿Cuál es el nombre de la interfaz conectada a la red 10.6.6.0/24?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->Las respuestas pueden variar según la configuración. En la VM de Kali, es br-ee5c01518209
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9b10c3402246b760ab" style="width: 3.44828%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9b10c3402246b760ab" class="64883b9b10c3402246b760ab block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9b10c3402246b760ab" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883bac10c3402246b76226" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883bac10c3402246b76226" class="component opentextbox 64883bac10c3402246b76226  is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bac10c3402246b76226" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->¿Cuál es la dirección IP asignada a esa interfaz?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->10.6.6.1
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9c10c3402246b760b8" style="width: 3.44828%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9c10c3402246b760b8" class="64883b9c10c3402246b760b8 block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9c10c3402246b760b8" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bac10c3402246b7621f" class="is-full zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bac10c3402246b7621f" class="component text 64883bac10c3402246b7621f  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><ol start="2" style="list-style-type: lower-alpha;"><li>Abra Wireshark escribiendo <strong>wireshark</strong> en la línea de comandos. Wireshark se abrirá en una nueva ventana, expandirá la ventana a pantalla completa. En el centro de la pantalla principal de Wireshark habrá una lista de nombres de interfaz para capturar el tráfico. Haga doble clic en el nombre de la interfaz que coincida con el nombre de la interfaz que descubrió en el paso 2a.</li><li>Abra una ventana del navegador e ingrese la dirección IP 10.6.6.13 en la barra de inicio. Aparece una pantalla de inicio de sesión para el servidor web DVWA. Escriba <strong>admin</strong> tanto como nombre de usuario y la <strong>contraseña</strong>.<pre>Username: <strong>admin</strong></pre><pre>Password: <strong>password</strong></pre></li><li>Cuando aparezca la página principal de DVWA, haga clic en el botón <strong>Instructions</strong> en la parte superior del menú en el lado izquierdo de la pantalla. Cuando aparezca la página de instrucciones, cierre la ventana del navegador.</li><li>Regrese a la ventana de Wireshark. Detenga la captura con el <strong>icono cuadrado rojo</strong> en la barra de menús. El servidor web DVWA utiliza HTTP, no HTTPs. Utilice el <strong>icono de búsqueda</strong> para encontrar la cadena <strong>POST</strong> en los paquetes capturados. Los mensajes POST transfieren datos del formulario del cliente al servidor, en este caso la información de inicio de sesión.</li><li>Haga doble clic en el primer paquete POST para ver los detalles en una ventana separada. Expanda la sección titulada <strong>HTML Form URL Encoded</strong>:</li></ol></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9d10c3402246b760c4" style="width: 3.44828%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9d10c3402246b760c4" class="64883b9d10c3402246b760c4 block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9d10c3402246b760c4" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883bac10c3402246b76220" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883bac10c3402246b76220" class="component opentextbox 64883bac10c3402246b76220  is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bac10c3402246b76220" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->¿Qué información contiene esta sección?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->Esta sección contiene el nombre de usuario y la contraseña ingresados por el usuario. También se muestra un user_token.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9d10c3402246b760d1" style="width: 3.44828%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9d10c3402246b760d1" class="64883b9d10c3402246b760d1 block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9d10c3402246b760d1" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bac10c3402246b76221" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bac10c3402246b76221" class="component text 64883bac10c3402246b76221 remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><ol start="7" style="list-style-type: lower-alpha;"><li>Las cookies se utilizan para diversos fines. Con mayor frecuencia, se utilizan para guardar información sobre la sesión de un usuario. Las cookies pueden ser secuestradas y utilizadas en ataques de secuestro de sesiones. La cookie inicial para una sesión se envía desde el servidor web al cliente con el valor <strong>Set-Cookie</strong> en una respuesta HTTP. Utilice el icono de búsqueda para encontrar la cadena <strong>302 Found</strong> en el panel de paquetes. Haga doble clic en el primer paquete encontrado y expanda la sección <strong>Hypertext Transport Protocol</strong>.</li></ol></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9e10c3402246b760dc" style="width: 3.44828%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9e10c3402246b760dc" class="64883b9e10c3402246b760dc block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9e10c3402246b760dc" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883bac10c3402246b76222" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883bac10c3402246b76222" class="component opentextbox 64883bac10c3402246b76222  is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bac10c3402246b76222" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->¿Qué valor se establece en la cookie que se envía desde el servidor web al cliente Kali?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->PHPSESSID
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9e10c3402246b760e5" style="width: 3.44828%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9e10c3402246b760e5" class="64883b9e10c3402246b760e5 block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9e10c3402246b760e5" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bac10c3402246b76223" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bac10c3402246b76223" class="component text 64883bac10c3402246b76223 remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><ol start="8" style="list-style-type: lower-alpha;"><li>Examine el siguiente paquete <strong>GET</strong> que se envía desde el navegador del cliente Kali después de recibir la información de la cookie. Expanda la sección <strong>Hypertext Transport Protocol</strong>. Busque los valores de cookie que se envían en el paquete.</li></ol><p>&nbsp;</p></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9f10c3402246b760ee" style="width: 3.44828%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9f10c3402246b760ee" class="64883b9f10c3402246b760ee block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9f10c3402246b760ee" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883bac10c3402246b76224" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883bac10c3402246b76224" class="component opentextbox 64883bac10c3402246b76224  is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bac10c3402246b76224" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->¿El PHPSESSID que se envía de vuelta al servidor en la solicitud GET es el mismo que el enviado desde el servidor en la respuesta anterior?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->Sí.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9f10c3402246b760f5" style="width: 3.44828%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9f10c3402246b760f5" class="64883b9f10c3402246b760f5 block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9f10c3402246b760f5" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bac10c3402246b76227" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bac10c3402246b76227" class="component text 64883bac10c3402246b76227 remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><ol start="9" style="list-style-type:lower-alpha"><li>Cierre Wireshark. Tendrá la opción de guardar el archivo .pcap que contiene la captura o salir sin guardar. El archivo .pcap se guardará en el directorio de trabajo actual a menos que se especifique lo contrario.</li></ol><h1>Preguntas de reflexión</h1></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883ba010c3402246b760fe" style="width: 3.44828%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883ba010c3402246b760fe" class="64883ba010c3402246b760fe block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883ba010c3402246b760fe" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883bac10c3402246b76228" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883bac10c3402246b76228" class="component opentextbox 64883bac10c3402246b76228  is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bac10c3402246b76228" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->1.En esta práctica de laboratorio, tuvo la oportunidad de familiarizarse con la captura de paquetes tanto en la utilidad tcpdump como en la aplicación Wireshark. ¿Cuáles son los beneficios de utilizar las utilidades de captura de paquetes al realizar un reconocimiento pasivo en un objetivo potencial?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->Las respuestas pueden variar. Los beneficios incluyen poder monitorear y recopilar el tráfico sin ser detectados. Las capturas de paquetes se pueden guardar y analizar en una fecha posterior. La información sobre los sistemas de destino, incluidos los sitios web visitados y los valores de las cookies, se puede recopilar sin interacción directa con los sistemas.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883ba010c3402246b76106" style="width: 3.44828%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883ba010c3402246b76106" class="64883ba010c3402246b76106 block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883ba010c3402246b76106" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883bac10c3402246b76229" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883bac10c3402246b76229" class="component opentextbox 64883bac10c3402246b76229  is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bac10c3402246b76229" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->2.¿Qué información se puede recopilar mediante la captura de paquetes?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->Las respuestas pueden variar. Las respuestas pueden incluir: direcciones IP, protocolos, direcciones MAC, servidores DNS, datos enviados hacia y desde diversas aplicaciones, tráfico de enrutadores y conmutadores, identificación de puertas de enlace
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!---->
+                            </div>
+                        </div>
+                        <!--?lit$27644491$-->
+                    </div>
+                </div>
+            </div>
+        <sgpluse-opentextboxcontroller-view modelid="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+            <div class="openTextBoxController__button-container">
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__showButton show-answer show"><!--?lit$27644491$-->Mostrar todas las respuestas</button>    
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar todas las respuestas</button>    
+                <button class="btn-text resetbtn openTextBoxController__resetButton"><!--?lit$27644491$-->Borrar mis respuestas</button>         
+            </div>
+            <!--?lit$27644491$--><hr>
+            <!--?lit$27644491$-->
+                <div class="post-text" tabindex="0">
+                    <!--?lit$27644491$-->© 2017 - 2023 Cisco and/or its affiliates. All rights reserved. Cisco Public
+                </div>
+                   
+        </sgpluse-opentextboxcontroller-view><script></script>
+<script>
+    window.addEventListener("load", function () {
+      console.log("loaded");
+      document?.querySelectorAll(".answergray").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".show-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.remove("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.add("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      let event = new Event("click", {
+        bubbles: true,
+        cancelable: true,
+      });
+      document
+        ?.querySelectorAll(".openTextBoxController__showButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".show-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__hideButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__resetButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            document?.querySelectorAll("textArea").forEach(function (ele) {
+              ele.value = "";
+            });
+          });
+        });
+
+      document
+      ?.querySelectorAll('textarea')
+      .forEach(function (ele){
+        ele.defaultValue = ele.defaultValue.replace(/<!--.*?-->/g, '');
+      })
+        let checkButtonLabel = "check_button_label_placeHolder";
+        let hideButtonLabel = "hide_button_label_placeHolder";
+        document?.querySelectorAll(".check__button").forEach(function (ele) {
+        let answerBox = document.querySelector(".check__solution")
+        if (!answerBox.classList.contains("check__hidden")) {
+          answerBox.classList.add("check__hidden");
+          ele.innerText = checkButtonLabel;
+        }
+          ele.addEventListener("click", function (e) {
+            if (answerBox.classList.contains("check__hidden")) {
+              answerBox.classList.remove("check__hidden")
+              ele.innerText = hideButtonLabel;
+            } else {
+              answerBox.classList.add("check__hidden")
+              ele.innerText = checkButtonLabel;
+            }
+          })
+        })
+    });
+  </script>
+  </body></html>

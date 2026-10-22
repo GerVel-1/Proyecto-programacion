@@ -1,0 +1,1535 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 1rem;
+      }
+      ol,
+      ul {
+        margin-bottom: 0in;
+      }
+      table {
+        margin-top: 1rem;
+        border: 1px solid gray;
+        width: 7in;
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > .openTableTextBox__table-header-data {
+        text-align: center;
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0in;
+        text-align: center;
+        line-height: 115%;
+        page-break-after: avoid;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        font-weight: bold;
+        background: #dbe5f1;
+        padding: 0.5rem;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .openTextBox__textArea-container {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 50%;
+      }
+      .openTableTextBox__fieldset {
+        padding: 5px;
+      }
+      td {
+        margin-top: 3pt;
+        margin-right: 0in;
+        margin-bottom: 3pt;
+        margin-left: 0in;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 98.85pt;
+        border: solid windowtext 1pt;
+        border-top: none;
+        padding: 0.7pt 5.75pt 0.7pt 5.75pt;
+      }
+      textarea {
+        width: 100%;
+      }
+      .answergray {
+        padding: 0.2rem;
+      }
+
+      .openTableTextBox__widget {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0.25in;
+      }
+
+      .show-answer,
+      .hide-answer {
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border: 0px;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .openTextBoxController__button-container {
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .openTextBoxController__button-container .btn-text {
+        margin: 10px;
+      }
+
+      .btn-text {
+        border: 0px;
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border-radius: 0;
+        cursor: pointer;
+      }
+
+      .u-display-none {
+        display: none;
+      }
+      .openTextBox__postText, openTableTextBox__postText {
+        margin-top: 0.5rem;
+      }
+      .edit-comment {
+        display: none;
+      }
+      .js-heading-inner {
+        display: none;
+      }
+      .block__title-inner,
+      .article__title-inner {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+      h2{
+        font-size: 1.25em;
+      }
+      h3{
+        font-size: 1.125em;
+      }
+      .table
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: solid windowtext 1pt;
+      }
+      table tbody tr th, table thead tr th{
+        border: solid windowtext 1pt;
+        background-color: #d6d8dc;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .command-output > .table-inner > .table-wrapper > .table-widget > table,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > td,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: none !important;
+        text-align: right !important;
+      }
+      .simple-table > .table-inner > .table-wrapper{
+        margin-left: 1.5rem;
+      }
+      .openTextBox__widget {
+        margin-left: 1.5rem;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      .answergray {
+        background-color: #ccc;
+      }
+      .openTableTextBox__widget > .answergray {
+        background-color: #fff !important;
+      }
+      li > ul,ol > li{
+        margin-left: 0px !important;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      
+      .component__title{
+        font-family: inherit;
+        font-size: 1.65em;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .component__body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .accessibility-completion-indicator{
+        display: none;
+      }
+
+      .check__hidden {
+        display: none;
+      }
+
+      .check__button {
+        border: none;
+        border-radius: 6px !important;
+        background-color: #6abf4b;
+        color: #fff;
+        min-width: 100px;
+        margin: 0.625rem 0;
+        padding: 0.7rem;
+      }
+
+      .check__widget .check__solution .DevConfigGray {
+        background-color: rgb(214,216,220);
+        font-weight: bold;
+      }
+
+      .check-inner .check__widget .check__solution .DevConfigs {
+        margin: 0px;
+        line-height: 115%;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .check__solution  {
+        line-height: 1.5;
+      }
+      .mcq__inner .mcq__widget .mcq__widget-inner {
+        margin-block: 1rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item {
+        display: flex;
+        gap: 0.2rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item .mcq__item-label .mcq__item-text .screenReader-position-text{
+        display: none;
+      }
+      .opentabletextbox-inner .opentabletextBox__widget .openTableTextBox__answerText.answergray {
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox{
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox img{
+        margin-block: 1rem;
+        margin-left: initial;
+      }
+      .component__content .component__body-inner .pageTracer-h4-title-hide {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        font-size: 0px;
+        color: rgb(var(--neutral-2));
+        font-weight: normal;
+      }
+      .table-inner .table__widget table tr.TableHeading th, .table-inner .table__widget table tr.TableHeading td, .table-inner .table__widget table tr td.TableHeading, .opentabletextbox-table thead tr.TableHeading th, .opentabletextbox-table tbody tr.TableHeading td, .opentabletextbox-table tbody tr td.TableHeading {
+        background-color: #d6d8dc;
+        text-align: center;
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .CMD, .component__content .component__body-inner .CMDOutput, .component__content .component__body-inner .CMDOutput__table{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        margin-inline-start: 30px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      [dir="rtl"] .component__content .component__body-inner .CMDOutput__table span {
+        direction: ltr;
+        display: inline-block;
+      }
+      .openTextBox__inner .openTextBox__widget .CMD, .openTextBox__inner .openTextBox__widget .CMDOutput{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .openTextBox__inner .openTextBox__widget .DnTbold, .openTextBox__inner .openTextBox__widget .BodyTextL25Bold, .component__content .component__body-inner .BodyTextL25Bold, .component__content .component__body-inner .DnTbold, .table-inner .table__widget table tr .DnTbold {
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .SubStepNum {
+        text-indent: -25.5px;
+        margin-inline-start: 50px;
+      }
+      .component__content .component__body-inner .BodyTextL50 {
+        margin-inline-start: 30px;
+      }
+      .component__content .component__body-inner .Bulletlevel1 {
+        text-indent: -19px;
+        margin-inline-start: 48px;
+      }
+      .component__content .component__body-inner .Bulletlevel2 {
+          text-indent: -19px;
+          margin-inline-start: 72px;
+      }
+      .openTextBox__inner .openTextBox__widget .ReflectionQ, .component__content .component__body-inner .SubStepAlpha {
+          text-indent: -25.5px;
+          margin-inline-start: 30px;
+      }
+    </style>
+
+</head><body><!---->
+            <div class="article 27b6bfaf-5ee5-441e-b03e-783d0f34e9c0 remove-padding-top remove-padding-bottom ">
+                <div class="article__inner">
+                <div class=" no-adaptive-scroll">
+                    <!--?lit$2690099157$-->
+                        <div class=""> 
+                            <base-view type="article" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="article__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="article__header ">
+          <div class="article__header-inner ">
+            <!--?lit$2690099157$-->
+      <div class="article__title ">
+        <!--?lit$2690099157$--><heading-view aria-hidden="true" id="27b6bfaf-5ee5-441e-b03e-783d0f34e9c0-heading-view" headingtitle="Lab - Utilizar Windows PowerShell" modelid="27b6bfaf-5ee5-441e-b03e-783d0f34e9c0" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="js-heading is-incomplete">
+        <div class="js-heading-inner" role="heading" id="article-heading" aria-level="2">
+        <span class="aria-label"> <!--?lit$2690099157$-->Incompleto &nbsp;<!--?lit$2690099157$-->Lab - Utilizar Windows PowerShell</span>
+        </div>
+      </div>
+    </heading-view>
+        <div tabindex="0" role="heading" class="article__title-inner " aria-level="2">
+          <span class="accessibility-completion-indicator"><!--?lit$2690099157$-->Incompleto </span>
+          <!--?lit$2690099157$-->Lab - Utilizar Windows PowerShell
+        </div>
+      </div>
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                            <div class="block__container " style="">
+                                <!--?lit$2690099157$--><!---->
+                                    <block-view modelid="517cf7ac-2752-4173-84bb-f10c7146104e" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="517cf7ac-2752-4173-84bb-f10c7146104e" class="517cf7ac-2752-4173-84bb-f10c7146104e block  is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="517cf7ac-2752-4173-84bb-f10c7146104e" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$2690099157$--><!----><text-view modelid="83e1791f-ab29-4af0-bf6c-cd14b98c37cf" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="83e1791f-ab29-4af0-bf6c-cd14b98c37cf" class="component text 83e1791f-ab29-4af0-bf6c-cd14b98c37cf  is-full is-complete  ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$2690099157$--><h2>Objetivos</h2> <p class="BodyTextL25">El objetivo de esta práctica de laboratorio es estudiar algunas de las funciones de PowerShell.</p> <p class="BodyTextL25Bold">Parte 1: Acceder a la consola PowerShell.</p> <p class="BodyTextL25Bold">Parte 2: Explorar los comandos del Command Prompt y del PowerShell.</p> <p class="BodyTextL25Bold">Parte 3: Explorar cmdlets.</p> <p class="BodyTextL25Bold">Parte 4: Explorar el comando netstat utilizando PowerShell.</p> <p class="BodyTextL25Bold">Parte 5: Vaciar la papelera de reciclaje utilizando PowerShell</p> <h2>Trasfondo/Situación</h2> <p class="BodyTextL25">PowerShell es una potente herramienta de automatización. Es una consola de comandos, y también un lenguaje de scripts. En esta práctica de laboratorio utilizarán la consola para ejecutar algunos de los comandos disponibles tanto en el símbolo del sistema como en PowerShell. PowerShell también tiene funciones que pueden crear scripts para automatizar tareas y trabajar junto con el Sistema operativo&nbsp;Windows.</p> <h2>Recursos necesarios</h2> <p class="Bulletlevel1"><span style="font-size:7.0pt; line-height:115%;font-family:Webdings">=</span><span>&nbsp;&nbsp;</span>PC&nbsp;Windows con PowerShell instalado y acceso a Internet</p> <h2>Instrucciones</h2> <h2>Parte 1: Acceder a la consola PowerShell.</h2> <p class="SubStepAlpha">a.&nbsp;&nbsp;<span>Haga clic </span> en <b>Inicio</b>. Busque y seleccione <b>powershell</b>. </p> <p class="SubStepAlpha">b.&nbsp;&nbsp;<span>Haga clic </span> en <b>Inicio</b>. Busque y seleccione <b>el Command Prompt</b>. </p> <h2>Parte 2: Explorar los comandos del Command Prompt y del PowerShell. </h2> <p class="SubStepAlpha">a.<span>&nbsp;&nbsp;</span>Introduzcan <span></span><b>dir</b> en los cursores de ambas ventanas.</p> <h4 class="pageTracer-h4-title-hide">Pregunta:</h4></div>
+        </div>
+      </div>
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="a14321bc-3f06-4aa2-985d-32fd07c4834e" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="a14321bc-3f06-4aa2-985d-32fd07c4834e" class="a14321bc-3f06-4aa2-985d-32fd07c4834e block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="a14321bc-3f06-4aa2-985d-32fd07c4834e" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$2690099157$--><!----><opentextbox-view modelid="54991df2-b40d-4fbd-b056-5eb530849d62" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="54991df2-b40d-4fbd-b056-5eb530849d62" class="component opentextbox 54991df2-b40d-4fbd-b056-5eb530849d62  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="54991df2-b40d-4fbd-b056-5eb530849d62" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$2690099157$--> <div class="openTextBox__preText"><!--?lit$2690099157$--><p class="BodyTextL50">¿Qué salidas arroja el comando <b>dir</b> ?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$2690099157$--><!--?lit$2690099157$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$2690099157$-->
+                      <!--?lit$2690099157$--><p class="BodyTextL50Answer"><span class="AnswerGray"><span style=" border: none"><span style="border: none"> Ambas ventanas proporcionan una lista de subdirectorios y archivos, e información asociada como tipo, tamaño de archivo, fecha y hora de la última escritura. En PowerShell, también se muestran los modos de atributos. </span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$2690099157$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$2690099157$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$2690099157$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="2e1ba85e-f6c7-48b7-bf01-544896d6bc26" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="2e1ba85e-f6c7-48b7-bf01-544896d6bc26" class="2e1ba85e-f6c7-48b7-bf01-544896d6bc26 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="2e1ba85e-f6c7-48b7-bf01-544896d6bc26" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$2690099157$--><!----><text-view modelid="acd80c25-6a11-429f-9e1f-a6eef78aa62c" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="acd80c25-6a11-429f-9e1f-a6eef78aa62c" class="component text acd80c25-6a11-429f-9e1f-a6eef78aa62c  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$2690099157$--><p class="SubStepAlpha">b.<span>&nbsp;&nbsp;</span>Prueben otro comando que hayan utilizando en el command prompt, como <span><b>ping</b>, </span><b>cd</b> o <b>ipconfig</b>. </p> <h4 class="pageTracer-h4-title-hide">Pregunta:</h4></div>
+        </div>
+      </div>
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="cdbd9a3b-3aa1-4594-9306-05c7e5955d24" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="cdbd9a3b-3aa1-4594-9306-05c7e5955d24" class="cdbd9a3b-3aa1-4594-9306-05c7e5955d24 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="cdbd9a3b-3aa1-4594-9306-05c7e5955d24" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$2690099157$--><!----><opentextbox-view modelid="f581220d-8457-44c2-b77d-9e720328db8f" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="f581220d-8457-44c2-b77d-9e720328db8f" class="component opentextbox f581220d-8457-44c2-b77d-9e720328db8f  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="f581220d-8457-44c2-b77d-9e720328db8f" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$2690099157$--> <div class="openTextBox__preText"><!--?lit$2690099157$--><p class="BodyTextL50">¿Cuáles son los resultados?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$2690099157$--><!--?lit$2690099157$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$2690099157$-->
+                      <!--?lit$2690099157$--><p class="BodyTextL50Answer"><span class="AnswerGray"><span style=" border: none"><span style="border: none"> Lasalida en ambas ventanas es similar. </span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$2690099157$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$2690099157$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$2690099157$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="3c105a45-d684-4b3f-9e79-a2d01dbe1364" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="3c105a45-d684-4b3f-9e79-a2d01dbe1364" class="3c105a45-d684-4b3f-9e79-a2d01dbe1364 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="3c105a45-d684-4b3f-9e79-a2d01dbe1364" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$2690099157$--><!----><text-view modelid="8e466342-a416-4208-93b4-3e25e83eefed" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="8e466342-a416-4208-93b4-3e25e83eefed" class="component text 8e466342-a416-4208-93b4-3e25e83eefed  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$2690099157$--><h2>Parte 3: Explorar cmdlets.</h2> <p class="SubStepAlpha">a.&nbsp;&nbsp;Los comandos de PowerShell, cmdlets, se construyen como una <i>cadena de <span>verbo-sustantivo</span></i> . Para identificar el comando de PowerShell que se utilizará para generar una lista de los subdirectorios y archivos presentes en un directorio, introduzcan <b>Get-Alias dir</b> en el cursor de PowerShell.</p> <p class="CMD">PS C:\Users\CyberOpsUser&gt; <b>Get-Alias dir</b></p> <p class="CMDOutput">CommandTypeNameVersionSource</p> <p class="CMDOutput">----------------------------</p> <p class="CMDOutput">Aliasdir -&gt; Get-ChildItem</p> <h4 class="pageTracer-h4-title-hide">Pregunta:</h4></div>
+        </div>
+      </div>
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="5a7743f2-6ed5-4b74-b3e9-6d844fd828ed" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="5a7743f2-6ed5-4b74-b3e9-6d844fd828ed" class="5a7743f2-6ed5-4b74-b3e9-6d844fd828ed block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="5a7743f2-6ed5-4b74-b3e9-6d844fd828ed" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$2690099157$--><!----><opentextbox-view modelid="b5368e4d-1a7f-40b0-96b0-175e30cca6d9" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="b5368e4d-1a7f-40b0-96b0-175e30cca6d9" class="component opentextbox b5368e4d-1a7f-40b0-96b0-175e30cca6d9  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="b5368e4d-1a7f-40b0-96b0-175e30cca6d9" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$2690099157$--> <div class="openTextBox__preText"><!--?lit$2690099157$--><p class="BodyTextL50">¿Cuál es el comando de PowerShellcorrespondiente a <b>dir</b>? </p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$2690099157$--><!--?lit$2690099157$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$2690099157$-->
+                      <!--?lit$2690099157$--><p class="BodyTextL50Answer"><span class="AnswerGray"><span style=" border: none"><span style="border: none"> Get-ChildItem </span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$2690099157$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$2690099157$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$2690099157$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="539b5f5e-5686-489d-8f80-98dac9922e85" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="539b5f5e-5686-489d-8f80-98dac9922e85" class="539b5f5e-5686-489d-8f80-98dac9922e85 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="539b5f5e-5686-489d-8f80-98dac9922e85" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$2690099157$--><!----><text-view modelid="3938d620-e19a-4c09-8c96-2a9ee2d3e7ff" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="3938d620-e19a-4c09-8c96-2a9ee2d3e7ff" class="component text 3938d620-e19a-4c09-8c96-2a9ee2d3e7ff  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$2690099157$--><p class="SubStepAlpha">b.&nbsp;&nbsp;Para obtener información más detallada acerca de los cmdlets, realice una búsqueda en Internet de los <b>cmdlets de Microsoft PowerShell</b>.</p> <p class="SubStepAlpha">c.&nbsp;&nbsp; Cierren la ventana del Command Prompt cuando hayan terminado.</p> <h2>Parte 4: Explorar el comando netstat utilizando PowerShell.</h2> <p class="SubStepAlpha">a.&nbsp;&nbsp; En el cursor de PowerShell, introduzcan <b>netstat -h</b> para ver las opciones disponibles para el comando <b>netstat</b>.</p> <p class="CMD">PS C:\Users\CyberOpsUser&gt; <b>netstat -h</b></p> <p class="CMDOutput">Muestra estadísticas de protocolos y las conexiones de red TCP/IP actuales.</p> <p class="CMDOutput">NETSTAT [-a] [-b] [-e] [-f] [-n] [-o] [-p proto] [-r] [-s] [-x] [-t] [interval]</p> <p class="CMDOutput">-a Muestra todas las conexiones y puertos de escucha.</p> <p class="CMDOutput">-b muestra el ejecutable que se utiliza para crear cada puerto de conexión o escucha. En algunos casos, los ejecutables más conocidos alojan varios componentes independientes, y en estos casos se muestra la secuencia de componentes que se utiliza para crear el puerto de conexión o escucha. En este caso, el nombre del archivo ejecutable se encuentra entre los signos [] en la parte inferior, arriba se encuentra el componente al que le da nombre, y así sucesivamente hasta que se alcanza TCP/IP. Tenga en cuenta que esta opción demanda tiempo y fallará a menos que cuente con los permisos suficientes.</p> <p class="CMDOutput">&lt;alguna salida omitida&gt;</p> <p class="SubStepAlpha">b.&nbsp;&nbsp;<span>Para mostrar la tabla de routing con las rutas activas, introduzcan <b>netstat&nbsp;-r</b> en el cursor.</span></p> <p class="CMD">PS C:\Users\CyberOpsUser&gt; <b>netstat -r</b></p> <p class="CMDOutput">===========================================================================</p> <p class="CMDOutput">Lista de interfaces</p> <p class="CMDOutput">&nbsp; 3...08 00 27 a0 c3 53 ......Intel(R) PRO/1000 MT Desktop Adapter</p> <p class="CMDOutput">&nbsp;10...08 00 27 26 c1 78 ......Intel(R) PRO/1000 MT Desktop Adapter #2</p> <p class="CMDOutput">&nbsp; 1...........................Software Loopback Interface 1</p> <p class="CMDOutput">===========================================================================</p> <p class="CMDOutput">IPv4 Route Table</p> <p class="CMDOutput">===========================================================================</p> <p class="CMDOutput">Rutas activas:</p> <p class="CMDOutput">Métrica de interfaz de puerta de enlace de máscara de red de destino. </p> <p class="CMDOutput">0.0.0.0 0.0.0.0 192.168.1.1 192.168.1.5 25</p> <p class="CMDOutput">&nbsp;&nbsp;&nbsp; 127.0.0.0&nbsp;&nbsp;&nbsp; 255.0.0.0 On-link 127.0.0.1&nbsp;&nbsp;&nbsp; 331</p> <p class="CMDOutput">&nbsp;&nbsp;&nbsp; 127.0.0.1&nbsp; 255.255.255.255 On-link 127.0.0.1&nbsp;&nbsp;&nbsp; 331</p> <p class="CMDOutput">&nbsp; 127.255.255.255&nbsp; 255.255.255.255 On-link 127.0.0.1&nbsp;&nbsp;&nbsp; 331</p> <p class="CMDOutput">&nbsp; 169.254.0.0&nbsp; 255.255.0.0 On-link&nbsp;&nbsp; 169.254.181.151&nbsp;&nbsp;&nbsp; 281</p> <p class="CMDOutput">&nbsp; 169.254.181.151&nbsp; 255.255.255.255 On-link&nbsp;&nbsp; 169.254.181.151&nbsp;&nbsp;&nbsp; 281</p> <p class="CMDOutput">&nbsp; 169.254.255.255&nbsp; 255.255.255.255 On-link&nbsp;&nbsp; 169.254.181.151&nbsp;&nbsp;&nbsp; 281</p> <p class="CMDOutput">&nbsp; 192.168.1.0&nbsp;&nbsp;&nbsp; 255.255.255.0 On-link&nbsp; &nbsp;192.168.1.5&nbsp;&nbsp;&nbsp; 281</p> <p class="CMDOutput">&nbsp; 192.168.1.5&nbsp; 255.255.255.255 On-link&nbsp;&nbsp; 192.168.1.5&nbsp;&nbsp;&nbsp; 281</p> <p class="CMDOutput">&nbsp;&nbsp;&nbsp; 192.168.1.255&nbsp; 255.255.255.255 On-link&nbsp;&nbsp; 192.168.1.5&nbsp;&nbsp;&nbsp; 281</p> <p class="CMDOutput">&nbsp;&nbsp;&nbsp; 224.0.0.0&nbsp;&nbsp;&nbsp; 240.0.0.0 On-link 127.0.0.1&nbsp;&nbsp;&nbsp; 331</p> <p class="CMDOutput">&nbsp;&nbsp;&nbsp; 224.0.0.0&nbsp;&nbsp;&nbsp; 240.0.0.0 On-link&nbsp;&nbsp; 192.168.1.5&nbsp;&nbsp;&nbsp; 281</p> <p class="CMDOutput">&nbsp;&nbsp;&nbsp; 224.0.0.0&nbsp;&nbsp;&nbsp; 240.0.0.0 On-link&nbsp;&nbsp; 169.254.181.151&nbsp;&nbsp;&nbsp; 281</p> <p class="CMDOutput">&nbsp; 255.255.255.255&nbsp; 255.255.255.255 On-link 127.0.0.1&nbsp;&nbsp;&nbsp; 331</p> <p class="CMDOutput">&nbsp; 255.255.255.255&nbsp; 255.255.255.255&nbsp; &nbsp;&nbsp;&nbsp;On-link&nbsp;&nbsp; 192.168.1.5&nbsp;&nbsp;&nbsp; 281</p> <p class="CMDOutput">&nbsp; 255.255.255.255&nbsp; 255.255.255.255 On-link&nbsp;&nbsp; 169.254.181.151&nbsp;&nbsp;&nbsp; 281</p> <p class="CMDOutput">===========================================================================</p> <p class="CMDOutput">Rutas persistentes:</p> <p class="CMDOutput">Ninguno</p> <p class="CMDOutput">Tabla de routing IPv6</p> <p class="CMDOutput">===========================================================================</p> <p class="CMDOutput">Rutas activas:</p> <p class="CMDOutput">&nbsp;If Metric Network Destination&nbsp; Gateway</p> <p class="CMDOutput">&nbsp; 1&nbsp;&nbsp;&nbsp; 331 ::1/128&nbsp; On-link</p> <p class="CMDOutput">&nbsp; 3&nbsp;&nbsp;&nbsp; 281 fe80::/64&nbsp;&nbsp;&nbsp; On-link </p> <p class="CMDOutput">&nbsp;10&nbsp;&nbsp;&nbsp; 281 fe80::/64&nbsp;&nbsp;&nbsp; On-link </p> <p class="CMDOutput">&nbsp;10&nbsp;&nbsp;&nbsp; 281 fe80::408b:14a4:7b64:b597/128</p> <p class="CMDOutput"> &nbsp;&nbsp;&nbsp; On-link</p> <p class="CMDOutput">&nbsp; 3&nbsp;&nbsp;&nbsp; 281 fe80::dd67:9e98:9ce0:51e/128</p> <p class="CMDOutput"> &nbsp;&nbsp;&nbsp; On-link</p> <p class="CMDOutput">&nbsp; 1&nbsp;&nbsp;&nbsp; 331 ff00::/8 On-link</p> <p class="CMDOutput">&nbsp; 3&nbsp;&nbsp;&nbsp; 281 ff00::/8 On-link</p> <p class="CMDOutput">&nbsp;10&nbsp;&nbsp;&nbsp; 281 ff00::/8 On-link</p> <p class="CMDOutput">===========================================================================</p> <p class="CMDOutput">Rutas Persistentes:</p> <p class="CMDOutput">Ninguno</p> <h4 class="pageTracer-h4-title-hide">Pregunta:</h4></div>
+        </div>
+      </div>
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="471a2604-2a11-438d-8064-328a59288e77" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="471a2604-2a11-438d-8064-328a59288e77" class="471a2604-2a11-438d-8064-328a59288e77 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="471a2604-2a11-438d-8064-328a59288e77" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$2690099157$--><!----><opentextbox-view modelid="089bd510-721c-4ae4-a42f-8ebe5a4cc646" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="089bd510-721c-4ae4-a42f-8ebe5a4cc646" class="component opentextbox 089bd510-721c-4ae4-a42f-8ebe5a4cc646  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="089bd510-721c-4ae4-a42f-8ebe5a4cc646" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$2690099157$--> <div class="openTextBox__preText"><!--?lit$2690099157$--><p class="BodyTextL50">¿Qué es el gateway IPv4?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$2690099157$--><!--?lit$2690099157$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$2690099157$-->
+                      <!--?lit$2690099157$--><p class="BodyTextL50Answer"><span class="AnswerGray"><span style=" border: none"><span style="border: none"> Las respuestas pueden variar. En este ejemplo, el gateway es 192.168.1.1. </span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$2690099157$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$2690099157$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$2690099157$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="3ca4a09b-edbe-46cd-9470-474983b99991" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="3ca4a09b-edbe-46cd-9470-474983b99991" class="3ca4a09b-edbe-46cd-9470-474983b99991 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="3ca4a09b-edbe-46cd-9470-474983b99991" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$2690099157$--><!----><text-view modelid="c764bdca-694b-46fd-ac0d-62897991db9d" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="c764bdca-694b-46fd-ac0d-62897991db9d" class="component text c764bdca-694b-46fd-ac0d-62897991db9d  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$2690099157$--><p class="SubStepAlpha" style="page-break-after:avoid">c.&nbsp;&nbsp;<span> Abra </span>y ejecute un segunda PowerShell con privilegios elevados. Haga clic en <b>Start</b>. Busque PowerShell, haga clic derecho en<b> Windows PowerShell</b> y seleccione <b>Run as Administrator</b>(Ejecutar como administrador). Hagan clic en <b>Yes</b> (Sí) para permitir que esta aplicación realice cambios en sus dispositivos. </p></div>
+        </div>
+      </div>
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="ee9f42f1-2ec1-4888-892e-134a3fbc4e43" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="ee9f42f1-2ec1-4888-892e-134a3fbc4e43" class="ee9f42f1-2ec1-4888-892e-134a3fbc4e43 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="ee9f42f1-2ec1-4888-892e-134a3fbc4e43" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$2690099157$--><!----><graphic-view modelid="35c2e5f8-6cfa-4cec-8395-f98722f3870d" class="is-left" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="graphic-inner component__inner">
+            <div data-socialgoodpulse-id="35c2e5f8-6cfa-4cec-8395-f98722f3870d" class="component graphic 35c2e5f8-6cfa-4cec-8395-f98722f3870d  is-left   ">
+                <div class="component__header-container">
+                    <base-view type="component" lowercase_component="graphic" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header graphic__header">
+          <div class="component__header-inner graphic__header-inner">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+                <div class="component__widget">
+                    <!--?lit$2690099157$-->
+                        <div class="graphic__image-container ">
+                            <img id="graphic__image" aria-hidden="false" tabindex="0" class="graphic__image js-graphic-set-image-src" src="data:image/jpeg;base64,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" data-large="./courses/content/m7/es-XL/assets/7.3.11-1.jpg" data-small="./courses/content/m7/es-XL/assets/7.3.11-1.jpg" alt="Captura de pantalla de Windows Powershell con la opción Ejecutar como administrador seleccionada.">
+
+                            <!--?lit$2690099157$-->
+
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+        </graphic-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="36d51b7b-44e0-41ce-af11-b0cfcb50ede4" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="36d51b7b-44e0-41ce-af11-b0cfcb50ede4" class="36d51b7b-44e0-41ce-af11-b0cfcb50ede4 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="36d51b7b-44e0-41ce-af11-b0cfcb50ede4" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$2690099157$--><!----><text-view modelid="6ca4a979-b805-4dd1-bcb0-af5e19ba3df8" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="6ca4a979-b805-4dd1-bcb0-af5e19ba3df8" class="component text 6ca4a979-b805-4dd1-bcb0-af5e19ba3df8  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$2690099157$--><p class="SubStepAlpha">d.&nbsp;&nbsp;<span> El </span>comando netstat también puede mostrar los procesos asociados con las conexiones TCP activas. Introduzca el <b>comando netstat -abno </b>en el prompt.</p> <p class="CMD">PS C:\Windows\system32&gt; <b>netstat -abno</b></p> <p class="CMDOutput">Conexiones Activas</p> <p class="CMDOutput">&nbsp;10&nbsp;&nbsp;&nbsp; 281 ff00::/8 On-link</p> <p class="CMDOutput">&nbsp; <span style="background:yellow; color:#000;">TCP&nbsp; &nbsp;&nbsp;0.0.0.0:135&nbsp;&nbsp;&nbsp; 0.0.0.0:0&nbsp; LISTENING&nbsp;&nbsp; 756</span></p> <p class="CMDOutput">&nbsp; RpcSs <span style="background:yellow; color: #000;"></span></p> <p class="CMDOutput"><span style="background:yellow; color: #000;">[svchost.exe]</span></p> <p class="CMDOutput">&nbsp; TCP&nbsp;&nbsp;&nbsp; 0.0.0.0:445&nbsp;&nbsp;&nbsp; 0.0.0.0:0&nbsp; LISTENING&nbsp;&nbsp; 4</p> <p class="CMDOutput">No se puede obtener información de propiedad.</p> <p class="CMDOutput">&nbsp; TCP&nbsp;&nbsp;&nbsp; 0.0.0.0:49664&nbsp; 0.0.0.0:0&nbsp; LISTENING&nbsp;&nbsp; 444</p> <p class="CMDOutput">No se puede obtener información de propiedad.</p> <p class="CMDOutput">&nbsp; TCP&nbsp;&nbsp;&nbsp; 0.0.0.0:49665&nbsp; 0.0.0.0:0&nbsp; LISTENING&nbsp;&nbsp; 440</p> <p class="CMDOutput">Calendario</p> <p class="CMDOutput">[svchost.exe]</p> <p class="CMDOutput">&nbsp; TCP&nbsp;&nbsp;&nbsp; 0.0.0.0:49666&nbsp; 0.0.0.0:0 &nbsp;LISTENING&nbsp;&nbsp; 304</p> <p class="CMDOutput">&nbsp; EventLog</p> <p class="CMDOutput">&nbsp;[svchost.exe]</p> <p class="CMDOutput">&nbsp; TCP&nbsp;&nbsp;&nbsp; 0.0.0.0:49667&nbsp; 0.0.0.0:0&nbsp; LISTENING&nbsp;&nbsp; 1856</p> <p class="CMDOutput">[spoolsv.exe]</p> <p class="CMDOutput">&nbsp; TCP&nbsp;&nbsp;&nbsp; 0.0.0.0:49668&nbsp; 0.0.0.0:0&nbsp; LISTENING&nbsp;&nbsp; 544</p> <p class="CMDOutput">&lt;some output omitted&gt;</p> <p class="SubStepAlpha">e.&nbsp;&nbsp;<span>Abra </span>el Administrador de tareas. Navegue hasta la pestaña<b> Escritorio</b>. Haga clic en <b>el encabezado&nbsp;PID </b>para que los PID estén en orden.</p> <p class="SubStepAlpha">f.&nbsp;&nbsp;<span> Seleccione </span>uno de los PID de los resultados de netstat -abno. En este ejemplo se utiliza el PID 756.</p> <p class="SubStepAlpha" style="page-break-after:avoid">g.&nbsp;&nbsp;<span>Localice </span>el PID seleccionado en el Administrador de tareas. En el Administrador de tareas, hagan clic derecho sobre el PID seleccionado para abrir el cuadro de diálogo Properties ( <b>Propiedades </b>) y ver más información.</p></div>
+        </div>
+      </div>
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="585c282a-a7aa-44f0-9955-48d56cccb179" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="585c282a-a7aa-44f0-9955-48d56cccb179" class="585c282a-a7aa-44f0-9955-48d56cccb179 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="585c282a-a7aa-44f0-9955-48d56cccb179" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$2690099157$--><!----><graphic-view modelid="44cb5f28-be41-471c-84a0-1e47a563d79d" class="is-left" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="graphic-inner component__inner">
+            <div data-socialgoodpulse-id="44cb5f28-be41-471c-84a0-1e47a563d79d" class="component graphic 44cb5f28-be41-471c-84a0-1e47a563d79d  is-left   ">
+                <div class="component__header-container">
+                    <base-view type="component" lowercase_component="graphic" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header graphic__header">
+          <div class="component__header-inner graphic__header-inner">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+                <div class="component__widget">
+                    <!--?lit$2690099157$-->
+                        <div class="graphic__image-container ">
+                            <img id="graphic__image" aria-hidden="false" tabindex="0" class="graphic__image js-graphic-set-image-src" src="data:image/jpeg;base64,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" data-large="./courses/content/m7/es-XL/assets/7.3.11-2.jpg" data-small="./courses/content/m7/es-XL/assets/7.3.11-2.jpg" alt="La captura de pantalla muestra un pid seleccionado en la ficha Details (Detalles).">
+
+                            <!--?lit$2690099157$-->
+
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+        </graphic-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="78a8709c-7f36-49e9-bc7b-7f3d7ecc649c" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="78a8709c-7f36-49e9-bc7b-7f3d7ecc649c" class="78a8709c-7f36-49e9-bc7b-7f3d7ecc649c block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="78a8709c-7f36-49e9-bc7b-7f3d7ecc649c" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$2690099157$--><!----><text-view modelid="ee231002-b2a3-4e5a-9337-bd3143c35f75" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="ee231002-b2a3-4e5a-9337-bd3143c35f75" class="component text ee231002-b2a3-4e5a-9337-bd3143c35f75  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$2690099157$--><h4 class="pageTracer-h4-title-hide">Pregunta:</h4></div>
+        </div>
+      </div>
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="57d33cf5-068a-4de5-aa9e-4fd87c276513" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="57d33cf5-068a-4de5-aa9e-4fd87c276513" class="57d33cf5-068a-4de5-aa9e-4fd87c276513 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="57d33cf5-068a-4de5-aa9e-4fd87c276513" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$2690099157$--><!----><opentextbox-view modelid="78119aa0-f573-40b6-9265-c83556d9b965" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="78119aa0-f573-40b6-9265-c83556d9b965" class="component opentextbox 78119aa0-f573-40b6-9265-c83556d9b965  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="78119aa0-f573-40b6-9265-c83556d9b965" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$2690099157$--> <div class="openTextBox__preText"><!--?lit$2690099157$--><p class="BodyTextL50">¿Qué información pueden obtener de la ficha Details y del cuadro de diálogo Properties correspondientes al PID que seleccionaron?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$2690099157$--><!--?lit$2690099157$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$2690099157$-->
+                      <!--?lit$2690099157$--><p class="BodyTextL50Answer"><span class="AnswerGray"><span style=" border: none"><span style="border: none"> 756 de PID está asociado con el proceso svchost.exe. El usuario para este proceso es SERVICIO DE RED y está utilizando 4132 K de memoria. </span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$2690099157$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$2690099157$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$2690099157$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="5718134c-e706-49ae-89ac-6f61c73d85db" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="5718134c-e706-49ae-89ac-6f61c73d85db" class="5718134c-e706-49ae-89ac-6f61c73d85db block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="5718134c-e706-49ae-89ac-6f61c73d85db" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$2690099157$--><!----><text-view modelid="7b0effcf-7e28-49f4-8611-3692e5127aaf" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="7b0effcf-7e28-49f4-8611-3692e5127aaf" class="component text 7b0effcf-7e28-49f4-8611-3692e5127aaf  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$2690099157$--><h2>Parte 5: Vaciar la papelera de reciclaje utilizando PowerShell</h2> <p class="BodyTextL25">Los comandos de PowerShell pueden simplificar la administración de una gran de red informática. Por ejemplo, si desea implementar una nueva solución de seguridad en todos los servidores de la red, puede usar un comando de PowerShell o comandos de PowerShell para simplificar las acciones que requieren varios pasos para ejecutarse con herramientas de escritorio gráficas de Windows.</p> <p class="SubStepAlpha">a.&nbsp;&nbsp;<span>Abran </span>la Papelera de reciclaje. Verifiquen que haya elementos que se puedan eliminar de su PC en forma permanente. Si no es así, restauren esos archivos.</p> <p class="SubStepAlpha">b.&nbsp;&nbsp;<span>Si </span>no hay ningún archivo en la Papelera de reciclaje, cree uno nuevo (como ser un archivo de texto con el Bloc de notas) y colóquenlo en la Papelera.</p> <p class="SubStepAlpha">c.&nbsp;&nbsp;<span>En </span>una consola de PowerShell introduzca <b>clear-recyclebin</b> en el cursor.</p> <p class="CMD">PS C:\Users\CyberOpsUser&gt; <b>clear-recyclebin</b></p> <p class="CMDOutput">Confirm</p> <p class="CMDOutput">¿Estás seguro de que quieres realizar esta acción?</p> <p class="CMDOutput">Realizando la operación "Clear-RecycleBin" en el destino "Todo el contenido de la Papelera de reciclaje".</p> <p class="CMDOutput">[S] Sí [A] Sí a todos [N] No [L] No a todos [S] Suspender [?] Help (default is "Y"): y</p> <h4 class="pageTracer-h4-title-hide">Pregunta:</h4></div>
+        </div>
+      </div>
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="5fa8e1dc-fafa-40c2-a376-95c7b29fe757" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="5fa8e1dc-fafa-40c2-a376-95c7b29fe757" class="5fa8e1dc-fafa-40c2-a376-95c7b29fe757 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="5fa8e1dc-fafa-40c2-a376-95c7b29fe757" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$2690099157$--><!----><opentextbox-view modelid="b2bc2b6f-ae3b-40d3-a44b-1775525ac1a0" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="b2bc2b6f-ae3b-40d3-a44b-1775525ac1a0" class="component opentextbox b2bc2b6f-ae3b-40d3-a44b-1775525ac1a0  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="b2bc2b6f-ae3b-40d3-a44b-1775525ac1a0" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$2690099157$--> <div class="openTextBox__preText"><!--?lit$2690099157$--><p class="BodyTextL50">¿Qué sucedió con los archivos de la Papelera de reciclaje? </p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$2690099157$--><!--?lit$2690099157$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$2690099157$-->
+                      <!--?lit$2690099157$--><p class="BodyTextL50Answer"><span class="AnswerGray"><span style=" border: none"><span style="border: none"> Los archivos de la papelera de reciclaje se borran de forma permanente. </span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$2690099157$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$2690099157$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$2690099157$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="c90f043d-82b7-4432-81c3-0362a229ada8" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="c90f043d-82b7-4432-81c3-0362a229ada8" class="c90f043d-82b7-4432-81c3-0362a229ada8 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="c90f043d-82b7-4432-81c3-0362a229ada8" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$2690099157$--><!----><text-view modelid="ea203f0c-2227-4a14-9046-87ccc0b7bec5" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="ea203f0c-2227-4a14-9046-87ccc0b7bec5" class="component text ea203f0c-2227-4a14-9046-87ccc0b7bec5  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$2690099157$--><h2>Pregunta de reflexión</h2></div>
+        </div>
+      </div>
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="ea87570b-3afc-495a-8ae6-6426242506f0" style="width: 5.55556%;" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="ea87570b-3afc-495a-8ae6-6426242506f0" class="ea87570b-3afc-495a-8ae6-6426242506f0 block  ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="ea87570b-3afc-495a-8ae6-6426242506f0" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper  ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$2690099157$--><!----><opentextbox-view modelid="2009d4df-db83-46bc-b911-192cf5c49ab1" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="2009d4df-db83-46bc-b911-192cf5c49ab1" class="component opentextbox 2009d4df-db83-46bc-b911-192cf5c49ab1  is-undefined   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="2009d4df-db83-46bc-b911-192cf5c49ab1" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+            <!--?lit$2690099157$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$2690099157$--> <div class="openTextBox__preText"><!--?lit$2690099157$--><p class="BodyTextL25">PowerShell fue desarrollado para la automatización de tareas y la administración de la configuración. Utilizando el internet, realice una búsqueda de comandos que pueden simplificar sus tareas como analista de seguridad Registren sus conclusiones.</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$2690099157$--><!--?lit$2690099157$-->Área de respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Escriba sus respuestas aquí." aria-label="Escriba sus respuestas aquí.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$2690099157$-->
+                      <!--?lit$2690099157$--><p class="BodyTextL50Answer"><span class="AnswerGray"><span style=" border: none"><span style="border: none"> Las respuestas pueden variar. </span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$2690099157$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$2690099157$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$2690099157$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!---->
+                            </div>
+                        </div>
+                        <!--?lit$2690099157$-->
+                    </div>
+                </div>
+            </div>
+        <sgpluse-opentextboxcontroller-view modelid="" is-touch="false" fullscreen="true" device="large" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+            <div class="openTextBoxController__button-container">
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__showButton show-answer show"><!--?lit$2690099157$-->Mostrar todas las respuestas</button>    
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__hideButton hide-answer hide"><!--?lit$2690099157$-->Ocultar todas las respuestas</button>    
+                <button class="btn-text resetbtn openTextBoxController__resetButton"><!--?lit$2690099157$-->Borrar mis respuestas</button>         
+            </div>
+            <!--?lit$2690099157$--><hr>
+            <!--?lit$2690099157$-->
+                <div class="post-text" tabindex="0">
+                    <!--?lit$2690099157$--><span> <span style="padding-right:5px;float:left;font-family:arial;font-size:12px;"> © 2017 - 2022 Cisco and/or its affiliates. All rights reserved. Cisco Public </span> </span>
+                </div>
+                   
+        </sgpluse-opentextboxcontroller-view><script></script>
+<script>
+    window.addEventListener("load", function () {
+      console.log("loaded");
+      document?.querySelectorAll(".answergray").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".show-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.remove("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.add("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      let event = new Event("click", {
+        bubbles: true,
+        cancelable: true,
+      });
+      document
+        ?.querySelectorAll(".openTextBoxController__showButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".show-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__hideButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__resetButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            document?.querySelectorAll("textArea").forEach(function (ele) {
+              ele.value = "";
+            });
+          });
+        });
+
+      document
+      ?.querySelectorAll('textarea')
+      .forEach(function (ele){
+        ele.defaultValue = ele.defaultValue.replace(/<!--.*?-->/g, '');
+      })
+        let checkButtonLabel = "check_button_label_placeHolder";
+        let hideButtonLabel = "hide_button_label_placeHolder";
+        document?.querySelectorAll(".check__button").forEach(function (ele) {
+        let answerBox = document.querySelector(".check__solution")
+        if (!answerBox.classList.contains("check__hidden")) {
+          answerBox.classList.add("check__hidden");
+          ele.innerText = checkButtonLabel;
+        }
+          ele.addEventListener("click", function (e) {
+            if (answerBox.classList.contains("check__hidden")) {
+              answerBox.classList.remove("check__hidden")
+              ele.innerText = hideButtonLabel;
+            } else {
+              answerBox.classList.add("check__hidden")
+              ele.innerText = checkButtonLabel;
+            }
+          })
+        })
+    });
+  </script>
+  </body></html>

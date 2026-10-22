@@ -1,0 +1,2208 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 1rem;
+      }
+      ol,
+      ul {
+        margin-bottom: 0in;
+      }
+      table {
+        margin-top: 1rem;
+        border: 1px solid gray;
+        width: 7in;
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > .openTableTextBox__table-header-data {
+        text-align: center;
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0in;
+        text-align: center;
+        line-height: 115%;
+        page-break-after: avoid;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        font-weight: bold;
+        background: #dbe5f1;
+        padding: 0.5rem;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .openTextBox__textArea-container {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 50%;
+      }
+      .openTableTextBox__fieldset {
+        padding: 5px;
+      }
+      td {
+        margin-top: 3pt;
+        margin-right: 0in;
+        margin-bottom: 3pt;
+        margin-left: 0in;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 98.85pt;
+        border: solid windowtext 1pt;
+        border-top: none;
+        padding: 0.7pt 5.75pt 0.7pt 5.75pt;
+      }
+      textarea {
+        width: 100%;
+      }
+      .answergray {
+        padding: 0.2rem;
+      }
+
+      .openTableTextBox__widget {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0.25in;
+      }
+
+      .show-answer,
+      .hide-answer {
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border: 0px;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .openTextBoxController__button-container {
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .openTextBoxController__button-container .btn-text {
+        margin: 10px;
+      }
+
+      .btn-text {
+        border: 0px;
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border-radius: 0;
+        cursor: pointer;
+      }
+
+      .u-display-none {
+        display: none;
+      }
+      .openTextBox__postText, openTableTextBox__postText {
+        margin-top: 0.5rem;
+      }
+      .edit-comment {
+        display: none;
+      }
+      .js-heading-inner {
+        display: none;
+      }
+      .block__title-inner,
+      .article__title-inner {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+      h2{
+        font-size: 1.25em;
+      }
+      h3{
+        font-size: 1.125em;
+      }
+      .table
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: solid windowtext 1pt;
+      }
+      table tbody tr th, table thead tr th{
+        border: solid windowtext 1pt;
+        background-color: #d6d8dc;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .command-output > .table-inner > .table-wrapper > .table-widget > table,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > td,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: none !important;
+        text-align: right !important;
+      }
+      .simple-table > .table-inner > .table-wrapper{
+        margin-left: 1.5rem;
+      }
+      .openTextBox__widget {
+        margin-left: 1.5rem;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      .answergray {
+        background-color: #ccc;
+      }
+      .openTableTextBox__widget > .answergray {
+        background-color: #fff !important;
+      }
+      li > ul,ol > li{
+        margin-left: 0px !important;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      
+      .component__title{
+        font-family: inherit;
+        font-size: 1.65em;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .component__body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .accessibility-completion-indicator{
+        display: none;
+      }
+
+      .check__hidden {
+        display: none;
+      }
+
+      .check__button {
+        border: none;
+        border-radius: 6px !important;
+        background-color: #6abf4b;
+        color: #fff;
+        min-width: 100px;
+        margin: 0.625rem 0;
+        padding: 0.7rem;
+      }
+
+      .check__widget .check__solution .DevConfigGray {
+        background-color: rgb(214,216,220);
+        font-weight: bold;
+      }
+
+      .check-inner .check__widget .check__solution .DevConfigs {
+        margin: 0px;
+        line-height: 115%;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .check__solution  {
+        line-height: 1.5;
+      }
+      .mcq__inner .mcq__widget .mcq__widget-inner {
+        margin-block: 1rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item {
+        display: flex;
+        gap: 0.2rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item .mcq__item-label .mcq__item-text .screenReader-position-text{
+        display: none;
+      }
+      .opentabletextbox-inner .opentabletextBox__widget .openTableTextBox__answerText.answergray {
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox{
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox img{
+        margin-block: 1rem;
+        margin-left: initial;
+      }
+      .component__content .component__body-inner .pageTracer-h4-title-hide {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        font-size: 0px;
+        color: rgb(var(--neutral-2));
+        font-weight: normal;
+      }
+      .table-inner .table__widget table tr.TableHeading th, .table-inner .table__widget table tr.TableHeading td, .table-inner .table__widget table tr td.TableHeading, .opentabletextbox-table thead tr.TableHeading th, .opentabletextbox-table tbody tr.TableHeading td, .opentabletextbox-table tbody tr td.TableHeading {
+        background-color: #d6d8dc;
+        text-align: center;
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .CMD, .component__content .component__body-inner .CMDOutput, .component__content .component__body-inner .CMDOutput__table{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        margin-inline-start: 30px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      [dir="rtl"] .component__content .component__body-inner .CMDOutput__table span {
+        direction: ltr;
+        display: inline-block;
+      }
+      .openTextBox__inner .openTextBox__widget .CMD, .openTextBox__inner .openTextBox__widget .CMDOutput{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .openTextBox__inner .openTextBox__widget .DnTbold, .openTextBox__inner .openTextBox__widget .BodyTextL25Bold, .component__content .component__body-inner .BodyTextL25Bold, .component__content .component__body-inner .DnTbold, .table-inner .table__widget table tr .DnTbold {
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .SubStepNum {
+        text-indent: -25.5px;
+        margin-inline-start: 50px;
+      }
+      .component__content .component__body-inner .BodyTextL50 {
+        margin-inline-start: 30px;
+      }
+      .component__content .component__body-inner .Bulletlevel1 {
+        text-indent: -19px;
+        margin-inline-start: 48px;
+      }
+      .component__content .component__body-inner .Bulletlevel2 {
+          text-indent: -19px;
+          margin-inline-start: 72px;
+      }
+      .openTextBox__inner .openTextBox__widget .ReflectionQ, .component__content .component__body-inner .SubStepAlpha {
+          text-indent: -25.5px;
+          margin-inline-start: 30px;
+      }
+    </style>
+
+</head><body><!---->
+            <div class="article 64883b7c10c3402246b75e56 background-color-white remove-padding-top remove-padding-bottom ">
+                <div class="article__inner">
+                <div class=" no-adaptive-scroll">
+                    <!--?lit$27644491$-->
+                        <div class=""> 
+                            <base-view type="article" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="article__header-wrapper background-color-white remove-padding-top remove-padding-bottom ">
+        <div class="article__header ">
+          <div class="article__header-inner ">
+            <!--?lit$27644491$-->
+      <div class="article__title ">
+        <!--?lit$27644491$--><heading-view aria-hidden="true" id="64883b7c10c3402246b75e56-heading-view" headingtitle="Práctica de laboratorio - Elaboración de paquetes con Scapy" modelid="64883b7c10c3402246b75e56" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="js-heading is-incomplete">
+        <div class="js-heading-inner" role="heading" id="article-heading" aria-level="2">
+        <span class="aria-label"> <!--?lit$27644491$-->Incompleto &nbsp;<!--?lit$27644491$-->Práctica de laboratorio - Elaboración de paquetes con Scapy</span>
+        </div>
+      </div>
+    </heading-view>
+        <div tabindex="0" role="heading" class="article__title-inner " aria-level="2">
+          <span class="accessibility-completion-indicator"><!--?lit$27644491$-->Incompleto </span>
+          <!--?lit$27644491$-->Práctica de laboratorio - Elaboración de paquetes con Scapy
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                            <div class="block__container " style="">
+                                <!--?lit$27644491$--><!---->
+                                    <block-view modelid="64883b8410c3402246b75ef8" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b8410c3402246b75ef8" class="64883b8410c3402246b75ef8 block remove-bottom-padding remove-top-padding is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b8410c3402246b75ef8" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-bottom-padding remove-top-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883baf10c3402246b7626d" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883baf10c3402246b7626d" class="component text 64883baf10c3402246b7626d remove-top-padding remove-padding-bottom is-full is-complete  ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><h1>Objetivos</h1><p>En esta práctica de laboratorio, usará Scapy, una herramienta de manipulación de paquetes basada en Python, para crear paquetes personalizados. Estos paquetes personalizados se utilizarán para realizar el reconocimiento en un sistema de destino.</p><ul><li>Parte 1: Investigar la herramienta Scapy.</li><li>Parte 2: Usar Scapy para rastrear el tráfico de red.</li><li>Parte 3: Crear y enviar un paquete ICMP.</li><li>Parte 4: Crear y enviar paquetes TCP SYN.</li></ul><h1>Trasfondo / Escenario</h1><p>Los evaluadores de penetración y los hackers éticos a menudo usan paquetes especialmente diseñados para descubrir o aprovechar las vulnerabilidades en la infraestructura y los sistemas de los clientes. Ha utilizado Nmap para escanear y analizar vulnerabilidades en una computadora conectada a la red local.</p><p>En esta práctica de laboratorio, realizará más reconocimientos en la misma computadora mediante paquetes ICMP y TCP personalizados.</p><h1>Recursos necesarios</h1><p><!--[if !supportLists]--><!--[endif]--></p><ul><li><!--[if !supportLists]-->Kali VM personalizada para el curso de Ethical Hacker</li><li><!--[if !supportLists]-->Acceso a Internet</li></ul></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b8910c3402246b75f44" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b8910c3402246b75f44" class="64883b8910c3402246b75f44 block remove-top-padding remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b8910c3402246b75f44" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bb910c3402246b76369" class="is-full remove-top-padding remove-padding-bottom packetTracer_wrap_text" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bb910c3402246b76369" class="component text 64883bb910c3402246b76369 remove-top-padding remove-padding-bottom packetTracer_wrap_text is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><h1>Instrucciones</h1><h2 style="margin-left:0in"><!--[if !supportLists]--><span><span>Parte 1: </span></span><!--[endif]-->Investigar la herramienta Scapy.</h2><p>Scapy es una herramienta multiusos escrita originalmente por <span>Philippe Biondi. En esta parte, cargará la herramienta Scapy y explorará algunas de sus capacidades. Herramientas como Scapy solo deben usarse para escanear o comunicarse con máquinas que posee o tiene permiso por escrito para acceder.</span></p><h3 style="margin-left:0in"><!--[if !supportLists]--><span><span>Paso 1: </span></span><!--[endif]-->Investigue la documentación y los recursos de Scapy.</h3><p>Scapy se puede ejecutar de forma interactiva desde el shell de Python o se puede incorporar a los programas de Python mediante la importación del módulo python-scapy. La herramienta Scapy tiene una extensa documentación en línea en <a href="https://scapy.readthedocs.io/en/latest/introduction.html" target="_blank">https://scapy.readthedocs.io/en/latest/introduction.html</a>. Este Kali Linux personalizado se distribuye con Python y Scapy preinstalados.</p><ol start="1" style="list-style-type:lower-alpha"><li><!--[if !supportLists]--><!--[endif]-->Inicie la VM de Kali e inicie sesión.</li><li><!--[if !supportLists]--><!--[endif]-->Abra el navegador Firefox y vaya a <span style="word-wrap: break-word"><a href="https://scapy.readthedocs.io/en/latest/introduction.html" target="_blank">https://scapy.readthedocs.io/en/latest/introduction.html</a></span>. Lea la página de introducción escrita por el creador de Scapy, Philippe Biondi.</li></ol></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b8a10c3402246b75f59" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b8a10c3402246b75f59" class="64883b8a10c3402246b75f59 block remove-top-padding remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b8a10c3402246b75f59" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883baf10c3402246b7626e" class="is-full zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883baf10c3402246b7626e" class="component opentextbox 64883baf10c3402246b7626e  is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883baf10c3402246b7626e" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->¿Cómo describe el autor las capacidades de Scapy en el primer párrafo de la página?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->“Scapy es un programa Python que permite al usuario enviar, rastrear, diseccionar y falsificar paquetes de red Esta capacidad permite la construcción de herramientas que pueden sondear, escanear o atacar redes".
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b8c10c3402246b75f8b" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b8c10c3402246b75f8b" class="64883b8c10c3402246b75f8b block remove-bottom-padding remove-top-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b8c10c3402246b75f8b" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-bottom-padding remove-top-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bb910c3402246b7636a" class="is-full remove-top-padding remove-padding-bottom packetTracer_wrap_text zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bb910c3402246b7636a" class="component text 64883bb910c3402246b7636a remove-top-padding remove-padding-bottom packetTracer_wrap_text is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><h3 style="margin-left:0in"><span><span>Paso 2: </span></span><!--[endif]-->Use el modo de comando interactivo de Scapy.</h3><p>Ingrese el comando <strong>scapy</strong> en una ventana de terminal para cargar el intérprete de Python. Al usar este comando, el intérprete se ejecuta con las clases y los objetos de Scapy <span style="color:#202124">pre-cargados. Ingresará los comandos de Scapy de forma interactiva y recibirá el resultado. Los comandos de Scapy también se pueden incrustar en un guion de Python.</span></p><ol start="1" style="list-style-type:lower-alpha"><li><!--[if !supportLists]--><!--[endif]-->Los comandos para crear y enviar paquetes requieren privilegios de root para ejecutarse.<span> </span>Utilice el comando <strong>sudo su</strong> para obtener privilegios de root antes de iniciar Scapy.<span> </span>Si se le solicita una contraseña, ingrese <strong>kali</strong>.</li></ol><pre style="margin-left:40px">┌──(kali<span><span>㉿</span>kali)-[~]</span></pre><pre style="margin-left:40px"><span>└─$ <strong>sudo su</strong></span></pre><pre style="margin-left:40px"><span>[sudo] password for kali:</span></pre><pre style="margin-left:40px"><span>┌──(root</span><span><span>㉿</span>kali)-[/home/kali]</span></pre><pre style="margin-left:40px"><span>└─#</span></pre><ol start="2" style="list-style-type:lower-alpha"><li><!--[if !supportLists]-->Cargue la herramienta Scapy con el comando <strong>scapy</strong>. El intérprete interactivo de Python cargará y presentará una imagen de pantalla similar a la que se muestra.</li></ol><pre style="margin-left:40px">┌──(root<span>㉿</span>kali)-[/home/kali]</pre><pre style="margin-left:40px">└─# <strong>scapy</strong></pre><div style="overflow: auto;"><pre style="margin-left:40px">INFO: Can't import PyX. Won't be able to use psdump() or pdfdump().<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+</pre><pre style="margin-left: 40px;">&nbsp;</pre><pre style="margin-left:40px"><span>      </span><span>               </span>aSPY//YASa<span>      </span></pre><pre style="margin-left:40px"><span>             </span>apyyyyCY//////////YCa<span>       </span>|</pre><pre style="margin-left:40px"><span>            </span>sY//////YSpcs<span>  </span>scpCY//Pp<span>     </span>| Welcome to Scapy</pre><pre style="margin-left:40px"><span> </span>ayp ayyyyyyySCP//Pp<span>           </span>syY//C<span>    </span>| Version 2.5.0</pre><pre style="margin-left:40px"><span> </span>AYAsAYYYYYYYY///Ps<span>              </span>cY//S<span>   </span>|</pre><pre style="margin-left:40px"><span>         </span>pCCCCY//p<span>  </span><span>        </span>cSSps y//Y<span>   </span>| https://github.com/secdev/scapy</pre><pre style="margin-left:40px"><span>         </span>SPPPP///a<span>          </span>pP///AC//Y<span>   </span>|</pre><pre style="margin-left:40px"><span>              </span>A//A<span>            </span>cyP////C<span>   </span>| Have fun!</pre><pre style="margin-left:40px"><span>              </span>p///Ac<span>            </span>sC///a<span>   </span>|</pre><pre style="margin-left:40px"><span>              </span>P////YCpc<span>           </span>A//A<span>   </span>| What is dead may never die!</pre><pre style="margin-left:40px"><span>       </span>scccccp///pSP///p<span>          </span>p//Y<span>   </span>|<span>                     </span>-- Python 2</pre><pre style="margin-left:40px"><span>      </span>sY/////////y<span>  </span>caa<span>           </span>S//P<span>   </span>|</pre><pre style="margin-left:40px"><span>       </span>cayCyayP//Ya<span>              </span>pY/Ya</pre><pre style="margin-left:40px"><span>        </span>sY/PsY////YCc<span>          </span>aC//Yp</pre><pre style="margin-left:40px"><span>         </span>sc<span>  </span>sccaCY//PCypaapyCP//YSs<span> </span></pre><pre style="margin-left:40px"><span>            </span><span>      </span>spCPY//////YPSps<span>   </span></pre><pre style="margin-left:40px"><span>                       </span>ccaacs<span>        </span></pre><pre style="margin-left:40px"><span>                                       </span>using IPython 8.5.0</pre></div><pre style="margin-left:40px">&gt;&gt;&gt; </pre><ol start="3" style="list-style-type:lower-alpha"><li><!--[if !supportLists]-->En el indicador &gt;&gt;&gt; dentro del shell Scapy, ingrese la función <strong>ls()</strong> para enumerar todos los formatos y protocolos predeterminados disponibles incluidos con la herramienta. La lista es bastante extensa y ocupará varias pantallas.</li></ol><pre style="margin-left:40px">&gt;&gt;&gt; <strong>ls()</strong></pre><p style="margin-left:40px">TFTP es un protocolo utilizado para enviar y recibir archivos en un segmento de LAN. Se usa comúnmente para realizar copias de respaldo de archivos de configuración en dispositivos de red. Desplácese hacia arriba para ver los formatos de paquetes TFTP disponibles.</p></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b8d10c3402246b75fa3" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b8d10c3402246b75fa3" class="64883b8d10c3402246b75fa3 block remove-bottom-padding remove-top-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b8d10c3402246b75fa3" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-bottom-padding remove-top-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883baf10c3402246b7626f" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883baf10c3402246b7626f" class="component opentextbox 64883baf10c3402246b7626f remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883baf10c3402246b7626f" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->¿Cuántos tipos de formatos de paquetes TFTP se enumeran?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->9
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9010c3402246b75fd4" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9010c3402246b75fd4" class="64883b9010c3402246b75fd4 block remove-top-padding remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9010c3402246b75fd4" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bb910c3402246b7636b" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bb910c3402246b7636b" class="component text 64883bb910c3402246b7636b remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><h3 style="margin-left:0in"><span><span>Paso 3: </span></span><!--[endif]-->Examine los campos en un encabezado de paquete IPv4.</h3><ol start="1" style="list-style-type:lower-alpha"><li><!--[if !supportLists]--><!--[endif]--><span class="AnswerGray"><span><span>Es importante comprender<span> la estructura</span></span></span></span><span class="AnswerGray"><span><span> de un paquete IP antes de crear y enviar paquetes personalizados a través de la red<span>. <span>Cada paquete IP tiene un encabezado asociado que proporciona información sobre la estructura del paquete<span>. <span>Revise esta información antes de continuar con la práctica de laboratorio.</span></span></span></span></span></span></span></li></ol><p style="margin-left:40px"><strong>Campos del Encabezado del Paquete IPv4 </strong></p><p style="margin-left:40px">Los valores binarios de cada campo identifican diversos parámetros de configuración del paquete IP. Los diagramas de encabezado del protocolo, que se leen de izquierda a derecha y de arriba hacia abajo, proporcionan una representación visual de consulta al analizar los campos de protocolo. El diagrama de encabezado del protocolo IP en la ilustración identifica los campos de un paquete IPv4.</p></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9110c3402246b75fe7" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9110c3402246b75fe7" class="64883b9110c3402246b75fe7 block remove-top-padding remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9110c3402246b75fe7" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><dynamic-graphic-view modelid="64883bbb10c3402246b763a0" class="is-full" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component" style="--current-width: 540.75px; --current-height: 416.7247706422018px; --scale-factor: 0.9922018348623853;" fadeoutoverlay=""><!---->
+      <!--?lit$27644491$--><link rel="stylesheet" href="_assets/media/2e0b6d90-1c25-11ea-a010-eb2108469056/2e0b6d93-1c25-11ea-81a0-ffc2c49b96bc.css">
+      <!--?lit$27644491$-->
+      <style>
+        .dynamic-graphic-display {
+          padding: var(--container-padding);
+        }
+        .dynamic-graphic-content {
+          width: var(--current-width);
+          height: var(--current-height);
+
+          > * {
+            height: <!---->420px;
+            width: <!---->545px;
+            transform: scale(var(--scale-factor));
+            -webkit-transform: scale(var(--scale-factor), var(--scale-factor));
+          }
+        }
+      <!----></style>
+      <div data-socialgoodpulse-id="64883bbb10c3402246b763a0" class="component dynamic-graphic 64883bbb10c3402246b763a0  is-full   ">
+        <div class="component__header-container">
+          <base-view type="component" lowercase_component="dynamic-graphic" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header dynamic-graphic__header">
+          <div class="component__header-inner dynamic-graphic__header-inner">
+            <!--?lit$27644491$-->
+      <div class="component__title dynamic-graphic__title">
+        <!--?lit$27644491$--><heading-view aria-hidden="true" id="64883bbb10c3402246b763a0-heading-view" headingtitle="Campos del encabezado de paquetes IPv4" modelid="64883bbb10c3402246b763a0" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="js-heading is-incomplete">
+        <div class="js-heading-inner" role="heading" id="component-heading" aria-level="4">
+        <span class="aria-label"> <!--?lit$27644491$-->Incompleto &nbsp;<!--?lit$27644491$-->Campos del encabezado de paquetes IPv4</span>
+        </div>
+      </div>
+    </heading-view>
+        <div tabindex="0" role="heading" class="component__title-inner dynamic-graphic__title-inner" aria-level="4">
+          <span class="accessibility-completion-indicator"><!--?lit$27644491$-->Incompleto </span>
+          <!--?lit$27644491$-->Campos del encabezado de paquetes IPv4
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+        </div>
+        <div class="component__widget">
+          <div class="a11y_description screen-reader-hide" aria-live="polite" id="a11y_description-2e0b6d90-1c25-11ea-a010-eb2108469056">
+            <!--?lit$27644491$-->nombres y longitud de bits de los campos en un encabezado de paquete IPv4
+          </div>
+          <div tabindex="0" role="figure" id="2e0b6d90-1c25-11ea-a010-eb2108469056" class="dynamic-graphic-container 2e0b6d90-1c25-11ea-a010-eb2108469056" aria-labelledby="a11y_description-2e0b6d90-1c25-11ea-a010-eb2108469056">
+            <div dir="ltr" class="dynamic-graphic-display">
+              <div role="presentation" aria-hidden="true" class="overlay removed"></div>
+              <div class="dynamic-graphic-content">
+                <!-- Primary image, usually SVG -->
+                <div class="primary-image-wrapper">
+                  <inline-svg-viewer src="./_assets/media/2e0b6d90-1c25-11ea-a010-eb2108469056/2e0b6d94-1c25-11ea-81a0-ffc2c49b96bc.svg" stylesheet="media/2e0b6d90-1c25-11ea-a010-eb2108469056/2e0b6d93-1c25-11ea-81a0-ffc2c49b96bc.css"></inline-svg-viewer>
+                </div>
+                <!-- Text items for display -->
+                <!--?lit$27644491$-->
+                      <div class="dynamic-text" dir="ltr">
+                        <!--?lit$27644491$--><!---->
+                              <div id="ID_txt01" class="dynamic-text-item ID_txt01">
+                                <!--?lit$27644491$-->Byte&nbsp;1
+                              </div>
+                            <!----><!---->
+                              <div id="ID_txt02" class="dynamic-text-item ID_txt02">
+                                <!--?lit$27644491$-->Byte&nbsp;2
+                              </div>
+                            <!----><!---->
+                              <div id="ID_txt03" class="dynamic-text-item ID_txt03">
+                                <!--?lit$27644491$-->Byte&nbsp;3
+                              </div>
+                            <!----><!---->
+                              <div id="ID_txt04" class="dynamic-text-item ID_txt04">
+                                <!--?lit$27644491$-->Byte&nbsp;4
+                              </div>
+                            <!----><!---->
+                              <div id="ID_txt05" class="dynamic-text-item ID_txt05">
+                                <!--?lit$27644491$-->Versión
+                              </div>
+                            <!----><!---->
+                              <div id="ID_txt06" class="dynamic-text-item ID_txt06">
+                                <!--?lit$27644491$-->Longitud del encabe-<br>zado de Internet
+                              </div>
+                            <!----><!---->
+                              <div id="ID_txt07" class="dynamic-text-item ID_txt07">
+                                <!--?lit$27644491$-->Módem
+                              </div>
+                            <!----><!---->
+                              <div id="ID_txt08" class="dynamic-text-item ID_txt08">
+                                <!--?lit$27644491$-->DSCP
+                              </div>
+                            <!----><!---->
+                              <div id="ID_txt09" class="dynamic-text-item ID_txt09">
+                                <!--?lit$27644491$-->ECN
+                              </div>
+                            <!----><!---->
+                              <div id="ID_txt10" class="dynamic-text-item ID_txt10">
+                                <!--?lit$27644491$-->Longitud total
+                              </div>
+                            <!----><!---->
+                              <div id="ID_txt14" class="dynamic-text-item ID_txt14">
+                                <!--?lit$27644491$-->Identificación
+                              </div>
+                            <!----><!---->
+                              <div id="ID_txt15" class="dynamic-text-item ID_txt15">
+                                <!--?lit$27644491$-->Señalador
+                              </div>
+                            <!----><!---->
+                              <div id="ID_txt16" class="dynamic-text-item ID_txt16">
+                                <!--?lit$27644491$-->Desplazamiento de fragmentos
+                              </div>
+                            <!----><!---->
+                              <div id="ID_txt17" class="dynamic-text-item ID_txt17">
+                                <!--?lit$27644491$-->Tiempo de duración
+                              </div>
+                            <!----><!---->
+                              <div id="ID_txt18" class="dynamic-text-item ID_txt18">
+                                <!--?lit$27644491$-->Protocolo
+                              </div>
+                            <!----><!---->
+                              <div id="ID_txt19" class="dynamic-text-item ID_txt19">
+                                <!--?lit$27644491$-->Suma de comprobación del encabezado
+                              </div>
+                            <!----><!---->
+                              <div id="ID_txt20" class="dynamic-text-item ID_txt20">
+                                <!--?lit$27644491$-->Dirección IP de origen
+                              </div>
+                            <!----><!---->
+                              <div id="ID_txt11" class="dynamic-text-item ID_txt11">
+                                <!--?lit$27644491$-->Dirección IP de destino
+                              </div>
+                            <!----><!---->
+                              <div id="ID_txt12" class="dynamic-text-item ID_txt12">
+                                <!--?lit$27644491$-->...
+                              </div>
+                            <!----><!---->
+                              <div id="ID_txt13" class="dynamic-text-item ID_txt13">
+                                <!--?lit$27644491$-->20 bytes
+                              </div>
+                            <!---->
+                      </div>
+                    
+                <!-- Image items for display -->
+                <!--?lit$27644491$-->
+              </div>
+            </div>
+            <!--?lit$27644491$--><div class="caption"><!--?lit$27644491$--><p>Los campos significativos en el encabezado IPv4 incluyen lo siguiente:</p>
+<ul>
+<li>&lt;strong&gt;Versión - &lt;/strong&gt; Contiene un valor binario de 4 bits establecido en 0100 que identifica esto como un paquete IPv4.</li>
+<li>&lt;strong&gt;Servicios diferenciados o DiffServ (DS) &lt;/strong&gt;- Este campo, formalmente conocido como Tipo de servicio (ToS), es un campo de 8 bits que se utiliza para determinar la prioridad de cada paquete. Los seis bits más significativos del campo DiffServ son los bits de punto de código de servicios diferenciados (DSCP) y los dos últimos bits son los bits de notificación de congestión explícita (ECN).</li>
+<li>&lt;strong&gt;Suma de comprobación de encabezado - &lt;/strong&gt; Se utiliza para detectar daños en el encabezado IPv4.</li>
+<li>&lt;strong&gt;Tiempo de duración (Time to Live,TTL) -  &lt;/strong&gt;TTL contiene un valor binario de 8 bits que se utiliza para limitar la vida útil de un paquete. El dispositivo de origen del paquete IPv4 establece el valor TTL inicial. Se reduce en uno cada vez que el paquete es procesado por un router. Si el campo TTL llega a cero, el router descarta el paquete y envía a la dirección IP de origen un mensaje de tiempo superado del protocolo de mensajes de control de Internet (ICMP). Debido a que el router disminuye el TTL de cada paquete, el router también debe volver a calcular la suma de comprobación del encabezado.</li>
+<li>&lt;strong&gt;Protocolo - &lt;/strong&gt; Este campo se utiliza para identificar el protocolo del siguiente nivel. Este valor binario de 8 bits indica el tipo de carga de datos que lleva el paquete, lo que permite que la capa de red transmita los datos al protocolo de la capa superior apropiado. ICMP (1), TCP (6) y UDP (17) son algunos valores comunes.</li>
+<li>&lt;strong&gt;Dirección IPv4 de origen - &lt;/strong&gt; Contiene un valor binario de 32 bits que representa la dirección IPv4 de origen del paquete. La dirección IPv4 de origen es siempre una dirección unicast.</li>
+<li>&lt;strong&gt;Dirección IPv4 de destino - &lt;/strong&gt; Contiene un valor binario de 32 bits que representa la dirección IPv4 de destino del paquete. La dirección IPv4 de destino es una dirección unicast, multicast o de difusión.</li>
+</ul>
+</div>
+          </div>
+        </div>
+      </div>
+    </dynamic-graphic-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9310c3402246b76011" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9310c3402246b76011" class="64883b9310c3402246b76011 block remove-top-padding remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9310c3402246b76011" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bb910c3402246b7636f" class="is-full remove-top-padding remove-padding-bottom packetTracer_wrap_text zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bb910c3402246b7636f" class="component text 64883bb910c3402246b7636f remove-top-padding remove-padding-bottom packetTracer_wrap_text is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><p style="margin-left:40px">Los campos significativos en el encabezado IPv4 incluyen lo siguiente:</p><p style="margin-left:40px"><strong><span>Versión: </span></strong>contiene un valor binario de 4 bits establecido en 0100 que lo identifica como un paquete IPv4.</p><p style="margin-left:40px"><strong><span>Servicios diferenciados o DiffServ (DS):</span></strong> este campo, antes conocido como Tipo de servicio (ToS), es un campo de 8 bits que se utiliza para determinar la prioridad de cada paquete. Los seis bits más significativos del campo DiffServ son los bits de punto de código de servicios diferenciados (DSCP) y los dos últimos bits son los bits de notificación de congestión explícita (ECN).</p><p style="margin-left:40px"><strong><span>Tiempo de Vida (Time to Live, TTL): </span></strong> El TTL contiene un valor binario de 8 bits que se utiliza para limitar la vida útil de un paquete. El dispositivo de origen del paquete establece el valor TTL inicial. Se reduce en uno cada vez que el paquete es procesado por un enrutador. Si el campo TTL llega a cero, el enrutador descarta el paquete y envía a la dirección IP de origen un mensaje de tiempo superado del protocolo de mensajes de control de Internet (ICMP). Debido a que el enrutador disminuye el TTL de cada paquete, el enrutador también debe volver a calcular la Suma de Comprobación del Encabezado.</p><p style="margin-left:40px"><strong><span>Protocolo: </span></strong> Este campo se utiliza para identificar el protocolo del siguiente nivel. Este valor binario de 8 bits indica el tipo de carga de datos que lleva el paquete, lo que permite que la capa de red transmita los datos al protocolo de capa superior apropiado. ICMP&nbsp;(1), TCP&nbsp;(6) y UDP&nbsp;(17) son algunos valores comunes.</p><p style="margin-left:40px"><strong><span>Suma de comprobación de encabezado: </span></strong> Se utiliza para detectar daños en el encabezado IPv4.</p><p style="margin-left:40px"><strong><span>Dirección IPv4 de Origen:</span></strong> Contiene un valor binario de 32 bits que representa la dirección IPv4 de origen del paquete. La dirección IPv4 de origen siempre es una dirección de unidifusión.</p><p style="margin-left:40px"><strong><span>Dirección IPv4 de Destino: </span></strong>Contiene un valor binario de 32 bits que representa la dirección IPv4 de destino del paquete. La dirección IPv4 de destino es una dirección unicast, multicast o de difusión.</p><ol start="2" style="list-style-type:lower-alpha"><li><!--[if !supportLists]-->La función<strong> ls()</strong> también se puede utilizar para enumerar los detalles de los campos y las opciones disponibles en cada encabezado de protocolo. La sintaxis para usar una función en Scapy es <span style="word-wrap: break-word"><strong><em>nombre_función(argumentos). </em></strong></span>Utilice la función <strong>ls(IP)</strong> para enumerar los campos disponibles en un encabezado de paquete IP.</li></ol><pre style="margin-left: 40px;"><strong>&gt;&gt;&gt; ls(IP)</strong></pre><div style="overflow: auto;"><pre style="margin-left: 40px;">version<span>    </span>: BitField<span>  </span>(4 bits)<span>                  </span>= ('4')</pre><pre style="margin-left: 40px;">ihl<span>        </span>: BitField<span>  </span>(4 bits)<span>                  </span>= ('None')</pre><pre style="margin-left: 40px;">tos<span>        </span>: XByteField<span>                          </span>= ('0')</pre><pre style="margin-left: 40px;">len<span>        </span>: ShortField<span>               </span><span>           </span>= ('None')</pre><pre style="margin-left: 40px;">id<span>         </span>: ShortField<span>                          </span>= ('1')</pre><pre style="margin-left: 40px;">flags<span>      </span>: FlagsField<span>                          </span>= ('&lt;Flag 0 ()&gt;')</pre><pre style="margin-left: 40px;">frag<span>       </span>: BitField<span>  </span>(13 bits)<span>                 </span>= ('0')</pre><pre style="margin-left: 40px;">ttl<span>        </span>: ByteField<span>                           </span>= ('64')</pre><pre style="margin-left: 40px;">proto<span>      </span>: ByteEnumField<span>                       </span>= ('0')</pre><pre style="margin-left: 40px;">chksum<span>     </span>: XShortField<span>                         </span>= ('None')</pre><pre style="margin-left: 40px;">src<span>        </span>: SourceIPField<span>                       </span>= ('None')</pre><pre style="margin-left: 40px;">dst<span>        </span>: DestIPField<span>                         </span>= ('None')</pre><pre style="margin-left: 40px;">options<span>    </span>: PacketListField<span>                     </span>= ('[]')</pre></div></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9410c3402246b7601c" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9410c3402246b7601c" class="64883b9410c3402246b7601c block remove-top-padding remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9410c3402246b7601c" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883baf10c3402246b7626b" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883baf10c3402246b7626b" class="component opentextbox 64883baf10c3402246b7626b remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883baf10c3402246b7626b" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->Compare los campos en el detalle de IP en Scapy con el encabezado del paquete descrito en el Paso 3a. ¿Existen diferencias entre ambos?
+</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->El campo DiffServe aún se identifica como TOS (Tipo de servicio) y se agrega un campo Opciones.
+
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9510c3402246b7602b" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9510c3402246b7602b" class="64883b9510c3402246b7602b block remove-top-padding remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9510c3402246b7602b" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883baf10c3402246b76269" class="is-full remove-top-padding remove-padding-bottom" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883baf10c3402246b76269" class="component opentextbox 64883baf10c3402246b76269 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883baf10c3402246b76269" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->¿Qué campo cree que cambiaría para crear un paquete que generaría una respuesta a una máquina de destino, en lugar de la máquina que realmente envió el paquete?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->El campo de dirección IPv4 (SRC) de origen.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9510c3402246b7603b" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9510c3402246b7603b" class="64883b9510c3402246b7603b block remove-top-padding remove-bottom-padding ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9510c3402246b7603b" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-bottom-padding ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883baf10c3402246b76270" class="is-full remove-top-padding remove-padding-bottom packetTracer_wrap_text zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883baf10c3402246b76270" class="component text 64883baf10c3402246b76270 remove-top-padding remove-padding-bottom packetTracer_wrap_text is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><h2 style="margin-left:0in"><span><span>Parte 2: </span></span><!--[endif]-->Usar Scapy para rastrear el tráfico de red</h2><p>Scapy se puede usar para capturar y mostrar el tráfico de red, de manera similar a una recopilación de paquetes tcpdump o tshark.</p><h3 style="margin-left:0in"><!--[if !supportLists]--><span><span>Paso 1: </span></span><!--[endif]-->Utilice la función sniff().</h3><ol start="1" style="list-style-type:lower-alpha"><li><!--[if !supportLists]-->Utilice la función <strong>sniff ()</strong> para recopilar el tráfico mediante la interfaz eth0 predeterminada de su VM. Inicie la captura con la función <strong>sniff ()</strong> sin especificar ningún argumento.</li></ol><pre style="margin-left:40px">&gt;&gt;&gt; <strong>sniff()</strong></pre><ol start="2" style="list-style-type:lower-alpha"><li><!--[if !supportLists]--><!--[endif]-->Abra una segunda ventana de terminal y haga <strong>ping</strong> a una dirección de Internet, como <strong>www.cisco.com</strong>. Recuerde especificar el conteo con el argumento <strong>-c</strong>.</li></ol><pre style="margin-left: 40px;">┌──(kali<span>㉿</span>kali)-[~]</pre><pre style="margin-left: 40px;">└─$ <strong>ping -c 5 www.cisco.com</strong></pre><ol start="3" style="list-style-type:lower-alpha"><li><!--[if !supportLists]--><!--[endif]-->Regrese a la ventana de terminal que ejecuta la herramienta Scapy. Presione <strong>CTRL-C</strong> para detener la captura. Debe recibir una salida similar a la siguiente:</li></ol><pre style="margin-left:40px">^C&lt;Sniffed: TCP:75 UDP:42 ICMP:32 Other:2&gt;</pre><ol start="4" style="list-style-type:lower-alpha"><li><!--[if !supportLists]--><!--[endif]-->Vea el tráfico capturado mediante la función <strong>summary()</strong>.  <strong>A = _</strong> asigna la variable <strong>a </strong>para contener la salida de la función <strong>sniff()</strong>. El guion bajo (_) en Python se usa para contener temporalmente el resultado de la última función ejecutada.</li></ol><pre style="margin-left: 40px;">&gt;&gt;&gt;<strong> a=_</strong></pre><pre style="margin-left: 40px;">&gt;&gt;&gt;<strong> a.summary()</strong></pre><p style="margin-left:40px">El resultado de este comando puede ser extenso, según las aplicaciones que se ejecutan en la red.</p></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9610c3402246b76049" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9610c3402246b76049" class="64883b9610c3402246b76049 block remove-top-padding remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9610c3402246b76049" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883baf10c3402246b76271" class="is-full remove-top-padding remove-padding-bottom packetTracer_wrap_text zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883baf10c3402246b76271" class="component text 64883baf10c3402246b76271 remove-top-padding remove-padding-bottom packetTracer_wrap_text is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><h3 style="margin-left:0in"><!--[if !supportLists]--><span><span>Paso 2: </span></span><!--[endif]--><span> </span>Capture y guarde el tráfico en una interfaz específica.</h3><p>En este paso, capturará el tráfico hacia y desde un dispositivo conectado a una red virtual en su VM Kali Linux.</p><ol start="1" style="list-style-type:lower-alpha"><li><!--[if !supportLists]--><!--[endif]-->Abran una nueva ventana del terminal. Utilice el comando <strong>ifconfig</strong> para determinar el nombre de la interfaz a la que se asigna la dirección IP <strong>10.6.6.1</strong>. Esta es la dirección de puerta de enlace predeterminada para una de las redes virtuales que se ejecutan dentro de Kali. Tenga en cuenta el nombre de la interfaz.</li><li><!--[if !supportLists]--><!--[endif]-->Regrese a la ventana de terminal que ejecuta la herramienta Scapy. Utilice la sintaxis<strong> sniff(iface = "</strong><em>nombre de la interfaz</em><strong>") </strong>para comenzar la captura en la interfaz virtual <strong>br-internal</strong>.</li></ol><pre style="margin-left:40px">&gt;&gt;&gt;<strong> sniff(iface="br-internal")</strong></pre><ol start="3" style="list-style-type:lower-alpha"><li><!--[if !supportLists]--><!--[endif]-->Abra Firefox y vaya a la URL <strong>http://10.6.6.23/</strong>.<strong> </strong>Cuando se abra la página de inicio de Gravemind, regrese a la ventana de terminal que ejecuta la herramienta Scapy. Presione <strong>CTRL-C</strong>. Debe recibir una salida similar a la siguiente:</li></ol><pre style="margin-left:40px">^C&lt;Sniffed: TCP:112 UDP:0 ICMP:0 Other:2&gt;</pre><ol start="4" style="list-style-type:lower-alpha"><li><!--[if !supportLists]--><!--[endif]-->Vea el tráfico capturado como lo hizo en el Paso 1d.</li></ol><pre style="margin-left: 40px;">&gt;&gt;&gt; <strong>a=_</strong></pre><pre style="margin-left: 40px;">&gt;&gt;&gt; <strong>a.summary()</strong></pre></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9710c3402246b76058" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9710c3402246b76058" class="64883b9710c3402246b76058 block remove-top-padding remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9710c3402246b76058" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bb910c3402246b76370" class="is-full remove-top-padding remove-padding-bottom packetTracer_wrap_text zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bb910c3402246b76370" class="component text 64883bb910c3402246b76370 remove-top-padding remove-padding-bottom packetTracer_wrap_text is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><h3 style="margin-left:0in"><span><span>Paso 3: </span></span><!--[endif]-->Examine los paquetes recopilados.</h3><p>En este paso, filtrará el tráfico recopilado para incluir solo el tráfico ICMP, limitará la cantidad de paquetes que se recopilarán y verá los detalles de los paquetes individuales.</p><ol start="1" style="list-style-type:lower-alpha"><li><!--[if !supportLists]--><!--[endif]-->Use la ID de interfaz asociada con 10.6.6.1 (br-internal) para capturar diez paquetes ICMP enviados y recibidos en la red virtual interna. La sintaxis es <strong>sniff(iface="</strong><em>interface name</em><strong>", filter = “</strong><em>protocol</em><strong>", count =</strong> <em>integer</em><strong>)</strong>.</li></ol><pre style="margin-left:40px">&gt;&gt;&gt; <strong>sniff(iface="br-internal",filter = “icmp",count = 10)</strong></pre><ol start="2" style="list-style-type:lower-alpha"><li><!--[if !supportLists]--><!--[endif]-->Abra una segunda ventana de terminal y haga ping al host en 10.6.6.23.</li></ol><pre style="margin-left: 40px;">┌──(kali<span>㉿</span>Kali)-[~]</pre><pre style="margin-left: 40px;">└─$ <strong>ping –c 10 10.6.6.23</strong></pre><ol start="3" style="list-style-type:lower-alpha"><li><!--[if !supportLists]-->Regrese a la ventana de terminal que ejecuta la herramienta Scapy. La captura se detuvo automáticamente cuando se enviaron o recibieron 10 paquetes. Vea el tráfico capturado con números de línea mediante la función <strong>nsummar ()</strong>.</li></ol><pre style="margin-left: 40px;">&gt;&gt;&gt; <span> </span><strong>a=_ </strong></pre><pre style="margin-left: 40px;">&gt;&gt;&gt;<strong><span>  </span>a.nsummary()</strong></pre><p style="margin-left:40px">El resumen solo debe contener 10 líneas porque el recuento de capturas es igual a 10.</p></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9810c3402246b7606c" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9810c3402246b7606c" class="64883b9810c3402246b7606c block remove-top-padding remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9810c3402246b7606c" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883bb910c3402246b76371" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883bb910c3402246b76371" class="component opentextbox 64883bb910c3402246b76371 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bb910c3402246b76371" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->¿Qué tráfico se muestra en el resultado de la función nsummary()?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->Una serie de cinco solicitudes de eco de ICMP y cinco respuestas de eco de ICMP.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9810c3402246b76075" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9810c3402246b76075" class="64883b9810c3402246b76075 block remove-top-padding remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9810c3402246b76075" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bb910c3402246b76372" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bb910c3402246b76372" class="component text 64883bb910c3402246b76372 remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><ol start="4" style="list-style-type:lower-alpha"><li>Para ver los detalles sobre un paquete específico de la serie, consulte el número de línea azul del paquete. No incluya los ceros a la izquierda.</li></ol><pre style="margin-left: 40px;">&gt;&gt;&gt; <strong>a[2]</strong></pre><p style="margin-left:40px">La salida detallada muestra las capas de información sobre las unidades de datos de protocolo (PDU) que conforman el paquete. Los nombres de las capas de protocolo aparecen en rojo en la salida. Examine las direcciones de origen (src) y de destino (dst), así como la parte de datos sin procesar (load=) del paquete recopilado.</p></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9910c3402246b76088" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9910c3402246b76088" class="64883b9910c3402246b76088 block remove-top-padding remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9910c3402246b76088" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883bb910c3402246b76373" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883bb910c3402246b76373" class="component opentextbox 64883bb910c3402246b76373 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bb910c3402246b76373" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->¿Por qué hay dos conjuntos de campos de origen y de destino?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->El primer conjunto son las direcciones MAC de la capa de enlace de datos hexadecimales de los adaptadores Ethernet y de origen. El segundo conjunto son las direcciones IP de origen y destino de la capa de red del paquete.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9a10c3402246b76093" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9a10c3402246b76093" class="64883b9a10c3402246b76093 block remove-top-padding remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9a10c3402246b76093" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883baf10c3402246b7626c" class="is-full remove-top-padding remove-padding-bottom packetTracer_wrap_text zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883baf10c3402246b7626c" class="component text 64883baf10c3402246b7626c remove-top-padding remove-padding-bottom packetTracer_wrap_text is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><ol start="5" style="list-style-type:lower-alpha"><li><!--[if !supportLists]-->Utilice la función <strong>wrpcap ()</strong> para guardar los datos capturados en un archivo pcap que Wireshark y otras aplicaciones pueden abrir. La sintaxis es <strong>wrpcap (“</strong><em>nombre de archivo</em>.<em>Pcap</em>", <em>nombre de variable</em><strong>), </strong>en este ejemplo, la variable que almacenó la salida es “<strong>a</strong>”.</li></ol><pre style="margin-left: 40px;">&gt;&gt;&gt; <strong>wrpcap(“capture1.pcap", a)</strong></pre><ol start="6" style="list-style-type:lower-alpha"><li><!--[if !supportLists]-->El archivo .pcap se escribirá en el directorio de usuarios predeterminado. Utilice una ventana de terminal diferente para verificar la ubicación del archivo <strong>capture1.pcap</strong> con el comando <strong>ls</strong> de Linux.</li><li><!--[if !supportLists]-->Abra la captura en Wireshark para ver el contenido del archivo.</li></ol></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9b10c3402246b7609f" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9b10c3402246b7609f" class="64883b9b10c3402246b7609f block remove-top-padding remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9b10c3402246b7609f" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bb910c3402246b76374" class="is-full remove-top-padding remove-padding-bottom packetTracer_wrap_text" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bb910c3402246b76374" class="component text 64883bb910c3402246b76374 remove-top-padding remove-padding-bottom packetTracer_wrap_text is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><h2 style="margin-left:0in"><span><span>Parte 3: </span></span><!--[endif]-->Crear y enviar un paquete ICMP.</h2><p>ICMP es un protocolo diseñado para enviar mensajes de control entre dispositivos de red para diversos fines. Hay muchos tipos de paquetes ICMP, siendo echo-request y echo-reply los más familiares para los técnicos de TI. Para ver una lista de los tipos de mensajes que se pueden enviar y recibir mediante ICMP, vaya a<strong> </strong><a href="https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml" target="_blank">https://www.iana.org/assignments/icmp-paraámetros/icmp-paraámetros.xhtml</a><strong>.</strong></p><h3 style="margin-left:0in"><!--[if !supportLists]--><span><span>Paso 1: </span></span><!--[endif]-->use el modo interactivo para crear y enviar un paquete ICMP personalizado.</h3><ol start="1" style="list-style-type:lower-alpha"><li><!--[if !supportLists]-->En una ventana de terminal de Scapy, ingrese el comando para rastrear el tráfico de la interfaz conectada a la red 10.6.6.0/24.</li></ol><pre style="margin-left:40px">&gt;&gt;&gt; <strong>sniff(iface="br-internal")</strong></pre><ol start="2" style="list-style-type:lower-alpha"><li><!--[if !supportLists]--><!--[endif]-->Abra otra ventana de terminal, introduzca <strong>sudo su</strong> para realizar la creación de paquetes como raiz. Inicie una segunda instancia de Scapy. Ingrese la función <strong>send</strong>() para enviar un paquete a 10.6.6.23 con una carga útil de ICMP modificada.</li></ol><pre style="margin-left:40px">┌──(kali<span>㉿</span>kali)-[~]</pre><pre style="margin-left:40px">└─$ <strong>sudo su</strong></pre><pre style="margin-left:40px">[sudo] password for kali:</pre><pre style="margin-left:40px">┌──(root<span>㉿</span>kali)-[/home/kali]</pre><pre style="margin-left:40px">└─# <strong>scapy</strong></pre><pre style="margin-left:40px">&nbsp;</pre><pre style="margin-left:40px">&gt;&gt;&gt; <strong>send(IP(dst="10.6.6.23")/ICMP()/"This is a test")</strong></pre><pre style="margin-left:40px">&nbsp;</pre><pre style="margin-left:40px">Response</pre><pre style="margin-left:40px">Sent 1 packet</pre><ol start="3" style="list-style-type:lower-alpha"><li><!--[if !supportLists]--><!--[endif]-->Regrese a la primera ventana de terminal y presione <strong>CTRL-C</strong>. Debería recibir una respuesta similar a ésta:</li></ol><pre style="margin-left:40px">^C&lt;Sniffed: TCP:0 UDP:0 ICMP:2 Other:0&gt;</pre><ol start="4" style="list-style-type:lower-alpha"><li><!--[if !supportLists]-->Ingrese el comando de resumen para mostrar el resumen con los números de paquete.</li></ol><pre style="margin-left:40px">&gt;&gt;&gt; <strong>a=_</strong></pre><pre style="margin-left:40px">&gt;&gt;&gt; <strong>a.nsummary()</strong></pre></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9b10c3402246b760b0" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9b10c3402246b760b0" class="64883b9b10c3402246b760b0 block remove-top-padding remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9b10c3402246b760b0" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883bb910c3402246b76375" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883bb910c3402246b76375" class="component opentextbox 64883bb910c3402246b76375 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bb910c3402246b76375" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->¿Qué tipo de paquetes se muestran en el resultado de resumen?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->Las respuestas pueden variar. Solicitud de eco, respuesta de eco, ARP, respuesta ARP
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9c10c3402246b760bc" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9c10c3402246b760bc" class="64883b9c10c3402246b760bc block remove-top-padding remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9c10c3402246b760bc" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bb910c3402246b76376" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bb910c3402246b76376" class="component text 64883bb910c3402246b76376 remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><h3 style="margin-left:0in"><span class="AnswerGray"><span><span>Paso 2: </span></span></span><!--[endif]--><span class="AnswerGray"><span><span>Vea y compare el contenido del paquete ICMP.</span></span></span></h3><p>Utilice los números de paquete para ver los paquetes de solicitud de eco y respuesta de eco de ICMP. Compare esos paquetes con los que examinó en la Parte 2, Paso 3.</p><pre style="margin-left:40px">&gt;&gt;&gt; <strong>a[<em>packet number</em>]</strong></pre></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9d10c3402246b760ca" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9d10c3402246b760ca" class="64883b9d10c3402246b760ca block remove-top-padding remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9d10c3402246b760ca" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883bba10c3402246b76377" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883bba10c3402246b76377" class="component opentextbox 64883bba10c3402246b76377 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bba10c3402246b76377" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->¿Qué diferencia hay entre la conversación de paquetes ICMP original y la conversación de paquetes ICMP personalizada?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->La parte de datos sin procesar cambió a "This is a test"
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9e10c3402246b760d3" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9e10c3402246b760d3" class="64883b9e10c3402246b760d3 block remove-top-padding remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9e10c3402246b760d3" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883baf10c3402246b76272" class="is-full remove-top-padding remove-padding-bottom packetTracer_wrap_text zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883baf10c3402246b76272" class="component text 64883baf10c3402246b76272 remove-top-padding remove-padding-bottom packetTracer_wrap_text is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><h2 style="margin-left:0in"><!--[if !supportLists]--><span><span>Parte 4: </span></span><!--[endif]-->Crear y enviar un paquete TCP SYN.</h2><p>En esta parte, utilizará Scapy para determinar si el puerto 445, un puerto compartido de unidad de Microsoft Windows, está abierto en el sistema de destino en 10.6.6.23.</p><h3 style="margin-left:0in"><!--[if !supportLists]--><span><span>Paso 1: </span></span><!--[endif]-->Inicie la captura de paquetes en la interfaz interna.</h3><ol start="1" style="list-style-type:lower-alpha"><li><!--[if !supportLists]--><!--[endif]-->En la ventana de terminal Scapy original, comience una captura de paquetes en la interfaz interna conectada a la red 10.6.6.0/24. Utilice el nombre de la interfaz que obtuvo anteriormente.</li><li><!--[if !supportLists]--><!--[endif]-->Navegue hasta la segunda ventana de terminal. Cree y envíe un paquete TCP SYN con el comando que se muestra.</li></ol><pre style="margin-left: 40px;">&gt;&gt;&gt; <strong>send(IP(dst="10.6.6.23")/TCP(dport=445, flags="S"))</strong></pre><pre style="margin-left: 40px;">1 packet sent</pre><p style="margin-left:40px">Este comando envió un paquete IP al host con la dirección IP 10.6.6.23. El paquete se direcciona al puerto TCP 445 y tiene el indicador S (SYN) activado.</p><ol start="3" style="list-style-type:lower-alpha"><li><!--[if !supportLists]--><!--[endif]-->Cierre la ventana de la terminal.</li></ol></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9e10c3402246b760de" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9e10c3402246b760de" class="64883b9e10c3402246b760de block remove-top-padding remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9e10c3402246b760de" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bba10c3402246b76378" class="is-full remove-top-padding remove-padding-bottom packetTracer_wrap_text zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bba10c3402246b76378" class="component text 64883bba10c3402246b76378 remove-top-padding remove-padding-bottom packetTracer_wrap_text is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom packetTracer_wrap_text ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><h3 style="margin-left:0in"><span><span>Paso 2: </span></span><!--[endif]-->Revise los paquetes capturados.</h3><ol start="1" style="list-style-type:lower-alpha"><li><!--[if !supportLists]--><!--[endif]-->En la ventana de terminal Scapy original, detenga la captura de paquetes presionando <strong>CTRL-C</strong>. El resultado debe ser similar al que se muestra a continuación.</li></ol><pre style="margin-left: 40px;">^C&lt;Sniffed: TCP:3 UDP:0 ICMP:0 Other:0&gt;</pre><ol start="2" style="list-style-type:lower-alpha"><li><!--[if !supportLists]--><!--[endif]-->Vea los paquetes TCP capturados mediante la función <strong>nsummary()</strong>. Muestre el detalle del paquete TCP que se devolvió desde el equipo de destino en 10.6.6.23.</li></ol><pre style="margin-left: 40px;">&gt;&gt;&gt; <strong>a[<em>packet number</em>]</strong></pre></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9f10c3402246b760ea" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9f10c3402246b760ea" class="64883b9f10c3402246b760ea block remove-top-padding remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9f10c3402246b760ea" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883bba10c3402246b76379" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883bba10c3402246b76379" class="component opentextbox 64883bba10c3402246b76379 remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bba10c3402246b76379" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->¿Qué indica el indicador SA en el paquete devuelto desde 10.6.6.23?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->El indicador SA significa SYN-ACK. Significa que el puerto 445 está abierto en la computadora de destino, porque reconoció el paquete SYN.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9f10c3402246b760f0" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9f10c3402246b760f0" class="64883b9f10c3402246b760f0 block remove-top-padding remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9f10c3402246b760f0" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><text-view modelid="64883bba10c3402246b7637b" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bba10c3402246b7637b" class="component text 64883bba10c3402246b7637b remove-top-padding remove-padding-bottom is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header text__header">
+          <div class="component__header-inner text__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+      <div class="component__content">
+        <div tabindex="0" class="component__body text__body">
+          <div class="component__body-inner text__body-inner"><!--?lit$27644491$--><h1>Preguntas de reflexión</h1></div>
+        </div>
+      </div>
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883b9f10c3402246b760fa" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883b9f10c3402246b760fa" class="64883b9f10c3402246b760fa block remove-top-padding remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883b9f10c3402246b760fa" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883bba10c3402246b7637a" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883bba10c3402246b7637a" class="component opentextbox 64883bba10c3402246b7637a remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883bba10c3402246b7637a" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->1.	¿Cómo se pueden utilizar varios paquetes TCP SYN para realizar un reconocimiento pasivo en un host de destino?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->Las respuestas variarán, pero al enviar paquetes SYN y recibir un SYN-ACK en respuesta, indica que el servicio está operativo y el puerto está en modo de escucha. La elaboración de paquetes para diferentes puertos TCP indicará qué puertos están activos.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="64883ba010c3402246b760ff" style="width: 3.7037%;" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="block"><!---->
+                
+                <div data-socialgoodpulse-id="64883ba010c3402246b760ff" class="64883ba010c3402246b760ff block remove-top-padding remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="64883ba010c3402246b760ff" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="block__header ">
+          <div class="block__header-inner ">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$27644491$--><!----><opentextbox-view modelid="64883baf10c3402246b7626a" class="is-full remove-top-padding remove-padding-bottom zoom-graphic-enabled" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="64883baf10c3402246b7626a" class="component opentextbox 64883baf10c3402246b7626a remove-top-padding remove-padding-bottom is-full   ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="64883baf10c3402246b7626a" class="opentabletextbox remove-top-padding remove-padding-bottom">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper remove-top-padding remove-padding-bottom ">
+        <div class="component__header openTextBox__header">
+          <div class="component__header-inner openTextBox__header-inner">
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+            <!--?lit$27644491$-->
+          </div>
+        </div>
+      </div>
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$27644491$--> <div class="openTextBox__preText"><!--?lit$27644491$-->2.	¿Cómo podría la creación de un paquete de solicitud de eco ICMP con una dirección de origen falsificada crear un ataque de denegación de servicio contra un host de destino?</div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$27644491$--><!--?lit$27644491$-->Área de Respuesta<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Ingrese su respuesta aquí" aria-label="Ingrese su respuesta aquí">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  hide">
+                        <!--?lit$27644491$-->
+                      <!--?lit$27644491$-->Enviar miles de paquetes a diferentes hosts con la misma dirección de origen falsificada hará que todos los paquetes de respuesta de eco se envíen al host de destino. Esto dará lugar a un ataque distribuido de denegación de servicio.
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer show"><!--?lit$27644491$-->Mostrar respuesta</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar respuesta</button>                    
+                      </div>
+                      <!--?lit$27644491$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!---->
+                            </div>
+                        </div>
+                        <!--?lit$27644491$-->
+                    </div>
+                </div>
+            </div>
+        <sgpluse-opentextboxcontroller-view modelid="" is-touch="false" fullscreen="true" device="medium" browser="Firefox" os="linux" dir="ltr" location="page" theme="light" orientation="portrait" themetype="article-base-theme"><!---->
+            <div class="openTextBoxController__button-container">
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__showButton show-answer show"><!--?lit$27644491$-->Mostrar todas las respuestas</button>    
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__hideButton hide-answer hide"><!--?lit$27644491$-->Ocultar todas las respuestas</button>    
+                <button class="btn-text resetbtn openTextBoxController__resetButton"><!--?lit$27644491$-->Borrar mis respuestas</button>         
+            </div>
+            <!--?lit$27644491$--><hr>
+            <!--?lit$27644491$-->
+                <div class="post-text" tabindex="0">
+                    <!--?lit$27644491$-->© 2017 - 2023 Cisco and/or its affiliates. All rights reserved. Cisco Public
+                </div>
+                   
+        </sgpluse-opentextboxcontroller-view><script></script>
+<script>
+    window.addEventListener("load", function () {
+      console.log("loaded");
+      document?.querySelectorAll(".answergray").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document?.querySelectorAll(".show-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.remove("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            ?.querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.add("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      let event = new Event("click", {
+        bubbles: true,
+        cancelable: true,
+      });
+      document
+        ?.querySelectorAll(".openTextBoxController__showButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".show-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__hideButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document?.querySelectorAll(".hide-answer").forEach(function (ele) {
+              ele?.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        ?.querySelectorAll(".openTextBoxController__resetButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            document?.querySelectorAll("textArea").forEach(function (ele) {
+              ele.value = "";
+            });
+          });
+        });
+
+      document
+      ?.querySelectorAll('textarea')
+      .forEach(function (ele){
+        ele.defaultValue = ele.defaultValue.replace(/<!--.*?-->/g, '');
+      })
+        let checkButtonLabel = "check_button_label_placeHolder";
+        let hideButtonLabel = "hide_button_label_placeHolder";
+        document?.querySelectorAll(".check__button").forEach(function (ele) {
+        let answerBox = document.querySelector(".check__solution")
+        if (!answerBox.classList.contains("check__hidden")) {
+          answerBox.classList.add("check__hidden");
+          ele.innerText = checkButtonLabel;
+        }
+          ele.addEventListener("click", function (e) {
+            if (answerBox.classList.contains("check__hidden")) {
+              answerBox.classList.remove("check__hidden")
+              ele.innerText = hideButtonLabel;
+            } else {
+              answerBox.classList.add("check__hidden")
+              ele.innerText = checkButtonLabel;
+            }
+          })
+        })
+    });
+  </script>
+  </body></html>
